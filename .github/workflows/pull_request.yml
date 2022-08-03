@@ -1,0 +1,20 @@
+name: 'Pull request title'
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  publish:
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 1
+
+    steps:
+    - uses: deepakputhraya/action-pr-title@master
+      with:
+        regex: '^\[([A-Z]| |_|\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff]|❤️)*\]'
+        prefix_case_sensitive: false
+        min_length: 5

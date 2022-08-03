@@ -1,0 +1,63 @@
+{
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "globals": {
+      "React": "writable",
+      "FormData": "readonly",
+      "FileReader": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "airbnb",
+      "airbnb-typescript",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "max-len": ["error", { "code": 130, "ignoreStrings": true }],
+      "no-console": ["warn", { "allow": ["error", "info", "warn"] }],
+      "no-underscore-dangle": "off",
+      "no-shadow": "off",
+      "object-curly-newline": [
+        "error",
+        {
+          "ObjectExpression": { "consistent": true, "multiline": true },
+          "ObjectPattern": { "consistent": true, "multiline": true }
+        }
+      ],
+      "react/jsx-curly-brace-presence": ["warn", { "props": "always" }],
+      "lines-between-class-members": "off",
+      "import/prefer-default-export": "off",
+      "react/react-in-jsx-scope": "off",
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/ban-ts-comment": "warn",
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          "selector": "interface",
+          "format": ["PascalCase"],
+          "custom": {
+            "regex": "^I[A-Z]",
+            "match": true
+          }
+        }
+      ],
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "jsx-a11y/alt-text": "error"
+    },
+    "settings": {
+      "import/resolver": {
+        // @xxx load tsconfig.json to eslint...
+        // thx https://github.com/benmosher/eslint-plugin-import/issues/1485#issuecomment-535351922 🙏
+        "typescript": {}
+      }
+    },
+    "ignorePatterns": ["doc/*"]
+  }

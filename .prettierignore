@@ -1,0 +1,7 @@
+.eslintrc
+.github/*
+README.md
+.prettierrc
+src/service-worker.ts
+src/serviceWorkerRegistration.ts
+src/reportWebVitals.ts
