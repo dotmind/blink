@@ -1,8 +1,20 @@
-.fileInput {
+.fileInput{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fileInput__input{
     position: absolute;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
     opacity: 0;
+}
+
+.fileInput__label{
+    text-decoration: underline;
 }
