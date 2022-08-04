@@ -1,36 +1,36 @@
-.fileInput{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.fileInput {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.fileInput__input{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    pointer-events: none;
+.fileInput__input {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.fileInput__label{
-    text-decoration: underline;
+.fileInput__label {
+  text-decoration: underline;
 }
 
 .fileInput.active {
-    background-color: rgb(136, 224, 217);
+  background-color: rgb(136, 224, 217);
 }
 
-.error{
-    color: red;
-    font-weight: bold;
+.error {
+  color: red;
+  font-weight: bold;
 }
 
-.fileOK{
-    color: green;
-    font-weight: bold;
+.fileOK {
+  color: green;
+  font-weight: bold;
 }

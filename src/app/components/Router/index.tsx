@@ -6,12 +6,15 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={(
-          <UploadProvider>
-            <Upload />
-          </UploadProvider>
-        )} />
-        <Route path=":id" element={<div>TODO: download file</div>} />
+        <Route
+          path='/'
+          element={
+            <UploadProvider>
+              <Upload />
+            </UploadProvider>
+          }
+        />
+        <Route path=':id' element={<div>TODO: download file</div>} />
       </Routes>
     </BrowserRouter>
   );

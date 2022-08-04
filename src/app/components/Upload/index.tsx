@@ -1,12 +1,11 @@
-import FileInput from "../FileInput";
-
+import FileInput from '../FileInput';
 
 const Upload = () => {
   return (
-    <div className="App">
-        <FileInput />
+    <div className='App'>
+      <FileInput />
     </div>
-  )
+  );
 };
 
 export default Upload;
