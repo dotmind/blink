@@ -13,8 +13,13 @@
     top: 0;
     left: 0;
     opacity: 0;
+    pointer-events: none;
 }
 
 .fileInput__label{
     text-decoration: underline;
+}
+
+.fileInput.active {
+    background-color: rgb(136, 224, 217);
 }

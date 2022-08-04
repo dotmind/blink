@@ -1,8 +1,8 @@
 import { useState, createContext, useContext } from 'react';
 
 export type UploadContextType = {
-  file: string | null;
-  setFile: (file: string | null) => void;
+  file: string | ArrayBuffer | null;
+  setFile: (file: string | ArrayBuffer | null) => void;
 };
 
 const UploadContext = createContext<UploadContextType>({
@@ -11,11 +11,11 @@ const UploadContext = createContext<UploadContextType>({
 });
 
 interface Props {
-  children: React.ReactNode[];
+  children: React.ReactNode;
 }
 
 const UploadProvider = ({ children }: Props) => {
-  const [file, setFile] = useState<string | null>(null);
+  const [file, setFile] = useState<string | ArrayBuffer | null>(null);
 
   return <UploadContext.Provider value={{ file, setFile }}>{children}</UploadContext.Provider>;
 };
