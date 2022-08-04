@@ -52,6 +52,7 @@ const FileInput = () => {
     };
 
     if (fhRef) {
+      fhRef.addEventListener('change', onFileChange);
       window.addEventListener('dragover', handleIsActive(true));
       window.addEventListener('dragleave', handleIsActive(false));
       window.addEventListener('dragenter', cancelEvent);
@@ -59,6 +60,9 @@ const FileInput = () => {
     }
 
     return () => {
+      if (fhRef) {
+        fhRef.removeEventListener('change', onFileChange);
+      }
       window.removeEventListener('dragover', handleIsActive(true));
       window.removeEventListener('dragleave', handleIsActive(false));
       window.removeEventListener('dragenter', cancelEvent);
