@@ -2,6 +2,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -22,4 +23,14 @@
 
 .fileInput.active {
     background-color: rgb(136, 224, 217);
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+}
+
+.fileOK{
+    color: green;
+    font-weight: bold;
 }
