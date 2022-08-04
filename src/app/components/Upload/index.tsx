@@ -1,4 +1,4 @@
-import FileInput from '../FileInput';
+import FileInput from '@/app/components/FileInput';
 
 const Upload = () => {
   return (
