@@ -1,7 +1,7 @@
 import FileViewer from '@/app/components/FileViewer';
 import { useCallback } from 'react';
 
-import { useUpload } from '../providers/UploadProvider';
+import { useUpload } from '@/app/providers/UploadProvider';
 
 import styles from '@/app/components/Download.module.css';
 
