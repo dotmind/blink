@@ -1,3 +1,5 @@
+import { FILE_TYPE } from '@/app/constants/file';
+
 export async function fileToBase64(file: Blob): Promise<string | ArrayBuffer | null> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -17,12 +19,6 @@ export function isFileValid(file: File): boolean {
   if (!window.FileReader) {
     throw new Error('FileReader is not supported in this browser');
   }
-  const validFileTypes = ['application/pdf'];
-  const fileType = file.type;
 
-  if (!validFileTypes.includes(fileType)) {
-    return false;
-  }
-
-  return true;
+  return FILE_TYPE.includes(file?.type);
 }

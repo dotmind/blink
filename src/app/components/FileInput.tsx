@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import { useUpload } from '@/app/providers/UploadProvider';
-import { fileToBase64, isFileValid } from '@/app/services/File';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import classNames from 'classnames';
+
+import { useUpload } from '@/app/providers/UploadProvider';
+import { fileToBase64, isFileValid } from '@/app/services/file';
+
 import styles from '@/app/components/FileInput.module.css';
 
 const FileInput = () => {
@@ -11,64 +13,71 @@ const FileInput = () => {
   const fileHandler = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    const fhRef = fileHandler.current;
-    if (!fhRef) {
+    if (!fileHandler.current) {
       return;
     }
 
-    const onFileChange = async () => {
-      if (!fhRef.files) {
-        setError('Not found: missing file !');
-        return;
-      }
-
-      const file = fhRef.files[0];
-
-      if (!isFileValid(file)) {
-        setFile(null);
-        setError('Wrong file type: only PDF files are allowed !');
-        return;
-      }
-
-      const base64 = await fileToBase64(file);
-      setError(null);
-      setFile(base64);
-    };
-
-    const cancelEvent = (e: DragEvent) => {
-      e.preventDefault();
-    };
-
-    const handleIsActive = (active: boolean) => (event: DragEvent) => {
-      setIsDragActive(active);
-      cancelEvent(event);
-    };
-
-    const handleDrop = (e: DragEvent) => {
-      fhRef.files = e.dataTransfer?.files || null;
-      onFileChange();
-      handleIsActive(false)(e);
-      cancelEvent(e);
-    };
-
-    if (fhRef) {
-      fhRef.addEventListener('change', onFileChange);
-      window.addEventListener('dragover', handleIsActive(true));
-      window.addEventListener('dragleave', handleIsActive(false));
-      window.addEventListener('dragenter', cancelEvent);
-      window.addEventListener('drop', handleDrop);
-    }
+    fileHandler.current.addEventListener('change', onFileChange);
+    window.addEventListener('dragover', handleIsActive(true));
+    window.addEventListener('dragleave', handleIsActive(false));
+    window.addEventListener('dragenter', cancelEvent);
+    window.addEventListener('drop', handleDrop);
 
     return () => {
-      if (fhRef) {
-        fhRef.removeEventListener('change', onFileChange);
+      if (fileHandler.current) {
+        fileHandler.current.removeEventListener('change', onFileChange);
       }
       window.removeEventListener('dragover', handleIsActive(true));
       window.removeEventListener('dragleave', handleIsActive(false));
       window.removeEventListener('dragenter', cancelEvent);
       window.removeEventListener('drop', handleDrop);
     };
-  }, [file]);
+  }, [file, fileHandler]);
+
+  const onFileChange = useCallback(async () => {
+    if (!fileHandler.current || !fileHandler.current.files) {
+      setError('Not found: missing file !');
+      return;
+    }
+
+    const inputFile = fileHandler.current.files[0];
+
+    if (!isFileValid(inputFile)) {
+      setFile(null);
+      setError('Wrong file type: only PDF files are allowed !');
+      return;
+    }
+
+    const base64 = await fileToBase64(inputFile);
+    setError(null);
+    setFile(base64);
+  }, [file, fileHandler]);
+
+  const cancelEvent = useCallback((e: DragEvent) => {
+    e.preventDefault();
+  }, []);
+
+  const handleIsActive = useCallback(
+    (active: boolean) => (event: DragEvent) => {
+      cancelEvent(event);
+      setIsDragActive(active);
+    },
+    [],
+  );
+
+  const handleDrop = useCallback(
+    (e: DragEvent) => {
+      if (!fileHandler.current) {
+        return;
+      }
+
+      cancelEvent(e);
+      fileHandler.current.files = e.dataTransfer?.files || null;
+      onFileChange();
+      handleIsActive(false)(e);
+    },
+    [file],
+  );
 
   const styleHandler = classNames(styles.fileInput, {
     [styles.active]: isDragActive,

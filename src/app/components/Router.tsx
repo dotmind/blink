@@ -1,5 +1,6 @@
-import UploadProvider from '@/app/providers/UploadProvider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import UploadProvider from '@/app/providers/UploadProvider';
 import Upload from '@/app/components/Upload';
 
 const Router = () => {
