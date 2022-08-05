@@ -1,0 +1,10 @@
+.controls {
+  display: flex;
+}
+
+.preview {
+  flex: 1;
+  padding: 0.5rem;
+  overflow: auto;
+  border: 1px solid #ccc;
+}
