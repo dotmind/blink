@@ -20,6 +20,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "11.18.3",
+    "react-pdf": "5.7.2",
     "react-query": "4.0.0",
     "react-router": "6.3.0",
     "react-router-dom": "6.3.0"
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
+    "@types/react-pdf": "5.7.2",
     "@typescript-eslint/eslint-plugin": "5.32.0",
     "@typescript-eslint/parser": "5.32.0",
     "@vitejs/plugin-react": "2.0.0",
