@@ -1,5 +1,5 @@
 import FileViewer from '@/app/components/FileViewer';
-import { useCallback } from 'react';
+import { useCallback, MouseEvent } from 'react';
 
 import { useUpload } from '@/app/providers/UploadProvider';
 
@@ -9,7 +9,7 @@ const Download = () => {
   const { file } = useUpload();
 
   const handleDownload = useCallback(
-    (e: React.MouseEvent) => {
+    (e: MouseEvent) => {
       e.preventDefault();
       const link = document.createElement('a');
       link.href = file as string;
