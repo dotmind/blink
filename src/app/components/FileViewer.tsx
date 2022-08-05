@@ -18,8 +18,8 @@ const FileViewer = () => {
   }, []);
 
   return (
-    <Document className={styles.preview} file={file} onLoadSuccess={onPDFReady}>
-      <Page pageNumber={pageNumber} />
+    <Document file={file} onLoadSuccess={onPDFReady}>
+      <Page className={styles.preview} pageNumber={pageNumber} />
       <div className={styles.controls}>
         {pageNumber < numPages && <button onClick={() => setPageNumber(pageNumber + 1)}>Next</button>}
         {pageNumber > 1 && <button onClick={() => setPageNumber(pageNumber - 1)}>Previous</button>}
