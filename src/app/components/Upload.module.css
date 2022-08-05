@@ -1,0 +1,20 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview_link {
+  text-decoration: none;
+  background-color: rgb(24, 172, 128);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 10px;
+  font-size: 16px;
+  margin-top: 5vh;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
