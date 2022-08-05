@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useUpload } from '@/app/providers/UploadProvider';
-import { fileToBase64, base64IsPdf } from '@/app/services/File';
+import { fileToBase64, isFileValid } from '@/app/services/File';
 import classNames from 'classnames';
 import styles from './styles.module.css';
 
@@ -23,14 +23,14 @@ const FileInput = () => {
       }
 
       const file = fhRef.files[0];
-      const base64 = await fileToBase64(file);
-      const isPdf = await base64IsPdf(base64 as string);
-      if (!isPdf) {
+
+      if (!isFileValid(file)) {
         setFile(null);
         setError('Wrong file type: only PDF files are allowed !');
         return;
       }
 
+      const base64 = await fileToBase64(file);
       setError(null);
       setFile(base64);
     };

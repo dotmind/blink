@@ -13,8 +13,16 @@ export async function base64ToFile(data: string, filename: string): Promise<Blob
   return new File([blob], filename, { type: blob.type });
 }
 
-export async function base64IsPdf(data: string): Promise<boolean> {
-  const response = await fetch(data);
-  const blob = await response.blob();
-  return blob.type === 'application/pdf';
+export function isFileValid(file: File): boolean {
+  if (!window.FileReader) {
+    throw new Error('FileReader is not supported in this browser');
+  }
+  const validFileTypes = ['application/pdf'];
+  const fileType = file.type;
+
+  if (!validFileTypes.includes(fileType)) {
+    return false;
+  }
+
+  return true;
 }
