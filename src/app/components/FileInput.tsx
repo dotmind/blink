@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useUpload } from '@/app/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/File';
 import classNames from 'classnames';
-import styles from './FileInput.module.css';
+import styles from '@/app/components/FileInput.module.css';
 
 const FileInput = () => {
   const [error, setError] = useState<string | null>(null);
