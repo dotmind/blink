@@ -1,4 +1,6 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext, useContext, useEffect } from 'react';
+
+import { createFingerprint } from '@/app/services/session';
 
 export enum UploadStatus {
   IDLE = 'IDLE',
@@ -14,6 +16,7 @@ export type UploadContextType = {
   setShareUrl: (shareUrl: string | null) => void;
   status: UploadStatus;
   setStatus: (status: UploadStatus) => void;
+  fingerprint: string | null;
 };
 
 const UploadContext = createContext<UploadContextType>({
@@ -23,6 +26,7 @@ const UploadContext = createContext<UploadContextType>({
   setShareUrl: () => {},
   status: UploadStatus.IDLE,
   setStatus: () => {},
+  fingerprint: null,
 });
 
 interface Props {
@@ -33,6 +37,13 @@ const UploadProvider = ({ children }: Props) => {
   const [file, setFile] = useState<string | ArrayBuffer | null>(null);
   const [shareUrl, setShareUrl] = useState<string | null>(null);
   const [status, setStatus] = useState<UploadStatus>(UploadStatus.IDLE);
+  const [fingerprint, setFingerprint] = useState<string | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      setFingerprint(await createFingerprint());
+    })();
+  }, []);
 
   return (
     <UploadContext.Provider
@@ -43,6 +54,7 @@ const UploadProvider = ({ children }: Props) => {
         setShareUrl,
         status,
         setStatus,
+        fingerprint,
       }}>
       {children}
     </UploadContext.Provider>
