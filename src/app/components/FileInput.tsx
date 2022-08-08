@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import { useUpload } from '@/app/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
+import UploadButton from '@/app/components/UploadButton';
 
 import styles from '@/app/components/FileInput.module.css';
 
@@ -91,6 +92,7 @@ const FileInput = () => {
       </label>
       <input id='fileLoader' type='file' className={styles.fileInput__input} ref={fileHandler} />
       {file && <p className={styles.fileOK}>PDF loaded...</p>}
+      {file && <UploadButton />}
     </div>
   );
 };
