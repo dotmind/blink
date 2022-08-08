@@ -1,16 +1,17 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { UploadStatus, useUpload } from '@/app/providers/UploadProvider';
 import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 
 const UploadButton = () => {
   const { file, status, setStatus, setShareUrl, fingerprint } = useUpload();
+  const canUpload = useMemo(() => fingerprint && file, [fingerprint, file]);
 
   const handleUpload = useCallback(async () => {
     setStatus(UploadStatus.UPLOADING);
 
     try {
-      if (!fingerprint || !file) {
+      if (canUpload) {
         throw new Error('Fingerprint or file is missing');
       }
 
