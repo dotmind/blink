@@ -12,7 +12,7 @@
   pointer-events: none;
 }
 
-.fileInput::after{
+.fileInput::after {
   content: '';
   position: absolute;
   display: block;
@@ -22,7 +22,7 @@
   height: 100%;
   z-index: 2;
   pointer-events: none;
-  opacity: .2;
+  opacity: 0.2;
 }
 
 .fileInput__label {

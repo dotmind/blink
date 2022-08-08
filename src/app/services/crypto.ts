@@ -2,15 +2,12 @@ export async function generateKey(): Promise<CryptoKey> {
   return window.crypto.subtle.generateKey(
     {
       name: 'AES-GCM',
-      length: 128
+      length: 128,
     },
     true,
-    [
-      'encrypt',
-      'decrypt',
-    ]
+    ['encrypt', 'decrypt'],
   );
-};
+}
 
 export async function encryptWithKey(key: CryptoKey, payload: string) {
   return window.crypto.subtle.encrypt(
@@ -19,9 +16,7 @@ export async function encryptWithKey(key: CryptoKey, payload: string) {
       iv: new Uint8Array(12),
     },
     key,
-    new TextEncoder().encode(
-      payload
-    ),
+    new TextEncoder().encode(payload),
   );
 }
 
@@ -35,9 +30,7 @@ export async function decryptWithKey(key: CryptoKey, buffer: ArrayBuffer): Promi
     buffer,
   );
 
-  return new TextDecoder().decode(
-    new Uint8Array(plainBuffer)
-  );
+  return new TextDecoder().decode(new Uint8Array(plainBuffer));
 }
 
 export async function exportKey(key: CryptoKey) {
@@ -52,20 +45,15 @@ export async function importKey(jwk: string) {
       k: jwk,
       alg: 'A128GCM',
       ext: true,
-      key_ops: [
-        'encrypt',
-        'decrypt',
-      ],
+      key_ops: ['encrypt', 'decrypt'],
       kty: 'oct',
     },
     {
-      name:'AES-GCM',
+      name: 'AES-GCM',
       length: 128,
     },
     false,
-    [
-      'decrypt',
-    ],
+    ['decrypt'],
   );
 }
 
@@ -75,10 +63,7 @@ export async function importKey(jwk: string) {
  */
 
 async function _buf2hex(buffer: ArrayBuffer): Promise<string> {
-  return Array.prototype.map.call(
-    new Uint8Array(buffer),
-    (x: number) => (('00' + x.toString(16)).slice(-2)),
-  ).join('');
+  return Array.prototype.map.call(new Uint8Array(buffer), (x: number) => ('00' + x.toString(16)).slice(-2)).join('');
 }
 
 export async function signHMACSha256(str: string): Promise<string> {
@@ -88,18 +73,11 @@ export async function signHMACSha256(str: string): Promise<string> {
       hash: 'SHA-256',
     },
     false,
-    [
-      'sign',
-    ],
+    ['sign'],
   );
-
 
   const buffer = new TextEncoder().encode(str);
-  const keyBuffer = await window.crypto.subtle.sign(
-    'HMAC',
-    cryptoKey,
-    buffer,
-  );
+  const keyBuffer = await window.crypto.subtle.sign('HMAC', cryptoKey, buffer);
 
   return _buf2hex(keyBuffer);
 }

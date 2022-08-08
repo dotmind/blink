@@ -22,7 +22,6 @@ const Upload = () => {
       {status === 'UPLOADING' && <p>Uploading...</p>}
       {status === 'SUCCESS' && <p>Upload successful!</p>}
       {status === 'ERROR' && <p>Upload failed!</p>}
-
     </div>
   );
 };

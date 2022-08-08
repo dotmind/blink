@@ -10,7 +10,7 @@ const UploadButton = () => {
     setStatus(UploadStatus.UPLOADING);
 
     try {
-      if(!fingerprint || !file) {
+      if (!fingerprint || !file) {
         throw new Error('Fingerprint or file is missing');
       }
 
