@@ -10,23 +10,23 @@ export enum UploadStatus {
 }
 
 export type UploadContextType = {
-  file: string | ArrayBuffer | null;
-  setFile: (file: string | ArrayBuffer | null) => void;
-  shareUrl: string | null;
-  setShareUrl: (shareUrl: string | null) => void;
+  file?: string | ArrayBuffer;
+  setFile: (file: string | ArrayBuffer) => void;
+  shareUrl?: string;
+  setShareUrl: (shareUrl: string) => void;
   status: UploadStatus;
   setStatus: (status: UploadStatus) => void;
-  fingerprint: string | null;
+  fingerprint?: string;
 };
 
 const UploadContext = createContext<UploadContextType>({
-  file: null,
+  file: undefined,
   setFile: () => {},
-  shareUrl: null,
+  shareUrl: undefined,
   setShareUrl: () => {},
   status: UploadStatus.IDLE,
   setStatus: () => {},
-  fingerprint: null,
+  fingerprint: undefined,
 });
 
 interface Props {
@@ -34,10 +34,10 @@ interface Props {
 }
 
 const UploadProvider = ({ children }: Props) => {
-  const [file, setFile] = useState<string | ArrayBuffer | null>(null);
-  const [shareUrl, setShareUrl] = useState<string | null>(null);
+  const [file, setFile] = useState<string | ArrayBuffer>();
+  const [shareUrl, setShareUrl] = useState<string>();
   const [status, setStatus] = useState<UploadStatus>(UploadStatus.IDLE);
-  const [fingerprint, setFingerprint] = useState<string | null>(null);
+  const [fingerprint, setFingerprint] = useState<string>();
 
   useEffect(() => {
     (async () => {

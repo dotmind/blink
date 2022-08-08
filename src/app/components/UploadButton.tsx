@@ -25,7 +25,7 @@ const UploadButton = () => {
     } catch (error) {
       setStatus(UploadStatus.ERROR);
     }
-  }, [file, status, setStatus, setShareUrl]);
+  }, [file, status, setStatus, setShareUrl, fingerprint, canUpload]);
 
   return <button onClick={handleUpload}>Upload</button>;
 };
