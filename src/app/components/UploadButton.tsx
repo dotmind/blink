@@ -1,13 +1,26 @@
-import { MouseEventHandler, useCallback } from 'react';
+import { useCallback } from 'react';
 
-import { useUpload } from '@/app/providers/UploadProvider';
+import { UploadStatus, useUpload } from '@/app/providers/UploadProvider';
+import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 
 const UploadButton = () => {
-  const { file } = useUpload();
+  const { file, status, setStatus, setShareUrl } = useUpload();
 
-  const handleUpload = useCallback<MouseEventHandler<HTMLButtonElement>>(() => {}, [file]);
+  const handleUpload = useCallback(async () => {
+    setStatus(UploadStatus.UPLOADING);
 
-  return <button onClick={handleUpload}>Transfer</button>;
+    try {
+      const cryptoKey = await generateKey();
+      const cryptedPayload = await encryptWithKey(cryptoKey, file as string);
+      const keyString = await exportKey(cryptoKey);
+
+      setStatus(UploadStatus.SUCCESS);
+    } catch (error) {
+      setStatus(UploadStatus.ERROR);
+    }
+  }, [file, status, setStatus, setShareUrl]);
+
+  return <button onClick={handleUpload}>Upload</button>;
 };
 
 export default UploadButton;
