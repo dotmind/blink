@@ -2,6 +2,7 @@ import { useCallback, useMemo } from 'react';
 
 import { UploadStatus, useUpload } from '@/app/providers/UploadProvider';
 import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
+import { uploadFile } from '@/app/services/api';
 
 const UploadButton = () => {
   const { file, status, setStatus, setShareUrl, fingerprint } = useUpload();
@@ -17,9 +18,12 @@ const UploadButton = () => {
 
       const cryptoKey = await generateKey();
       const cryptedPayload = await encryptWithKey(cryptoKey, file as string);
-      const keyString = await exportKey(cryptoKey);
+      const jwk = await exportKey(cryptoKey);
 
-      // @TODO: send to server and get id back to generate url
+      const id = uploadFile(fingerprint as string, cryptedPayload);
+
+      // TODO: generate unique url with id and jwk
+
 
       setStatus(UploadStatus.SUCCESS);
     } catch (error) {
