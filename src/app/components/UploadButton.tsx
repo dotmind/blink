@@ -18,7 +18,7 @@ const UploadButton = () => {
       const cryptedPayload = await encryptWithKey(cryptoKey, file as string);
       const keyString = await exportKey(cryptoKey);
 
-      // TODO: send to server and get id back to generate url
+      // @TODO: send to server and get id back to generate url
 
       setStatus(UploadStatus.SUCCESS);
     } catch (error) {
