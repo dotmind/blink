@@ -11,7 +11,7 @@ const UploadButton = () => {
     setStatus(UploadStatus.UPLOADING);
 
     try {
-      if (canUpload) {
+      if (!canUpload) {
         throw new Error('Fingerprint or file is missing');
       }
 
