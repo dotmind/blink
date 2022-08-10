@@ -14,7 +14,7 @@ const signRequest = async (
   return { signature, timestamp };
 };
 
-export async function uploadFile(fingerprint: string, file: ArrayBuffer): Promise<string> {
+export async function uploadFile(fingerprint: string, file: ArrayBuffer, filename: string): Promise<string> {
   // @TODO: Wait API dev to check if path is correct
   const path = '/files/upload';
   const { signature, timestamp } = await signRequest('POST', path, fingerprint);
@@ -24,6 +24,7 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer): Promis
   headers.append('signature', signature);
   headers.append('timestamp', timestamp);
   headers.append('fingerprint', fingerprint);
+  headers.append('filename', filename);
 
   const request = await fetch(endpoint(path), {
     method: 'POST',

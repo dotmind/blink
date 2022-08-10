@@ -6,7 +6,7 @@ import { uploadFile } from '@/app/services/api';
 import { toShareUrl } from '@/app/services/navigator';
 
 const UploadButton = () => {
-  const { file, status, setStatus, setShareUrl, fingerprint } = useUpload();
+  const { file, status, setStatus, setShareUrl, fingerprint, filename } = useUpload();
   const canUpload = useMemo(() => fingerprint && file, [fingerprint, file]);
 
   const handleUpload = useCallback(async () => {
@@ -21,7 +21,7 @@ const UploadButton = () => {
       const cryptedPayload = await encryptWithKey(cryptoKey, file as string);
       const jwk = await exportKey(cryptoKey);
 
-      const id = await uploadFile(fingerprint as string, cryptedPayload);
+      const id = await uploadFile(fingerprint as string, cryptedPayload, filename as string);
       const url = toShareUrl(id, jwk as string);
 
       setShareUrl(url);
