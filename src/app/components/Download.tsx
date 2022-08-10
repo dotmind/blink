@@ -1,12 +1,12 @@
 import FileViewer from '@/app/components/FileViewer';
 import { useCallback, MouseEvent } from 'react';
 
-import { useUpload } from '@/app/providers/UploadProvider';
+import { useDownload } from '@/app/providers/DownloadProvider';
 
 import styles from '@/app/components/Download.module.css';
 
 const Download = () => {
-  const { file } = useUpload();
+  const { file } = useDownload();
 
   const handleDownload = useCallback(
     (e: MouseEvent) => {
@@ -21,7 +21,6 @@ const Download = () => {
 
   return (
     <div className={styles.container}>
-      <FileViewer />
       <button type='button' disabled={!file} onClick={handleDownload}>
         Download
       </button>

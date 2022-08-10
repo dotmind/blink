@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UploadProvider from '@/app/providers/UploadProvider';
 import Upload from '@/app/components/Upload';
 import Download from '@/app/components/Download';
+import DownloadProvider from '@/app/providers/DownloadProvider';
+import FileViewer from '@/app/components/FileViewer';
 
 const Router = () => {
   return (
@@ -17,7 +19,12 @@ const Router = () => {
           }
         />
 
-        <Route path=':id' element={<Download />} />
+        <Route path=':id' element={(
+          <DownloadProvider>
+            <FileViewer />
+            <Download />
+          </DownloadProvider>
+        )} />
       </Routes>
     </BrowserRouter>
   );
