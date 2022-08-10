@@ -7,12 +7,18 @@ import Download from '@/app/components/Download';
 const Router = () => {
   return (
     <BrowserRouter>
-      <UploadProvider>
-        <Routes>
-          <Route path='/' element={<Upload />} />
-          <Route path=':id' element={<Download />} />
-        </Routes>
-      </UploadProvider>
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <UploadProvider>
+              <Upload />
+            </UploadProvider>
+          }
+        />
+
+        <Route path=':id' element={<Download />} />
+      </Routes>
     </BrowserRouter>
   );
 };

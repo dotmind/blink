@@ -12,11 +12,6 @@ const Upload = () => {
   return (
     <div className={styles.container}>
       <FileInput />
-      {file && (
-        <Link className={styles.preview_link} to='/a'>
-          Preview
-        </Link>
-      )}
       {file && <UploadButton />}
 
       {status === UploadStatus.UPLOADING && <p>Uploading...</p>}

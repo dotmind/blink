@@ -16,13 +16,14 @@ const signRequest = async (
 
 export async function uploadFile(fingerprint: string, file: ArrayBuffer): Promise<string> {
   // @TODO: Wait API dev to check if path is correct
-  const path = '/upload';
+  const path = '/files/upload';
   const { signature, timestamp } = await signRequest('POST', path, fingerprint);
 
   const headers = new Headers();
   headers.append('Content-Type', 'application/octet-stream');
-  headers.append('X-Signature', signature);
-  headers.append('X-Timestamp', timestamp);
+  headers.append('signature', signature);
+  headers.append('timestamp', timestamp);
+  headers.append('fingerprint', fingerprint);
 
   const request = await fetch(endpoint(path), {
     method: 'POST',
@@ -42,6 +43,6 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer): Promis
 // @TODO: download function
 // export async function downloadfile(id: string): Promise<ArrayBuffer> {
 //   // @TODO: Wait API dev to check if path is correct
-//   const path = `/download/${id}`;
+//   const path = `/files/download/${id}`;
 
 // }
