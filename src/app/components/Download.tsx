@@ -1,4 +1,3 @@
-import FileViewer from '@/app/components/FileViewer';
 import { useCallback, MouseEvent } from 'react';
 
 import { useDownload } from '@/app/providers/DownloadProvider';
