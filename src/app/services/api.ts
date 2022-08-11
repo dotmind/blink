@@ -42,8 +42,25 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
 
 
 // @TODO: download function
-// export async function downloadfile(id: string): Promise<ArrayBuffer> {
-//   // @TODO: Wait API dev to check if path is correct
-//   const path = `/files/download/${id}`;
+export async function receiveFile(id: string): Promise<{
+  file: {type: string, data: ArrayBuffer};
+  filename: string;
+}> {
+  const path = `/files/preview/${id}`;
 
-// }
+  const headers = new Headers();
+
+  const response = await fetch(endpoint(path), {
+    method: 'GET',
+    headers: headers,
+  })
+  .then((res) => res.json());
+
+
+  if (response.status === 404) {
+    throw new Error('Receive failed');
+  }
+
+  return response.data;
+
+}

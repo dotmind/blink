@@ -1,26 +1,47 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+
+import { receiveFile } from '@/app/services/api';
+import { extractJwkFromUrl } from '@/app/services/navigator';
+import { decryptWithKey, importKey } from '@/app/services/crypto';
 
 export type DownloadContextType = {
-  file?: string | ArrayBuffer
-  setFile: (file: string | ArrayBuffer) => void
-  fileName?: string
-  setFileName: (fileName: string) => void
-}
+  file?: string;
+  setFile: (file: string) => void;
+  fileName?: string;
+  setFileName: (fileName: string) => void;
+};
 
 const DownloadContext = createContext<DownloadContextType>({
   file: undefined,
   setFile: () => {},
   fileName: undefined,
-  setFileName: () => {}
+  setFileName: () => {},
 });
 
 interface Props {
   children: React.ReactNode;
 }
 
-const DownloadProvider = ({ children } :Props) => {
-  const [file, setFile] = useState<string | ArrayBuffer>()
-  const [fileName, setFileName] = useState<string>()
+const DownloadProvider = ({ children }: Props) => {
+  const { id } = useParams();
+  const [file, setFile] = useState<string>();
+  const [fileName, setFileName] = useState<string>();
+
+  useEffect(() => {
+    (async() => {
+      const jwk = await extractJwkFromUrl();
+      const key = await importKey(jwk);
+      
+      const { file, filename } = await receiveFile(id as string);
+      const base64 = await decryptWithKey(key, new Uint16Array(file.data));
+      // const base64 = await decryptWithKey(key, new Uint8Array(file.data));
+      // Not sure what's best between Uint16Array and Uint8Array
+
+      setFile(base64);
+      setFileName(filename);
+    })();
+  }, []);
 
   return (
     <DownloadContext.Provider
@@ -28,13 +49,13 @@ const DownloadProvider = ({ children } :Props) => {
         file,
         setFile,
         fileName,
-        setFileName
+        setFileName,
       }}>
       {children}
     </DownloadContext.Provider>
-  )
-}
+  );
+};
 
 export const useDownload = () => useContext(DownloadContext);
 
-export default DownloadProvider
+export default DownloadProvider;
