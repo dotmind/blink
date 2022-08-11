@@ -15,7 +15,6 @@ const signRequest = async (
 };
 
 export async function uploadFile(fingerprint: string, file: ArrayBuffer, filename: string): Promise<string> {
-  // @TODO: Wait API dev to check if path is correct
   const path = '/files/upload';
   const { signature, timestamp } = await signRequest('POST', path, fingerprint);
 
@@ -40,7 +39,6 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
   return data.id;
 }
 
-// @TODO: download function
 export async function receiveFile(id: string): Promise<{
   file: { type: string; data: ArrayBuffer };
   filename: string;
