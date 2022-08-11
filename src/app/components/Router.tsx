@@ -6,6 +6,7 @@ import Download from '@/app/components/Download';
 import DownloadProvider from '@/app/providers/DownloadProvider';
 import FileViewer from '@/app/components/FileViewer';
 
+// @TODO: Lazy load routes
 const Router = () => {
   return (
     <BrowserRouter>

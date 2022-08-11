@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import FileInput from '@/app/components/FileInput';
 import { useUpload, UploadStatus } from '@/app/providers/UploadProvider';
 import UploadButton from '@/app/components/UploadButton';
@@ -6,6 +8,19 @@ import styles from '@/app/components/Upload.module.css';
 
 const Upload = () => {
   const { file, status, shareUrl } = useUpload();
+
+  const renderShare = useMemo(() => {
+    if(!shareUrl || status !== UploadStatus.SUCCESS){
+      return null;
+    }
+
+    return (
+        <a href={shareUrl} target={'_blank'} rel={'noreferrer'}>
+          {shareUrl}
+        </a>
+    );
+  }, [shareUrl, status]);
+
 
   return (
     <div className={styles.container}>
@@ -16,11 +31,7 @@ const Upload = () => {
       {status === UploadStatus.SUCCESS && <p>Upload successful!</p>}
       {status === UploadStatus.ERROR && <p>Upload failed!</p>}
 
-      {shareUrl && status === UploadStatus.SUCCESS && (
-        <a href={shareUrl} target='_blank'>
-          {shareUrl}
-        </a>
-      )}
+      {renderShare}
     </div>
   );
 };
