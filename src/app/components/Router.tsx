@@ -7,12 +7,12 @@ import DownloadProvider from '@/app/providers/DownloadProvider';
 import FileViewer from '@/app/components/FileViewer';
 
 // @TODO: Lazy load routes
-const Router = () => {
+function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route
-          path='/'
+          path={'/'}
           element={
             <UploadProvider>
               <Upload />
@@ -21,7 +21,7 @@ const Router = () => {
         />
 
         <Route
-          path=':id'
+          path={':id'}
           element={
             <DownloadProvider>
               <FileViewer />
@@ -32,6 +32,6 @@ const Router = () => {
       </Routes>
     </BrowserRouter>
   );
-};
+}
 
 export default Router;

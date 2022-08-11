@@ -6,21 +6,20 @@ import UploadButton from '@/app/components/UploadButton';
 
 import styles from '@/app/components/Upload.module.css';
 
-const Upload = () => {
+function Upload() {
   const { file, status, shareUrl } = useUpload();
 
   const renderShare = useMemo(() => {
-    if(!shareUrl || status !== UploadStatus.SUCCESS){
+    if (!shareUrl || status !== UploadStatus.SUCCESS) {
       return null;
     }
 
     return (
-        <a href={shareUrl} target={'_blank'} rel={'noreferrer'}>
-          {shareUrl}
-        </a>
+      <a href={shareUrl} target={'_blank'} rel={'noreferrer'}>
+        {shareUrl}
+      </a>
     );
   }, [shareUrl, status]);
-
 
   return (
     <div className={styles.container}>
@@ -34,6 +33,6 @@ const Upload = () => {
       {renderShare}
     </div>
   );
-};
+}
 
 export default Upload;

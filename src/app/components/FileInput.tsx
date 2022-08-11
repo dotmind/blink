@@ -7,7 +7,7 @@ import { fileToBase64, isFileValid } from '@/app/services/file';
 import styles from '@/app/components/FileInput.module.css';
 import { slugify } from '@/app/services/navigator';
 
-const FileInput = () => {
+function FileInput() {
   const [error, setError] = useState<string | null>(null);
   const { file, setFile, setFilename } = useUpload();
   const [isDragActive, setIsDragActive] = useState(false);
@@ -91,13 +91,13 @@ const FileInput = () => {
   return (
     <div className={styleHandler}>
       {error && <p className={styles.error}>{error}</p>}
-      <label htmlFor='fileLoader' className={styles.fileInput__label}>
+      <label htmlFor={'fileLoader'} className={styles.fileInput__label}>
         Drop file here
       </label>
-      <input id='fileLoader' type='file' className={styles.fileInput__input} ref={fileHandler} />
+      <input id={'fileLoader'} type={'file'} className={styles.fileInput__input} ref={fileHandler} />
       {file && <p className={styles.fileOK}>PDF loaded...</p>}
     </div>
   );
-};
+}
 
 export default FileInput;

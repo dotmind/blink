@@ -4,7 +4,7 @@ import { useDownload } from '@/app/providers/DownloadProvider';
 
 import styles from '@/app/components/Download.module.css';
 
-const Download = () => {
+function Download() {
   const { file, fileName } = useDownload();
 
   const handleDownload = useCallback(
@@ -20,11 +20,11 @@ const Download = () => {
 
   return (
     <div className={styles.container}>
-      <button type='button' disabled={!file} onClick={handleDownload}>
+      <button type={'button'} disabled={!file} onClick={handleDownload}>
         Download
       </button>
     </div>
   );
-};
+}
 
 export default Download;

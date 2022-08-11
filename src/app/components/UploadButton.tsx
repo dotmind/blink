@@ -5,7 +5,7 @@ import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 import { uploadFile } from '@/app/services/api';
 import { toShareUrl } from '@/app/services/navigator';
 
-const UploadButton = () => {
+function UploadButton() {
   const { file, status, setStatus, setShareUrl, fingerprint, filename } = useUpload();
   const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
@@ -21,6 +21,10 @@ const UploadButton = () => {
       const cryptedPayload = await encryptWithKey(cryptoKey, file as string);
       const jwk = await exportKey(cryptoKey);
 
+      if(!jwk) {
+        throw new Error('Failed to export key');
+      }
+
       const id = await uploadFile(fingerprint, cryptedPayload, filename as string);
       const url = toShareUrl(id, jwk);
 
@@ -32,6 +36,6 @@ const UploadButton = () => {
   }, [file, status, setStatus, setShareUrl, fingerprint, canUpload]);
 
   return <button onClick={handleUpload}>Upload</button>;
-};
+}
 
 export default UploadButton;

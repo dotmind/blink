@@ -23,7 +23,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const DownloadProvider = ({ children }: Props) => {
+function DownloadProvider({ children }: Props) {
   const { id } = useParams();
   const [file, setFile] = useState<string>();
   const [fileName, setFileName] = useState<string>();
@@ -52,7 +52,7 @@ const DownloadProvider = ({ children }: Props) => {
       {children}
     </DownloadContext.Provider>
   );
-};
+}
 
 export const useDownload = () => useContext(DownloadContext);
 

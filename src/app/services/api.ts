@@ -27,7 +27,7 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
 
   const request = await fetch(endpoint(path), {
     method: 'POST',
-    headers: headers,
+    headers,
     body: file,
   });
 
@@ -49,7 +49,7 @@ export async function receiveFile(id: string): Promise<{
 
   const response = await fetch(endpoint(path), {
     method: 'GET',
-    headers: headers,
+    headers,
   }).then((res) => res.json());
 
   if (response.status === 404) {

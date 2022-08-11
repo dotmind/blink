@@ -37,7 +37,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const UploadProvider = ({ children }: Props) => {
+function UploadProvider({ children }: Props) {
   const [file, setFile] = useState<string | ArrayBuffer>();
   const [shareUrl, setShareUrl] = useState<string>();
   const [status, setStatus] = useState<UploadStatus>(UploadStatus.IDLE);
@@ -66,7 +66,7 @@ const UploadProvider = ({ children }: Props) => {
       {children}
     </UploadContext.Provider>
   );
-};
+}
 
 export const useUpload = () => useContext(UploadContext);
 

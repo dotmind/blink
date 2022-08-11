@@ -5,7 +5,7 @@ import { useDownload } from '@/app/providers/DownloadProvider';
 
 import styles from '@/app/components/FileViewer.module.css';
 
-const FileViewer = () => {
+function FileViewer() {
   const { file } = useDownload();
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
@@ -31,6 +31,6 @@ const FileViewer = () => {
       </Document>
     </div>
   );
-};
+}
 
 export default FileViewer;
