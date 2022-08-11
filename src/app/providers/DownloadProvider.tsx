@@ -34,9 +34,7 @@ const DownloadProvider = ({ children }: Props) => {
       const key = await importKey(jwk);
       
       const { file, filename } = await receiveFile(id as string);
-      const base64 = await decryptWithKey(key, new Uint16Array(file.data));
-      // const base64 = await decryptWithKey(key, new Uint8Array(file.data));
-      // Not sure what's best between Uint16Array and Uint8Array
+      const base64 = await decryptWithKey(key, new Uint8Array(file.data));
 
       setFile(base64);
       setFileName(filename);
