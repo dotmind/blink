@@ -33,9 +33,13 @@ export async function decryptWithKey(key: CryptoKey, buffer: ArrayBuffer): Promi
   return new TextDecoder().decode(new Uint8Array(plainBuffer));
 }
 
-export async function exportKey(key: CryptoKey) {
+export async function exportKey(key: CryptoKey): Promise<string> {
   const { k: jwk } = await window.crypto.subtle.exportKey('jwk', key);
-  
+
+  if(!jwk) {
+    throw new Error('Failed to export key');
+  }
+
   return jwk;
 }
 
@@ -64,7 +68,7 @@ export async function importKey(jwk: string) {
  */
 
 async function _buf2hex(buffer: ArrayBuffer): Promise<string> {
-  return Array.prototype.map.call(new Uint8Array(buffer), (x: number) => ('00' + x.toString(16)).slice(-2)).join('');
+  return Array.prototype.map.call(new Uint8Array(buffer), (x: number) => (`00${  x.toString(16)}`).slice(-2)).join('');
 }
 
 export async function signHMACSha256(str: string): Promise<string> {

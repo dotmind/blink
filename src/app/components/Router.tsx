@@ -3,18 +3,35 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UploadProvider from '@/app/providers/UploadProvider';
 import Upload from '@/app/components/Upload';
 import Download from '@/app/components/Download';
+import DownloadProvider from '@/app/providers/DownloadProvider';
+import FileViewer from '@/app/components/FileViewer';
 
-const Router = () => {
+// @TODO: Lazy load routes
+function Router() {
   return (
     <BrowserRouter>
-      <UploadProvider>
-        <Routes>
-          <Route path='/' element={<Upload />} />
-          <Route path=':id' element={<Download />} />
-        </Routes>
-      </UploadProvider>
+      <Routes>
+        <Route
+          path={'/'}
+          element={
+            <UploadProvider>
+              <Upload />
+            </UploadProvider>
+          }
+        />
+
+        <Route
+          path={':id'}
+          element={
+            <DownloadProvider>
+              <FileViewer />
+              <Download />
+            </DownloadProvider>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
-};
+}
 
 export default Router;

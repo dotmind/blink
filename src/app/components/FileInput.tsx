@@ -5,10 +5,11 @@ import { useUpload } from '@/app/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
 
 import styles from '@/app/components/FileInput.module.css';
+import { slugify } from '@/app/services/navigator';
 
-const FileInput = () => {
+function FileInput() {
   const [error, setError] = useState<string | null>(null);
-  const { file, setFile } = useUpload();
+  const { file, setFile, setFilename } = useUpload();
   const [isDragActive, setIsDragActive] = useState(false);
   const fileHandler = useRef<HTMLInputElement>(null);
 
@@ -43,15 +44,19 @@ const FileInput = () => {
     const inputFile = fileHandler.current.files[0];
 
     if (!isFileValid(inputFile)) {
-      setFile(null);
+      setFile(undefined);
+      setFilename(undefined);
       setError('Wrong file type: only PDF files are allowed !');
       return;
     }
 
     const base64 = await fileToBase64(inputFile);
+    const filename = inputFile.name;
+
     setError(null);
-    setFile(base64);
-  }, [file, fileHandler]);
+    setFilename(slugify(filename));
+    setFile(base64 as ArrayBuffer);
+  }, [file, fileHandler, setFile, setFilename]);
 
   const cancelEvent = useCallback((e: DragEvent) => {
     e.preventDefault();
@@ -86,13 +91,13 @@ const FileInput = () => {
   return (
     <div className={styleHandler}>
       {error && <p className={styles.error}>{error}</p>}
-      <label htmlFor='fileLoader' className={styles.fileInput__label}>
+      <label htmlFor={'fileLoader'} className={styles.fileInput__label}>
         Drop file here
       </label>
-      <input id='fileLoader' type='file' className={styles.fileInput__input} ref={fileHandler} />
+      <input id={'fileLoader'} type={'file'} className={styles.fileInput__input} ref={fileHandler} />
       {file && <p className={styles.fileOK}>PDF loaded...</p>}
     </div>
   );
-};
+}
 
 export default FileInput;

@@ -1,0 +1,1 @@
+export const API_URL = import.meta.env.REACT_APP_API_URL || 'http://127.0.0.1:3000/api/v1';

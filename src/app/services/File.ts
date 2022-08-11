@@ -12,7 +12,7 @@ export async function fileToBase64(file: Blob): Promise<string | ArrayBuffer | n
 export async function base64ToFile(data: string, filename: string): Promise<Blob> {
   const response = await fetch(data);
   const blob = await response.blob();
-  
+
   return new File([blob], filename, { type: blob.type });
 }
 

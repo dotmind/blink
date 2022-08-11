@@ -2,10 +2,12 @@ import { useCallback, useMemo } from 'react';
 
 import { UploadStatus, useUpload } from '@/app/providers/UploadProvider';
 import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
+import { uploadFile } from '@/app/services/api';
+import { toShareUrl } from '@/app/services/navigator';
 
-const UploadButton = () => {
-  const { file, status, setStatus, setShareUrl, fingerprint } = useUpload();
-  const canUpload = useMemo(() => fingerprint && file, [fingerprint, file]);
+function UploadButton() {
+  const { file, status, setStatus, setShareUrl, fingerprint, filename } = useUpload();
+  const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
   const handleUpload = useCallback(async () => {
     setStatus(UploadStatus.UPLOADING);
@@ -17,10 +19,12 @@ const UploadButton = () => {
 
       const cryptoKey = await generateKey();
       const cryptedPayload = await encryptWithKey(cryptoKey, file as string);
-      const keyString = await exportKey(cryptoKey);
+      const jwk = await exportKey(cryptoKey);
 
-      // @TODO: send to server and get id back to generate url
+      const id = await uploadFile(fingerprint, cryptedPayload, filename as string);
+      const url = toShareUrl(id, jwk);
 
+      setShareUrl(url);
       setStatus(UploadStatus.SUCCESS);
     } catch (error) {
       setStatus(UploadStatus.ERROR);
@@ -28,6 +32,6 @@ const UploadButton = () => {
   }, [file, status, setStatus, setShareUrl, fingerprint, canUpload]);
 
   return <button onClick={handleUpload}>Upload</button>;
-};
+}
 
 export default UploadButton;
