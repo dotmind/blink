@@ -5,6 +5,7 @@ import { useUpload } from '@/app/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
 
 import styles from '@/app/components/FileInput.module.css';
+import { slugify } from '@/app/services/navigator';
 
 const FileInput = () => {
   const [error, setError] = useState<string | null>(null);
@@ -53,7 +54,7 @@ const FileInput = () => {
     const filename = inputFile.name;
 
     setError(null);
-    setFilename(filename);
+    setFilename(slugify(filename));
     setFile(base64 as ArrayBuffer);
   }, [file, fileHandler, setFile, setFilename]);
 

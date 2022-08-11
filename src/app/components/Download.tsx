@@ -5,14 +5,14 @@ import { useDownload } from '@/app/providers/DownloadProvider';
 import styles from '@/app/components/Download.module.css';
 
 const Download = () => {
-  const { file } = useDownload();
+  const { file, fileName } = useDownload();
 
   const handleDownload = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
       const link = document.createElement('a');
       link.href = file as string;
-      link.download = 'file.pdf';
+      link.download = fileName as string;
       link.click();
     },
     [file],
