@@ -44,8 +44,8 @@ const FileInput = () => {
     const inputFile = fileHandler.current.files[0];
 
     if (!isFileValid(inputFile)) {
-      setFile(null);
-      setFilename(null);
+      setFile(undefined);
+      setFilename(undefined);
       setError('Wrong file type: only PDF files are allowed !');
       return;
     }

@@ -7,7 +7,7 @@ import { toShareUrl } from '@/app/services/navigator';
 
 const UploadButton = () => {
   const { file, status, setStatus, setShareUrl, fingerprint, filename } = useUpload();
-  const canUpload = useMemo(() => fingerprint && file, [fingerprint, file]);
+  const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
   const handleUpload = useCallback(async () => {
     setStatus(UploadStatus.UPLOADING);
@@ -21,8 +21,8 @@ const UploadButton = () => {
       const cryptedPayload = await encryptWithKey(cryptoKey, file as string);
       const jwk = await exportKey(cryptoKey);
 
-      const id = await uploadFile(fingerprint as string, cryptedPayload, filename as string);
-      const url = toShareUrl(id, jwk as string);
+      const id = await uploadFile(fingerprint, cryptedPayload, filename as string);
+      const url = toShareUrl(id, jwk);
 
       setShareUrl(url);
       setStatus(UploadStatus.SUCCESS);
