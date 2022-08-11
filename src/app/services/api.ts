@@ -40,10 +40,9 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
   return data.id;
 }
 
-
 // @TODO: download function
 export async function receiveFile(id: string): Promise<{
-  file: {type: string, data: ArrayBuffer};
+  file: { type: string; data: ArrayBuffer };
   filename: string;
 }> {
   const path = `/files/preview/${id}`;
@@ -53,14 +52,11 @@ export async function receiveFile(id: string): Promise<{
   const response = await fetch(endpoint(path), {
     method: 'GET',
     headers: headers,
-  })
-  .then((res) => res.json());
-
+  }).then((res) => res.json());
 
   if (response.status === 404) {
     throw new Error('Receive failed');
   }
 
   return response.data;
-
 }

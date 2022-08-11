@@ -5,7 +5,6 @@ import { useDownload } from '@/app/providers/DownloadProvider';
 
 import styles from '@/app/components/FileViewer.module.css';
 
-
 const FileViewer = () => {
   const { file } = useDownload();
   const [numPages, setNumPages] = useState<number>(0);

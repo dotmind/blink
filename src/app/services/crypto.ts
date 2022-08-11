@@ -35,7 +35,7 @@ export async function decryptWithKey(key: CryptoKey, buffer: ArrayBuffer): Promi
 
 export async function exportKey(key: CryptoKey) {
   const { k: jwk } = await window.crypto.subtle.exportKey('jwk', key);
-  
+
   return jwk;
 }
 

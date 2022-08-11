@@ -14,7 +14,7 @@ export async function extractJwkFromUrl(): Promise<string> {
   return key;
 }
 
-export function slugify(str: string) :string {
+export function slugify(str: string): string {
   const i = str.lastIndexOf('.');
   const extension = i > 0 ? str.slice(i) : '';
   let name = i > 0 ? str.slice(0, i) : str;

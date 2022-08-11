@@ -29,10 +29,10 @@ const DownloadProvider = ({ children }: Props) => {
   const [fileName, setFileName] = useState<string>();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       const jwk = await extractJwkFromUrl();
       const key = await importKey(jwk);
-      
+
       const { file, filename } = await receiveFile(id as string);
       const base64 = await decryptWithKey(key, new Uint8Array(file.data));
 

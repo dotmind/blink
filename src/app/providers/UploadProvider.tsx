@@ -30,7 +30,7 @@ const UploadContext = createContext<UploadContextType>({
   setStatus: () => {},
   fingerprint: undefined,
   filename: null,
-  setFilename: () => {}
+  setFilename: () => {},
 });
 
 interface Props {
@@ -61,7 +61,7 @@ const UploadProvider = ({ children }: Props) => {
         setStatus,
         fingerprint,
         filename,
-        setFilename
+        setFilename,
       }}>
       {children}
     </UploadContext.Provider>

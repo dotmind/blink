@@ -19,12 +19,15 @@ const Router = () => {
           }
         />
 
-        <Route path=':id' element={(
-          <DownloadProvider>
-            <FileViewer />
-            <Download />
-          </DownloadProvider>
-        )} />
+        <Route
+          path=':id'
+          element={
+            <DownloadProvider>
+              <FileViewer />
+              <Download />
+            </DownloadProvider>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
