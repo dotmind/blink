@@ -21,10 +21,6 @@ function UploadButton() {
       const cryptedPayload = await encryptWithKey(cryptoKey, file as string);
       const jwk = await exportKey(cryptoKey);
 
-      if(!jwk) {
-        throw new Error('Failed to export key');
-      }
-
       const id = await uploadFile(fingerprint, cryptedPayload, filename as string);
       const url = toShareUrl(id, jwk);
 

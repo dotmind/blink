@@ -33,8 +33,12 @@ export async function decryptWithKey(key: CryptoKey, buffer: ArrayBuffer): Promi
   return new TextDecoder().decode(new Uint8Array(plainBuffer));
 }
 
-export async function exportKey(key: CryptoKey): Promise<string | undefined> {
+export async function exportKey(key: CryptoKey): Promise<string> {
   const { k: jwk } = await window.crypto.subtle.exportKey('jwk', key);
+
+  if(!jwk) {
+    throw new Error('Failed to export key');
+  }
 
   return jwk;
 }
