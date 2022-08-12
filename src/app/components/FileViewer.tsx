@@ -22,8 +22,16 @@ function FileViewer() {
       <Document file={file} onLoadSuccess={onPDFReady}>
         <Page className={styles.preview} pageNumber={pageNumber} />
         <div className={styles.controls}>
-          {pageNumber < numPages && <button onClick={() => setPageNumber(pageNumber + 1)}>Next</button>}
-          {pageNumber > 1 && <button onClick={() => setPageNumber(pageNumber - 1)}>Previous</button>}
+          {pageNumber < numPages && (
+            <button type={'button'} onClick={() => setPageNumber(pageNumber + 1)}>
+              Next
+            </button>
+          )}
+          {pageNumber > 1 && (
+            <button type={'button'} onClick={() => setPageNumber(pageNumber - 1)}>
+              Previous
+            </button>
+          )}
         </div>
         <p>
           Page {pageNumber} of {numPages}

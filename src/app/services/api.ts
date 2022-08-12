@@ -1,19 +1,7 @@
 import { API_URL, API_VERSION } from '@/app/constants/api';
-import { signHMACSha256 } from '@/app/services/crypto';
+import { signRequest } from '@/app/services/crypto';
 
 const endpoint = (path: string): string => `${API_URL}/files/${path}`;
-
-const signRequest = async (
-  method: string,
-  endpoint: string,
-  fingerprint: string,
-  version: string,
-): Promise<{ signature: string; timestamp: string }> => {
-  const timestamp = Date.now().toString();
-  const signature = await signHMACSha256(`${version}:${method}:${endpoint}:${timestamp}:${fingerprint}`);
-
-  return { signature, timestamp };
-};
 
 export async function uploadFile(fingerprint: string, file: ArrayBuffer, filename: string): Promise<string> {
   const path = '/upload';
@@ -33,7 +21,7 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
     body: file,
   });
 
-  const { success, data } = (await request.json()) as any;
+  const { success, data } = await request.json();
   if (!success) {
     throw new Error('Upload failed');
   }

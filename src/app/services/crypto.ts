@@ -85,3 +85,15 @@ export async function signHMACSha256(str: string): Promise<string> {
 
   return _buf2hex(signature);
 }
+
+export async function signRequest(
+  method: string,
+  endpoint: string,
+  fingerprint: string,
+  version: string,
+): Promise<{ signature: string; timestamp: string }> {
+  const timestamp = Date.now().toString();
+  const signature = await signHMACSha256(`${version}:${method}:${endpoint}:${timestamp}:${fingerprint}`);
+
+  return { signature, timestamp };
+}

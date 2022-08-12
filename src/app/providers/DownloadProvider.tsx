@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router';
 
 import { receiveFile } from '@/app/services/api';
@@ -19,11 +19,11 @@ const DownloadContext = createContext<DownloadContextType>({
   setFileName: () => {},
 });
 
-interface Props {
+interface IProps {
   children: React.ReactNode;
 }
 
-function DownloadProvider({ children }: Props) {
+function DownloadProvider({ children }: IProps) {
   const { id } = useParams();
   const [file, setFile] = useState<string>();
   const [fileName, setFileName] = useState<string>();
@@ -33,25 +33,17 @@ function DownloadProvider({ children }: Props) {
       const jwk = await extractJwkFromUrl();
       const key = await importKey(jwk);
 
-      const { file, filename } = await receiveFile(id as string);
-      const base64 = await decryptWithKey(key, new Uint8Array(file.data));
+      const { file: buffer, filename } = await receiveFile(id as string);
+      const base64 = await decryptWithKey(key, new Uint8Array(buffer.data));
 
       setFile(base64);
       setFileName(filename);
     })();
   }, []);
 
-  return (
-    <DownloadContext.Provider
-      value={{
-        file,
-        setFile,
-        fileName,
-        setFileName,
-      }}>
-      {children}
-    </DownloadContext.Provider>
-  );
+  const value = useMemo(() => ({ file, setFile, fileName, setFileName }), [file, fileName]);
+
+  return <DownloadContext.Provider value={value}>{children}</DownloadContext.Provider>;
 }
 
 export const useDownload = () => useContext(DownloadContext);

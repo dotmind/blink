@@ -13,28 +13,6 @@ function FileInput() {
   const [isDragActive, setIsDragActive] = useState(false);
   const fileHandler = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    if (!fileHandler.current) {
-      return;
-    }
-
-    fileHandler.current.addEventListener('change', onFileChange);
-    window.addEventListener('dragover', handleIsActive(true));
-    window.addEventListener('dragleave', handleIsActive(false));
-    window.addEventListener('dragenter', cancelEvent);
-    window.addEventListener('drop', handleDrop);
-
-    return () => {
-      if (fileHandler.current) {
-        fileHandler.current.removeEventListener('change', onFileChange);
-      }
-      window.removeEventListener('dragover', handleIsActive(true));
-      window.removeEventListener('dragleave', handleIsActive(false));
-      window.removeEventListener('dragenter', cancelEvent);
-      window.removeEventListener('drop', handleDrop);
-    };
-  }, [file, fileHandler]);
-
   const onFileChange = useCallback(async () => {
     if (!fileHandler.current || !fileHandler.current.files) {
       setError('Not found: missing file !');
@@ -84,19 +62,41 @@ function FileInput() {
     [file],
   );
 
+  useEffect(() => {
+    if (!fileHandler.current) {
+      return () => {};
+    }
+
+    fileHandler.current.addEventListener('change', onFileChange);
+    window.addEventListener('dragover', handleIsActive(true));
+    window.addEventListener('dragleave', handleIsActive(false));
+    window.addEventListener('dragenter', cancelEvent);
+    window.addEventListener('drop', handleDrop);
+
+    return () => {
+      if (fileHandler.current) {
+        fileHandler.current.removeEventListener('change', onFileChange);
+      }
+      window.removeEventListener('dragover', handleIsActive(true));
+      window.removeEventListener('dragleave', handleIsActive(false));
+      window.removeEventListener('dragenter', cancelEvent);
+      window.removeEventListener('drop', handleDrop);
+    };
+  }, [file, fileHandler]);
+
   const styleHandler = classNames(styles.fileInput, {
     [styles.active]: isDragActive,
   });
 
   return (
-    <div className={styleHandler}>
+    <form className={styleHandler}>
       {error && <p className={styles.error}>{error}</p>}
       <label htmlFor={'fileLoader'} className={styles.fileInput__label}>
         Drop file here
+        <input id={'fileLoader'} type={'file'} className={styles.fileInput__input} ref={fileHandler} />
       </label>
-      <input id={'fileLoader'} type={'file'} className={styles.fileInput__input} ref={fileHandler} />
       {file && <p className={styles.fileOK}>PDF loaded...</p>}
-    </div>
+    </form>
   );
 }
 

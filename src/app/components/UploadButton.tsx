@@ -31,7 +31,11 @@ function UploadButton() {
     }
   }, [file, status, setStatus, setShareUrl, fingerprint, canUpload]);
 
-  return <button onClick={handleUpload}>Upload</button>;
+  return (
+    <button type={'button'} onClick={handleUpload}>
+      Upload
+    </button>
+  );
 }
 
 export default UploadButton;
