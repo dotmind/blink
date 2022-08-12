@@ -1,12 +1,14 @@
 import { useCallback, useMemo } from 'react';
 
 import { UploadStatus, useUpload } from '@/app/providers/UploadProvider';
+import { useApp } from '@/app/providers/AppProdiver';
 import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 import { uploadFile } from '@/app/services/api';
 import { toShareUrl } from '@/app/services/navigator';
 
 function UploadButton() {
-  const { file, status, setStatus, setShareUrl, fingerprint, filename } = useUpload();
+  const { fingerprint } = useApp();
+  const { file, status, setStatus, setShareUrl, filename } = useUpload();
   const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
   const handleUpload = useCallback(async () => {
@@ -31,7 +33,11 @@ function UploadButton() {
     }
   }, [file, status, setStatus, setShareUrl, fingerprint, canUpload]);
 
-  return <button onClick={handleUpload}>Upload</button>;
+  return (
+    <button type={'button'} onClick={handleUpload}>
+      Upload
+    </button>
+  );
 }
 
 export default UploadButton;

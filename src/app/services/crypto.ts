@@ -1,3 +1,5 @@
+import { CRYPTO_SECRET } from '@/app/constants/api';
+
 export async function generateKey(): Promise<CryptoKey> {
   return window.crypto.subtle.generateKey(
     {
@@ -36,7 +38,7 @@ export async function decryptWithKey(key: CryptoKey, buffer: ArrayBuffer): Promi
 export async function exportKey(key: CryptoKey): Promise<string> {
   const { k: jwk } = await window.crypto.subtle.exportKey('jwk', key);
 
-  if(!jwk) {
+  if (!jwk) {
     throw new Error('Failed to export key');
   }
 
@@ -62,17 +64,15 @@ export async function importKey(jwk: string) {
   );
 }
 
-/**
- * @XXX WIP
- * Signature
- */
-
-async function _buf2hex(buffer: ArrayBuffer): Promise<string> {
-  return Array.prototype.map.call(new Uint8Array(buffer), (x: number) => (`00${  x.toString(16)}`).slice(-2)).join('');
+export async function _buf2hex(buffer: ArrayBuffer): Promise<string> {
+  return Array.prototype.map.call(new Uint8Array(buffer), (x: number) => `00${x.toString(16)}`.slice(-2)).join('');
 }
 
 export async function signHMACSha256(str: string): Promise<string> {
-  const cryptoKey = await window.crypto.subtle.generateKey(
+  const encoder = new TextEncoder();
+  const cryptoKey = await window.crypto.subtle.importKey(
+    'raw',
+    encoder.encode(CRYPTO_SECRET),
     {
       name: 'HMAC',
       hash: 'SHA-256',
@@ -80,9 +80,20 @@ export async function signHMACSha256(str: string): Promise<string> {
     false,
     ['sign'],
   );
+  const buffer = encoder.encode(str);
+  const signature = await window.crypto.subtle.sign('HMAC', cryptoKey, buffer);
 
-  const buffer = new TextEncoder().encode(str);
-  const keyBuffer = await window.crypto.subtle.sign('HMAC', cryptoKey, buffer);
+  return _buf2hex(signature);
+}
 
-  return _buf2hex(keyBuffer);
+export async function signRequest(
+  method: string,
+  endpoint: string,
+  fingerprint: string,
+  version: string,
+): Promise<{ signature: string; timestamp: string }> {
+  const timestamp = Date.now().toString();
+  const signature = await signHMACSha256(`${version}:${method}:${endpoint}:${timestamp}:${fingerprint}`);
+
+  return { signature, timestamp };
 }

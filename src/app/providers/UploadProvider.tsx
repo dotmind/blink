@@ -1,6 +1,4 @@
-import { useState, createContext, useContext, useEffect } from 'react';
-
-import { createFingerprint } from '@/app/services/session';
+import { useState, createContext, useContext, useMemo } from 'react';
 
 export enum UploadStatus {
   IDLE = 'IDLE',
@@ -16,7 +14,6 @@ export type UploadContextType = {
   setShareUrl: (shareUrl: string) => void;
   status: UploadStatus;
   setStatus: (status: UploadStatus) => void;
-  fingerprint: string;
   filename?: string;
   setFilename: (filename: string | undefined) => void;
 };
@@ -28,44 +25,26 @@ const UploadContext = createContext<UploadContextType>({
   setShareUrl: () => {},
   status: UploadStatus.IDLE,
   setStatus: () => {},
-  fingerprint: '',
   filename: undefined,
   setFilename: () => {},
 });
 
-interface Props {
+interface IProps {
   children: React.ReactNode;
 }
 
-function UploadProvider({ children }: Props) {
+function UploadProvider({ children }: IProps) {
   const [file, setFile] = useState<string | ArrayBuffer>();
   const [shareUrl, setShareUrl] = useState<string>();
   const [status, setStatus] = useState<UploadStatus>(UploadStatus.IDLE);
-  const [fingerprint, setFingerprint] = useState<string>('');
   const [filename, setFilename] = useState<string>();
 
-  useEffect(() => {
-    (async () => {
-      setFingerprint(await createFingerprint());
-    })();
-  }, []);
-
-  return (
-    <UploadContext.Provider
-      value={{
-        file,
-        setFile,
-        shareUrl,
-        setShareUrl,
-        status,
-        setStatus,
-        fingerprint,
-        filename,
-        setFilename,
-      }}>
-      {children}
-    </UploadContext.Provider>
+  const value = useMemo(
+    () => ({ file, setFile, shareUrl, setShareUrl, status, setStatus, filename, setFilename }),
+    [file, shareUrl, status, filename],
   );
+
+  return <UploadContext.Provider value={value}>{children}</UploadContext.Provider>;
 }
 
 export const useUpload = () => useContext(UploadContext);

@@ -1,1 +1,3 @@
-export const API_URL = import.meta.env.REACT_APP_API_URL || 'http://127.0.0.1:3000/api/v1';
+export const API_URL: string = import.meta.env.VITE_API_URL;
+export const API_VERSION: string = import.meta.env.VITE_API_VERSION;
+export const CRYPTO_SECRET: string = import.meta.env.VITE_CRYPTO_SECRET;
