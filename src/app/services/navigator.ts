@@ -24,7 +24,7 @@ export function slugify(str: string): string {
 
   const from = 'àáäâèéëêìíïîòóöôùúüûñç·/_,:;';
   const to = 'aaaaeeeeiiiioooouuuunc______';
-  for (let i = 0, l = from.length; i < l; i+=1) {
+  for (let i = 0, l = from.length; i < l; i += 1) {
     name = name.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
   }
 

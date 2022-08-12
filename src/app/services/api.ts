@@ -29,12 +29,17 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
   return data.id;
 }
 
-export async function receiveFile(id: string): Promise<{
+export async function receiveFile(fingerprint: string, id: string): Promise<{
   file: { type: string; data: ArrayBuffer };
   filename: string;
 }> {
   const path = `/preview/${id}`;
+  const { signature, timestamp } = await signRequest('GET', path, fingerprint, API_VERSION);
+
   const headers = new Headers();
+  headers.append('fingerprint', fingerprint);
+  headers.append('timestamp', timestamp);
+  headers.append('signature', signature);
 
   const response = await fetch(endpoint(path), {
     method: 'GET',

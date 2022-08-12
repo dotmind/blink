@@ -15,7 +15,7 @@ function FileViewer() {
 
   const onPDFReady = useCallback(({ numPages: nextNumPages }: { numPages: number }) => {
     setNumPages(nextNumPages);
-  }, []);
+  }, [file]);
 
   return (
     <div className={styles.container}>
