@@ -15,16 +15,16 @@ export async function extractJwkFromUrl(): Promise<string> {
 }
 
 export function slugify(str: string): string {
-  const i = str.lastIndexOf('.');
-  const extension = i > 0 ? str.slice(i) : '';
-  let name = i > 0 ? str.slice(0, i) : str;
+  const index = str.lastIndexOf('.');
+  const extension = index > 0 ? str.slice(index) : '';
+  let name = index > 0 ? str.slice(0, index) : str;
 
   name = name.replace(/^\s+|\s+$/g, '');
   name = name.toLowerCase();
 
   const from = 'àáäâèéëêìíïîòóöôùúüûñç·/_,:;';
   const to = 'aaaaeeeeiiiioooouuuunc______';
-  for (let i = 0, l = from.length; i < l; i++) {
+  for (let i = 0, l = from.length; i < l; i+=1) {
     name = name.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
   }
 
