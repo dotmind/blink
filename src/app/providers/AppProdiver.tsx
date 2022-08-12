@@ -4,12 +4,10 @@ import { createFingerprint } from '@/app/services/session';
 
 export type AppContextType = {
   fingerprint: string;
-  setFingerprint: (fingerprint: string) => void;
 };
 
 const AppContext = createContext<AppContextType>({
   fingerprint: '',
-  setFingerprint: () => {},
 });
 
 interface IProps {
@@ -25,7 +23,7 @@ function AppProvider({ children }: IProps) {
     })();
   }, []);
 
-  const value = useMemo(() => ({ fingerprint, setFingerprint }), [fingerprint]);
+  const value = useMemo(() => ({ fingerprint }), [fingerprint]);
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
