@@ -1,6 +1,5 @@
 import { useState, createContext, useContext, useMemo } from 'react';
 
-
 export enum UploadStatus {
   IDLE = 'IDLE',
   UPLOADING = 'UPLOADING',

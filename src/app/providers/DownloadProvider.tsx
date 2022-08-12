@@ -32,13 +32,13 @@ function DownloadProvider({ children }: IProps) {
 
   useEffect(() => {
     (async () => {
-      if(fingerprint){
+      if (fingerprint) {
         const jwk = await extractJwkFromUrl();
         const key = await importKey(jwk);
 
         const { file: buffer, filename } = await receiveFile(fingerprint, id as string);
         const base64 = await decryptWithKey(key, new Uint8Array(buffer.data));
-  
+
         setFile(base64);
         setFileName(filename);
       }

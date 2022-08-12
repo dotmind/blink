@@ -29,7 +29,10 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
   return data.id;
 }
 
-export async function receiveFile(fingerprint: string, id: string): Promise<{
+export async function receiveFile(
+  fingerprint: string,
+  id: string,
+): Promise<{
   file: { type: string; data: ArrayBuffer };
   filename: string;
 }> {

@@ -13,9 +13,12 @@ function FileViewer() {
   // pdf worker config for vite bundle
   pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
-  const onPDFReady = useCallback(({ numPages: nextNumPages }: { numPages: number }) => {
-    setNumPages(nextNumPages);
-  }, [file]);
+  const onPDFReady = useCallback(
+    ({ numPages: nextNumPages }: { numPages: number }) => {
+      setNumPages(nextNumPages);
+    },
+    [file],
+  );
 
   return (
     <div className={styles.container}>
