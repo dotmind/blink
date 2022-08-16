@@ -8,7 +8,7 @@ import { toShareUrl } from '@/app/services/navigator';
 
 function UploadButton() {
   const { fingerprint } = useApp();
-  const { file, status, setStatus, setShareUrl, filename } = useUpload();
+  const { file, setStatus, setShareUrl, filename } = useUpload();
   const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
   const handleUpload = useCallback(async () => {
@@ -26,12 +26,18 @@ function UploadButton() {
       const id = await uploadFile(fingerprint, cryptedPayload, filename as string);
       const url = toShareUrl(id, jwk);
 
+      const expiresAt = new Date(Date.now() + 1000 * 60 * 2);
+      // const expiresAt = new Date(Date.now() + (1000 * 60 * 60 * 24 * 14));
+
+      const history = JSON.parse(localStorage.getItem(fingerprint) || '[]');
+      localStorage.setItem(fingerprint, JSON.stringify([...history, { filename, url, expiresAt }]));
+
       setShareUrl(url);
       setStatus(UploadStatus.SUCCESS);
     } catch (error) {
       setStatus(UploadStatus.ERROR);
     }
-  }, [file, status, setStatus, setShareUrl, fingerprint, canUpload]);
+  }, [file, setStatus, setShareUrl, fingerprint, canUpload]);
 
   return (
     <button type={'button'} onClick={handleUpload}>
