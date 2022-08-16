@@ -7,6 +7,7 @@ function History() {
     localStorage.setItem('files_history', JSON.stringify(filteredHistory));
   }
 
+  // Temporary function to quickly display day before expiration
   const dayRemaining = (expiresAt: string): number => {
     const now = new Date();
     const expires = new Date(expiresAt);
