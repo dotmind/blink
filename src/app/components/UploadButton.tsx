@@ -26,11 +26,12 @@ function UploadButton() {
       const id = await uploadFile(fingerprint, cryptedPayload, filename as string);
       const url = toShareUrl(id, jwk);
 
-      const expiresAt = new Date(Date.now() + 1000 * 60 * 2);
+
+      const expiresAt = new Date(Date.now() + (1000 * 60 * 60 * 24 * 2));
       // const expiresAt = new Date(Date.now() + (1000 * 60 * 60 * 24 * 14));
 
-      const history = JSON.parse(localStorage.getItem(fingerprint) || '[]');
-      localStorage.setItem(fingerprint, JSON.stringify([...history, { filename, url, expiresAt }]));
+      const history = JSON.parse(localStorage.getItem('files_history') || '[]');
+      localStorage.setItem('files_history', JSON.stringify([...history, { filename, url, expiresAt }]));
 
       setShareUrl(url);
       setStatus(UploadStatus.SUCCESS);

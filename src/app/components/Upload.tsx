@@ -25,7 +25,7 @@ function Upload() {
   return (
     <div className={styles.container}>
       <FileInput />
-      {file && <UploadButton />}
+      {file && <UploadButton  />}
 
       {status === UploadStatus.UPLOADING && <p>Uploading...</p>}
       {status === UploadStatus.SUCCESS && <p>Upload successful!</p>}
