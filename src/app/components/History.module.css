@@ -1,0 +1,18 @@
+.history_container {
+  margin-top: 20px;
+}
+
+.historyList {
+  list-style: none;
+  padding: 0;
+}
+
+.historyCard {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}

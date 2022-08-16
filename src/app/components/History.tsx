@@ -2,6 +2,8 @@ import { useState, useMemo, useEffect } from 'react';
 
 import { useApp } from '@/app/providers/AppProdiver';
 
+import styles from '@/app/components/History.module.css';
+
 function History() {
   const { fingerprint } = useApp();
   const [history, setHistory] = useState([]);
@@ -25,21 +27,19 @@ function History() {
     }
 
     return history.map((item: { filename: string; url: string; expiresAt: string }) => (
-      <li key={item.url}>
-        <p>{item.filename}</p>
-        <a href={item.url} target={'_blank'} rel={'noreferrer'}>
-          {item.url}
-        </a>
-        <p>Expires at {item.expiresAt}</p>
-      </li>
+      <a className={styles.historyCard} key={item.url} href={item.url} target={'_blank'} rel={'noreferrer'}>
+        <li>
+          <p>{item.filename}</p>
+          <p>Expires at: {item.expiresAt}</p>
+        </li>
+      </a>
     ));
   }, [history]);
 
   return (
-    <>
-      <div>Historique : </div>
-      <ul>{renderHistory}</ul>
-    </>
+    <div className={styles.history_container}>
+      <ul className={styles.historyList}>{renderHistory}</ul>
+    </div>
   );
 }
 
