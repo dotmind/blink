@@ -9,14 +9,14 @@ function History() {
   const { history, setHistory } = useUpload();
 
   useEffect(() => {
-    const filteredHistory = history.filter(item => new Date(item.expiresAt) > new Date())
-    if(filteredHistory.length !== history.length) {
+    const filteredHistory = history.filter((item) => new Date(item.expiresAt) > new Date());
+    if (filteredHistory.length !== history.length) {
       setHistory(filteredHistory);
     }
-  } , [history]);
+  }, [history]);
 
   const renderHistory = useMemo(() => {
-    if(!history.length) {
+    if (!history.length) {
       return null;
     }
 
@@ -27,15 +27,12 @@ function History() {
           <p>Expires in {timeRemaining(item.expiresAt)}</p>
         </li>
       </a>
-    ))
-  } , [history]);
-
+    ));
+  }, [history]);
 
   return (
     <div className={styles.history_container}>
-      <ul className={styles.historyList}>
-        {renderHistory}
-      </ul>
+      <ul className={styles.historyList}>{renderHistory}</ul>
     </div>
   );
 }
