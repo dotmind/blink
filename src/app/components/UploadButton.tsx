@@ -27,8 +27,7 @@ function UploadButton() {
       const id = await uploadFile(fingerprint, cryptedPayload, filename as string);
       const url = toShareUrl(id, jwk);
 
-      const expiresAt = new Date(Date.now() + 1000 * 60 * 2).toISOString();
-      // const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24 * 14).toISOString();
+      const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24 * 14).toISOString();
       addToHistory({ filename: filename as string, url, expiresAt });
 
       setShareUrl(url);

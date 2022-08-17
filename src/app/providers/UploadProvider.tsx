@@ -48,7 +48,7 @@ function UploadProvider({ children }: IProps) {
 
   const value = useMemo(
     () => ({ file, setFile, shareUrl, setShareUrl, status, setStatus, filename, setFilename, history, addToHistory }),
-    [file, shareUrl, status, filename],
+    [file, shareUrl, status, filename, history],
   );
 
   return <UploadContext.Provider value={value}>{children}</UploadContext.Provider>;
