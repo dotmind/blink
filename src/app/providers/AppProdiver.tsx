@@ -1,6 +1,8 @@
-import { useContext, createContext, useMemo, useState, useEffect } from 'react';
+import { useContext, createContext, useMemo, useEffect } from 'react';
 
 import { createFingerprint } from '@/app/services/session';
+import usePersisState from '@/app/hooks/usePersistState';
+import { LOCAL_KEY_VERSION } from '@/app/constants/storage';
 
 export type AppContextType = {
   fingerprint: string;
@@ -15,7 +17,7 @@ interface IProps {
 }
 
 function AppProvider({ children }: IProps) {
-  const [fingerprint, setFingerprint] = useState<string>('');
+  const [fingerprint, setFingerprint] = usePersisState<string>(`fingerprint_${LOCAL_KEY_VERSION}`, '');
 
   useEffect(() => {
     (async () => {
