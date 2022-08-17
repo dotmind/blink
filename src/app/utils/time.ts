@@ -7,8 +7,7 @@ export function timeRemaining(expiresAt: string): string {
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
-  const weeks = Math.floor(days / 7);
-  const months = Math.floor(weeks / 4);
+  const months = Math.floor(days / 30);
   const years = Math.floor(months / 12);
 
   if (seconds < 60) {
@@ -23,12 +22,8 @@ export function timeRemaining(expiresAt: string): string {
     return `${hours} hours`;
   }
 
-  if (days < 7) {
+  if (days < 30) {
     return `${days} days`;
-  }
-
-  if (weeks < 4) {
-    return `${weeks} weeks`;
   }
 
   if (months < 12) {
