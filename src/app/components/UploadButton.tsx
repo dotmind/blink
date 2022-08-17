@@ -5,11 +5,12 @@ import { useApp } from '@/app/providers/AppProdiver';
 import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 import { uploadFile } from '@/app/services/api';
 import { toShareUrl } from '@/app/services/navigator';
+import useHistory from '@/app/hooks/useHistory';
 
 function UploadButton() {
   const { fingerprint } = useApp();
   const { file, setStatus, setShareUrl, filename } = useUpload();
-  const { addToHistory } = useUpload();
+  const { addToHistory } = useHistory();
   const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
   const handleUpload = useCallback(async () => {

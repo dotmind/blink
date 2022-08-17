@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 
-import { useUpload } from '@/app/providers/UploadProvider';
 import { timeRemaining } from '@/app/utils/time';
+import useHistory from '@/app/hooks/useHistory';
 
 import styles from '@/app/components/History.module.css';
 
 function History() {
-  const { history } = useUpload();
+  const { history } = useHistory();
 
   const renderHistory = useMemo(() => {
     if (!history.length) {
