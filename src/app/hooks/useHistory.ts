@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import usePersistState from '@/app/hooks/usePersistState';
 import { LOCAL_KEY_VERSION } from '@/app/constants/storage';
@@ -11,16 +11,14 @@ export type HistoryItem = {
 
 const useHistory = (): {
   history: HistoryItem[];
-  setHistory: Dispatch<SetStateAction<HistoryItem[]>>;
   addToHistory: (item: HistoryItem) => void;
-  purge: () => void;
 } => {
-  const [history, setHistory, purge] = usePersistState<HistoryItem[]>(`files_history_${LOCAL_KEY_VERSION}`, []);
+  const [history, setHistory] = usePersistState<HistoryItem[]>(`files_history_${LOCAL_KEY_VERSION}`, []);
 
   useEffect(() => {
     const cleanExpiredHistory = history.filter((item) => new Date(item.expiresAt) > new Date());
     if (cleanExpiredHistory.length !== history.length) {
-      setHistory(cleanExpiredHistory);
+      setHistory([...cleanExpiredHistory]);
     }
   }, [history]);
 
@@ -28,7 +26,7 @@ const useHistory = (): {
     setHistory([...history, item]);
   };
 
-  return { history, setHistory, addToHistory, purge };
+  return { history, addToHistory };
 };
 
 export default useHistory;
