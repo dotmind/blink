@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import usePersistState from '@/app/hooks/usePersistState';
 import { LOCAL_KEY_VERSION } from '@/app/constants/storage';
@@ -11,7 +11,7 @@ export type HistoryItem = {
 
 const useHistory = (): {
   history: HistoryItem[];
-  addToHistory: (item: HistoryItem) => void;
+  addToHistory: (item: { filename: string; url: string }) => void;
 } => {
   const [history, setHistory] = usePersistState<HistoryItem[]>(`files_history_${LOCAL_KEY_VERSION}`, []);
 
@@ -22,9 +22,17 @@ const useHistory = (): {
     }
   }, [history]);
 
-  const addToHistory = (item: HistoryItem): void => {
-    setHistory([...history, item]);
-  };
+  const addToHistory = useCallback(({ filename, url }: { filename: string; url: string }): void => {
+    // @todo Put expire at in constant and env file
+    const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24 * 14).toISOString();
+    const item = {
+      filename,
+      url,
+      expiresAt,
+    };
+
+    setHistory((prevState) => [...prevState, item]);
+  }, []);
 
   return { history, addToHistory };
 };
