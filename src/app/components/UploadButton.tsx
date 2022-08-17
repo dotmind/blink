@@ -9,7 +9,7 @@ import { toShareUrl } from '@/app/services/navigator';
 function UploadButton() {
   const { fingerprint } = useApp();
   const { file, setStatus, setShareUrl, filename } = useUpload();
-  const { history, setHistory } = useUpload();
+  const { addToHistory } = useUpload();
   const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
   const handleUpload = useCallback(async () => {
@@ -28,8 +28,8 @@ function UploadButton() {
       const url = toShareUrl(id, jwk);
 
       const expiresAt = new Date(Date.now() + 1000 * 60 * 2).toISOString();
-      // const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24 * 14);
-      setHistory([...history, { filename: filename as string, url, expiresAt }]);
+      // const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24 * 14).toISOString();
+      addToHistory({ filename: filename as string, url, expiresAt });
 
       setShareUrl(url);
       setStatus(UploadStatus.SUCCESS);

@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { useUpload } from '@/app/providers/UploadProvider';
 import { timeRemaining } from '@/app/utils/time';
@@ -6,14 +6,7 @@ import { timeRemaining } from '@/app/utils/time';
 import styles from '@/app/components/History.module.css';
 
 function History() {
-  const { history, setHistory } = useUpload();
-
-  useEffect(() => {
-    const filteredHistory = history.filter((item) => new Date(item.expiresAt) > new Date());
-    if (filteredHistory.length !== history.length) {
-      setHistory(filteredHistory);
-    }
-  }, [history]);
+  const { history } = useUpload();
 
   const renderHistory = useMemo(() => {
     if (!history.length) {

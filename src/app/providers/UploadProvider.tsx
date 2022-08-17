@@ -1,7 +1,6 @@
 import { useState, createContext, useContext, useMemo } from 'react';
 
-import { LOCAL_KEY_VERSION } from '@/app/constants/storage';
-import usePersisState from '@/app/hooks/usePersistState';
+import useHistory, { HistoryItem } from '@/app/hooks/useHistory';
 
 export enum UploadStatus {
   IDLE = 'IDLE',
@@ -9,12 +8,6 @@ export enum UploadStatus {
   SUCCESS = 'SUCCESS',
   ERROR = 'ERROR',
 }
-
-export type HistoryItem = {
-  filename: string;
-  url: string;
-  expiresAt: string;
-};
 
 export type UploadContextType = {
   file?: string | ArrayBuffer;
@@ -26,7 +19,7 @@ export type UploadContextType = {
   filename?: string;
   setFilename: (filename: string | undefined) => void;
   history: HistoryItem[];
-  setHistory: (history: HistoryItem[]) => void;
+  addToHistory: (history: HistoryItem) => void;
 };
 
 const UploadContext = createContext<UploadContextType>({
@@ -39,7 +32,7 @@ const UploadContext = createContext<UploadContextType>({
   filename: undefined,
   setFilename: () => {},
   history: [],
-  setHistory: () => {},
+  addToHistory: () => {},
 });
 
 interface IProps {
@@ -51,10 +44,10 @@ function UploadProvider({ children }: IProps) {
   const [shareUrl, setShareUrl] = useState<string>();
   const [status, setStatus] = useState<UploadStatus>(UploadStatus.IDLE);
   const [filename, setFilename] = useState<string>();
-  const [history, setHistory] = usePersisState<HistoryItem[]>(`files_history_${LOCAL_KEY_VERSION}`, []);
+  const { history, addToHistory } = useHistory();
 
   const value = useMemo(
-    () => ({ file, setFile, shareUrl, setShareUrl, status, setStatus, filename, setFilename, history, setHistory }),
+    () => ({ file, setFile, shareUrl, setShareUrl, status, setStatus, filename, setFilename, history, addToHistory }),
     [file, shareUrl, status, filename],
   );
 
