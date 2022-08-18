@@ -1,8 +1,8 @@
 import { useCallback, MouseEvent } from 'react';
 
-import { useDownload } from '@/app/providers/DownloadProvider';
+import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
-import styles from '@/app/components/Download.module.css';
+import styles from './styles.module.scss';
 
 function Download() {
   const { file, fileName } = useDownload();

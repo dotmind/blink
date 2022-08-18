@@ -1,9 +1,9 @@
 import { pdfjs, Document, Page } from 'react-pdf';
 import { useState, useCallback } from 'react';
 
-import { useDownload } from '@/app/providers/DownloadProvider';
+import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
-import styles from '@/app/components/FileViewer.module.css';
+import styles from './styles.module.scss';
 
 function FileViewer() {
   const { file } = useDownload();

@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import classNames from 'classnames';
 
-import { useUpload } from '@/app/providers/UploadProvider';
+import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
-
 import { slugify } from '@/app/services/navigator';
-import styles from '@/app/components/FileInput.module.css';
+
+import styles from './styles.module.scss';
 
 function FileInput() {
   const [error, setError] = useState<string | null>(null);

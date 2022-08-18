@@ -1,11 +1,10 @@
 import { useMemo } from 'react';
 
-import { useUpload, UploadStatus } from '@/app/providers/UploadProvider';
-import History from '@/app/components/History';
+import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import FileInput from '@/modules/upload/components/FileInput';
 import UploadButton from '@/modules/upload/components/UploadButton';
 
-import styles from '@/app/components/Upload.module.css';
+import styles from './styles.module.scss';
 
 function Upload() {
   const { file, status, shareUrl } = useUpload();
@@ -32,8 +31,6 @@ function Upload() {
       {status === UploadStatus.ERROR && <p>Upload failed!</p>}
 
       {renderShare}
-
-      <History />
     </div>
   );
 }

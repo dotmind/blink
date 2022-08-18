@@ -1,6 +1,9 @@
 @import './colors.scss';
 @import './fonts.scss';
-@import './layout.scss';
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
 
 * {
   margin: 0;
@@ -17,4 +20,22 @@ html,
 body {
   width: 100vw;
   height: 100vh;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $breakpoint-lg) {
+    flex-direction: row;
+  }
+}
+
+.App > *:nth-child(1) {
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url('../assets/images/background.png');
+  background-size: 90% 90%;
+  background-position: -30vw -100%;
 }

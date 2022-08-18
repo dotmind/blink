@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 
-import { UploadStatus, useUpload } from '@/app/providers/UploadProvider';
+import { UploadStatus, useUpload } from '@/modules/upload/providers/UploadProvider';
 import { useApp } from '@/app/providers/AppProdiver';
 import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 import { uploadFile } from '@/app/services/api';
