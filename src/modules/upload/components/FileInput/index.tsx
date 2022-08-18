@@ -3,14 +3,15 @@ import classNames from 'classnames';
 
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
-import { slugify } from '@/app/services/navigator';
+// import { slugify } from '@/app/services/navigator';
+import UploadButton from '@/modules/upload/components/UploadButton';
 
 import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
 import styles from './styles.module.scss';
 
 function FileInput() {
   const [error, setError] = useState<string | null>(null);
-  const { file, setFile, setFilename } = useUpload();
+  const { file, setFile, filename, setFilename } = useUpload();
   const [isDragActive, setIsDragActive] = useState(false);
   const fileHandler = useRef<HTMLInputElement>(null);
 
@@ -30,10 +31,10 @@ function FileInput() {
     }
 
     const base64 = await fileToBase64(inputFile);
-    const filename = inputFile.name;
+    const { name } = inputFile;
 
     setError(null);
-    setFilename(slugify(filename));
+    setFilename(name);
     setFile(base64 as ArrayBuffer);
   }, [file, fileHandler, setFile, setFilename]);
 
@@ -90,19 +91,24 @@ function FileInput() {
   });
 
   return (
-    <form className={styleHandler}>
-      {error && <p className={styles.error}>{error}</p>}
+    <>
+      <form className={styleHandler}>
+        {/* eslint-disable-next-line */}
+        <div className={styles.fileInput_icons} onClick={() => fileHandler.current?.click()}>
+          <img src={pdf_icons} alt={'pdf icon'} />
+        </div>
 
-      <div className={styles.fileInput_icons}>
-        <img src={pdf_icons} alt={'pdf icon'} />
+        <p>Déposez un fichier ici pour créer un lien</p>
+
+        <input id={'fileLoader'} type={'file'} className={styles.fileInput} ref={fileHandler} />
+      </form>
+
+      <div className={styles.fileInput_controls}>
+        <UploadButton />
+        {file && <p className={styles.fileOK}>{filename}</p>}
+        {error && <p className={styles.error}>{error}</p>}
       </div>
-
-      <p>Déposez un fichier ici pour créer un lien NoShit</p>
-
-      <input id={'fileLoader'} type={'file'} className={styles.fileInput} ref={fileHandler} />
-
-      {file && <p className={styles.fileOK}>PDF loaded...</p>}
-    </form>
+    </>
   );
 }
 

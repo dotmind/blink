@@ -11,6 +11,9 @@ $color-grey-700: #3c3c3c;
 $color-grey-900: #1c1c1c;
 $color-black: #000000;
 
+// Red
+$color-red: #bb1111;
+
 :root {
   --color-blue: #{$color-blue};
   --color-green: #{$color-green};
@@ -22,4 +25,5 @@ $color-black: #000000;
   --color-grey-700: #{$color-grey-700};
   --color-grey-900: #{$color-grey-900};
   --color-black: #{$color-black};
+  --color-red: #{$color-red};
 }

@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import FileInput from '@/modules/upload/components/FileInput';
-// import UploadButton from '@/modules/upload/components/UploadButton';
 
 import styles from './styles.module.scss';
 
@@ -56,6 +55,13 @@ function Upload() {
       <header className={styles.header}>{renderHeader}</header>
 
       <FileInput />
+
+      <div className={styles.circle_waves_base}>
+        <div className={styles.animated_circles} />
+        <div className={styles.animated_circles} />
+        <div className={styles.animated_circles} />
+        <div className={styles.animated_circles} />
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 
-$margin-x: 40px;
+$margin-x: 30px;
 
 :root {
   --margin-x: #{$margin-x};
@@ -14,4 +14,5 @@ $margin-x: 40px;
   flex-direction: column;
   padding: var(--margin-x);
   flex-grow: 1;
+  min-height: 100vh;
 }
