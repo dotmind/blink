@@ -5,6 +5,7 @@ import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
 import { slugify } from '@/app/services/navigator';
 
+import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
 import styles from './styles.module.scss';
 
 function FileInput() {
@@ -84,17 +85,22 @@ function FileInput() {
     };
   }, [file, fileHandler]);
 
-  const styleHandler = classNames(styles.fileInput, {
+  const styleHandler = classNames(styles.fileInput_container, {
     [styles.active]: isDragActive,
   });
 
   return (
     <form className={styleHandler}>
       {error && <p className={styles.error}>{error}</p>}
-      <label htmlFor={'fileLoader'} className={styles.fileInput__label}>
-        Drop file here
-        <input id={'fileLoader'} type={'file'} className={styles.fileInput__input} ref={fileHandler} />
-      </label>
+
+      <div className={styles.fileInput_icons}>
+        <img src={pdf_icons} alt={'pdf icon'} />
+      </div>
+
+      <p>Déposez un fichier ici pour créer un lien NoShit</p>
+
+      <input id={'fileLoader'} type={'file'} className={styles.fileInput} ref={fileHandler} />
+
       {file && <p className={styles.fileOK}>PDF loaded...</p>}
     </form>
   );

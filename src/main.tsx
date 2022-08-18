@@ -9,7 +9,7 @@ import '@/app/styles/global.scss';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <AppProvider>
-      <div className={"App"}>
+      <div className={'App'}>
         <Router />
       </div>
     </AppProvider>

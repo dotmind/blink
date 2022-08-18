@@ -1,44 +1,30 @@
 .fileInput {
-  text-align: center;
-}
-
-.fileInput__input {
-  position: absolute;
+  display: none;
   width: 100vw;
   height: 100vh;
+  position: fixed;
   top: 0;
   left: 0;
-  display: none;
-  pointer-events: none;
+  z-index: 999;
 }
 
-.fileInput::after {
-  content: '';
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
+.fileInput_icons {
+  margin: 1rem 0;
+}
+
+.fileInput_container {
+  padding: 1rem;
   width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0.2;
-}
+  border-radius: 12px;
+  border: 1px solid #7cc6fecc;
+  box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-.fileInput__label {
-  text-decoration: underline;
-}
-
-.fileInput.active::after {
-  background-color: rgb(0, 150, 138);
-}
-
-.error {
-  color: red;
-  font-weight: bold;
-}
-
-.fileOK {
-  color: green;
-  font-weight: bold;
+  p {
+    max-width: 250px;
+    text-align: center;
+  }
 }

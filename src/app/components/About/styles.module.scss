@@ -1,7 +1,6 @@
-$margin: 30px;
-
 .about {
   width: 50vw;
+  flex-grow: 1;
   background-color: var(--color-white);
   overflow: scroll;
 }
@@ -11,8 +10,8 @@ $margin: 30px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: calc(100% - ($margin * 2));
-  margin: $margin;
+  width: calc(100% - var(--margin-x) * 2);
+  margin: var(--margin-x);
 }
 
 .paragraph {

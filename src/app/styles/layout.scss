@@ -1,0 +1,17 @@
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+
+$margin-x: 40px;
+
+:root {
+  --margin-x: #{$margin-x};
+}
+
+.container {
+  min-width: 50vw;
+  display: flex;
+  flex-direction: column;
+  padding: var(--margin-x);
+  flex-grow: 1;
+}

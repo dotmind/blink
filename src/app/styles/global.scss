@@ -1,9 +1,6 @@
 @import './colors.scss';
 @import './fonts.scss';
-
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
+@import './layout.scss';
 
 * {
   margin: 0;
