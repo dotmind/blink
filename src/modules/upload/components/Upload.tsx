@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 
-import FileInput from '@/app/components/FileInput';
 import { useUpload, UploadStatus } from '@/app/providers/UploadProvider';
-import UploadButton from '@/app/components/UploadButton';
 import History from '@/app/components/History';
+import FileInput from '@/modules/upload/components/FileInput';
+import UploadButton from '@/modules/upload/components/UploadButton';
 
 import styles from '@/app/components/Upload.module.css';
 

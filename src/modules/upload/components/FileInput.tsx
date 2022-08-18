@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import { useUpload } from '@/app/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
 
-import styles from '@/app/components/FileInput.module.css';
 import { slugify } from '@/app/services/navigator';
+import styles from '@/app/components/FileInput.module.css';
 
 function FileInput() {
   const [error, setError] = useState<string | null>(null);

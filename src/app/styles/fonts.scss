@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap');
+
+$font: 'Plus Jakarta Sans';
+
+$fs-14: 1.4rem;
+$fs-16: 1.6rem;
+$fs-18: 1.8rem;
+$fs-20: 2rem;
+
+:root {
+  --font: #{$font};
+  --fs-14: #{$fs-14};
+  --fs-16: #{$fs-16};
+  --fs-18: #{$fs-18};
+  --fs-20: #{$fs-20};
+}
