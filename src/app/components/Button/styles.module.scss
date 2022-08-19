@@ -1,16 +1,20 @@
 .button {
   display: inline-block;
-  padding: 10px;
+  padding: 14px 10px;
   border: none;
   box-shadow: 0px 7px 13px rgba(66, 152, 217, 0.3), 0px 2px 4px rgba(66, 152, 217, 0.4), inset 0px -3px 0px rgba(58, 65, 111, 0.5);
   width: fit-content;
   border-radius: 7px;
   background-color: transparent;
   color: #000;
-  font-size: 14px;
+  font-size: 16px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+
+  svg {
+    margin: 0 10px;
+  }
 
   &:disabled {
     opacity: 0.8;
@@ -20,19 +24,19 @@
   &:hover:not(:disabled) {
     filter: brightness(0.9);
   }
-}
 
-.button.primary {
-  background-color: var(--color-blue);
-  color: #fff;
-}
+  &.primary {
+    background-color: var(--color-blue);
+    color: #fff;
+  }
 
-.button.secondary {
-  background-color: var(--color-sky);
-  color: #fff;
-}
+  &.secondary {
+    background-color: var(--color-sky);
+    color: #fff;
+  }
 
-.button.success {
-  background-color: var(--color-green);
-  color: #fff;
+  &.success {
+    background-color: var(--color-green);
+    color: #fff;
+  }
 }

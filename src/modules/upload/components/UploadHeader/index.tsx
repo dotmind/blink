@@ -1,25 +1,12 @@
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
-import FileInput from '@/modules/upload/components/FileInput';
-import CircleWaves from '@/app/components/CircleWaves';
 
 import styles from './styles.module.scss';
 
-function Upload() {
+function UploadHeader() {
   const { status } = useUpload();
-
-  // const renderShare = useMemo(() => {
-  //   if (!shareUrl || status !== UploadStatus.SUCCESS) {
-  //     return null;
-  //   }
-
-  //   return (
-  //     <a href={shareUrl} target={'_blank'} rel={'noreferrer'}>
-  //       {shareUrl}
-  //     </a>
-  //   );
-  // }, [shareUrl, status]);
+  const container = useRef(null);
 
   const renderHeader = useMemo(() => {
     switch (status) {
@@ -48,18 +35,13 @@ function Upload() {
           </>
         );
     }
-    return null;
   }, [status]);
 
   return (
-    <div className={'container'}>
-      <header className={styles.header}>{renderHeader}</header>
-
-      <FileInput />
-
-      <CircleWaves />
-    </div>
+    <header ref={container} className={styles.header}>
+      {renderHeader}
+    </header>
   );
 }
 
-export default Upload;
+export default UploadHeader;

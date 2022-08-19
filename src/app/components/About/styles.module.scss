@@ -1,8 +1,8 @@
 .about {
-  width: 50vw;
+  max-width: 50vw;
   flex-grow: 1;
   background-color: var(--color-white);
-  overflow: scroll;
+  overflow-y: scroll;
   position: relative;
   z-index: 10;
 }

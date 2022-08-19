@@ -34,7 +34,17 @@ function UploadButton() {
       addToHistory({ filename: filename as string, url });
 
       setShareUrl(url);
-      setStatus(UploadStatus.SUCCESS);
+      // @TODO: Re enable when UI ready
+      // setStatus(UploadStatus.SUCCESS);
+      // status UI debug controls :
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'p') {
+          setStatus(UploadStatus.SUCCESS);
+        }
+        if (e.key === 'o') {
+          setStatus(UploadStatus.UPLOADING);
+        }
+      });
     } catch (error) {
       setStatus(UploadStatus.ERROR);
     }
