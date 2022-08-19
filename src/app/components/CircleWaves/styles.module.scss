@@ -8,6 +8,8 @@ $base-circle-size: 800px;
   top: 0;
   left: 0;
   overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .circle_waves_base {
@@ -16,8 +18,6 @@ $base-circle-size: 800px;
   position: absolute;
   left: -10vw;
   top: 40vh;
-  z-index: 0;
-  pointer-events: none;
 }
 
 .animated_circles {
