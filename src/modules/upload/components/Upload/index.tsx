@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import FileInput from '@/modules/upload/components/FileInput';
+import CircleWaves from '@/app/components/CircleWaves';
 
 import styles from './styles.module.scss';
 
@@ -56,12 +57,7 @@ function Upload() {
 
       <FileInput />
 
-      <div className={styles.circle_waves_base}>
-        <div className={styles.animated_circles} />
-        <div className={styles.animated_circles} />
-        <div className={styles.animated_circles} />
-        <div className={styles.animated_circles} />
-      </div>
+      <CircleWaves />
     </div>
   );
 }

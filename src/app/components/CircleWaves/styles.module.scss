@@ -1,0 +1,53 @@
+$base-circle-size: 800px;
+
+.circle_container {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.circle_waves_base {
+  width: 50vw;
+  height: 100vh;
+  position: absolute;
+  left: -10vw;
+  top: 40vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.animated_circles {
+  border: 1px solid var(--color-blue);
+  position: absolute;
+  border-radius: 50%;
+  transform-origin: center center;
+  opacity: 0.3;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      width: $base-circle-size - (150px * $i);
+      height: $base-circle-size - (150px * $i);
+      animation: waves 4s infinite;
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}
+
+@keyframes waves {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
