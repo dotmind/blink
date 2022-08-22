@@ -11,6 +11,12 @@
 .fileInput_icons {
   margin: 1rem 0;
   cursor: pointer;
+  transform-origin: center;
+  transition: transform 0.35s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .fileInput_container {

@@ -9,6 +9,7 @@ $margin-x: 30px;
 }
 
 .container {
+  position: relative;
   min-width: 50vw;
   display: flex;
   flex-direction: column;
