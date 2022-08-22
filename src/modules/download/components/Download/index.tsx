@@ -1,4 +1,7 @@
 import { useCallback, MouseEvent } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileLines } from '@fortawesome/free-regular-svg-icons';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
@@ -19,11 +22,14 @@ function Download() {
   );
 
   return (
-    <div className={styles.container}>
-      <button type={'button'} disabled={!file} onClick={handleDownload}>
-        Download
-      </button>
-    </div>
+    <button className={styles.downloadButton} type={'button'} onClick={handleDownload}>
+      <div>
+        <FontAwesomeIcon icon={faFileLines} />
+        <p>{fileName}</p>
+        <FontAwesomeIcon icon={faArrowDown} />
+      </div>
+      <p className={styles.fileWeight}>448.58KB . pdf</p>
+    </button>
   );
 }
 

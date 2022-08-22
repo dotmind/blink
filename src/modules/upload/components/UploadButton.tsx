@@ -37,6 +37,7 @@ function UploadButton() {
       // @TODO: Re enable when UI ready
       // setStatus(UploadStatus.SUCCESS);
       // status UI debug controls :
+      setTimeout(() => setStatus(UploadStatus.SUCCESS), 8000);
       document.addEventListener('keydown', (e) => {
         if (e.key === 'p') {
           setStatus(UploadStatus.SUCCESS);

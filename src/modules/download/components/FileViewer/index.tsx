@@ -5,6 +5,7 @@ import { faCaretLeft, faCaretRight, faArrowUpFromBracket } from '@fortawesome/fr
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
+import Download from '@/modules/download/components/Download';
 
 import styles from './styles.module.scss';
 
@@ -50,7 +51,7 @@ function FileViewer() {
           <h1>Tu as reçu un fichier !</h1>
           <p>Ce fichier expireras dans 14 jours !</p>
         </header>
-
+        <Download />
         <Document className={styles.viewerParent} file={file} onLoadSuccess={onPDFReady}>
           <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
           <div className={styles.controls}>

@@ -20,10 +20,6 @@ $margin-x: 30px;
   padding: var(--margin-x);
   flex-grow: 1;
   height: 100vh;
-
-  > * {
-    z-index: 1;
-  }
 }
 
 .d-flex {

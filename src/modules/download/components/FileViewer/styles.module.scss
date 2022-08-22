@@ -6,6 +6,11 @@
 .fileViewer {
   display: flex;
   flex-direction: column;
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 
   header {
     margin-bottom: 1rem;
