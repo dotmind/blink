@@ -9,12 +9,7 @@
   padding: 30px;
   font-weight: 300;
   bottom: env(safe-area-inset-bottom, 0);
-
-  @media (min-width: 992px) {
-    width: 50%;
-  }
 }
-
 .watermark {
   opacity: 0.5;
 }

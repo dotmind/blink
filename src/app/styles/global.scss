@@ -35,3 +35,11 @@ body {
   background-size: 90% 90%;
   background-position: -30vw -100%;
 }
+
+.upload {
+  footer {
+    @media (min-width: 992px) {
+      width: 50%;
+    }
+  }
+}
