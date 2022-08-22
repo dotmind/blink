@@ -21,8 +21,8 @@ $base-circle-size: 100px;
   transition: 0.5s ease-in;
 
   &.uploading {
-    left: 0;
     top: 0;
+    left: 0;
 
     .animated_circles {
       opacity: 0;

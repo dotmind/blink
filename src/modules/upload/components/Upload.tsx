@@ -6,7 +6,6 @@ import CircleWaves from '@/app/components/CircleWaves';
 import UploadHeader from '@/modules/upload/components/UploadHeader';
 import UploadFile from '@/modules/upload/components/UploadFile';
 import ShareButtons from '@/modules/upload/components/ShareButtons';
-import Footer from '@/app/components/Footer';
 
 function Upload() {
   const { status } = useUpload();
@@ -31,7 +30,6 @@ function Upload() {
       {renderContent}
       {status === UploadStatus.SUCCESS && <ShareButtons />}
       <CircleWaves />
-      <Footer />
     </div>
   );
 }

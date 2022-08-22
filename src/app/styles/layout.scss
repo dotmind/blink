@@ -6,16 +6,20 @@ $margin-x: 30px;
 
 :root {
   --margin-x: #{$margin-x};
+  --breakpoint-sm: #{$breakpoint-sm};
+  --breakpoint-md: #{$breakpoint-md};
+  --breakpoint-lg: #{$breakpoint-lg};
 }
 
 .container {
   position: relative;
+  top: 0;
   min-width: 50vw;
   display: flex;
   flex-direction: column;
   padding: var(--margin-x);
   flex-grow: 1;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .d-flex {

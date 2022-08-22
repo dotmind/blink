@@ -20,13 +20,12 @@ body {
 }
 
 .App {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
 
   @media (min-width: $breakpoint-lg) {
     flex-direction: row;
+    max-height: 100vh;
   }
 }
 

@@ -5,6 +5,10 @@
   overflow-y: scroll;
   position: relative;
   z-index: 10;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .container {

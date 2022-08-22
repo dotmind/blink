@@ -3,12 +3,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  bottom: 0;
+  position: fixed;
   left: 0;
   width: 100%;
   padding: 30px;
   font-weight: 300;
+  bottom: env(safe-area-inset-bottom, 0);
+
+  @media (min-width: 992px) {
+    width: 50%;
+  }
 }
 
 .watermark {

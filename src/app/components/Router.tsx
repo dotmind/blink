@@ -4,6 +4,7 @@ import UploadProvider from '@/modules/upload/providers/UploadProvider';
 import DownloadProvider from '@/modules/download/providers/DownloadProvider';
 import Upload from '@/modules/upload/components/Upload';
 import About from '@/app/components/About';
+import FileViewer from '@/modules/download/components/FileViewer';
 
 // @TODO: Lazy load routes
 function Router() {
@@ -24,7 +25,7 @@ function Router() {
           path={':id'}
           element={
             <DownloadProvider>
-              {/* <FileViewer /> */}
+              <FileViewer />
               {/* <Download /> */}
             </DownloadProvider>
           }
