@@ -1,4 +1,4 @@
-$base-circle-size: 800px;
+$base-circle-size: 100px;
 
 .circle_container {
   width: 100vw;
@@ -18,9 +18,44 @@ $base-circle-size: 800px;
   position: absolute;
   left: -10vw;
   top: 40vh;
+  transition: 0.5s ease-in;
+
+  &.uploading {
+    left: 0;
+    top: 0;
+
+    .animated_circles {
+      opacity: 0;
+    }
+
+    @for $i from 0 through 5 {
+      .animated_circles:nth-child(#{$i + 1}) {
+        animation: waves 10s infinite linear;
+        animation-delay: #{$i * 1.5}s;
+      }
+    }
+  }
+
+  &.success {
+    left: 0;
+    top: 0;
+
+    .animated_circles {
+      opacity: 0;
+    }
+
+    @for $i from 0 through 5 {
+      .animated_circles:nth-child(#{$i + 1}) {
+        animation: waves 10s linear forwards;
+        animation-delay: #{$i * 1.5}s;
+      }
+    }
+  }
 }
 
 .animated_circles {
+  width: $base-circle-size;
+  height: $base-circle-size;
   border: 1px solid var(--color-blue);
   position: absolute;
   border-radius: 50%;
@@ -31,23 +66,28 @@ $base-circle-size: 800px;
   top: 50%;
   transform: translate(-50%, -50%);
 
-  @for $i from 1 through 4 {
+  @for $i from 1 through 6 {
     &:nth-child(#{$i}) {
-      width: $base-circle-size - (150px * $i);
-      height: $base-circle-size - (150px * $i);
-      animation: waves 4s infinite;
-      animation-delay: #{$i * 0.1}s;
+      width: $base-circle-size + ($i * 200px);
+      height: $base-circle-size + ($i * 200px);
     }
   }
 }
 
 @keyframes waves {
   0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.2;
+    width: $base-circle-size;
+    height: $base-circle-size;
+    opacity: 0;
+  }
+  10% {
+    width: $base-circle-size + 150px;
+    height: $base-circle-size + 150px;
+    opacity: 0.3;
   }
   100% {
-    transform: translate(-50%, -50%) scale(2);
+    width: $base-circle-size + 1500px;
+    height: $base-circle-size + 1500px;
     opacity: 0;
   }
 }
