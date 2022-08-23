@@ -9,7 +9,8 @@
   padding: 30px;
   font-weight: 300;
   bottom: env(safe-area-inset-bottom, 0);
-}
-.watermark {
-  opacity: 0.5;
+
+  .watermark {
+    opacity: 0.5;
+  }
 }

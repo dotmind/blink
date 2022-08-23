@@ -18,7 +18,7 @@ function Download() {
       link.download = fileName as string;
       link.click();
     },
-    [file],
+    [file, fileName],
   );
 
   return (

@@ -22,7 +22,7 @@ function FileViewer() {
       width: isMobile ? width * 0.8 : undefined, // use default file width if desktop
       height: height * 0.8,
     }),
-    [height],
+    [width, height, isMobile],
   );
 
   const isFirstPage = useMemo(() => pageNumber === 1, [pageNumber]);
