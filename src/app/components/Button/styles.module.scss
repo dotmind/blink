@@ -2,7 +2,8 @@
   display: inline-block;
   padding: 14px 10px;
   border: none;
-  box-shadow: 0px 7px 13px rgba(66, 152, 217, 0.3), 0px 2px 4px rgba(66, 152, 217, 0.4), inset 0px -3px 0px rgba(58, 65, 111, 0.5);
+  box-shadow: 0px 7px 13px rgba(189, 203, 213, 0.3), 0px 2px 4px rgba(185, 201, 213, 0.4),
+    inset 0px -3px 0px rgba(92, 94, 105, 0.5);
   width: fit-content;
   border-radius: 7px;
   background-color: transparent;
@@ -38,5 +39,17 @@
   &.success {
     background-color: var(--color-green);
     color: #fff;
+  }
+
+  &.white {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+
+  &.black {
+    background-color: var(--color-black);
+    box-shadow: 0px 7px 13px rgba(255, 255, 255, 0.3), 0px 2px 4px rgba(232, 231, 231, 0.4),
+      inset 0px -3px 0px rgba(255, 255, 255, 0.5);
+    color: var(--color-white);
   }
 }

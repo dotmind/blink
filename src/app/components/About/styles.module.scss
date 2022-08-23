@@ -34,3 +34,19 @@
     }
   }
 }
+
+.frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+
+  img {
+    max-height: 300px;
+  }
+
+  .paragraph {
+    padding: 15px;
+  }
+}

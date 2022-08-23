@@ -15,6 +15,7 @@
     "prettier": "prettier --write src/"
   },
   "dependencies": {
+    "@dotmind/react-modals": "^2.1.0",
     "@dotmind/utils": "1.0.7",
     "@fingerprintjs/fingerprintjs": "3.3.4",
     "@fortawesome/fontawesome-svg-core": "6.1.2",
