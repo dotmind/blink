@@ -3,7 +3,6 @@ import classNames from 'classnames';
 
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
-// import { slugify } from '@/app/services/navigator';
 import UploadButton from '@/modules/upload/components/UploadButton';
 
 import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
