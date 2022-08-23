@@ -20,7 +20,7 @@ function Modal({ children }: IProps) {
         <FontAwesomeIcon icon={faXmark} />
       </button>
 
-      <div className={styles.modal_content}>{children}</div>
+      {children}
     </div>
   );
 }

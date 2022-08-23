@@ -20,19 +20,8 @@
     z-index: 3;
   }
 
-  .modal_content {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    background-color: var(--color-white);
-    border-radius: 10px;
-    z-index: 4;
-  }
-
   .closeModal {
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 30px;
     width: 30px;

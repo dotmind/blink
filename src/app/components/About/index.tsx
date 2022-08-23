@@ -15,8 +15,8 @@ function About() {
   const isMobile = useMemo(() => width < 768, [width]);
 
   return isMobile ? (
-    <div className={styles.about_modal}>
-      <Modal>
+    <Modal>
+      <div className={styles.modal_content}>
         <div className={classNames(styles.frame, 'current')}>
           <img src={background} alt={'landscape'} />
 
@@ -36,8 +36,8 @@ function About() {
             Page suivante <FontAwesomeIcon icon={faArrowRight} />
           </Button>
         </div>
-      </Modal>
-    </div>
+      </div>
+    </Modal>
   ) : (
     <div className={styles.about}>
       <img src={background} alt={'landscape'} />
