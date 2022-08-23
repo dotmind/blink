@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { timeRemaining } from '@/app/utils/time';
 import useHistory from '@/app/hooks/useHistory';
 
-import styles from '@/app/components/index.module.scss';
+import styles from './styles.module.scss';
 
 function History() {
   const { history } = useHistory();
