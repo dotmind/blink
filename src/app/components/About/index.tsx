@@ -1,6 +1,6 @@
 import background from '@/app/assets/images/placeholder.png';
 
-import styles from './styles.module.scss';
+import styles from '@/app/components/About/styles.module.scss';
 
 function About() {
   return (

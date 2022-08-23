@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './styles.module.scss';
+import styles from '@/app/components/LangSwitcher/styles.module.scss';
 
 // @TODO: Switch lang on click
 

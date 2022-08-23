@@ -2,7 +2,7 @@ import { useMemo, useRef } from 'react';
 
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 
-import styles from './styles.module.scss';
+import styles from '@/modules/upload/components/UploadHeader/styles.module.scss';
 
 function UploadHeader() {
   const { status } = useUpload();

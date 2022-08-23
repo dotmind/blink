@@ -4,7 +4,7 @@ import useWindowSize from '@/app/hooks/useWindowSize';
 import LangSwitcher from '@/app/components/LangSwitcher';
 import MoreInfo from '@/app/components/MoreInfo';
 
-import styles from './styles.module.scss';
+import styles from '@/app/components/Footer/styles.module.scss';
 
 function Footer() {
   const { width } = useWindowSize();

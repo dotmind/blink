@@ -5,7 +5,7 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
-import styles from './styles.module.scss';
+import styles from '@/modules/download/components/Download/styles.module.scss';
 
 function Download() {
   const { file, fileName } = useDownload();

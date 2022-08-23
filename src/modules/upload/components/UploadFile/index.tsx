@@ -7,7 +7,7 @@ import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvid
 import lockerSvg from '@/app/assets/svg/locker.svg';
 import lockerOpenSvg from '@/app/assets/svg/locker_open.svg';
 
-import styles from './styles.module.scss';
+import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
 
 function UploadFile() {
   const { filename, status, shareUrl } = useUpload();

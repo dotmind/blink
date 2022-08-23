@@ -7,7 +7,7 @@ import { fileToBase64, isFileValid } from '@/app/services/file';
 import UploadButton from '@/modules/upload/components/UploadButton';
 
 import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
-import styles from './styles.module.scss';
+import styles from '@/modules/upload/components/FileInput/styles.module.scss';
 
 function FileInput() {
   const [error, setError] = useState<string | null>(null);

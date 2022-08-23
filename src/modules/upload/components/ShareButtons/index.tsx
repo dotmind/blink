@@ -6,7 +6,7 @@ import { faCopy } from '@fortawesome/free-regular-svg-icons';
 import Button, { ButtonStyle } from '@/app/components/Button';
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 
-import styles from './styles.module.scss';
+import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
 
 function ShareButtons() {
   const { shareUrl } = useUpload();

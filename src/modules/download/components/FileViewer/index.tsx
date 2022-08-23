@@ -7,7 +7,7 @@ import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
 import Download from '@/modules/download/components/Download';
 
-import styles from './styles.module.scss';
+import styles from '@/modules/download/components/FileViewer/styles.module.scss';
 
 function FileViewer() {
   const { file } = useDownload();

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 
-import styles from './styles.module.scss';
+import styles from '@/app/components/CircleWaves/styles.module.scss';
 
 function CircleWaves() {
   const { status } = useUpload();
