@@ -43,7 +43,7 @@
     height: 100%;
     width: 3px;
     display: block;
-    background-image: linear-gradient(0deg, var(--color-grey-100) 50%, var(--color-green) 100%);
+    background-color: var(--color-grey-100);
     transition: 0.5s ease-in-out;
   }
 }
@@ -54,11 +54,7 @@
     height: 50px;
     border-radius: 10px;
     transform: translate(-50%, -50%);
-    background-image: linear-gradient(0deg, var(--color-grey-100) 0%, var(--color-green) 0%);
-
-    &:after {
-      border-radius: 9px;
-    }
+    border: 3px solid var(--color-green);
   }
 
   .fileLink {
@@ -66,7 +62,7 @@
   }
 
   .link {
-    background-image: linear-gradient(0deg, var(--color-grey-100) 0%, var(--color-green) 0%);
+    background-color: var(--color-green);
   }
 }
 
@@ -103,22 +99,11 @@
   width: 70px;
   height: 70px;
   transition: 0.5s ease-in-out;
-  background-image: linear-gradient(0deg, var(--color-grey-100) 100%, var(--color-green) 100%);
+  background-color: var(--color-white);
+  border: 3px solid var(--color-grey-100);
 
   > * {
     position: relative;
     z-index: 2;
-  }
-
-  &:after {
-    content: '';
-    width: calc(100% - 6px);
-    height: calc(100% - 6px);
-    border-radius: 50%;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    transition: 0.5s ease-in-out;
-    background-color: var(--color-white);
   }
 }
