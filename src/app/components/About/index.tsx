@@ -15,25 +15,29 @@ function About() {
   const isMobile = useMemo(() => width < 768, [width]);
 
   return isMobile ? (
-    <Modal>
-      <div className={classNames(styles.frame, 'current')}>
-        <img src={background} alt={'landscape'} />
+    <div className={styles.about_modal}>
+      <Modal>
+        <div className={classNames(styles.frame, 'current')}>
+          <img src={background} alt={'landscape'} />
 
-        <div className={styles.paragraph}>
-          <h2>No Shit, un outil libre et securiser pour partager vos fichiers</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.
-            Pellentesque nisi, viverra aliquet quisque enim posuere aliquam augue. Congue at senectus sit sagittis varius nullam
-            scelerisque tortor. Sit sapien in ac vel dolor vestibulum. Ultricies purus faucibus imperdiet consectetur pulvinar a.
-            Eu.
-          </p>
+          <div className={styles.paragraph}>
+            <h2>No Shit, un outil libre et securiser pour partager vos fichiers</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.
+              Pellentesque nisi, viverra aliquet quisque enim posuere aliquam augue. Congue at senectus sit sagittis varius nullam
+              scelerisque tortor. Sit sapien in ac vel dolor vestibulum. Ultricies purus faucibus imperdiet consectetur pulvinar
+              a. Eu.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <Button style={ButtonStyle.WHITE} callback={() => {}}>
-        Page suivante <FontAwesomeIcon icon={faArrowRight} />
-      </Button>
-    </Modal>
+        <div className={styles.frame_controls}>
+          <Button style={ButtonStyle.WHITE} callback={() => {}}>
+            Page suivante <FontAwesomeIcon icon={faArrowRight} />
+          </Button>
+        </div>
+      </Modal>
+    </div>
   ) : (
     <div className={styles.about}>
       <img src={background} alt={'landscape'} />
