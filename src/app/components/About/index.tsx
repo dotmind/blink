@@ -13,9 +13,9 @@ import styles from '@/app/components/About/styles.module.scss';
 function About() {
   const { width } = useWindowSize();
   const isMobile = useMemo(() => width < 768, [width]);
-  
+
   return isMobile ? (
-    <Modal >
+    <Modal>
       <div className={classNames(styles.frame, 'current')}>
         <img src={background} alt={'landscape'} />
 
@@ -33,7 +33,7 @@ function About() {
       <Button style={ButtonStyle.WHITE} callback={() => {}}>
         Page suivante <FontAwesomeIcon icon={faArrowRight} />
       </Button>
-  </Modal>
+    </Modal>
   ) : (
     <div className={styles.about}>
       <img src={background} alt={'landscape'} />

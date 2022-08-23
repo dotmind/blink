@@ -4,7 +4,7 @@
   z-index: 998;
   transition: opacity 0.35s ease-in-out;
 
-  &[data-isopen="true"]{
+  &[data-isopen='true'] {
     opacity: 1;
     pointer-events: all;
   }
@@ -29,7 +29,6 @@
     background-color: var(--color-white);
     border-radius: 10px;
     z-index: 4;
-
   }
 
   .closeModal {
