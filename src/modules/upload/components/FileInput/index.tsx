@@ -1,15 +1,16 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import classNames from 'classnames';
 
-import { useUpload } from '@/app/providers/UploadProvider';
+import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
+import UploadButton from '@/modules/upload/components/UploadButton';
 
-import styles from '@/app/components/FileInput.module.css';
-import { slugify } from '@/app/services/navigator';
+import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
+import styles from '@/modules/upload/components/FileInput/styles.module.scss';
 
 function FileInput() {
   const [error, setError] = useState<string | null>(null);
-  const { file, setFile, setFilename } = useUpload();
+  const { file, setFile, filename, setFilename } = useUpload();
   const [isDragActive, setIsDragActive] = useState(false);
   const fileHandler = useRef<HTMLInputElement>(null);
 
@@ -29,10 +30,10 @@ function FileInput() {
     }
 
     const base64 = await fileToBase64(inputFile);
-    const filename = inputFile.name;
+    const { name } = inputFile;
 
     setError(null);
-    setFilename(slugify(filename));
+    setFilename(name);
     setFile(base64 as ArrayBuffer);
   }, [file, fileHandler, setFile, setFilename]);
 
@@ -84,19 +85,29 @@ function FileInput() {
     };
   }, [file, fileHandler]);
 
-  const styleHandler = classNames(styles.fileInput, {
+  const styleHandler = classNames(styles.fileInput_container, {
     [styles.active]: isDragActive,
   });
 
   return (
-    <form className={styleHandler}>
-      {error && <p className={styles.error}>{error}</p>}
-      <label htmlFor={'fileLoader'} className={styles.fileInput__label}>
-        Drop file here
-        <input id={'fileLoader'} type={'file'} className={styles.fileInput__input} ref={fileHandler} />
-      </label>
-      {file && <p className={styles.fileOK}>PDF loaded...</p>}
-    </form>
+    <>
+      <form className={styleHandler}>
+        {/* eslint-disable-next-line */}
+        <div className={styles.fileInput_icons} onClick={() => fileHandler.current?.click()}>
+          <img src={pdf_icons} alt={'pdf icon'} />
+        </div>
+
+        <p>Déposez un fichier ici pour créer un lien</p>
+
+        <input id={'fileLoader'} type={'file'} className={styles.fileInput} ref={fileHandler} />
+      </form>
+
+      <div className={styles.fileInput_controls}>
+        <UploadButton />
+        {file && <p className={styles.fileOK}>{filename}</p>}
+        {error && <p className={styles.error}>{error}</p>}
+      </div>
+    </>
   );
 }
 

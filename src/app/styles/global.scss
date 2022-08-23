@@ -1,0 +1,46 @@
+@import './colors.scss';
+@import './fonts.scss';
+@import './layout.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+html {
+  font-size: 18px;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $breakpoint-lg) {
+    flex-direction: row;
+    max-height: 100vh;
+  }
+}
+
+.App > *:nth-child(1) {
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url('../assets/images/background.png');
+  background-size: 90% 90%;
+  background-position: -30vw -100%;
+}
+
+// @TODO: find a better way to do this
+.upload {
+  footer {
+    @media (min-width: 992px) {
+      width: 50%;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+
+$margin-x: 30px;
+
+:root {
+  --margin-x: #{$margin-x};
+  --breakpoint-sm: #{$breakpoint-sm};
+  --breakpoint-md: #{$breakpoint-md};
+  --breakpoint-lg: #{$breakpoint-lg};
+}
+
+.container {
+  position: relative;
+  top: 0;
+  min-width: 50vw;
+  display: flex;
+  flex-direction: column;
+  padding: var(--margin-x);
+  flex-grow: 1;
+  height: 100vh;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}

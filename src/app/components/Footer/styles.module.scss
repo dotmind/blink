@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  font-weight: 300;
+  bottom: env(safe-area-inset-bottom, 0);
+
+  .watermark {
+    opacity: 0.5;
+  }
+}

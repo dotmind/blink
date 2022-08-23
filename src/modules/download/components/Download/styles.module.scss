@@ -1,0 +1,39 @@
+.downloadButton {
+  position: absolute;
+  max-width: 25vw;
+  right: 30px;
+  bottom: 10vh;
+  background: var(--color-white);
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  text-align: start;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  > div {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    p {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .fileWeight {
+    font-size: 0.8rem;
+    color: #999;
+  }
+
+  @media (max-width: 768px) {
+    position: relative;
+    bottom: unset;
+    right: unset;
+    margin-bottom: 1rem;
+    max-width: unset;
+  }
+}

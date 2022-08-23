@@ -1,0 +1,12 @@
+.share_container {
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+
+  button {
+    flex-grow: 1;
+  }
+}
