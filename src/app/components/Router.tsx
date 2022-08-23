@@ -9,6 +9,7 @@ import FileViewer from '@/modules/download/components/FileViewer';
 import CircleWaves from '@/app/components/CircleWaves';
 
 // @TODO: Lazy load routes
+// @TODO: find a better way to do modify footer based on route
 function Router() {
   return (
     <BrowserRouter>
@@ -33,7 +34,6 @@ function Router() {
               <DownloadProvider>
                 <FileViewer />
                 <CircleWaves />
-                {/* <Download /> */}
                 <Footer />
               </DownloadProvider>
             </div>
