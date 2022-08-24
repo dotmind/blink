@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
@@ -14,6 +15,7 @@ function FileInput() {
   const [isDragActive, setIsDragActive] = useState(false);
   const fileHandler = useRef<HTMLInputElement>(null);
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
 
   const onFileChange = useCallback(async () => {
     if (!fileHandler.current || !fileHandler.current.files) {
@@ -94,8 +96,8 @@ function FileInput() {
     return (
       <div className={styles.overlay}>
         <div className={styles.overlayContent}>
-          <h3>Déplacer vos fichiers</h3>
-          <p>Partager facilement des fichiers en toute sécurité. </p>
+          <h3>{t('upload.overlay.title')}</h3>
+          <p>{t('upload.overlay.description')}</p>
         </div>
       </div>
     );
@@ -110,7 +112,7 @@ function FileInput() {
           <img src={pdf_icons} alt={'pdf icon'} />
         </div>
 
-        <p>Déposez un fichier ici pour créer un lien</p>
+        <p>{t('upload.input')}</p>
 
         <input id={'fileLoader'} type={'file'} className={styles.fileInput} ref={fileHandler} />
       </form>
