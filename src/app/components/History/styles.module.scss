@@ -44,6 +44,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      width: 100%;
+
+      div {
+        max-width: 80%;
+
+        p {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
     }
   }
 }

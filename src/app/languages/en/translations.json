@@ -2,5 +2,11 @@
   "common": {
     "name": "Noshit",
     "lang": "English"
+  },
+  "upload": {
+    "overlay": {
+      "title": "Drag and drop your files here",
+      "description": "Share easily your files with security and privacy"
+    }
   }
 }
