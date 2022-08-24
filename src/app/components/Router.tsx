@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Footer from '@/app/components/Footer';
@@ -8,13 +7,12 @@ import Upload from '@/modules/upload/components/Upload';
 import About from '@/app/components/About';
 import FileViewer from '@/modules/download/components/FileViewer';
 import CircleWaves from '@/app/components/CircleWaves';
-import useWindowSize from '@/app/hooks/useWindowSize';
+import useIsMobile from '@/app/hooks/useIsMobile';
 
 // @TODO: Lazy load routes
 // @TODO: find a better way to do modify footer based on route
 function Router() {
-  const { width } = useWindowSize();
-  const isMobile = useMemo(() => width < 768, [width]);
+  const isMobile = useIsMobile();
 
   return (
     <BrowserRouter>

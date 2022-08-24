@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import Modal from '@/app/components/Modal';
-import useWindowSize from '@/app/hooks/useWindowSize';
+import useIsMobile from '@/app/hooks/useIsMobile';
 import Button, { ButtonStyle } from '@/app/components/Button';
 import ModalFrame from '@/app/components/ModalFrame';
 import background from '@/app/assets/images/placeholder.png';
@@ -12,8 +12,7 @@ import background_2 from '@/app/assets/images/placeholder_2.png';
 import styles from '@/app/components/About/styles.module.scss';
 
 function About() {
-  const { width } = useWindowSize();
-  const isMobile = useMemo(() => width < 768, [width]);
+  const isMobile = useIsMobile();
   const [frameIndex, setFrameIndex] = useState(0);
 
   const handleNext = useCallback(() => {

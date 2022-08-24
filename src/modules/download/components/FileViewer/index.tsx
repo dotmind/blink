@@ -6,6 +6,7 @@ import { faCaretLeft, faCaretRight, faArrowUpFromBracket } from '@fortawesome/fr
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
 import Download from '@/modules/download/components/Download';
+import useIsMobile from '@/app/hooks/useIsMobile';
 
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
 
@@ -14,8 +15,7 @@ function FileViewer() {
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { width, height } = useWindowSize();
-
-  const isMobile = useMemo(() => width < 768, [width]);
+  const isMobile = useIsMobile();
 
   const fileSize = useMemo(
     () => ({
