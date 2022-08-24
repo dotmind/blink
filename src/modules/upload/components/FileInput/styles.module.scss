@@ -23,7 +23,6 @@
   padding: 1rem;
   width: 100%;
   border-radius: 12px;
-  border: 1px solid #7cc6fecc;
   background-color: #ffffff4d;
   box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(3px);
@@ -44,7 +43,8 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: column;
 
   .error {
     color: var(--color-red);
