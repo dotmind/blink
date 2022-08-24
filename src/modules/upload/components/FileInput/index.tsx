@@ -101,7 +101,6 @@ function FileInput() {
     );
   }, [isDragActive, isMobile]);
 
-
   return (
     <>
       {renderOverlay}
