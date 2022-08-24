@@ -1,13 +1,15 @@
+import { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Footer from '@/app/components/Footer';
+import useIsMobile from '@/app/hooks/useIsMobile';
 import UploadProvider from '@/modules/upload/providers/UploadProvider';
 import DownloadProvider from '@/modules/download/providers/DownloadProvider';
-import Upload from '@/modules/upload/components/Upload';
-import About from '@/app/components/About';
-import FileViewer from '@/modules/download/components/FileViewer';
-import CircleWaves from '@/app/components/CircleWaves';
-import useIsMobile from '@/app/hooks/useIsMobile';
+
+const Upload = lazy(() => import('@/modules/upload/components/Upload'));
+const Footer = lazy(() => import('@/app/components/Footer'));
+const About = lazy(() => import('@/app/components/About'));
+const FileViewer = lazy(() => import('@/modules/download/components/FileViewer'));
+const CircleWaves = lazy(() => import('@/app/components/CircleWaves'));
 
 // @TODO: Lazy load routes
 // @TODO: find a better way to do modify footer based on route
