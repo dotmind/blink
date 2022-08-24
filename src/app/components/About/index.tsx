@@ -30,8 +30,8 @@ function About() {
   const canPrevious = useMemo(() => frameIndex > 0, [frameIndex]);
   const canNext = useMemo(() => frameIndex < 1, [frameIndex]);
 
-  const renderMobile = useMemo(() => {
-    return (
+  const renderMobile = useMemo(
+    () => (
       <Modal>
         <div className={styles.modal_content}>
           {frameIndex === 0 && (
@@ -63,8 +63,9 @@ function About() {
           </div>
         </div>
       </Modal>
-    );
-  }, [frameIndex, canNext, canPrevious, handleNext, handlePrevious]);
+    ),
+    [frameIndex, canNext, canPrevious, handleNext, handlePrevious],
+  );
 
   const renderDesktop = (
     <div className={styles.about}>

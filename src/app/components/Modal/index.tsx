@@ -13,7 +13,7 @@ function Modal({ children }: IProps) {
   const { isOpen, close } = useModal();
 
   return (
-    <div className={styles.modal} data-isopen={isOpen}>
+    <div className={styles.modal} data-isopen={isOpen || false}>
       <div className={styles.backdrop} />
 
       <button className={styles.closeModal} onClick={close} type={'button'}>
