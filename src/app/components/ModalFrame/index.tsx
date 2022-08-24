@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 import styles from '@/app/components/ModalFrame/styles.module.scss';
 
@@ -9,8 +9,22 @@ interface IProps {
 }
 
 function ModalFrame({ children, title, image }: IProps) {
+  const el = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (el.current) {
+      el.current.style.opacity = '1';
+    }
+
+    return () => {
+      if (el.current) {
+        el.current.style.opacity = '0';
+      }
+    };
+  }, [el]);
+
   return (
-    <div className={styles.modal_frame}>
+    <div ref={el} className={styles.modal_frame}>
       <img src={image} alt={'Paragraph illustration'} />
 
       <div className={styles.paragraph}>
