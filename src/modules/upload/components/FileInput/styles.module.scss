@@ -56,3 +56,26 @@
     text-overflow: ellipsis;
   }
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffffec;
+  border: 5px solid #47b0ff59;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 99;
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    max-width: 300px;
+  }
+}

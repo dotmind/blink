@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
-import classNames from 'classnames';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
 import UploadButton from '@/modules/upload/components/UploadButton';
-
 import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
+import useIsMobile from '@/app/hooks/useIsMobile';
+
 import styles from '@/modules/upload/components/FileInput/styles.module.scss';
 
 function FileInput() {
@@ -13,6 +13,7 @@ function FileInput() {
   const { file, setFile, filename, setFilename } = useUpload();
   const [isDragActive, setIsDragActive] = useState(false);
   const fileHandler = useRef<HTMLInputElement>(null);
+  const isMobile = useIsMobile();
 
   const onFileChange = useCallback(async () => {
     if (!fileHandler.current || !fileHandler.current.files) {
@@ -85,13 +86,26 @@ function FileInput() {
     };
   }, [file, fileHandler]);
 
-  const styleHandler = classNames(styles.fileInput_container, {
-    [styles.active]: isDragActive,
-  });
+  const renderOverlay = useMemo(() => {
+    if (!isDragActive || isMobile) {
+      return null;
+    }
+
+    return (
+      <div className={styles.overlay}>
+        <div className={styles.overlayContent}>
+          <h3>Déplacer vos fichiers</h3>
+          <p>Partager facilement des fichiers en toute sécurité. </p>
+        </div>
+      </div>
+    );
+  }, [isDragActive, isMobile]);
+
 
   return (
     <>
-      <form className={styleHandler}>
+      {renderOverlay}
+      <form className={styles.fileInput_container}>
         {/* eslint-disable-next-line */}
         <div className={styles.fileInput_icons} onClick={() => fileHandler.current?.click()}>
           <img src={pdf_icons} alt={'pdf icon'} />
