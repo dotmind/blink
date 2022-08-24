@@ -8,7 +8,7 @@ import Upload from '@/modules/upload/components/Upload';
 import About from '@/app/components/About';
 import FileViewer from '@/modules/download/components/FileViewer';
 import CircleWaves from '@/app/components/CircleWaves';
-import useWindowSize from '../hooks/useWindowSize';
+import useWindowSize from '@/app/hooks/useWindowSize';
 
 // @TODO: Lazy load routes
 // @TODO: find a better way to do modify footer based on route
