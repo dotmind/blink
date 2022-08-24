@@ -22,15 +22,11 @@ function ModalProvider({ children }: IProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const open = () => {
-    if (!isOpen) {
-      setIsOpen(true);
-    }
+    setIsOpen(true);
   };
 
   const close = () => {
-    if (isOpen) {
-      setIsOpen(false);
-    }
+    setIsOpen(false);
   };
 
   const toggle = () => {
