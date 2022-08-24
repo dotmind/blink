@@ -16,7 +16,6 @@ function About() {
   const isMobile = useMemo(() => width < 768, [width]);
   const [frameIndex, setFrameIndex] = useState(0);
 
-  // @TODO: find a way to add opacity animation on switch
   const handleNext = useCallback(() => {
     if (frameIndex < 1) {
       setFrameIndex(frameIndex + 1);
