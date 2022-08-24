@@ -30,39 +30,43 @@ function About() {
   const canPrevious = useMemo(() => frameIndex > 0, [frameIndex]);
   const canNext = useMemo(() => frameIndex < 1, [frameIndex]);
 
-  return isMobile ? (
-    <Modal>
-      <div className={styles.modal_content}>
-        {frameIndex === 0 && (
-          <ModalFrame title={'No Shit, un outil libre et securiser pour partager vos fichiers'} image={background}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.
-            Pellentesque nisi, viverra aliquet quisque enim posuere aliquam augue. Congue at senectus sit sagittis varius nullam
-            scelerisque tortor. Sit sapien in ac vel dolor vestibulum. Ultricies purus faucibus imperdiet consectetur pulvinar a.
-            Eu.
-          </ModalFrame>
-        )}
+  const renderMobile = useMemo(() => {
+    return (
+      <Modal>
+        <div className={styles.modal_content}>
+          {frameIndex === 0 && (
+            <ModalFrame title={'No Shit, un outil libre et securiser pour partager vos fichiers'} image={background}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.
+              Pellentesque nisi, viverra aliquet quisque enim posuere aliquam augue. Congue at senectus sit sagittis varius nullam
+              scelerisque tortor. Sit sapien in ac vel dolor vestibulum. Ultricies purus faucibus imperdiet consectetur pulvinar
+              a. Eu.
+            </ModalFrame>
+          )}
 
-        {frameIndex === 1 && (
-          <ModalFrame title={'Une securité haut niveau grâce au E2E'} image={background_2}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.
-            Pellentesque nisi, viverra aliquet quisque enim posuere aliquam augue. Congue at senectus sit sagittis varius nullam
-            scelerisque tortor. Sit sapien in ac vel dolor vestibulum. Ultricies purus faucibus imperdiet consectetur pulvinar a.
-            Eu.
-          </ModalFrame>
-        )}
+          {frameIndex === 1 && (
+            <ModalFrame title={'Une securité haut niveau grâce au E2E'} image={background_2}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.
+              Pellentesque nisi, viverra aliquet quisque enim posuere aliquam augue. Congue at senectus sit sagittis varius nullam
+              scelerisque tortor. Sit sapien in ac vel dolor vestibulum. Ultricies purus faucibus imperdiet consectetur pulvinar
+              a. Eu.
+            </ModalFrame>
+          )}
 
-        <div className={styles.frame_controls}>
-          <Button style={ButtonStyle.WHITE} callback={handleNext} disabled={!canNext}>
-            Page suivante <FontAwesomeIcon icon={faArrowRight} />
-          </Button>
+          <div className={styles.frame_controls}>
+            <Button style={ButtonStyle.WHITE} callback={handleNext} disabled={!canNext}>
+              Page suivante <FontAwesomeIcon icon={faArrowRight} />
+            </Button>
 
-          <Button style={ButtonStyle.WHITE} callback={handlePrevious} disabled={!canPrevious}>
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </Button>
+            <Button style={ButtonStyle.WHITE} callback={handlePrevious} disabled={!canPrevious}>
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </Button>
+          </div>
         </div>
-      </div>
-    </Modal>
-  ) : (
+      </Modal>
+    );
+  }, [frameIndex, canNext, canPrevious, handleNext, handlePrevious]);
+
+  const renderDesktop = (
     <div className={styles.about}>
       <img src={background} alt={'landscape'} />
 
@@ -99,6 +103,8 @@ function About() {
       </div>
     </div>
   );
+
+  return isMobile ? renderMobile : renderDesktop;
 }
 
 export default About;
