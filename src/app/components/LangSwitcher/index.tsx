@@ -1,6 +1,8 @@
+import i18next from 'i18next';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { availableLanguages } from '@/app/services/i18n';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,6 +12,9 @@ function LangSwitcher() {
   const { t } = useTranslation();
 
   const handleSwitchLanguage = useCallback(() => {
+    const currentLanguage = availableLanguages.indexOf(i18next.language);
+    const nextLanguage = (currentLanguage + 1) % availableLanguages.length;
+    i18next.changeLanguage(availableLanguages[nextLanguage]);
   }, []);
 
   return (

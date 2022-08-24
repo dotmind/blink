@@ -17,7 +17,6 @@ i18n.use(initReactI18next).init({
   lng: 'fr',
   resources,
   fallbackLng: 'fr',
-  debug: true,
 });
 
 export const availableLanguages = Object.keys(resources);
