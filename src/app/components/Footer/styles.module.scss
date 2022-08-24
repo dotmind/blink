@@ -9,6 +9,7 @@
   padding: 30px;
   font-weight: 300;
   bottom: env(safe-area-inset-bottom, 0);
+  z-index: 10;
 
   .watermark {
     opacity: 0.5;

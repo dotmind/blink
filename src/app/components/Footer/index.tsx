@@ -1,14 +1,11 @@
-import { useMemo } from 'react';
-
-import useWindowSize from '@/app/hooks/useWindowSize';
+import useIsMobile from '@/app/hooks/useIsMobile';
 import LangSwitcher from '@/app/components/LangSwitcher';
 import MoreInfo from '@/app/components/MoreInfo';
 
 import styles from '@/app/components/Footer/styles.module.scss';
 
 function Footer() {
-  const { width } = useWindowSize();
-  const isMobile = useMemo(() => width < 768, [width]);
+  const isMobile = useIsMobile();
 
   return (
     <footer className={styles.footer}>

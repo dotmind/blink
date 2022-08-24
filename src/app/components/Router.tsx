@@ -7,10 +7,13 @@ import Upload from '@/modules/upload/components/Upload';
 import About from '@/app/components/About';
 import FileViewer from '@/modules/download/components/FileViewer';
 import CircleWaves from '@/app/components/CircleWaves';
+import useIsMobile from '@/app/hooks/useIsMobile';
 
 // @TODO: Lazy load routes
 // @TODO: find a better way to do modify footer based on route
 function Router() {
+  const isMobile = useIsMobile();
+
   return (
     <BrowserRouter>
       <Routes>
@@ -34,6 +37,7 @@ function Router() {
               <DownloadProvider>
                 <FileViewer />
                 <CircleWaves />
+                {isMobile && <About />}
                 <Footer />
               </DownloadProvider>
             </div>
