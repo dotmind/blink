@@ -1,4 +1,6 @@
 import { useMemo } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 import { timeRemaining } from '@/app/utils/time';
 import useHistory from '@/app/hooks/useHistory';
@@ -16,8 +18,11 @@ function History() {
     return history.map((item) => (
       <a className={styles.historyCard} key={item.url} href={item.url} target={'_blank'} rel={'noreferrer'}>
         <li>
-          <p>{item.filename}</p>
-          <p>Expires in {timeRemaining(item.expiresAt)}</p>
+          <div>
+            <p className={styles.filename}>{item.filename}</p>
+            <p className={styles.expiresIn}>Expire dans {timeRemaining(item.expiresAt)}</p>
+          </div>
+          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
         </li>
       </a>
     ));
@@ -25,6 +30,7 @@ function History() {
 
   return (
     <div className={styles.history_container}>
+      <h3>Historique des transferts</h3>
       <ul className={styles.historyList}>{renderHistory}</ul>
     </div>
   );

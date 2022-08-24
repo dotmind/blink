@@ -11,24 +11,24 @@ export function timeRemaining(expiresAt: string): string {
   const years = Math.round(months / 12);
 
   if (seconds < 60) {
-    return `${seconds} seconds`;
+    return `${seconds} seconde(s)`;
   }
 
   if (minutes < 60) {
-    return `${minutes} minutes`;
+    return `${minutes} minute(s)`;
   }
 
   if (hours < 24) {
-    return `${hours} hours`;
+    return `${hours} heure(s)`;
   }
 
   if (days < 30) {
-    return `${days} days`;
+    return `${days} jour(s)`;
   }
 
   if (months < 12) {
-    return `${months} months`;
+    return `${months} mois`;
   }
 
-  return `${years} years`;
+  return `${years} année(s)`;
 }

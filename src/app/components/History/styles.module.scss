@@ -1,19 +1,49 @@
 .history_container {
-  margin-top: 20px;
-}
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  background-color: #ffffff4d;
+  backdrop-filter: blur(3px);
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
 
-.historyList {
-  list-style: none;
-  padding: 0;
-}
+  h3 {
+    padding: 10px;
+    font-weight: 100;
+  }
 
-.historyCard {
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  padding: 10px;
-  text-decoration: none;
-  color: black;
-  margin-bottom: 10px;
+  .historyList {
+    list-style: none;
+    padding: 0;
+  }
+
+  .historyCard {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 0.9rem;
+
+    &:first-of-type {
+      padding-top: 0px;
+    }
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid #f8f8f8;
+    }
+
+    .expiresIn {
+      font-size: 0.7rem;
+      color: var(--color-grey-300);
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }
