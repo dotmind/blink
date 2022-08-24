@@ -3,8 +3,8 @@ import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
 import UploadButton from '@/modules/upload/components/UploadButton';
-import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
 import useIsMobile from '@/app/hooks/useIsMobile';
+import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
 
 import styles from '@/modules/upload/components/FileInput/styles.module.scss';
 
