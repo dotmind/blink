@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
@@ -14,6 +14,13 @@ function ErrorModal() {
   const { t } = useTranslation();
   const isMobile = useIsMobile();
   const { setStatus } = useUpload();
+  const el = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (el.current) {
+      el.current.style.opacity = '1';
+    }
+  }, []);
 
   const handleRetry = () => {
     setStatus(UploadStatus.IDLE);
@@ -29,7 +36,7 @@ function ErrorModal() {
       <div className={styles.modal_mobile}>
         <div className={styles.backdrop} />
 
-        <div className={styles.modal_content}>
+        <div ref={el} className={styles.modal_content}>
           <img src={errorSVG} alt={'error icon'} />
 
           <div>
@@ -52,7 +59,7 @@ function ErrorModal() {
     [isMobile],
   );
 
-  const renderDesktop = useMemo(() => <div>desktop</div>, [isMobile]);
+  const renderDesktop = useMemo(() => <div>Server error: desktop ui</div>, [isMobile]);
 
   return isMobile ? renderMobile : renderDesktop;
 }
