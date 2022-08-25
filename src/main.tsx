@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import Router from '@/app/components/Router';
 import ModalProvider from '@/app/providers/ModalProvider';
 import AppProvider from '@/app/providers/AppProdiver';
+import InstallPwa from '@/app/components/InstallPwa';
 import '@/app/services/i18n';
 
 import '@/app/styles/global.scss';
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <AppProvider>
       <ModalProvider>
+        <InstallPwa />
         <Router />
       </ModalProvider>
     </AppProvider>
