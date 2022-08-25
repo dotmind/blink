@@ -60,7 +60,7 @@ function ErrorModal() {
   );
 
   // @TODO: Add desktop version
-  const renderDesktop = useMemo(() => <div>Server error: desktop ui</div>, [isMobile]);
+  const renderDesktop = useMemo(() => <div>Server error: desktop ui</div>, []);
 
   return isMobile ? renderMobile : renderDesktop;
 }
