@@ -12,7 +12,13 @@
     "errors": {
       "wrong_file_type": "Mauvaise extension de fichier !",
       "file_too_big": "Fichier trop volumineux !",
-      "file_not_found": "Fichier introuvable !"
+      "file_not_found": "Fichier introuvable !",
+      "upload_failed": {
+        "title": "Une erreur est survenue",
+        "description": "Le serveur à rencontré une erreur lors de l'envoi de votre fichier. Veuillez réessayer.",
+        "retry": "Recommencer",
+        "cancel": "Annuler"
+      }
     }
   }
 }
