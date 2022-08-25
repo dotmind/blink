@@ -12,13 +12,14 @@
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  position: relative;
+  z-index: 3;
 
   svg {
     margin: 0 10px;
   }
 
   &:disabled {
-    filter: brightness(0.9);
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -45,6 +46,11 @@
   &.white {
     background-color: var(--color-white);
     color: var(--color-black);
+
+    &:disabled {
+      opacity: 0.95;
+      filter: brightness(0.9);
+    }
   }
 
   &.black {
