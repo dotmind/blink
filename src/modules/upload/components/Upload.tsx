@@ -7,6 +7,7 @@ import UploadHeader from '@/modules/upload/components/UploadHeader';
 import UploadFile from '@/modules/upload/components/UploadFile';
 import ShareButtons from '@/modules/upload/components/ShareButtons';
 import History from '@/app/components/History';
+import ErrorModal from '@/app/components/ErrorModal';
 
 function Upload() {
   const { status } = useUpload();
@@ -19,7 +20,7 @@ function Upload() {
       case UploadStatus.SUCCESS:
         return <UploadFile />;
       case UploadStatus.ERROR:
-        return <p>Error!</p>;
+        return <ErrorModal />;
       default:
         return null;
     }
