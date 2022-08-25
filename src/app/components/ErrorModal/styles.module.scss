@@ -1,8 +1,6 @@
 $margin: 20px;
 
 .modal_mobile {
-  
-
   .modal_content {
     position: fixed;
     bottom: $margin;
@@ -17,7 +15,7 @@ $margin: 20px;
     align-items: center;
     z-index: 50;
     opacity: 0;
-  transition: opacity .35s ease-in;
+    transition: opacity 0.35s ease-in;
 
     div {
       margin: 1rem 0;
