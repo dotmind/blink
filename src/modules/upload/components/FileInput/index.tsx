@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
 import UploadButton from '@/modules/upload/components/UploadButton';
+import Notification, { NotificationType } from '@/app/components/Notification';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
 
@@ -19,7 +20,7 @@ function FileInput() {
 
   const onFileChange = useCallback(async () => {
     if (!fileHandler.current || !fileHandler.current.files) {
-      setError('Not found: missing file !');
+      setError(t('upload.file_not_found'));
       return;
     }
 
@@ -28,7 +29,7 @@ function FileInput() {
     if (!isFileValid(inputFile)) {
       setFile(undefined);
       setFilename(undefined);
-      setError('Wrong file type: only PDF files are allowed !');
+      setError(t('upload.errors.wrong_file_type'));
       return;
     }
 
@@ -119,8 +120,8 @@ function FileInput() {
 
       <div className={styles.fileInput_controls}>
         <UploadButton />
-        {file && <p className={styles.fileOK}>{filename}</p>}
-        {error && <p className={styles.error}>{error}</p>}
+        {file && <Notification type={NotificationType.SUCCESS}>{filename}</Notification>}
+        {error && <Notification type={NotificationType.ERROR}>{error}</Notification>}
       </div>
     </>
   );

@@ -11,8 +11,11 @@ $color-grey-700: #3c3c3c;
 $color-grey-900: #1c1c1c;
 $color-black: #000000;
 
-// Red
-$color-red: #bb1111;
+// notification
+$color-error: #e26262;
+$color-success: #81d05b;
+$color-warning: #ffca3a;
+$color-info: #4ad5e2;
 
 :root {
   --color-blue: #{$color-blue};
@@ -25,5 +28,8 @@ $color-red: #bb1111;
   --color-grey-700: #{$color-grey-700};
   --color-grey-900: #{$color-grey-900};
   --color-black: #{$color-black};
-  --color-red: #{$color-red};
+  --color-error: #{$color-error};
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-info: #{$color-info};
 }
