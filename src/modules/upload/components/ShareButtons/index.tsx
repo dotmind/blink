@@ -5,27 +5,25 @@ import { faCopy } from '@fortawesome/free-regular-svg-icons';
 
 import Button, { ButtonStyle } from '@/app/components/Button';
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
+import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 
 import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
 
 function ShareButtons() {
   const { shareUrl } = useUpload();
+  const handleShare = useCallback(() => nativeShare(shareUrl as string), [shareUrl]);
 
   const handleCopy = useCallback(() => {
-    if (shareUrl) {
-      navigator.clipboard.writeText(shareUrl);
-    }
-  }, [shareUrl]);
-
-  const handleShare = useCallback(() => {
-    // @TODO: share file using native share dialog
+    navigator.clipboard.writeText(shareUrl as string);
   }, [shareUrl]);
 
   return (
     <div className={styles.share_container}>
-      <Button style={ButtonStyle.SECONDARY} callback={handleShare}>
-        Partager le lien <FontAwesomeIcon icon={faArrowUpFromBracket} />
-      </Button>
+      {canUseNativeShare() && (
+        <Button style={ButtonStyle.SECONDARY} callback={handleShare}>
+          Partager le lien <FontAwesomeIcon icon={faArrowUpFromBracket} />
+        </Button>
+      )}
       <Button style={ButtonStyle.PRIMARY} callback={handleCopy}>
         Copier le lien <FontAwesomeIcon icon={faCopy} />
       </Button>
