@@ -1,10 +1,14 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { usePwa } from '@dotmind/react-use-pwa';
+import { useLocation } from 'react-router';
+
+import Button, { ButtonStyle } from '@/app/components/Button';
 
 import styles from '@/app/components/InstallPwa/styles.module.scss';
 
 function InstallPwa() {
+  const { pathname } = useLocation();
   const { isInstalled, isOffline, isStandalone, canInstall, installPrompt } = usePwa();
   const { t } = useTranslation();
 
@@ -20,9 +24,11 @@ function InstallPwa() {
 
   if (!isStandalone && !isInstalled) {
     return (
-      <button className={styles.pwa_button} type={'button'} onClick={handleInstallPrompt}>
-        {t('common.pwa.install')}
-      </button>
+      <div className={styles.pwa_button} data-fullwidth={pathname !== '/'}>
+        <Button style={ButtonStyle.WHITE} callback={handleInstallPrompt}>
+          {t('common.pwa.install')}
+        </Button>
+      </div>
     );
   }
 
