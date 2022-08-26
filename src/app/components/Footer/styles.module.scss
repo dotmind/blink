@@ -5,7 +5,7 @@
   align-items: center;
   position: fixed;
   left: 0;
-  width: 50%;
+  width: 100%;
   padding: 30px;
   font-weight: 300;
   bottom: env(safe-area-inset-bottom, 0);
@@ -17,7 +17,9 @@
     text-decoration: none;
   }
 
-  &[data-fullwidth='true'] {
-    width: 100%;
+  @media (min-width: 992px) {
+    &:not([data-fullwidth='true']) {
+      width: 50%;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { usePwa } from '@dotmind/react-use-pwa';
 
 import Modal from '@/app/components/Modal';
 import useIsMobile from '@/app/hooks/useIsMobile';
@@ -12,6 +13,7 @@ import background_2 from '@/app/assets/images/placeholder_2.png';
 import styles from '@/app/components/About/styles.module.scss';
 
 function About() {
+  const { isStandalone } = usePwa();
   const isMobile = useIsMobile();
   const [frameIndex, setFrameIndex] = useState(0);
 
@@ -104,6 +106,10 @@ function About() {
       </div>
     </div>
   );
+
+  if (isStandalone) {
+    return null;
+  }
 
   return isMobile ? renderMobile : renderDesktop;
 }
