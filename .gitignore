@@ -26,3 +26,4 @@ dist-ssr
 .env
 .env.production
 .env.local
+stats.html

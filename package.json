@@ -8,6 +8,7 @@
     "dev-host": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "stats": "python3 -m http.server",
     "typescript": "tsc --noEmit",
     "todo": "sh ./scripts/find_todo.sh",
     "prepare": "husky install",
@@ -24,6 +25,7 @@
     "@lottiefiles/react-lottie-player": "3.4.7",
     "classnames": "2.3.1",
     "i18next": "21.8.16",
+    "i18next-browser-languagedetector": "6.1.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "11.18.3",
@@ -49,6 +51,7 @@
     "lint-staged": "12.3.7",
     "path": "0.12.7",
     "prettier": "2.6.0",
+    "rollup-plugin-visualizer": "5.8.0",
     "sass": "1.49.9",
     "typescript": "4.6.4",
     "vite": "3.0.0"
