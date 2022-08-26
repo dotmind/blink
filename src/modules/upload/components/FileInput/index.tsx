@@ -115,7 +115,7 @@ function FileInput() {
 
         <p>{t('upload.input')}</p>
 
-        <input id={'fileLoader'} type={'file'} className={styles.fileInput} ref={fileHandler} />
+        <input id={'fileLoader'} type={'file'} accept={'application/pdf'} className={styles.fileInput} ref={fileHandler} />
       </form>
 
       <div className={styles.fileInput_controls}>

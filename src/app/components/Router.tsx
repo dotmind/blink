@@ -18,38 +18,36 @@ function Router() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path={'/'}
-          element={
-            <div className={'App upload'}>
-              <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route
+            path={'/'}
+            element={
+              <div className={'App upload'}>
                 <UploadProvider>
                   <Upload />
                   <About />
                   <Footer />
                 </UploadProvider>
-              </Suspense>
-            </div>
-          }
-        />
+              </div>
+            }
+          />
 
-        <Route
-          path={':id'}
-          element={
-            <div className={'App download'}>
-              <Suspense fallback={<Loader />}>
+          <Route
+            path={':id'}
+            element={
+              <div className={'App download'}>
                 <DownloadProvider>
                   <FileViewer />
                   <CircleWaves />
                   {isMobile && <About />}
                   <Footer />
                 </DownloadProvider>
-              </Suspense>
-            </div>
-          }
-        />
-      </Routes>
+              </div>
+            }
+          />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

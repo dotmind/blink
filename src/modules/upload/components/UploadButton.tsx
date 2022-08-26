@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUpload } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,6 +15,7 @@ function UploadButton() {
   const { fingerprint } = useApp();
   const { file, setStatus, setShareUrl, filename } = useUpload();
   const { addToHistory } = useHistory();
+  const { t } = useTranslation();
   const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
   const handleUpload = useCallback(async () => {
@@ -53,7 +55,7 @@ function UploadButton() {
 
   return (
     <Button style={ButtonStyle.PRIMARY} callback={handleUpload} disabled={!canUpload}>
-      Uploader un fichier <FontAwesomeIcon icon={faCloudUpload} />
+      {t('upload.button')} <FontAwesomeIcon icon={faCloudUpload} />
     </Button>
   );
 }

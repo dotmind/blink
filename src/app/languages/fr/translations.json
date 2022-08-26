@@ -4,7 +4,8 @@
     "lang": "Français"
   },
   "upload": {
-    "input": "Déposez un fichier ici pour créer un lien",
+    "input": "Déposez un PDF ici pour créer un lien",
+    "button": "Envoyer un PDF",
     "overlay": {
       "title": "Déplacer vos fichiers",
       "description": "Partager facilement des fichiers en toute sécurité."

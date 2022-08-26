@@ -4,6 +4,8 @@
     "lang": "English"
   },
   "upload": {
+    "input": "Drop PDF here",
+    "button": "Upload PDF",
     "overlay": {
       "title": "Drag and drop your files here",
       "description": "Share easily your files with security and privacy"
