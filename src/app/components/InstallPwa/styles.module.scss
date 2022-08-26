@@ -1,0 +1,15 @@
+.pwa_button {
+  position: fixed;
+  color: black;
+  right: calc(50vw + 15px);
+  top: 15px;
+  z-index: 15;
+
+  &[data-fullwidth='true'] {
+    right: 15px;
+  }
+
+  @media (max-width: 992px) {
+    right: 15px;
+  }
+}

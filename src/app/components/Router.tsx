@@ -11,43 +11,42 @@ const Footer = lazy(() => import('@/app/components/Footer'));
 const About = lazy(() => import('@/app/components/About'));
 const FileViewer = lazy(() => import('@/modules/download/components/FileViewer'));
 const CircleWaves = lazy(() => import('@/app/components/CircleWaves'));
+const InstallPwa = lazy(() => import('@/app/components/InstallPwa'));
 
-// @TODO: find a better way to do modify footer based on route
 function Router() {
   const isMobile = useIsMobile();
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route
-            path={'/'}
-            element={
-              <div className={'App upload'}>
+      <div className={'App'}>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route
+              path={'/'}
+              element={
                 <UploadProvider>
                   <Upload />
                   <About />
                   <Footer />
+                  <InstallPwa />
                 </UploadProvider>
-              </div>
-            }
-          />
-
-          <Route
-            path={':id'}
-            element={
-              <div className={'App download'}>
+              }
+            />
+            <Route
+              path={':id'}
+              element={
                 <DownloadProvider>
                   <FileViewer />
                   <CircleWaves />
                   {isMobile && <About />}
                   <Footer />
+                  <InstallPwa />
                 </DownloadProvider>
-              </div>
-            }
-          />
-        </Routes>
-      </Suspense>
+              }
+            />
+          </Routes>
+        </Suspense>
+      </div>
     </BrowserRouter>
   );
 }

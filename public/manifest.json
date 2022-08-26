@@ -1,0 +1,30 @@
+{
+  "lang": "fr",
+  "short_name": "noshit",
+  "name": "noshit",
+  "start_url": ".",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "display": "standalone",
+  "theme_color": "#47B0FF",
+  "background_color": "#DFDFDF",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "fav192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "fav512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable any"
+    }
+  ]
+}

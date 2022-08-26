@@ -1,1 +1,1 @@
-export const URL_KEY_IDENTIFIER = '#k';
+export const URL_KEY_IDENTIFIER = '#';

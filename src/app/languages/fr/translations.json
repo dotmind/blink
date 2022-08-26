@@ -1,7 +1,10 @@
 {
   "common": {
     "name": "Noshit",
-    "lang": "Français"
+    "lang": "Français",
+    "pwa": {
+      "install": "Installer l'application NoShit"
+    }
   },
   "upload": {
     "input": "Déposez un PDF ici pour créer un lien",

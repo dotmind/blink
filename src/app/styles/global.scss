@@ -36,15 +36,6 @@ body {
   background-position: -30vw -100%;
 }
 
-// @TODO: find a better way to do this
-.upload {
-  footer {
-    @media (min-width: 992px) {
-      width: 50%;
-    }
-  }
-}
-
 img {
   width: 100%;
   object-fit: cover;
