@@ -13,7 +13,6 @@ const FileViewer = lazy(() => import('@/modules/download/components/FileViewer')
 const CircleWaves = lazy(() => import('@/app/components/CircleWaves'));
 const InstallPwa = lazy(() => import('@/app/components/InstallPwa'));
 
-// @TODO: find a better way to do modify footer based on route
 function Router() {
   const isMobile = useIsMobile();
 
