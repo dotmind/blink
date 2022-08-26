@@ -22,6 +22,7 @@ function InstallPwa() {
     return <p>{t('common.pwa.offline')} 📶</p>;
   }
 
+  // @TODO: isInstalled not working & always return false
   if (!isStandalone && !isInstalled) {
     return (
       <div className={styles.pwa_button} data-fullwidth={pathname !== '/'}>
