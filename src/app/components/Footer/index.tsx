@@ -14,7 +14,7 @@ function Footer() {
   const isMobile = useIsMobile();
 
   const canRenderMoreInfo = useMemo(() => isMobile && !isStandalone, [isMobile, isStandalone]);
-  const isFullWidth = useMemo(() => pathname === '/' || isStandalone, [pathname, isStandalone]);
+  const isFullWidth = useMemo(() => pathname !== '/' || isStandalone, [pathname, isStandalone]);
 
   return (
     <footer className={styles.footer} data-fullwidth={isFullWidth}>
