@@ -7,7 +7,7 @@ import { faCopy } from '@fortawesome/free-regular-svg-icons';
 import Button, { ButtonStyle } from '@/app/components/Button';
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
-import Tooltip from '@/app/components/Tooltip';
+import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
 
 import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
 
@@ -37,7 +37,7 @@ function ShareButtons() {
       )}
       <Button style={ButtonStyle.PRIMARY} callback={handleCopy}>
         Copier le lien <FontAwesomeIcon icon={faCopy} />
-        {isCopied && <Tooltip>{t('common.tooltip.copied')}</Tooltip>}
+        {isCopied && <Tooltip position={TooltipPosition.right}>{t('common.tooltip.copied')}</Tooltip>}
       </Button>
     </div>
   );

@@ -8,10 +8,28 @@
   border-radius: 0.25rem;
   padding: 0.5rem;
   font-size: 0.5rem;
-  // left: 50%;
-  // top: calc(100% + 5px);
-  // transform: translateX(-50%);
-  left: calc(100% + 5px);
-  top: 50%;
-  transform: translateY(-50%);
+
+  &[data-position="right"]{
+    left: calc(100% + 5px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &[data-position="left"]{
+    right: calc(100% + 5px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &[data-position="top"]{
+    left: 50%;
+    bottom: calc(100% + 5px);
+    transform: translateX(-50%);
+  }
+
+  &[data-position="bottom"]{
+    left: 50%;
+    top: calc(100% + 5px);
+    transform: translateX(-50%);
+  }
 }
