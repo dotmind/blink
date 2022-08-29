@@ -1,7 +1,10 @@
 {
   "common": {
     "name": "Noshit",
-    "lang": "English"
+    "lang": "English",
+    "tooltip": {
+      "copied": "Copied"
+    }
   },
   "upload": {
     "input": "Drop PDF here",

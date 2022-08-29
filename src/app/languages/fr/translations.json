@@ -4,6 +4,9 @@
     "lang": "Français",
     "pwa": {
       "install": "Installer l'application NoShit"
+    },
+    "tooltip": {
+      "copied": "Copié !"
     }
   },
   "upload": {
