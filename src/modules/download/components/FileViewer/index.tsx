@@ -7,6 +7,7 @@ import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
 import Download from '@/modules/download/components/Download';
 import useIsMobile from '@/app/hooks/useIsMobile';
+import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
 
@@ -29,10 +30,7 @@ function FileViewer() {
 
   const isLastPage = useMemo(() => pageNumber === numPages, [pageNumber, numPages]);
 
-  const handleShare = useCallback(() => {
-    // @TODO: use native share dialog or copy to clipboard current url
-    navigator.clipboard.writeText(window.location.href);
-  }, [file]);
+  const handleShare = () => nativeShare(window.location.href);
 
   // pdf worker config for vite bundle
   pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
@@ -63,9 +61,11 @@ function FileViewer() {
               <FontAwesomeIcon icon={faCaretRight} />
             </button>
 
-            <button type={'button'} onClick={handleShare}>
-              <FontAwesomeIcon icon={faArrowUpFromBracket} />
-            </button>
+            {canUseNativeShare() && (
+              <button type={'button'} onClick={handleShare}>
+                <FontAwesomeIcon icon={faArrowUpFromBracket} />
+              </button>
+            )}
           </div>
         </Document>
       </div>
