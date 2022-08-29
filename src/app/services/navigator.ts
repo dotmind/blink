@@ -25,7 +25,7 @@ export function nativeShare(url: string) {
 
   return navigator.share({
     title: 'noshit',
-    text: '🔐',
+    text: 'Noshit - Share your PDF safely 🔐',
     url,
   });
 }

@@ -24,7 +24,6 @@ function ErrorModal() {
 
   const handleRetry = () => {
     setStatus(UploadStatus.IDLE);
-    window.location.reload();
   };
 
   const renderMobile = useMemo(
