@@ -1,7 +1,13 @@
 {
   "common": {
     "name": "Noshit",
-    "lang": "English"
+    "lang": "English",
+    "pwa": {
+      "install": "Installer l'application NoShit"
+    },
+    "tooltip": {
+      "copied": "Copied !"
+    }
   },
   "upload": {
     "input": "Drop PDF here",
@@ -13,7 +19,12 @@
     "errors": {
       "wrong_file_type": "Wrong file type: only PDF files are allowed !",
       "file_too_big": "File is too big !",
-      "file_not_found": "File not found !"
+      "file_not_found": "File not found !",
+      "upload_failed": {
+        "title": "Une erreur est survenue",
+        "description": "Le serveur à rencontré une erreur lors de l'envoi de votre fichier. Veuillez réessayer.",
+        "retry": "Recommencer"
+      }
     }
   }
 }

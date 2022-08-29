@@ -16,6 +16,8 @@ export type UploadContextType = {
   setStatus: (status: UploadStatus) => void;
   filename?: string;
   setFilename: (filename: string | undefined) => void;
+  error?: Error;
+  setError: (error: Error) => void;
 };
 
 const UploadContext = createContext<UploadContextType>({
@@ -27,6 +29,8 @@ const UploadContext = createContext<UploadContextType>({
   setStatus: () => {},
   filename: undefined,
   setFilename: () => {},
+  error: undefined,
+  setError: () => {},
 });
 
 interface IProps {
@@ -38,9 +42,10 @@ function UploadProvider({ children }: IProps) {
   const [shareUrl, setShareUrl] = useState<string>();
   const [status, setStatus] = useState<UploadStatus>(UploadStatus.IDLE);
   const [filename, setFilename] = useState<string>();
+  const [error, setError] = useState<Error>();
 
   const value = useMemo(
-    () => ({ file, setFile, shareUrl, setShareUrl, status, setStatus, filename, setFilename }),
+    () => ({ file, setFile, shareUrl, setShareUrl, status, setStatus, filename, setFilename, error, setError }),
     [file, shareUrl, status, filename],
   );
 

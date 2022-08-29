@@ -24,11 +24,6 @@ function ErrorModal() {
 
   const handleRetry = () => {
     setStatus(UploadStatus.IDLE);
-    // @TODO: Retry upload
-  };
-
-  const handleCancel = () => {
-    setStatus(UploadStatus.IDLE);
   };
 
   const renderMobile = useMemo(
@@ -48,9 +43,6 @@ function ErrorModal() {
             <Button callback={handleRetry} style={ButtonStyle.PRIMARY}>
               {t('upload.errors.upload_failed.retry')}
               <FontAwesomeIcon icon={faRotateRight} />
-            </Button>
-            <Button callback={handleCancel} style={ButtonStyle.WHITE}>
-              {t('upload.errors.upload_failed.cancel')}
             </Button>
           </div>
         </div>

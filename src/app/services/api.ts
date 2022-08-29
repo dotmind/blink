@@ -1,10 +1,10 @@
 import { API_URL, API_VERSION } from '@/app/constants/api';
 import { signRequest } from '@/app/services/crypto';
 
-const endpoint = (path: string): string => `${API_URL}/files/${path}`;
+const endpoint = (path: string): string => `${API_URL}/files/${path}/`;
 
 export async function uploadFile(fingerprint: string, file: ArrayBuffer, filename: string): Promise<string> {
-  const path = '/upload';
+  const path = 'upload';
   const { signature, timestamp } = await signRequest('POST', path, fingerprint, API_VERSION);
 
   const headers = new Headers();
@@ -12,18 +12,19 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
   headers.append('signature', signature);
   headers.append('timestamp', timestamp);
   headers.append('fingerprint', fingerprint);
-
   headers.append('filename', filename);
 
   const request = await fetch(endpoint(path), {
     method: 'POST',
     headers,
     body: file,
+  }).catch((error) => {
+    throw new Error(error);
   });
 
   const { success, data } = await request.json();
   if (!success) {
-    throw new Error('Upload failed');
+    throw new Error('Upload failed with no further information');
   }
 
   return data.id;
@@ -36,7 +37,7 @@ export async function receiveFile(
   file: { type: string; data: ArrayBuffer };
   filename: string;
 }> {
-  const path = `/preview/${id}`;
+  const path = `preview/${id}`;
   const { signature, timestamp } = await signRequest('GET', path, fingerprint, API_VERSION);
 
   const headers = new Headers();

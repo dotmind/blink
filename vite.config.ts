@@ -7,6 +7,7 @@ import { resolve } from 'path';
 export default defineConfig({
   // @xxx Vite issue https://github.com/btd/rollup-plugin-visualizer/issues/124#issuecomment-1221295477
   plugins: [react(), visualizer() as PluginOption],
+  server: { port: 8080 },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),

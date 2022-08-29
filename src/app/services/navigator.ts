@@ -14,24 +14,55 @@ export async function extractJwkFromUrl(): Promise<string> {
   return key;
 }
 
-export function slugify(str: string): string {
-  const index = str.lastIndexOf('.');
-  const extension = index > 0 ? str.slice(index) : '';
-  let name = index > 0 ? str.slice(0, index) : str;
+export function canUseNativeShare() {
+  return !!navigator.share;
+}
 
-  name = name.replace(/^\s+|\s+$/g, '');
-  name = name.toLowerCase();
-
-  const from = 'àáäâèéëêìíïîòóöôùúüûñç·/_,:;';
-  const to = 'aaaaeeeeiiiioooouuuunc______';
-  for (let i = 0, l = from.length; i < l; i += 1) {
-    name = name.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+export function nativeShare(url: string) {
+  if (!canUseNativeShare()) {
+    throw new Error('Native share not supported');
   }
 
-  name = name
-    .replace(/[^a-z0-9 -]/g, '')
-    .replace(/\s+/g, '_')
-    .replace(/-+/g, '_');
+  return navigator.share({
+    title: 'noshit',
+    text: 'Noshit - Share your PDF safely 🔐',
+    url,
+  });
+}
 
-  return name + extension;
+async function isChildWindow(): Promise<boolean> {
+  const { opener } = window;
+  if (opener) {
+    throw new Error('Parent window detected');
+  }
+
+  return false;
+}
+
+async function isFacebookApp(): Promise<boolean> {
+  const ua = navigator.userAgent || navigator.vendor;
+  const fbAgent = ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1 || ua.indexOf('Instagram') > -1;
+
+  if (fbAgent) {
+    throw new Error('Facebook agent detected');
+  }
+
+  return false;
+}
+
+async function isIframe(): Promise<boolean> {
+  const frameEl = window.frameElement;
+  if (frameEl) {
+    throw new Error('Iframe detected');
+  }
+
+  return false;
+}
+
+export async function isInInsecureContext(): Promise<void> {
+  try {
+    await Promise.all([isFacebookApp(), isChildWindow(), isIframe()]);
+  } catch (e) {
+    throw new Error('Insecure context. Please use your favorite browser instead.');
+  }
 }

@@ -13,7 +13,7 @@ import Button, { ButtonStyle } from '@/app/components/Button';
 
 function UploadButton() {
   const { fingerprint } = useApp();
-  const { file, setStatus, setShareUrl, filename } = useUpload();
+  const { file, setStatus, setShareUrl, filename, setError } = useUpload();
   const { addToHistory } = useHistory();
   const { t } = useTranslation();
   const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
@@ -50,6 +50,7 @@ function UploadButton() {
       });
     } catch (error) {
       setStatus(UploadStatus.ERROR);
+      setError(error as Error);
     }
   }, [file, setStatus, setShareUrl, fingerprint, canUpload]);
 
