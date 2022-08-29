@@ -9,25 +9,25 @@
   padding: 0.5rem;
   font-size: 0.5rem;
 
-  &[data-position="right"]{
+  &[data-position='right'] {
     left: calc(100% + 5px);
     top: 50%;
     transform: translateY(-50%);
   }
 
-  &[data-position="left"]{
+  &[data-position='left'] {
     right: calc(100% + 5px);
     top: 50%;
     transform: translateY(-50%);
   }
 
-  &[data-position="top"]{
+  &[data-position='top'] {
     left: 50%;
     bottom: calc(100% + 5px);
     transform: translateX(-50%);
   }
 
-  &[data-position="bottom"]{
+  &[data-position='bottom'] {
     left: 50%;
     top: calc(100% + 5px);
     transform: translateX(-50%);

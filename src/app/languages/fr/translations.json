@@ -23,8 +23,7 @@
       "upload_failed": {
         "title": "Une erreur est survenue",
         "description": "Le serveur à rencontré une erreur lors de l'envoi de votre fichier. Veuillez réessayer.",
-        "retry": "Recommencer",
-        "cancel": "Annuler"
+        "retry": "Recommencer"
       }
     }
   }
