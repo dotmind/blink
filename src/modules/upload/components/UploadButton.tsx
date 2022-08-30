@@ -8,13 +8,11 @@ import { useApp } from '@/app/providers/AppProdiver';
 import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 import { uploadFile } from '@/app/services/api';
 import { toShareUrl } from '@/app/services/navigator';
-import useHistory from '@/app/hooks/useHistory';
 import Button, { ButtonStyle } from '@/app/components/Button';
 
 function UploadButton() {
   const { fingerprint } = useApp();
-  const { file, setStatus, setShareUrl, filename, setError } = useUpload();
-  const { addToHistory } = useHistory();
+  const { file, setStatus, setShareUrl, filename, setError, addToHistory } = useUpload();
   const { t } = useTranslation();
   const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
@@ -34,8 +32,8 @@ function UploadButton() {
       const url = toShareUrl(id, jwk);
 
       addToHistory({ filename: filename as string, url });
-
       setShareUrl(url);
+
       // @TODO: Re enable when UI ready
       // setStatus(UploadStatus.SUCCESS);
       // status UI debug controls :

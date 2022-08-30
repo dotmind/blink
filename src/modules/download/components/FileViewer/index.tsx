@@ -2,6 +2,7 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import { useState, useCallback, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
@@ -12,11 +13,12 @@ import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
 
 function FileViewer() {
-  const { file } = useDownload();
+  const { file, fileName } = useDownload();
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { width, height } = useWindowSize();
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
 
   const fileSize = useMemo(
     () => ({
@@ -42,14 +44,22 @@ function FileViewer() {
     [file],
   );
 
+  const renderDownload = useMemo(() => {
+    if (!file || !fileName) {
+      return null;
+    }
+
+    return <Download file={file} fileName={fileName} />;
+  }, [file, fileName]);
+
   return (
     <div className={'container justify-center flex-row'}>
       <div className={styles.fileViewer}>
         <header>
-          <h1>Tu as reçu un fichier !</h1>
-          <p>Ce fichier expireras dans 14 jours !</p>
+          <h1>{t('fileviewer.title')}</h1>
+          <p>{t('fileviewer.estimation')}</p>
         </header>
-        <Download />
+        {renderDownload}
         <Document className={styles.viewerParent} file={file} onLoadSuccess={onPDFReady}>
           <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
           <div className={styles.controls}>

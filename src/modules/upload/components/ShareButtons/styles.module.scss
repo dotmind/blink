@@ -1,5 +1,6 @@
 .share_container {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
   display: flex;
   gap: 1rem;
@@ -8,5 +9,6 @@
 
   button {
     flex-grow: 1;
+    font-size: 0.8rem;
   }
 }

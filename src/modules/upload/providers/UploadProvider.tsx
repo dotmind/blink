@@ -1,5 +1,7 @@
 import { useState, createContext, useContext, useMemo } from 'react';
 
+import useHistory, { HistoryItem } from '@/app/hooks/useHistory';
+
 export enum UploadStatus {
   IDLE = 'IDLE',
   UPLOADING = 'UPLOADING',
@@ -18,6 +20,8 @@ export type UploadContextType = {
   setFilename: (filename: string | undefined) => void;
   error?: Error;
   setError: (error: Error) => void;
+  history: HistoryItem[];
+  addToHistory: (file: { filename: string; url: string }) => void;
 };
 
 const UploadContext = createContext<UploadContextType>({
@@ -31,6 +35,8 @@ const UploadContext = createContext<UploadContextType>({
   setFilename: () => {},
   error: undefined,
   setError: () => {},
+  history: [],
+  addToHistory: () => {},
 });
 
 interface IProps {
@@ -43,10 +49,24 @@ function UploadProvider({ children }: IProps) {
   const [status, setStatus] = useState<UploadStatus>(UploadStatus.IDLE);
   const [filename, setFilename] = useState<string>();
   const [error, setError] = useState<Error>();
+  const { history, addToHistory } = useHistory();
 
   const value = useMemo(
-    () => ({ file, setFile, shareUrl, setShareUrl, status, setStatus, filename, setFilename, error, setError }),
-    [file, shareUrl, status, filename],
+    () => ({
+      file,
+      setFile,
+      shareUrl,
+      setShareUrl,
+      status,
+      setStatus,
+      filename,
+      setFilename,
+      error,
+      setError,
+      history,
+      addToHistory,
+    }),
+    [file, shareUrl, status, filename, error, history, addToHistory],
   );
 
   return <UploadContext.Provider value={value}>{children}</UploadContext.Provider>;
