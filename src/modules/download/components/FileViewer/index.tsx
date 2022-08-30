@@ -12,7 +12,7 @@ import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
 
 function FileViewer() {
-  const { file } = useDownload();
+  const { file, fileName } = useDownload();
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { width, height } = useWindowSize();
@@ -42,6 +42,14 @@ function FileViewer() {
     [file],
   );
 
+  const renderDownload = useMemo(() => {
+    if (!file || !fileName) {
+      return false;
+    }
+
+    return <Download file={file} fileName={fileName} />;
+  }, [file, fileName]);
+
   return (
     <div className={'container justify-center flex-row'}>
       <div className={styles.fileViewer}>
@@ -49,7 +57,7 @@ function FileViewer() {
           <h1>Tu as reçu un fichier !</h1>
           <p>Ce fichier expireras dans 14 jours !</p>
         </header>
-        <Download />
+        {renderDownload}
         <Document className={styles.viewerParent} file={file} onLoadSuccess={onPDFReady}>
           <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
           <div className={styles.controls}>
