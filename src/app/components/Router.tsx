@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Loader from '@/app/components/Loader';
 
-const Transfer = lazy(() => import('@/app/pages/Transfer'));
+const Transfer = lazy(() => import('@/app/pages/Home'));
 const Preview = lazy(() => import('@/app/pages/Preview'));
 
 function Router() {
