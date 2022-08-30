@@ -2,10 +2,10 @@ import { useCallback, useEffect } from 'react';
 
 import usePersistState from '@/app/hooks/usePersistState';
 import { LOCAL_KEY_VERSION } from '@/app/constants/storage';
-import { EXPIRATION_TIME } from '@/app/constants/file';
+import { FILE_EXPIRATION_TIME } from '@/app/constants/file';
 
 /* eslint-disable-next-line no-eval */
-const ExpirationTime = eval(EXPIRATION_TIME);
+const EXPIRATION_TIME = eval(FILE_EXPIRATION_TIME);
 
 export type HistoryItem = {
   filename: string;
@@ -28,7 +28,7 @@ const useHistory = (): {
 
   const addToHistory = useCallback(
     ({ filename, url }: { filename: string; url: string }): void => {
-      const expiresAt = new Date(Date.now() + ExpirationTime).toISOString();
+      const expiresAt = new Date(Date.now() + EXPIRATION_TIME).toISOString();
       const item = {
         filename,
         url,
