@@ -1,7 +1,7 @@
 .downloadButton {
   position: absolute;
   max-width: 25vw;
-  right: 30px;
+  right: 15px;
   bottom: 10vh;
   background: var(--color-white);
   border-radius: 8px;
@@ -11,6 +11,7 @@
   text-align: start;
   font-size: 0.9rem;
   cursor: pointer;
+  z-index: 13;
 
   > div {
     display: flex;
