@@ -2,6 +2,7 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import { useState, useCallback, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
@@ -17,6 +18,7 @@ function FileViewer() {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { width, height } = useWindowSize();
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
 
   const fileSize = useMemo(
     () => ({
@@ -44,7 +46,7 @@ function FileViewer() {
 
   const renderDownload = useMemo(() => {
     if (!file || !fileName) {
-      return false;
+      return null;
     }
 
     return <Download file={file} fileName={fileName} />;
@@ -54,8 +56,8 @@ function FileViewer() {
     <div className={'container justify-center flex-row'}>
       <div className={styles.fileViewer}>
         <header>
-          <h1>Tu as reçu un fichier !</h1>
-          <p>Ce fichier expireras dans 14 jours !</p>
+          <h1>{t('fileviewer.title')}</h1>
+          <p>{t('fileviewer.estimation')}</p>
         </header>
         {renderDownload}
         <Document className={styles.viewerParent} file={file} onLoadSuccess={onPDFReady}>

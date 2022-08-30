@@ -30,5 +30,9 @@
         "retry": "Recommencer"
       }
     }
+  },
+  "fileviewer": {
+    "title": "Tu as reçu un fichier !",
+    "estimation": "Ce fichier expireras dans 14 jours !"
   }
 }
