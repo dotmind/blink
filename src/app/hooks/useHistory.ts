@@ -2,6 +2,10 @@ import { useCallback, useEffect } from 'react';
 
 import usePersistState from '@/app/hooks/usePersistState';
 import { LOCAL_KEY_VERSION } from '@/app/constants/storage';
+import { FILE_EXPIRATION_TIME } from '@/app/constants/file';
+
+/* eslint-disable-next-line no-eval */
+const ExpirationTime = eval(FILE_EXPIRATION_TIME);
 
 export type HistoryItem = {
   filename: string;
@@ -20,19 +24,22 @@ const useHistory = (): {
     if (cleanExpiredHistory.length !== history.length) {
       setHistory([...cleanExpiredHistory]);
     }
-  }, [history]);
+  }, [history, setHistory]);
 
-  const addToHistory = useCallback(({ filename, url }: { filename: string; url: string }): void => {
-    // @todo Put expire at in constant and env file
-    const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24 * 14).toISOString();
-    const item = {
-      filename,
-      url,
-      expiresAt,
-    };
+  const addToHistory = useCallback(
+    ({ filename, url }: { filename: string; url: string }): void => {
+      const expiresAt = new Date(Date.now() + ExpirationTime).toISOString();
+      const item = {
+        filename,
+        url,
+        expiresAt,
+      };
 
-    setHistory((prevState) => [...prevState, item]);
-  }, []);
+      setHistory([...history, item]);
+      // setHistory((prevState) => [...prevState, item]);
+    },
+    [setHistory],
+  );
 
   return { history, addToHistory };
 };

@@ -11,11 +11,7 @@ function History() {
   const { history } = useHistory();
 
   const renderHistory = useMemo(() => {
-    if (!history.length) {
-      return null;
-    }
-
-    return history.map((item) => (
+    const renderList = history.map((item) => (
       <a className={styles.historyCard} key={item.url} href={item.url} target={'_blank'} rel={'noreferrer'}>
         <li>
           <div>
@@ -26,14 +22,16 @@ function History() {
         </li>
       </a>
     ));
+
+    return (
+      <div className={styles.history_container}>
+        <h3>Historique des transferts</h3>
+        <ul className={styles.historyList}>{renderList}</ul>
+      </div>
+    );
   }, [history]);
 
-  return (
-    <div className={styles.history_container}>
-      <h3>Historique des transferts</h3>
-      <ul className={styles.historyList}>{renderHistory}</ul>
-    </div>
-  );
+  return renderHistory;
 }
 
 export default History;
