@@ -4,7 +4,7 @@ import About from '@/app/components/About';
 import Footer from '@/app/components/Footer';
 import InstallPwa from '@/app/components/InstallPwa';
 
-function Transfer() {
+function Home() {
   return (
     <UploadProvider>
       <Upload />
@@ -15,4 +15,4 @@ function Transfer() {
   );
 }
 
-export default Transfer;
+export default Home;

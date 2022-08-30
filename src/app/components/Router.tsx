@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Loader from '@/app/components/Loader';
 
-const Transfer = lazy(() => import('@/app/pages/Home'));
+const Home = lazy(() => import('@/app/pages/Home'));
 const Preview = lazy(() => import('@/app/pages/Preview'));
 
 function Router() {
@@ -12,7 +12,7 @@ function Router() {
       <div className={'App'}>
         <Suspense fallback={<Loader />}>
           <Routes>
-            <Route path={'/'} element={<Transfer />} />
+            <Route path={'/'} element={<Home />} />
             <Route path={':id'} element={<Preview />} />
           </Routes>
         </Suspense>
