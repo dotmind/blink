@@ -7,6 +7,10 @@
     },
     "tooltip": {
       "copied": "Copied !"
+    },
+    "history": {
+      "title": "Historique des transferts",
+      "expiresin": "Expire dans"
     }
   },
   "upload": {
