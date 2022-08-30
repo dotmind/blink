@@ -15,7 +15,7 @@ function Download({ file, fileName }: IProps) {
     (e: MouseEvent) => {
       e.preventDefault();
       const link = document.createElement('a');
-      link.href = file as string;
+      link.href = file;
       link.download = fileName;
       link.click();
     },
