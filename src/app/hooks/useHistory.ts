@@ -2,10 +2,10 @@ import { useCallback, useEffect } from 'react';
 
 import usePersistState from '@/app/hooks/usePersistState';
 import { LOCAL_KEY_VERSION } from '@/app/constants/storage';
-import { FILE_EXPIRATION_TIME } from '@/app/constants/file';
+import { EXPIRATION_TIME } from '@/app/constants/file';
 
 /* eslint-disable-next-line no-eval */
-const ExpirationTime = eval(FILE_EXPIRATION_TIME);
+const ExpirationTime = eval(EXPIRATION_TIME);
 
 export type HistoryItem = {
   filename: string;
