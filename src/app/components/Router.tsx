@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import useIsMobile from '@/app/hooks/useIsMobile';
@@ -16,39 +16,44 @@ const InstallPwa = lazy(() => import('@/app/components/InstallPwa'));
 function Router() {
   const isMobile = useIsMobile();
 
-  return (
-    <BrowserRouter>
-      <div className={'App'}>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route
-              path={'/'}
-              element={
-                <UploadProvider>
-                  <Upload />
-                  <About />
-                  <Footer />
-                  <InstallPwa />
-                </UploadProvider>
-              }
-            />
-            <Route
-              path={':id'}
-              element={
-                <DownloadProvider>
-                  <FileViewer />
-                  <CircleWaves />
-                  {isMobile && <About />}
-                  <Footer />
-                  <InstallPwa />
-                </DownloadProvider>
-              }
-            />
-          </Routes>
-        </Suspense>
-      </div>
-    </BrowserRouter>
+  const app = useMemo(
+    () => (
+      <BrowserRouter>
+        <div className={'App'}>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route
+                path={'/'}
+                element={
+                  <UploadProvider>
+                    <Upload />
+                    <About />
+                    <Footer />
+                    <InstallPwa />
+                  </UploadProvider>
+                }
+              />
+              <Route
+                path={':id'}
+                element={
+                  <DownloadProvider>
+                    <FileViewer />
+                    <CircleWaves />
+                    {isMobile && <About />}
+                    <Footer />
+                    <InstallPwa />
+                  </DownloadProvider>
+                }
+              />
+            </Routes>
+          </Suspense>
+        </div>
+      </BrowserRouter>
+    ),
+    [isMobile],
   );
+
+  return app;
 }
 
 export default Router;
