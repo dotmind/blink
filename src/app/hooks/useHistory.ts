@@ -35,8 +35,7 @@ const useHistory = (): {
         expiresAt,
       };
 
-      setHistory([...history, item]);
-      // setHistory((prevState) => [...prevState, item]);
+      setHistory((prevState) => [...prevState, item]);
     },
     [setHistory],
   );
