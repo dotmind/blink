@@ -11,6 +11,10 @@ function History() {
   const { history } = useHistory();
 
   const renderHistory = useMemo(() => {
+    if (!history.length) {
+      return null;
+    }
+
     const renderList = history.map((item) => (
       <a className={styles.historyCard} key={item.url} href={item.url} target={'_blank'} rel={'noreferrer'}>
         <li>
