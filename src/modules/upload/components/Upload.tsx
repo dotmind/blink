@@ -22,7 +22,7 @@ function Upload() {
       case UploadStatus.ERROR:
         return (
           <>
-            <FileInput />
+            <UploadFile />
             <ErrorModal />
           </>
         );
