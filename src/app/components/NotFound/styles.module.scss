@@ -20,6 +20,11 @@
     background-position: -30vw -100%;
     filter: grayscale(1);
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    padding: 0 30px;
+  }
 }
 
 .content {
@@ -36,6 +41,19 @@
 }
 
 .image {
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    padding: 3rem;
+    background-color: var(--color-white);
+    border: 1px solid #c7d8e4;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   img {
     width: 128px;
     height: 128px;
