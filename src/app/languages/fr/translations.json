@@ -11,6 +11,13 @@
     "history": {
       "title": "Historique des transferts",
       "expiresin": "Expire dans"
+    },
+    "errors": {
+      "404": {
+        "title": "Page inexistante",
+        "message": "La page  ou le fichier que vous chercher n’existe pas, à expiré. Retrouver votre route en passant par l’acceuil.",
+        "button": "Retour à l’acceuil"
+      }
     }
   },
   "upload": {
@@ -26,7 +33,7 @@
       "file_not_found": "Fichier introuvable !",
       "upload_failed": {
         "title": "Une erreur est survenue",
-        "description": "Le serveur à rencontré une erreur lors de l'envoi de votre fichier. Veuillez réessayer.",
+        "description": "Le serveur a rencontré une situation qu'il ne sait pas traiter. Si l’erreur revient plusieurs fois, contactez nous.",
         "retry": "Recommencer"
       }
     }

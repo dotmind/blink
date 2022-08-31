@@ -17,8 +17,6 @@ function UploadButton() {
   const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
   const handleUpload = useCallback(async () => {
-    setStatus(UploadStatus.UPLOADING);
-
     try {
       if (!canUpload) {
         throw new Error('Fingerprint or file is missing');
@@ -29,6 +27,8 @@ function UploadButton() {
       const jwk = await exportKey(cryptoKey);
 
       const id = await uploadFile(fingerprint, cryptedPayload, filename as string);
+      setStatus(UploadStatus.UPLOADING);
+
       const url = toShareUrl(id, jwk);
 
       addToHistory({ filename: filename as string, url });

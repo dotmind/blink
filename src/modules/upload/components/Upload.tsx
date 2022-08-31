@@ -20,7 +20,12 @@ function Upload() {
       case UploadStatus.SUCCESS:
         return <UploadFile />;
       case UploadStatus.ERROR:
-        return <ErrorModal />;
+        return (
+          <>
+            <FileInput />
+            <ErrorModal />
+          </>
+        );
       default:
         return null;
     }

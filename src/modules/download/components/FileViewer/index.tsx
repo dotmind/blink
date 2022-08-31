@@ -11,6 +11,7 @@ import useIsMobile from '@/app/hooks/useIsMobile';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
+import NotFound from '@/app/components/NotFound';
 
 function FileViewer() {
   const { file, fileName } = useDownload();
@@ -51,6 +52,10 @@ function FileViewer() {
 
     return <Download file={file} fileName={fileName} />;
   }, [file, fileName]);
+
+  if (!file) {
+    return <NotFound />;
+  }
 
   return (
     <div className={'container justify-center flex-row'}>
