@@ -1,0 +1,27 @@
+.container {
+  width: 100vw;
+  justify-content: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 500px;
+
+  h1,
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+.image {
+  img {
+    width: 128px;
+    height: 128px;
+  }
+}

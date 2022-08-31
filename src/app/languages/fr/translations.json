@@ -11,6 +11,13 @@
     "history": {
       "title": "Historique des transferts",
       "expiresin": "Expire dans"
+    },
+    "errors": {
+      "404": {
+        "title": "Page inexistante",
+        "message": "La page  ou le fichier que vous chercher n’existe pas, à expiré. Retrouver votre route en passant par l’acceuil.",
+        "button": "Retour à l’acceuil"
+      }
     }
   },
   "upload": {
