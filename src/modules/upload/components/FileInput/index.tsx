@@ -7,6 +7,7 @@ import UploadButton from '@/modules/upload/components/UploadButton';
 import Notification, { NotificationType } from '@/app/components/Notification';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
+import { sanitizeName } from '@/app/services/navigator';
 
 import styles from '@/modules/upload/components/FileInput/styles.module.scss';
 
@@ -37,7 +38,7 @@ function FileInput() {
     const { name } = inputFile;
 
     setError(null);
-    setFilename(name);
+    setFilename(sanitizeName(name));
     setFile(base64 as ArrayBuffer);
   }, [file, fileHandler, setFile, setFilename]);
 

@@ -53,6 +53,7 @@ function FileViewer() {
     return <Download file={file} fileName={fileName} />;
   }, [file, fileName]);
 
+  // @TODO - when file is loading show loader instead of 404
   if (!file) {
     return <NotFound />;
   }
