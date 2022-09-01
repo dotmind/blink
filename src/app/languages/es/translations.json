@@ -1,0 +1,50 @@
+{
+  "common": {
+    "name": "Noshit (es)",
+    "pwa": {
+      "install": "Installer l'application NoShit"
+    },
+    "tooltip": {
+      "copied": "Copié !"
+    },
+    "history": {
+      "title": "Historique des transferts (es)",
+      "expiresin": "Expire dans"
+    },
+    "errors": {
+      "404": {
+        "title": "Page inexistante (es)",
+        "message": "La page  ou le fichier que vous chercher n’existe pas, à expiré. Retrouver votre route en passant par l’acceuil. (es)",
+        "button": "Retour à l’acceuil"
+      }
+    }
+  },
+  "upload": {
+    "input": "Déposez un PDF ici pour créer un lien (es)",
+    "button": "Envoyer un PDF (es)",
+    "overlay": {
+      "title": "Déplacer vos fichiers (es)",
+      "description": "Partager facilement des fichiers en toute sécurité."
+    },
+    "errors": {
+      "wrong_file_type": "Mauvaise extension de fichier ! (es)",
+      "file_too_big": "Fichier trop volumineux ! (es)",
+      "file_not_found": "Fichier introuvable ! (es)",
+      "upload_failed": {
+        "title": "Une erreur est survenue (es)",
+        "description": "Le serveur a rencontré une situation qu'il ne sait pas traiter. Si l’erreur revient plusieurs fois, contactez nous. (es)",
+        "retry": "Recommencer"
+      }
+    }
+  },
+  "fileviewer": {
+    "title": "Tu as reçu un fichier ! (es)",
+    "estimation": "Ce fichier expireras dans 14 jours !"
+  },
+  "lang": {
+    "en": "Inglés",
+    "fr": "Francés",
+    "de": "Alemán",
+    "es": "Español"
+  }
+}
