@@ -22,8 +22,10 @@ function Footer() {
         Made by Dotmind
       </a>
 
-      <LangSwitcher />
-      {canRenderMoreInfo && <MoreInfo />}
+      <div className={styles.footer_cta}>
+        <LangSwitcher />
+        {canRenderMoreInfo && <MoreInfo />}
+      </div>
     </footer>
   );
 }

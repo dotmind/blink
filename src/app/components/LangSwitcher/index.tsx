@@ -4,11 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 
 import { availableLanguages } from '@/app/services/i18n';
+import useIsMobile from '@/app/hooks/useIsMobile';
 
 import styles from '@/app/components/LangSwitcher/styles.module.scss';
 
 function LangSwitcher() {
   const { t, i18n } = useTranslation();
+  const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSwitchLanguage = (lang: string) => {
@@ -23,7 +25,7 @@ function LangSwitcher() {
   return (
     <div className={styles.dropdown_container}>
       <button className={styles.langSwitcher} type={'button'} onClick={openDropdown}>
-        <p className={styles.lang}>{t(`lang.${i18n.language}`)}</p>
+        {!isMobile && <p className={styles.lang}>{t(`lang.${i18n.language}`)}</p>}
         <FontAwesomeIcon icon={faLanguage} />
       </button>
       <div className={styles.lang_dropdown} data-isopen={isOpen}>
