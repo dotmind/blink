@@ -1,5 +1,5 @@
 // Display time remain in smallest unit
-export function timeRemaining(expiresAt: string): string {
+export function timeRemaining(expiresAt: string | number): string {
   const now = new Date();
   const expires = new Date(expiresAt);
   const diff = expires.getTime() - now.getTime();

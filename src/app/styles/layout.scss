@@ -19,7 +19,7 @@ $margin-x: 30px;
   flex-direction: column;
   padding: var(--margin-x);
   padding-bottom: 85px;
-  overflow-y: scroll;
+  overflow-y: auto;
   flex-grow: 1;
   height: 100vh;
 }

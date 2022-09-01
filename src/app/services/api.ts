@@ -36,6 +36,7 @@ export async function receiveFile(
 ): Promise<{
   file: { type: string; data: ArrayBuffer };
   filename: string;
+  expireAt: string;
 }> {
   const path = `preview/${id}`;
   const { signature, timestamp } = await signRequest('GET', path, fingerprint, API_VERSION);
