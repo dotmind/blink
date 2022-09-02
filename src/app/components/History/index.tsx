@@ -17,7 +17,8 @@ function History() {
       return null;
     }
 
-    const renderList = history.map((item) => {
+    
+    const renderList = useMemo(() => history.map((item) => {
       const expiresAt = timeRemaining(item.expiresAt);
       return (
         <a className={styles.historyCard} key={item.url} href={item.url} target={'_blank'} rel={'noreferrer'}>
@@ -25,6 +26,7 @@ function History() {
             <div>
               <p className={styles.filename}>{item.filename}</p>
               <p className={styles.expiresIn}>
+                {/* @TODO: not working ... */}
                 {t('common.history.expiresin')} {expiresAt.time} {t(expiresAt.unit)}
               </p>
             </div>
@@ -32,7 +34,7 @@ function History() {
           </li>
         </a>
       );
-    });
+    }) , [history, t]);
 
     return (
       <div className={styles.history_container}>
