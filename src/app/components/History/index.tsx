@@ -17,19 +17,22 @@ function History() {
       return null;
     }
 
-    const renderList = history.map((item) => (
-      <a className={styles.historyCard} key={item.url} href={item.url} target={'_blank'} rel={'noreferrer'}>
-        <li>
-          <div>
-            <p className={styles.filename}>{item.filename}</p>
-            <p className={styles.expiresIn}>
-              {t('common.history.expiresin')} {timeRemaining(item.expiresAt)}
-            </p>
-          </div>
-          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-        </li>
-      </a>
-    ));
+    const renderList = history.map((item) => {
+      const expiresAt = timeRemaining(item.expiresAt);
+      return (
+        <a className={styles.historyCard} key={item.url} href={item.url} target={'_blank'} rel={'noreferrer'}>
+          <li>
+            <div>
+              <p className={styles.filename}>{item.filename}</p>
+              <p className={styles.expiresIn}>
+                {t('common.history.expiresin')} {expiresAt.time} {t(expiresAt.unit)}
+              </p>
+            </div>
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+          </li>
+        </a>
+      );
+    });
 
     return (
       <div className={styles.history_container}>

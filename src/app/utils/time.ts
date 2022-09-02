@@ -1,5 +1,5 @@
 // Display time remain in smallest unit
-export function timeRemaining(expiresAt: string | number): string {
+export function timeRemaining(expiresAt: string | number): { time: number; unit: string } {
   const now = new Date();
   const expires = new Date(expiresAt);
   const diff = expires.getTime() - now.getTime();
@@ -11,24 +11,24 @@ export function timeRemaining(expiresAt: string | number): string {
   const years = Math.round(months / 12);
 
   if (seconds < 60) {
-    return `${seconds} seconde(s)`;
+    return { time: seconds, unit: 'time.seconds' };
   }
 
   if (minutes < 60) {
-    return `${minutes} minute(s)`;
+    return { time: minutes, unit: 'time.minutes' };
   }
 
   if (hours < 24) {
-    return `${hours} heure(s)`;
+    return { time: hours, unit: 'time.hours' };
   }
 
   if (days < 30) {
-    return `${days} jour(s)`;
+    return { time: days, unit: 'time.days' };
   }
 
   if (months < 12) {
-    return `${months} mois`;
+    return { time: months, unit: 'time.months' };
   }
 
-  return `${years} année(s)`;
+  return { time: years, unit: 'time.years' };
 }

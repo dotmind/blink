@@ -39,12 +39,20 @@
   },
   "fileviewer": {
     "title": "Tu as reçu un fichier ! (es)",
-    "estimation": "Ce fichier expireras dans 14 jours !"
+    "estimation": "El pdf caducara en"
   },
   "lang": {
     "en": "Inglés",
     "fr": "Francés",
     "de": "Alemán",
     "es": "Español"
+  },
+  "time": {
+    "seconds": "segundo(s)",
+    "minutes": "minuto(s)",
+    "hours": "hora(s)",
+    "days": "día(s)",
+    "months": "mes(es)",
+    "years": "año(s)"
   }
 }
