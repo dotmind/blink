@@ -8,8 +8,8 @@
       "copied": "Copied !"
     },
     "history": {
-      "title": "Historique des transferts",
-      "expiresin": "Expire dans"
+      "title": "Transfer history",
+      "expiresin": "Expires in"
     },
     "errors": {
       "404": {

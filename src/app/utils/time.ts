@@ -1,5 +1,7 @@
+import i18next from 'i18next';
+
 // Display time remain in smallest unit
-export function timeRemaining(expiresAt: string | number): { time: number; unit: string } {
+export function timeRemaining(expiresAt: string | number): string {
   const now = new Date();
   const expires = new Date(expiresAt);
   const diff = expires.getTime() - now.getTime();
@@ -11,24 +13,24 @@ export function timeRemaining(expiresAt: string | number): { time: number; unit:
   const years = Math.round(months / 12);
 
   if (seconds < 60) {
-    return { time: seconds, unit: 'time.seconds' };
+    return `${seconds} ${i18next.t('time.seconds')}`;
   }
 
   if (minutes < 60) {
-    return { time: minutes, unit: 'time.minutes' };
+    return `${minutes} ${i18next.t('time.minutes')}`;
   }
 
   if (hours < 24) {
-    return { time: hours, unit: 'time.hours' };
+    return `${hours} ${i18next.t('time.hours')}`;
   }
 
   if (days < 30) {
-    return { time: days, unit: 'time.days' };
+    return `${days} ${i18next.t('time.days')}`;
   }
 
   if (months < 12) {
-    return { time: months, unit: 'time.months' };
+    return `${months} ${i18next.t('time.months')}`;
   }
 
-  return { time: years, unit: 'time.years' };
+  return `${years} ${i18next.t('time.years')}`;
 }

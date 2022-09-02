@@ -50,11 +50,9 @@ function FileViewer() {
       return null;
     }
 
-    const expireAt = timeRemaining(expiresIn);
-
     return (
       <p>
-        {t('fileviewer.estimation')} {expireAt.time} {t(expireAt.unit)}
+        {t('fileviewer.estimation')} {timeRemaining(expiresIn)}
       </p>
     );
   }, [expiresIn, t]);
