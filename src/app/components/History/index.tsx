@@ -42,7 +42,7 @@ function History() {
         <ul className={styles.historyList}>{renderList}</ul>
       </div>
     );
-  }, [history, currentLanguage]);
+  }, [history, t, currentLanguage]);
 
   return renderHistory;
 }
