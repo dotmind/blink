@@ -13,7 +13,7 @@ function Download() {
   const handleDownload = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
-      if(file && fileName) {
+      if (file && fileName) {
         const link = document.createElement('a');
         link.href = file;
         link.download = fileName;

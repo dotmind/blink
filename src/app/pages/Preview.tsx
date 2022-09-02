@@ -7,6 +7,7 @@ import InstallPwa from '@/app/components/InstallPwa';
 import Footer from '@/app/components/Footer';
 import About from '@/app/components/About';
 import useIsMobile from '@/app/hooks/useIsMobile';
+import Download from '@/modules/download/components/Download';
 
 function Preview() {
   const isMobile = useIsMobile();
@@ -24,7 +25,9 @@ function Preview() {
       <FileViewer />
       <CircleWaves />
       {renderAbout}
-      <Footer />
+      <Footer>
+        <Download />
+      </Footer>
       <InstallPwa />
     </DownloadProvider>
   );

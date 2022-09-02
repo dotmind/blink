@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, ReactNode } from 'react';
 import { useLocation } from 'react-router';
 import { usePwa } from '@dotmind/react-use-pwa';
 
@@ -8,7 +8,11 @@ import MoreInfo from '@/app/components/MoreInfo';
 
 import styles from '@/app/components/Footer/styles.module.scss';
 
-function Footer() {
+interface IProps {
+  children?: ReactNode;
+}
+
+function Footer({ children }: IProps) {
   const { isStandalone } = usePwa();
   const { pathname } = useLocation();
   const isMobile = useIsMobile();
@@ -23,11 +27,16 @@ function Footer() {
       </a>
 
       <div className={styles.footer_cta}>
+        {children}
         <LangSwitcher />
         {canRenderMoreInfo && <MoreInfo />}
       </div>
     </footer>
   );
 }
+
+Footer.defaultProps = {
+  children: null,
+};
 
 export default Footer;
