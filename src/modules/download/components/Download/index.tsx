@@ -1,4 +1,5 @@
 import { useCallback, MouseEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-regular-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +10,7 @@ import styles from '@/modules/download/components/Download/styles.module.scss';
 
 function Download() {
   const { file, fileName } = useDownload();
+  const { t } = useTranslation();
 
   const handleDownload = useCallback(
     (e: MouseEvent) => {
@@ -24,7 +26,7 @@ function Download() {
   );
 
   return (
-    <button className={styles.downloadButton} type={'button'} onClick={handleDownload}>
+    <button className={styles.downloadButton} type={'button'} onClick={handleDownload} name={t('download.download')}>
       <div>
         <FontAwesomeIcon icon={faFileLines} />
         <p>{fileName}</p>

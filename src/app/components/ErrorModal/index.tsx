@@ -38,7 +38,7 @@ function ErrorModal() {
           </div>
 
           <div className={styles.controls}>
-            <Button callback={handleRetry} style={ButtonStyle.PRIMARY}>
+            <Button callback={handleRetry} style={ButtonStyle.PRIMARY} name={t('upload.errors.upload_failed.retry')}>
               {t('upload.errors.upload_failed.retry')}
               <FontAwesomeIcon icon={faRotateRight} />
             </Button>

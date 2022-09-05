@@ -13,6 +13,7 @@ function Head() {
       <meta property={'og:title'} content={t('common.name')} />
       <meta property={'og:description'} content={t('common.description')} />
       <meta property={'og:image'} content={placeholder} />
+      <meta name={'theme-color'} content={'#47B0FF'} />
     </Helmet>
   );
 }

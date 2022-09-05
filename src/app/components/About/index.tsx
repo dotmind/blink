@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { usePwa } from '@dotmind/react-use-pwa';
@@ -16,6 +17,7 @@ function About() {
   const { isStandalone } = usePwa();
   const isMobile = useIsMobile();
   const [frameIndex, setFrameIndex] = useState(0);
+  const { t } = useTranslation();
 
   const handleNext = useCallback(() => {
     if (frameIndex < 1) {
@@ -55,11 +57,11 @@ function About() {
           )}
 
           <div className={styles.frame_controls}>
-            <Button style={ButtonStyle.WHITE} callback={handleNext} disabled={!canNext}>
-              Page suivante <FontAwesomeIcon icon={faArrowRight} />
+            <Button style={ButtonStyle.WHITE} callback={handleNext} disabled={!canNext} name={t('modal.nextPage')}>
+              {t('modal.nextPage')} <FontAwesomeIcon icon={faArrowRight} />
             </Button>
 
-            <Button style={ButtonStyle.WHITE} callback={handlePrevious} disabled={!canPrevious}>
+            <Button style={ButtonStyle.WHITE} callback={handlePrevious} disabled={!canPrevious} name={t('modal.previousPage')}>
               <FontAwesomeIcon icon={faArrowLeft} />
             </Button>
           </div>

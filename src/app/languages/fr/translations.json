@@ -27,6 +27,10 @@
       "title": "Déplacer vos fichiers",
       "description": "Partager facilement des fichiers en toute sécurité."
     },
+    "link": {
+      "share": "Partager le lien",
+      "copy": "Copier le lien"
+    },
     "errors": {
       "wrong_file_type": "Mauvaise extension de fichier !",
       "file_too_big": "Fichier trop volumineux !",
@@ -40,9 +44,22 @@
   },
   "fileviewer": {
     "title": "Tu as reçu un fichier !",
-    "estimation": "Ce fichier expireras dans"
+    "estimation": "Ce fichier expireras dans",
+    "nextPage": "Page suivante",
+    "previousPage": "Page précédente",
+    "share": "Partager"
+  },
+  "download": {
+    "download": "Télécharger"
+  },
+  "modal": {
+    "nextPage": "Page suivante",
+    "previousPage": "Page précédente",
+    "close": "Fermer",
+    "moreInfo": "Plus d'info"
   },
   "lang": {
+    "choose": "Choisissez votre langue",
     "en": "Anglais",
     "fr": "Français",
     "de": "Allemand",

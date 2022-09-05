@@ -111,7 +111,7 @@ function FileInput() {
       <form className={styles.fileInput_container}>
         {/* eslint-disable-next-line */}
         <div className={styles.fileInput_icons} onClick={() => fileHandler.current?.click()}>
-          <img src={pdf_icons} alt={'pdf icon'} />
+          <img src={pdf_icons} alt={'pdf icon'} height={'100%'} width={'100%'} />
         </div>
 
         <p>{t('upload.input')}</p>

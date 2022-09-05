@@ -27,6 +27,10 @@
       "title": "Déplacer vos fichiers (es)",
       "description": "Partager facilement des fichiers en toute sécurité."
     },
+    "link": {
+      "share": "Partager le lien",
+      "copy": "Copier le lien"
+    },
     "errors": {
       "wrong_file_type": "Mauvaise extension de fichier ! (es)",
       "file_too_big": "Fichier trop volumineux ! (es)",
@@ -40,9 +44,22 @@
   },
   "fileviewer": {
     "title": "Tu as reçu un fichier ! (es)",
-    "estimation": "El pdf caducara en"
+    "estimation": "El pdf caducara en",
+    "nextPage": "Siguiente página",
+    "previousPage": "Página anterior",
+    "share": "Compartir"
+  },
+  "download": {
+    "download": "Télécharger (es)"
+  },
+  "modal": {
+    "nextPage": "Page suivante",
+    "previousPage": "Page précédente",
+    "close": "Fermer",
+    "moreInfo": "Plus d'info"
   },
   "lang": {
+    "choose": "Choisissez votre langue",
     "en": "Inglés",
     "fr": "Francés",
     "de": "Alemán",

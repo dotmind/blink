@@ -27,6 +27,10 @@
       "title": "Drag and drop your files here",
       "description": "Share easily your files with security and privacy"
     },
+    "link": {
+      "share": "Share link",
+      "copy": "Copy link"
+    },
     "errors": {
       "wrong_file_type": "Wrong file type: only PDF files are allowed !",
       "file_too_big": "File is too big !",
@@ -40,9 +44,22 @@
   },
   "fileviewer": {
     "title": "Tu as reçu un fichier !",
-    "estimation": "This file will be deleted in"
+    "estimation": "This file will be deleted in",
+    "nextPage": "Next page",
+    "previousPage": "Previous page",
+    "share": "Share"
+  },
+  "download": {
+    "download": "Download"
+  },
+  "modal": {
+    "nextPage": "Next page",
+    "previousPage": "Previous page",
+    "close": "Close",
+    "moreInfo": "Plus d'info"
   },
   "lang": {
+    "choose": "Choose your language",
     "en": "English",
     "fr": "French",
     "de": "German",

@@ -42,7 +42,7 @@ function UploadButton() {
   }, [file, setStatus, setShareUrl, fingerprint, canUpload]);
 
   return (
-    <Button style={ButtonStyle.PRIMARY} callback={handleUpload} disabled={!canUpload}>
+    <Button style={ButtonStyle.PRIMARY} callback={handleUpload} disabled={!canUpload} name={t('upload.button')}>
       {t('upload.button')} <FontAwesomeIcon icon={faCloudUpload} />
     </Button>
   );

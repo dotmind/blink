@@ -27,7 +27,7 @@ function InstallPwa() {
   if (!isStandalone && !isInstalled) {
     return (
       <div className={styles.pwa_button} data-fullwidth={pathname !== '/'}>
-        <Button style={ButtonStyle.WHITE} callback={handleInstallPrompt}>
+        <Button style={ButtonStyle.WHITE} callback={handleInstallPrompt} name={t('common.pwa.install')}>
           {t('common.pwa.install')}
         </Button>
       </div>
