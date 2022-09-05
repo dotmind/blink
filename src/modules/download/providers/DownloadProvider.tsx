@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router';
 
 import { receiveFile } from '@/app/services/api';
@@ -36,23 +36,21 @@ function DownloadProvider({ children }: IProps) {
   const fileLoaded = useMemo(() => file || fileName || expiresIn, [file, fileName, expiresIn]);
   const canDownload = useMemo(() => !!fingerprint && !fileLoaded, [fingerprint, fileLoaded]);
 
-  const downloadFile = useCallback(async () => {
-    const jwk = await extractJwkFromUrl();
-    const key = await importKey(jwk);
-
-    const { file: buffer, filename, expireAt } = await receiveFile(fingerprint, id as string);
-    const base64 = await decryptWithKey(key, new Uint8Array(buffer.data));
-    const calculatedExpireAt = new Date(expireAt).getTime() + EXPIRATION_TIME;
-
-    setFile(base64);
-    setFileName(filename);
-    setExpiresIn(calculatedExpireAt);
-  }, [fingerprint, id]);
-
   useEffect(() => {
-    if (canDownload) {
-      downloadFile();
-    }
+    (async () => {
+      if (canDownload) {
+        const jwk = await extractJwkFromUrl();
+        const key = await importKey(jwk);
+
+        const { file: buffer, filename, expireAt } = await receiveFile(fingerprint, id as string);
+        const base64 = await decryptWithKey(key, new Uint8Array(buffer.data));
+        const calculatedExpireAt = new Date(expireAt).getTime() + EXPIRATION_TIME;
+
+        setFile(base64);
+        setFileName(filename);
+        setExpiresIn(calculatedExpireAt);
+      }
+    })();
   }, []);
 
   const value = useMemo(() => ({ file, fileName, expiresIn }), [file, fileName, expiresIn]);
