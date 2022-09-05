@@ -30,8 +30,7 @@ body {
 }
 
 .App > *:nth-child(1) {
-  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
-    url('../assets/images/background.png');
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('../assets/images/background.webp');
   background-size: 90% 90%;
   background-position: -30vw -100%;
 }

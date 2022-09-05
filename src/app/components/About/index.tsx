@@ -8,8 +8,8 @@ import Modal from '@/app/components/Modal';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import Button, { ButtonStyle } from '@/app/components/Button';
 import ModalFrame from '@/app/components/ModalFrame';
-import background from '@/app/assets/images/placeholder.png';
-import background_2 from '@/app/assets/images/placeholder_2.png';
+import background from '@/app/assets/images/placeholder.webp';
+import background_2 from '@/app/assets/images/placeholder_2.webp';
 
 import styles from '@/app/components/About/styles.module.scss';
 

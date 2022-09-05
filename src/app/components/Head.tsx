@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 
-import placeholder from '@/app/assets/images/placeholder.png';
+import placeholder from '@/app/assets/images/placeholder.webp';
 
 function Head() {
   const { t } = useTranslation();
