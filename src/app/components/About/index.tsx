@@ -73,7 +73,7 @@ function About() {
 
   const renderDesktop = (
     <div className={styles.about}>
-      <img src={background} alt={'landscape'} />
+      <img src={background} alt={'landscape'} width={'100%'} height={'350px'} />
 
       <div className={styles.container}>
         <div className={styles.paragraph}>
