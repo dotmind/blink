@@ -22,7 +22,7 @@ function Button({ callback, children, style, disabled, name }: IProps) {
   const buttonStyle = classNames(styles.button, styles[style]);
 
   return (
-    <button onClick={callback} className={buttonStyle} disabled={disabled} type={'button'} name={name}>
+    <button onClick={callback} className={buttonStyle} disabled={disabled} type={'button'} name={name} aria-label={name}>
       {children}
     </button>
   );

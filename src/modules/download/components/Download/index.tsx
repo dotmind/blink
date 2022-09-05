@@ -26,7 +26,12 @@ function Download() {
   );
 
   return (
-    <button className={styles.downloadButton} type={'button'} onClick={handleDownload} name={t('download.download')}>
+    <button
+      className={styles.downloadButton}
+      type={'button'}
+      onClick={handleDownload}
+      aria-label={t('download.download')}
+      name={t('download.download')}>
       <div>
         <FontAwesomeIcon icon={faFileLines} />
         <p>{fileName}</p>

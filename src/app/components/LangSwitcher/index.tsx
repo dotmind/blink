@@ -24,15 +24,26 @@ function LangSwitcher() {
 
   return (
     <div className={styles.dropdown_container}>
-      <button className={styles.langSwitcher} type={'button'} onClick={openDropdown} name={'lang.choose'}>
+      <button
+        className={styles.langSwitcher}
+        type={'button'}
+        onClick={openDropdown}
+        aria-label={t('lang.choose')}
+        name={t('lang.choose')}>
         {!isMobile && <p className={styles.lang}>{t(`lang.${i18n.language}`)}</p>}
         <FontAwesomeIcon icon={faLanguage} />
       </button>
+
       <div className={styles.lang_dropdown} data-isopen={isOpen}>
         {availableLanguages
           .filter((lang) => lang !== i18n.language)
           .map((lang) => (
-            <button key={lang} type={'button'} onClick={() => handleSwitchLanguage(lang)} name={t(`lang.${lang}`)}>
+            <button
+              key={lang}
+              type={'button'}
+              onClick={() => handleSwitchLanguage(lang)}
+              aria-label={t(`lang.${lang}`)}
+              name={t(`lang.${lang}`)}>
               {t(`lang.${lang}`)}
             </button>
           ))}

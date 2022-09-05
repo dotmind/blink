@@ -18,7 +18,7 @@ function Modal({ children }: IProps) {
     <div className={styles.modal} data-isopen={isOpen || false}>
       <div className={styles.backdrop} />
 
-      <button className={styles.closeModal} onClick={close} type={'button'} name={t('modal.close')}>
+      <button className={styles.closeModal} onClick={close} type={'button'} aria-label={t('modal.close')} name={t('modal.close')}>
         <FontAwesomeIcon icon={faXmark} />
       </button>
 

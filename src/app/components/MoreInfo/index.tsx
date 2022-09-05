@@ -11,7 +11,12 @@ function MoreInfo() {
   const { t } = useTranslation();
 
   return (
-    <button className={styles.moreInfo} onClick={open} type={'button'} name={t('modal.moreInfo')}>
+    <button
+      className={styles.moreInfo}
+      onClick={open}
+      type={'button'}
+      aria-label={t('modal.moreInfo')}
+      name={t('modal.moreInfo')}>
       <FontAwesomeIcon icon={faCircleInfo} />
     </button>
   );

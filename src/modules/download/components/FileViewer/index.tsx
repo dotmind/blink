@@ -78,6 +78,7 @@ function FileViewer() {
               disabled={isFirstPage}
               type={'button'}
               onClick={() => setPageNumber(pageNumber - 1)}
+              aria-label={t('fileviewer.previousPage')}
               name={t('fileviewer.previousPage')}>
               <FontAwesomeIcon icon={faCaretLeft} />
             </button>
@@ -86,12 +87,13 @@ function FileViewer() {
               disabled={isLastPage}
               type={'button'}
               onClick={() => setPageNumber(pageNumber + 1)}
+              aria-label={t('fileviewer.nextPage')}
               name={t('fileviewer.nextPage')}>
               <FontAwesomeIcon icon={faCaretRight} />
             </button>
 
             {canUseNativeShare() && (
-              <button type={'button'} onClick={handleShare} name={t('fileviewer.share')}>
+              <button type={'button'} onClick={handleShare} aria-label={t('fileviewer.share')} name={t('fileviewer.share')}>
                 <FontAwesomeIcon icon={faArrowUpFromBracket} />
               </button>
             )}
