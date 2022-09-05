@@ -1,7 +1,6 @@
 {
   "common": {
     "name": "Noshit",
-    "lang": "English",
     "pwa": {
       "install": "Installer l'application NoShit"
     },
@@ -9,8 +8,8 @@
       "copied": "Copied !"
     },
     "history": {
-      "title": "Historique des transferts",
-      "expiresin": "Expire dans"
+      "title": "Transfer history",
+      "expiresin": "Expires in"
     },
     "errors": {
       "404": {
@@ -40,6 +39,20 @@
   },
   "fileviewer": {
     "title": "Tu as reçu un fichier !",
-    "estimation": "Ce fichier expireras dans 14 jours !"
+    "estimation": "This file will be deleted in"
+  },
+  "lang": {
+    "en": "English",
+    "fr": "French",
+    "de": "German",
+    "es": "Spanish"
+  },
+  "time": {
+    "seconds": "secondes",
+    "minutes": "minute(s)",
+    "hours": "hour(s)",
+    "days": "day(s)",
+    "months": "month(s)",
+    "years": "year(s)"
   }
 }

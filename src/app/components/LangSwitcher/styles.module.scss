@@ -1,18 +1,58 @@
-.langSwitcher {
-  display: flex;
-  gap: 10px;
-  flex-direction: row;
-  align-items: center;
-  border: 1px solid var(--color-white);
-  padding: 8px 10px;
-  border-radius: 8px;
-  background-color: #ffffff60;
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  cursor: pointer;
+.dropdown_container {
+  position: relative;
+  z-index: 2;
 
-  // @TODO: wait ui wireframe for mobile
-  @media (max-width: 992px) {
-    display: none;
+  .langSwitcher {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid var(--color-white);
+    padding: 8px 10px;
+    border-radius: 8px;
+    background-color: #ffffff60;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    color: var(--color-black);
+
+    @media (max-width: 992px) {
+      height: 45px;
+      width: 45px;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border: 1px solid var(--color-grey-100);
+      border-radius: 5px;
+      font-size: 20px;
+    }
+  }
+
+  .lang_dropdown {
+    position: absolute;
+    bottom: calc(100% - 10px);
+    background-color: #ffffff60;
+    border: 1px solid var(--color-white);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    padding-bottom: 15px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease-in-out;
+
+    &[data-isopen='true'] {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
   }
 }

@@ -66,3 +66,8 @@ export async function isInInsecureContext(): Promise<void> {
     throw new Error('Insecure context. Please use your favorite browser instead.');
   }
 }
+
+export function sanitizeName(name: string) {
+  const sanitizedName = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  return sanitizedName.replace(/\s/g, '_');
+}

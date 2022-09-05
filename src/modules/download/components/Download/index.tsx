@@ -3,21 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-regular-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
+import { useDownload } from '@/modules/download/providers/DownloadProvider';
+
 import styles from '@/modules/download/components/Download/styles.module.scss';
 
-interface IProps {
-  file: string;
-  fileName: string;
-}
+function Download() {
+  const { file, fileName } = useDownload();
 
-function Download({ file, fileName }: IProps) {
   const handleDownload = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
-      const link = document.createElement('a');
-      link.href = file;
-      link.download = fileName;
-      link.click();
+      if (file && fileName) {
+        const link = document.createElement('a');
+        link.href = file;
+        link.download = fileName;
+        link.click();
+      }
     },
     [file, fileName],
   );

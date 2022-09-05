@@ -23,6 +23,7 @@ function InstallPwa() {
   }
 
   // @TODO: isInstalled not working & always return false
+  // @TODO: Cannot install on IOS
   if (!isStandalone && !isInstalled) {
     return (
       <div className={styles.pwa_button} data-fullwidth={pathname !== '/'}>

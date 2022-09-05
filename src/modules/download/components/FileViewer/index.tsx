@@ -6,15 +6,15 @@ import { useTranslation } from 'react-i18next';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
-import Download from '@/modules/download/components/Download';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
 import NotFound from '@/app/components/NotFound';
+import { timeRemaining } from '@/app/utils/time';
 
 function FileViewer() {
-  const { file, fileName } = useDownload();
+  const { file, expiresIn } = useDownload();
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { width, height } = useWindowSize();
@@ -45,14 +45,19 @@ function FileViewer() {
     [file],
   );
 
-  const renderDownload = useMemo(() => {
-    if (!file || !fileName) {
+  const renderTimeRemaining = useMemo(() => {
+    if (!expiresIn) {
       return null;
     }
 
-    return <Download file={file} fileName={fileName} />;
-  }, [file, fileName]);
+    return (
+      <p>
+        {t('fileviewer.estimation')} {timeRemaining(expiresIn)}
+      </p>
+    );
+  }, [expiresIn, t]);
 
+  // @TODO - when file is loading show loader instead of 404
   if (!file) {
     return <NotFound />;
   }
@@ -62,9 +67,8 @@ function FileViewer() {
       <div className={styles.fileViewer}>
         <header>
           <h1>{t('fileviewer.title')}</h1>
-          <p>{t('fileviewer.estimation')}</p>
+          {renderTimeRemaining}
         </header>
-        {renderDownload}
         <Document className={styles.viewerParent} file={file} onLoadSuccess={onPDFReady}>
           <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
           <div className={styles.controls}>

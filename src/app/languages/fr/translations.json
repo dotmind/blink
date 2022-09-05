@@ -1,7 +1,6 @@
 {
   "common": {
     "name": "Noshit",
-    "lang": "Français",
     "pwa": {
       "install": "Installer l'application NoShit"
     },
@@ -40,6 +39,20 @@
   },
   "fileviewer": {
     "title": "Tu as reçu un fichier !",
-    "estimation": "Ce fichier expireras dans 14 jours !"
+    "estimation": "Ce fichier expireras dans"
+  },
+  "lang": {
+    "en": "Anglais",
+    "fr": "Français",
+    "de": "Allemand",
+    "es": "Espagnol"
+  },
+  "time": {
+    "seconds": "seconde(s)",
+    "minutes": "minute(s)",
+    "hours": "heure(s)",
+    "days": "jour(s)",
+    "months": "mois",
+    "years": "année(s)"
   }
 }
