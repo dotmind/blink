@@ -1,6 +1,7 @@
 {
   "common": {
     "name": "Noshit",
+    "description": "Noshit application",
     "pwa": {
       "install": "Installer l'application NoShit"
     },

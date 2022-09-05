@@ -1,14 +1,17 @@
 import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
 
 import placeholder from '@/app/assets/images/placeholder.png';
 
 function Head() {
+  const { t } = useTranslation();
+
   return (
     <Helmet>
-      <title>Noshit</title>
-      <meta name={'description'} content={'Noshit application'} />
-      <meta property={'og:title'} content={'Noshit'} />
-      <meta property={'og:description'} content={'Noshit application'} />
+      <title>{t('common.name')}</title>
+      <meta name={'description'} content={t('common.description')} />
+      <meta property={'og:title'} content={t('common.name')} />
+      <meta property={'og:description'} content={t('common.description')} />
       <meta property={'og:image'} content={placeholder} />
     </Helmet>
   );
