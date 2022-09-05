@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import Router from '@/app/components/Router';
+import Head from '@/app/components/Head';
 import ModalProvider from '@/app/providers/ModalProvider';
 import AppProvider from '@/app/providers/AppProdiver';
 import '@/app/services/i18n';
@@ -12,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <AppProvider>
       <ModalProvider>
+        <Head />
         <Router />
       </ModalProvider>
     </AppProvider>
