@@ -4,6 +4,7 @@ import { faFileLines } from '@fortawesome/free-regular-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
+import { prepareFileName } from '@/app/services/navigator';
 
 import styles from '@/modules/download/components/Download/styles.module.scss';
 
@@ -16,7 +17,7 @@ function Download() {
       if (file && fileName) {
         const link = document.createElement('a');
         link.href = file;
-        link.download = fileName;
+        link.download = prepareFileName(fileName);
         link.click();
       }
     },

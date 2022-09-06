@@ -71,3 +71,8 @@ export function sanitizeName(name: string) {
   const sanitizedName = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   return sanitizedName.replace(/\s/g, '_');
 }
+
+export function prepareFileName(filename: string) {
+  const [name, extension] = filename.split('.');
+  return `${name}_noshit_${Date.now()}.${extension}`;
+}
