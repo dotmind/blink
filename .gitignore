@@ -27,3 +27,4 @@ dist-ssr
 .env.production
 .env.local
 stats.html
+serve.json

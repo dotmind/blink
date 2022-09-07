@@ -1,21 +1,30 @@
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 
 import { timeRemaining } from '@/app/utils/time';
 import useHistory from '@/app/hooks/useHistory';
+import { deleteFile } from '@/app/services/api';
+import { useApp } from '@/app/providers/AppProdiver';
 
 import styles from '@/app/components/History/styles.module.scss';
 
 function History() {
-  const { history } = useHistory();
+  const { fingerprint } = useApp();
+  const { history, removeFromHistory } = useHistory();
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
 
+  const handleDelete = useCallback((e: React.MouseEvent<HTMLButtonElement>, url: string, index: number) => {
+    e.preventDefault();
+    const path = url.split('/').slice(3).join('/').split('#')[0];
+    deleteFile(fingerprint, path).then(() => removeFromHistory(index));
+  }, []);
+
   const renderList = useMemo(
     () =>
-      history.map((item) => (
+      history.map((item, i) => (
         <a className={styles.historyCard} key={item.url} href={item.url} target={'_blank'} rel={'noreferrer'}>
           <li>
             <div>
@@ -24,7 +33,12 @@ function History() {
                 {t('common.history.expiresin')} {timeRemaining(item.expiresAt)}
               </p>
             </div>
-            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            <div className={'d-flex'} style={{'gap': '10px'}}>
+              <button type={'button'} onClick={(e) => handleDelete(e, item.url, i)}>
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </div>
           </li>
         </a>
       )),
