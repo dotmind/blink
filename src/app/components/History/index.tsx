@@ -16,11 +16,14 @@ function History() {
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
 
-  const handleDelete = useCallback((e: React.MouseEvent<HTMLButtonElement>, url: string, index: number) => {
-    e.preventDefault();
-    const path = url.split('/').slice(3).join('/').split('#')[0];
-    deleteFile(fingerprint, path).then(() => removeFromHistory(index));
-  }, [fingerprint, removeFromHistory]);
+  const handleDelete = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>, url: string, index: number) => {
+      e.preventDefault();
+      const path = url.split('/').slice(3).join('/').split('#')[0];
+      deleteFile(fingerprint, path).then(() => removeFromHistory(index));
+    },
+    [fingerprint, removeFromHistory],
+  );
 
   const renderList = useMemo(
     () =>
