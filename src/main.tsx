@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 
 import Router from '@/app/components/Router';
 import Head from '@/app/components/Head';
@@ -11,11 +12,13 @@ import '@/app/styles/global.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <AppProvider>
-      <ModalProvider>
-        <Head />
-        <Router />
-      </ModalProvider>
-    </AppProvider>
+    <HelmetProvider>
+      <AppProvider>
+        <ModalProvider>
+          <Head />
+          <Router />
+        </ModalProvider>
+      </AppProvider>
+    </HelmetProvider>
   </React.StrictMode>,
 );
