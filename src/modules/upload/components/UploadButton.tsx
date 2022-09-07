@@ -36,8 +36,8 @@ function UploadButton() {
 
       setStatus(UploadStatus.SUCCESS);
     } catch (error) {
-      setStatus(UploadStatus.ERROR);
       setError(error as Error);
+      setStatus(UploadStatus.ERROR);
     }
   }, [file, setStatus, setShareUrl, fingerprint, canUpload]);
 

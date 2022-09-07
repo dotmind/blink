@@ -18,14 +18,17 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
     method: 'POST',
     headers,
     body: file,
+    mode: 'no-cors',
   }).catch((error) => {
     throw new Error(error);
   });
 
-  const { success, data } = await request.json();
-  if (!success) {
-    throw new Error('Upload failed with no further information');
+  const { status, statusText } = request;
+  if (status !== 200) {
+    throw new Error(`API: ${statusText}`);
   }
+
+  const { data } = await request.json();
 
   return data.id;
 }
