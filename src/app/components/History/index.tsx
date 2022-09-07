@@ -20,7 +20,7 @@ function History() {
     e.preventDefault();
     const path = url.split('/').slice(3).join('/').split('#')[0];
     deleteFile(fingerprint, path).then(() => removeFromHistory(index));
-  }, []);
+  }, [fingerprint, removeFromHistory]);
 
   const renderList = useMemo(
     () =>
