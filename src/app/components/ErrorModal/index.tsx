@@ -36,7 +36,7 @@ function ErrorModal() {
           <div>
             <h4>{t('upload.errors.upload_failed.title')}</h4>
             <p>{t('upload.errors.upload_failed.description')}</p>
-            { error && <p className={styles.error}>{handleError(error)}</p> }
+            {error && <p className={styles.error}>{handleError(error)}</p>}
           </div>
 
           <div className={styles.controls}>

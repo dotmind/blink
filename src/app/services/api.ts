@@ -18,7 +18,6 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
     method: 'POST',
     headers,
     body: file,
-    mode: 'no-cors',
   }).catch((error) => {
     throw new Error(error);
   });
