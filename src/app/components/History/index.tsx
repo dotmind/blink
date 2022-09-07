@@ -33,7 +33,7 @@ function History() {
                 {t('common.history.expiresin')} {timeRemaining(item.expiresAt)}
               </p>
             </div>
-            <div className={'d-flex'} style={{'gap': '10px'}}>
+            <div className={'d-flex'} style={{ gap: '10px' }}>
               <button type={'button'} onClick={(e) => handleDelete(e, item.url, i)}>
                 <FontAwesomeIcon icon={faTrash} />
               </button>

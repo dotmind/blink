@@ -58,12 +58,12 @@ export async function receiveFile(
   return response.data;
 }
 
-export async function deleteFile(fingerprint:string, id: string): Promise<string> {
+export async function deleteFile(fingerprint: string, id: string): Promise<string> {
   const path = `delete/${id}`;
   const { signature, timestamp } = await signRequest('DELETE', path, fingerprint, API_VERSION);
-  
+
   const headers = new Headers();
-  headers.append('fingerprint', fingerprint)
+  headers.append('fingerprint', fingerprint);
   headers.append('timestamp', timestamp);
   headers.append('signature', signature);
 
