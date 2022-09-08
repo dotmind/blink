@@ -9,10 +9,10 @@ import useWindowSize from '@/app/hooks/useWindowSize';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import HomeButton from '@/app/components/HomeButton';
+import { timeRemaining } from '@/app/utils/time';
+import NotFound from '@/app/components/NotFound';
 
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
-import NotFound from '@/app/components/NotFound';
-import { timeRemaining } from '@/app/utils/time';
 
 function FileViewer() {
   const { file, expiresIn } = useDownload();
