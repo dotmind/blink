@@ -7,7 +7,11 @@ import EmptyBox from '@/app/assets/svg/empty_box.svg';
 
 import styles from '@/app/components/NotFound/styles.module.scss';
 
-function NotFound() {
+interface IProps {
+  information?: string;
+}
+
+function NotFound({ information }: IProps) {
   const { t } = useTranslation();
 
   const handleClick = () => {
@@ -19,6 +23,8 @@ function NotFound() {
       <div className={styles.content}>
         <h1 className={styles.title}>{t('common.errors.404.title')}</h1>
         <p>{t('common.errors.404.message')}</p>
+        {/* @TODO: use handleError from PR#22  */}
+        {information && <p className={styles.information}>{information}</p>}
         <Button style={ButtonStyle.SECONDARY} callback={handleClick}>
           {t('common.errors.404.button')}
           <FontAwesomeIcon icon={faHouse} />
@@ -31,5 +37,9 @@ function NotFound() {
     </div>
   );
 }
+
+NotFound.defaultProps = {
+  information: '',
+};
 
 export default NotFound;

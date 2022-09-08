@@ -8,13 +8,14 @@ import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
-
-import styles from '@/modules/download/components/FileViewer/styles.module.scss';
+import Loader from '@/app/components/Loader';
 import NotFound from '@/app/components/NotFound';
 import { timeRemaining } from '@/app/utils/time';
 
+import styles from '@/modules/download/components/FileViewer/styles.module.scss';
+
 function FileViewer() {
-  const { file, expiresIn } = useDownload();
+  const { file, expiresIn, isLoading, error } = useDownload();
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { width, height } = useWindowSize();
@@ -57,9 +58,12 @@ function FileViewer() {
     );
   }, [expiresIn, t]);
 
-  // @TODO - when file is loading show loader instead of 404
-  if (!file) {
-    return <NotFound />;
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (!file && !isLoading && error) {
+    return <NotFound information={error?.message} />;
   }
 
   return (
