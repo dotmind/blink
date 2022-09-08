@@ -17,7 +17,13 @@
         "title": "Page inexistante (es)",
         "message": "La page  ou le fichier que vous chercher n’existe pas, à expiré. Retrouver votre route en passant par l’acceuil. (es)",
         "button": "Retour à l’acceuil"
-      }
+      },
+      "Network": "Erreur réseau : impossible de se connecter au serveur.",
+      "Unknown": "Erreur inconnue",
+      "ApiNotFound": "Erreur serveur: Ressource non trouvée",
+      "ApiTeapot": "Erreur serveur: signature invalide",
+      "InvalidTimeValue": "Erreur application: environnement invalide",
+      "Https": "Erreur application: connexion HTTPS requise"
     }
   },
   "upload": {
