@@ -14,12 +14,16 @@ export type DownloadContextType = {
   file?: string;
   fileName?: string;
   expiresIn?: number;
+  isLoading: boolean;
+  error?: Error;
 };
 
 const DownloadContext = createContext<DownloadContextType>({
   file: undefined,
   fileName: undefined,
   expiresIn: undefined,
+  isLoading: true,
+  error: undefined,
 });
 
 interface IProps {
@@ -31,6 +35,8 @@ function DownloadProvider({ children }: IProps) {
   const [file, setFile] = useState<string>();
   const [fileName, setFileName] = useState<string>();
   const [expiresIn, setExpiresIn] = useState<number>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<Error>();
   const { fingerprint } = useApp();
 
   const fileLoaded = useMemo(() => file || fileName || expiresIn, [file, fileName, expiresIn]);
@@ -42,18 +48,23 @@ function DownloadProvider({ children }: IProps) {
         const jwk = await extractJwkFromUrl();
         const key = await importKey(jwk);
 
-        const { file: buffer, filename, expireAt } = await receiveFile(fingerprint, id as string);
-        const base64 = await decryptWithKey(key, new Uint8Array(buffer.data));
-        const calculatedExpireAt = new Date(expireAt).getTime() + EXPIRATION_TIME;
+        try {
+          const { file: buffer, filename, expireAt } = await receiveFile(fingerprint, id as string);
+          const base64 = await decryptWithKey(key, new Uint8Array(buffer.data));
+          const calculatedExpireAt = new Date(expireAt).getTime() + EXPIRATION_TIME;
 
-        setFile(base64);
-        setFileName(filename);
-        setExpiresIn(calculatedExpireAt);
+          setFile(base64);
+          setFileName(filename);
+          setExpiresIn(calculatedExpireAt);
+        } catch (_error) {
+          setError(_error as Error);
+        }
+        setIsLoading(false);
       }
     })();
   }, []);
 
-  const value = useMemo(() => ({ file, fileName, expiresIn }), [file, fileName, expiresIn]);
+  const value = useMemo(() => ({ file, fileName, expiresIn, isLoading, error }), [file, fileName, expiresIn, isLoading, error]);
 
   return <DownloadContext.Provider value={value}>{children}</DownloadContext.Provider>;
 }
