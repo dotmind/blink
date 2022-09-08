@@ -8,6 +8,7 @@ import Footer from '@/app/components/Footer';
 import About from '@/app/components/About';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import Download from '@/modules/download/components/Download';
+import HomeButton from '@/app/components/HomeButton';
 
 function Preview() {
   const isMobile = useIsMobile();
@@ -22,6 +23,7 @@ function Preview() {
 
   return (
     <DownloadProvider>
+      <HomeButton />
       <FileViewer />
       <CircleWaves />
       {renderAbout}

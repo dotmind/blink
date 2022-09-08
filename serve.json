@@ -1,0 +1,12 @@
+{
+  "public": "dist",
+  "headers": [
+    {
+      "source": "**/*.@(css|js|jpg|jpeg|png|svg|gif|webp|ico)",
+      "headers": [{
+        "key": "Cache-Control",
+        "value": "max-age=31536000"
+      }]
+    }
+  ]
+}
