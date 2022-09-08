@@ -10,9 +10,11 @@ function HomeButton() {
   }, []);
 
   return (
-    <Button style={ButtonStyle.WHITE} callback={handleBackToHome}>
-      <FontAwesomeIcon icon={faHouse} />
-    </Button>
+    <div className={'homeButton'}>
+      <Button style={ButtonStyle.WHITE} callback={handleBackToHome}>
+        <FontAwesomeIcon icon={faHouse} />
+      </Button>
+    </div>
   );
 }
 

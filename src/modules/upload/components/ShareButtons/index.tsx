@@ -8,6 +8,7 @@ import Button, { ButtonStyle } from '@/app/components/Button';
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
+import HomeButton from '@/app/components/HomeButton';
 
 import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
 
@@ -35,6 +36,7 @@ function ShareButtons() {
           Partager le lien <FontAwesomeIcon icon={faArrowUpFromBracket} />
         </Button>
       )}
+      <HomeButton />
       <Button style={ButtonStyle.PRIMARY} callback={handleCopy}>
         Copier le lien <FontAwesomeIcon icon={faCopy} />
         {isCopied && <Tooltip position={TooltipPosition.right}>{t('common.tooltip.copied')}</Tooltip>}
