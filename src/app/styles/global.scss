@@ -40,3 +40,11 @@ img {
   width: 100%;
   object-fit: cover;
 }
+
+.container {
+  > .homeButton {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+  }
+}

@@ -8,10 +8,11 @@ import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
+import HomeButton from '@/app/components/HomeButton';
+import { timeRemaining } from '@/app/utils/time';
+import NotFound from '@/app/components/NotFound';
 
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
-import NotFound from '@/app/components/NotFound';
-import { timeRemaining } from '@/app/utils/time';
 
 function FileViewer() {
   const { file, expiresIn } = useDownload();
@@ -64,6 +65,7 @@ function FileViewer() {
 
   return (
     <div className={'container justify-center flex-row'}>
+      <HomeButton />
       <div className={styles.fileViewer}>
         <header>
           <h1>{t('fileviewer.title')}</h1>
