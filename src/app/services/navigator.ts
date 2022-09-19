@@ -1,4 +1,4 @@
-import { URL_KEY_IDENTIFIER } from '@/app/constants/navigator';
+import { URL_KEY_IDENTIFIER, FILE_IDENTIFIER } from '@/app/constants/navigator';
 
 export function toShareUrl(id: string, jwk: string) {
   return `${window.location.origin}/${id}${URL_KEY_IDENTIFIER}${jwk}`;
@@ -70,4 +70,9 @@ export async function isInInsecureContext(): Promise<void> {
 export function sanitizeName(name: string) {
   const sanitizedName = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   return sanitizedName.replace(/\s/g, '_');
+}
+
+export function prepareFileName(filename: string) {
+  const name = filename.replace(/\.pdf$/i, '');
+  return `${name}_${FILE_IDENTIFIER}_${Date.now()}.pdf`;
 }
