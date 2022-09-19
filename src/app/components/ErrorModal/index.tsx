@@ -5,7 +5,6 @@ import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
 
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import Button, { ButtonStyle } from '@/app/components/Button';
-import { handleError } from '@/app/services/errors';
 import errorSVG from '@/app/assets/svg/error.svg';
 
 import styles from '@/app/components/ErrorModal/styles.module.scss';
@@ -36,7 +35,7 @@ function ErrorModal() {
           <div>
             <h4>{t('upload.errors.upload_failed.title')}</h4>
             <p>{t('upload.errors.upload_failed.description')}</p>
-            {error && <p className={styles.error}>{handleError(error)}</p>}
+            {error && <p className={styles.error}>{t(error.message)}</p>}
           </div>
 
           <div className={styles.controls}>

@@ -18,16 +18,15 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
     method: 'POST',
     headers,
     body: file,
-  }).catch((error) => {
-    throw new Error(error);
+  }).catch(() => {
+    throw new Error('common.errors.network');
   });
 
-  const { status, statusText } = request;
-  if (status !== 200) {
-    throw new Error(`API: ${statusText}`);
-  }
+  const { data, success } = await request.json();
 
-  const { data } = await request.json();
+  if (!success) {
+    throw new Error(data.message);
+  }
 
   return data.id;
 }
@@ -51,11 +50,13 @@ export async function receiveFile(
   const response = await fetch(endpoint(path), {
     method: 'GET',
     headers,
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .catch(() => {
+      throw new Error('common.errors.network');
+    });
 
-  if (response.status === 404) {
-    throw new Error('Receive failed');
-  }
+  // @TODO: handle errors
 
   return response.data;
 }
