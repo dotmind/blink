@@ -47,16 +47,18 @@ export async function receiveFile(
   headers.append('timestamp', timestamp);
   headers.append('signature', signature);
 
-  const response = await fetch(endpoint(path), {
+  const request = await fetch(endpoint(path), {
     method: 'GET',
     headers,
-  })
-    .then((res) => res.json())
-    .catch(() => {
-      throw new Error('common.errors.network');
-    });
+  }).catch(() => {
+    throw new Error('common.errors.network');
+  });
 
-  // @TODO: handle errors
+  const { data, success } = await request.json();
 
-  return response.data;
+  if (!success) {
+    throw new Error(data.message);
+  }
+
+  return data;
 }
