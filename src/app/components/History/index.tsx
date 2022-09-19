@@ -7,6 +7,7 @@ import { timeRemaining } from '@/app/utils/time';
 import useHistory from '@/app/hooks/useHistory';
 import { deleteFile } from '@/app/services/api';
 import { useApp } from '@/app/providers/AppProdiver';
+import { extractFilePath } from '@/app/services/file';
 
 import styles from '@/app/components/History/styles.module.scss';
 
@@ -17,10 +18,10 @@ function History() {
   const currentLanguage = i18n.language;
 
   const handleDelete = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>, url: string, index: number) => {
+    (url: string, index: number) => async (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      const path = url.split('/').slice(3).join('/').split('#')[0];
-      deleteFile(fingerprint, path).then(() => removeFromHistory(index));
+      await deleteFile(fingerprint, extractFilePath(url));
+      removeFromHistory(index);
     },
     [fingerprint, removeFromHistory],
   );
@@ -37,7 +38,7 @@ function History() {
               </p>
             </div>
             <div className={'d-flex'} style={{ gap: '10px' }}>
-              <button type={'button'} onClick={(e) => handleDelete(e, item.url, i)}>
+              <button type={'button'} onClick={handleDelete(item.url, i)}>
                 <FontAwesomeIcon icon={faTrash} />
               </button>
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />

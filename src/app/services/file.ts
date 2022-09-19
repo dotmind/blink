@@ -23,3 +23,8 @@ export function isFileValid(file: File): boolean {
 
   return FILE_TYPE.includes(file?.type);
 }
+
+export function extractFilePath(url: string = window.location.href): string {
+  const path = url.split('/').slice(3).join('/').split('#')[0];
+  return path;
+}

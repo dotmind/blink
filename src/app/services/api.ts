@@ -72,14 +72,18 @@ export async function deleteFile(fingerprint: string, id: string): Promise<strin
   headers.append('timestamp', timestamp);
   headers.append('signature', signature);
 
-  const response = await fetch(endpoint(path), {
+  const request = await fetch(endpoint(path), {
     method: 'DELETE',
     headers,
-  }).then((res) => res.json());
+  }).catch(() => {
+    throw new Error('common.errors.network');
+  });
 
-  if (response.status === 404) {
-    throw new Error('Delete failed');
+  const { data, success } = await request.json();
+
+  if (!success) {
+    throw new Error(data.message);
   }
 
-  return response.data;
+  return data;
 }
