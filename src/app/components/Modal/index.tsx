@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,12 +12,13 @@ interface IProps {
 
 function Modal({ children }: IProps) {
   const { isOpen, close } = useModal();
+  const { t } = useTranslation();
 
   return (
     <div className={styles.modal} data-isopen={isOpen || false}>
       <div className={styles.backdrop} />
 
-      <button className={styles.closeModal} onClick={close} type={'button'}>
+      <button className={styles.closeModal} onClick={close} type={'button'} aria-label={t('modal.close')} name={t('modal.close')}>
         <FontAwesomeIcon icon={faXmark} />
       </button>
 

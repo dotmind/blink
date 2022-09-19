@@ -17,7 +17,17 @@
         "title": "Page inexistante",
         "message": "La page  ou le fichier que vous chercher n’existe pas, à expiré. Retrouver votre route en passant par l’acceuil.",
         "button": "Retour à l’acceuil"
-      }
+      },
+      "network": "Erreur réseau : impossible de se connecter au serveur.",
+      "endpoint_not_found": "Erreur serveur: l’URL demandée n’existe pas.",
+      "too_many_requests": "Erreur serveur: trop de requêtes.",
+      "file_not_found": "Erreur serveur: Fichier inexistant ou expiré",
+      "invalid_signature": "Erreur serveur: signature invalide",
+      "file_cannot_be_saved": "Erreur serveur: impossible de sauvegarder le fichier",
+      "invalid_time_value": "Erreur application: environnement invalide",
+      "https": "Erreur application: connexion HTTPS requise",
+      "expired_signature": "Erreur application: signature expirée",
+      "missing_headers": "Erreur application: en-têtes manquantes"
     }
   },
   "upload": {
@@ -26,6 +36,10 @@
     "overlay": {
       "title": "Drag and drop your files here",
       "description": "Share easily your files with security and privacy"
+    },
+    "link": {
+      "share": "Share link",
+      "copy": "Copy link"
     },
     "errors": {
       "wrong_file_type": "Wrong file type: only PDF files are allowed !",
@@ -40,9 +54,22 @@
   },
   "fileviewer": {
     "title": "Tu as reçu un fichier !",
-    "estimation": "This file will be deleted in"
+    "estimation": "This file will be deleted in",
+    "nextPage": "Next page",
+    "previousPage": "Previous page",
+    "share": "Share"
+  },
+  "download": {
+    "download": "Download"
+  },
+  "modal": {
+    "nextPage": "Next page",
+    "previousPage": "Previous page",
+    "close": "Close",
+    "moreInfo": "Plus d'info"
   },
   "lang": {
+    "choose": "Choose your language",
     "en": "English",
     "fr": "French",
     "de": "German",

@@ -36,13 +36,13 @@ function UploadButton() {
 
       setStatus(UploadStatus.SUCCESS);
     } catch (error) {
-      setStatus(UploadStatus.ERROR);
       setError(error as Error);
+      setStatus(UploadStatus.ERROR);
     }
   }, [file, setStatus, setShareUrl, fingerprint, canUpload]);
 
   return (
-    <Button style={ButtonStyle.PRIMARY} callback={handleUpload} disabled={!canUpload}>
+    <Button style={ButtonStyle.PRIMARY} callback={handleUpload} disabled={!canUpload} name={t('upload.button')}>
       {t('upload.button')} <FontAwesomeIcon icon={faCloudUpload} />
     </Button>
   );

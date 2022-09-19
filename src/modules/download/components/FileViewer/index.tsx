@@ -74,16 +74,26 @@ function FileViewer() {
         <Document className={styles.viewerParent} file={file} onLoadSuccess={onPDFReady}>
           <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
           <div className={styles.controls}>
-            <button disabled={isFirstPage} type={'button'} onClick={() => setPageNumber(pageNumber - 1)}>
+            <button
+              disabled={isFirstPage}
+              type={'button'}
+              onClick={() => setPageNumber(pageNumber - 1)}
+              aria-label={t('fileviewer.previousPage')}
+              name={t('fileviewer.previousPage')}>
               <FontAwesomeIcon icon={faCaretLeft} />
             </button>
 
-            <button disabled={isLastPage} type={'button'} onClick={() => setPageNumber(pageNumber + 1)}>
+            <button
+              disabled={isLastPage}
+              type={'button'}
+              onClick={() => setPageNumber(pageNumber + 1)}
+              aria-label={t('fileviewer.nextPage')}
+              name={t('fileviewer.nextPage')}>
               <FontAwesomeIcon icon={faCaretRight} />
             </button>
 
             {canUseNativeShare() && (
-              <button type={'button'} onClick={handleShare}>
+              <button type={'button'} onClick={handleShare} aria-label={t('fileviewer.share')} name={t('fileviewer.share')}>
                 <FontAwesomeIcon icon={faArrowUpFromBracket} />
               </button>
             )}

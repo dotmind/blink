@@ -11,7 +11,7 @@ import styles from '@/app/components/ErrorModal/styles.module.scss';
 
 function ErrorModal() {
   const { t } = useTranslation();
-  const { setStatus } = useUpload();
+  const { setStatus, error } = useUpload();
   const el = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -35,10 +35,11 @@ function ErrorModal() {
           <div>
             <h4>{t('upload.errors.upload_failed.title')}</h4>
             <p>{t('upload.errors.upload_failed.description')}</p>
+            {error && <p className={styles.error}>{t(error.message)}</p>}
           </div>
 
           <div className={styles.controls}>
-            <Button callback={handleRetry} style={ButtonStyle.PRIMARY}>
+            <Button callback={handleRetry} style={ButtonStyle.PRIMARY} name={t('upload.errors.upload_failed.retry')}>
               {t('upload.errors.upload_failed.retry')}
               <FontAwesomeIcon icon={faRotateRight} />
             </Button>

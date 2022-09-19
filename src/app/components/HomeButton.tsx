@@ -11,7 +11,7 @@ function HomeButton() {
 
   return (
     <div className={'homeButton'}>
-      <Button style={ButtonStyle.WHITE} callback={handleBackToHome}>
+      <Button style={ButtonStyle.WHITE} callback={handleBackToHome} name={'return to home'}>
         <FontAwesomeIcon icon={faHouse} />
       </Button>
     </div>

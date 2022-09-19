@@ -33,9 +33,12 @@ function DownloadProvider({ children }: IProps) {
   const [expiresIn, setExpiresIn] = useState<number>();
   const { fingerprint } = useApp();
 
+  const fileLoaded = useMemo(() => file || fileName || expiresIn, [file, fileName, expiresIn]);
+  const canDownload = useMemo(() => !!fingerprint && !fileLoaded, [fingerprint, fileLoaded]);
+
   useEffect(() => {
     (async () => {
-      if (fingerprint) {
+      if (canDownload) {
         const jwk = await extractJwkFromUrl();
         const key = await importKey(jwk);
 
@@ -48,7 +51,7 @@ function DownloadProvider({ children }: IProps) {
         setExpiresIn(calculatedExpireAt);
       }
     })();
-  }, [fingerprint]);
+  }, []);
 
   const value = useMemo(() => ({ file, fileName, expiresIn }), [file, fileName, expiresIn]);
 

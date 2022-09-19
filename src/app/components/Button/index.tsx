@@ -14,14 +14,15 @@ interface IProps {
   callback: () => void;
   style: ButtonStyle;
   disabled?: boolean | undefined;
+  name: string;
   children: React.ReactNode;
 }
 
-function Button({ callback, children, style, disabled }: IProps) {
+function Button({ callback, children, style, disabled, name }: IProps) {
   const buttonStyle = classNames(styles.button, styles[style]);
 
   return (
-    <button onClick={callback} className={buttonStyle} disabled={disabled} type={'button'}>
+    <button onClick={callback} className={buttonStyle} disabled={disabled} type={'button'} name={name} aria-label={name}>
       {children}
     </button>
   );

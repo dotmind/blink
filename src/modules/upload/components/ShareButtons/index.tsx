@@ -32,13 +32,13 @@ function ShareButtons() {
   return (
     <div className={styles.share_container}>
       {canUseNativeShare() && (
-        <Button style={ButtonStyle.SECONDARY} callback={handleShare}>
-          Partager le lien <FontAwesomeIcon icon={faArrowUpFromBracket} />
+        <Button style={ButtonStyle.SECONDARY} callback={handleShare} name={t('upload.link.share')}>
+          {t('upload.link.share')} <FontAwesomeIcon icon={faArrowUpFromBracket} />
         </Button>
       )}
       <HomeButton />
-      <Button style={ButtonStyle.PRIMARY} callback={handleCopy}>
-        Copier le lien <FontAwesomeIcon icon={faCopy} />
+      <Button style={ButtonStyle.PRIMARY} callback={handleCopy} name={t('upload.link.copy')}>
+        {t('upload.link.copy')} <FontAwesomeIcon icon={faCopy} />
         {isCopied && <Tooltip position={TooltipPosition.right}>{t('common.tooltip.copied')}</Tooltip>}
       </Button>
     </div>

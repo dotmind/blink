@@ -1,67 +1,87 @@
 import { CRYPTO_SECRET } from '@/app/constants/api';
 
 export async function generateKey(): Promise<CryptoKey> {
-  return window.crypto.subtle.generateKey(
-    {
-      name: 'AES-GCM',
-      length: 128,
-    },
-    true,
-    ['encrypt', 'decrypt'],
-  );
+  try {
+    return await window.crypto.subtle.generateKey(
+      {
+        name: 'AES-GCM',
+        length: 128,
+      },
+      true,
+      ['encrypt', 'decrypt'],
+    );
+  } catch (e) {
+    throw new Error('common.errors.https');
+  }
 }
 
 export async function encryptWithKey(key: CryptoKey, payload: string) {
-  return window.crypto.subtle.encrypt(
-    {
-      name: 'AES-GCM',
-      iv: new Uint8Array(12),
-    },
-    key,
-    new TextEncoder().encode(payload),
-  );
+  try {
+    return await window.crypto.subtle.encrypt(
+      {
+        name: 'AES-GCM',
+        iv: new Uint8Array(12),
+      },
+      key,
+      new TextEncoder().encode(payload),
+    );
+  } catch (e) {
+    throw new Error('common.errors.https');
+  }
 }
 
 export async function decryptWithKey(key: CryptoKey, buffer: ArrayBuffer): Promise<string> {
-  const plainBuffer = await window.crypto.subtle.decrypt(
-    {
-      name: 'AES-GCM',
-      iv: new Uint8Array(12),
-    },
-    key,
-    buffer,
-  );
+  try {
+    const plainBuffer = await window.crypto.subtle.decrypt(
+      {
+        name: 'AES-GCM',
+        iv: new Uint8Array(12),
+      },
+      key,
+      buffer,
+    );
 
-  return new TextDecoder().decode(new Uint8Array(plainBuffer));
+    return new TextDecoder().decode(new Uint8Array(plainBuffer));
+  } catch (e) {
+    throw new Error('common.errors.https');
+  }
 }
 
 export async function exportKey(key: CryptoKey): Promise<string> {
-  const { k: jwk } = await window.crypto.subtle.exportKey('jwk', key);
+  try {
+    const { k: jwk } = await window.crypto.subtle.exportKey('jwk', key);
 
-  if (!jwk) {
-    throw new Error('Failed to export key');
+    if (!jwk) {
+      throw new Error('Failed to export key');
+    }
+
+    return jwk;
+  } catch (e) {
+    throw new Error('common.errors.https');
   }
-
-  return jwk;
 }
 
 export async function importKey(jwk: string) {
-  return window.crypto.subtle.importKey(
-    'jwk',
-    {
-      k: jwk,
-      alg: 'A128GCM',
-      ext: true,
-      key_ops: ['encrypt', 'decrypt'],
-      kty: 'oct',
-    },
-    {
-      name: 'AES-GCM',
-      length: 128,
-    },
-    false,
-    ['decrypt'],
-  );
+  try {
+    return await window.crypto.subtle.importKey(
+      'jwk',
+      {
+        k: jwk,
+        alg: 'A128GCM',
+        ext: true,
+        key_ops: ['encrypt', 'decrypt'],
+        kty: 'oct',
+      },
+      {
+        name: 'AES-GCM',
+        length: 128,
+      },
+      false,
+      ['decrypt'],
+    );
+  } catch (e) {
+    throw new Error('common.errors.https');
+  }
 }
 
 export async function _buf2hex(buffer: ArrayBuffer): Promise<string> {
@@ -69,21 +89,25 @@ export async function _buf2hex(buffer: ArrayBuffer): Promise<string> {
 }
 
 export async function signHMACSha256(str: string): Promise<string> {
-  const encoder = new TextEncoder();
-  const cryptoKey = await window.crypto.subtle.importKey(
-    'raw',
-    encoder.encode(CRYPTO_SECRET),
-    {
-      name: 'HMAC',
-      hash: 'SHA-256',
-    },
-    false,
-    ['sign'],
-  );
-  const buffer = encoder.encode(str);
-  const signature = await window.crypto.subtle.sign('HMAC', cryptoKey, buffer);
+  try {
+    const encoder = new TextEncoder();
+    const cryptoKey = await window.crypto.subtle.importKey(
+      'raw',
+      encoder.encode(CRYPTO_SECRET),
+      {
+        name: 'HMAC',
+        hash: 'SHA-256',
+      },
+      false,
+      ['sign'],
+    );
+    const buffer = encoder.encode(str);
+    const signature = await window.crypto.subtle.sign('HMAC', cryptoKey, buffer);
 
-  return _buf2hex(signature);
+    return await _buf2hex(signature);
+  } catch (e) {
+    throw new Error('common.errors.https');
+  }
 }
 
 export async function signRequest(

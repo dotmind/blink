@@ -18,13 +18,14 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
     method: 'POST',
     headers,
     body: file,
-  }).catch((error) => {
-    throw new Error(error);
+  }).catch(() => {
+    throw new Error('common.errors.network');
   });
 
-  const { success, data } = await request.json();
+  const { data, success } = await request.json();
+
   if (!success) {
-    throw new Error('Upload failed with no further information');
+    throw new Error(data.message);
   }
 
   return data.id;
@@ -46,14 +47,18 @@ export async function receiveFile(
   headers.append('timestamp', timestamp);
   headers.append('signature', signature);
 
-  const response = await fetch(endpoint(path), {
+  const request = await fetch(endpoint(path), {
     method: 'GET',
     headers,
-  }).then((res) => res.json());
+  }).catch(() => {
+    throw new Error('common.errors.network');
+  });
 
-  if (response.status === 404) {
-    throw new Error('Receive failed');
+  const { data, success } = await request.json();
+
+  if (!success) {
+    throw new Error(data.message);
   }
 
-  return response.data;
+  return data;
 }

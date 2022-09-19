@@ -4,11 +4,13 @@ import { usePwa } from '@dotmind/react-use-pwa';
 import { useLocation } from 'react-router';
 
 import Button, { ButtonStyle } from '@/app/components/Button';
+import useIsMobile from '@/app/hooks/useIsMobile';
 
 import styles from '@/app/components/InstallPwa/styles.module.scss';
 
 function InstallPwa() {
   const { pathname } = useLocation();
+  const isMobile = useIsMobile();
   const { isInstalled, isOffline, isStandalone, canInstall, installPrompt } = usePwa();
   const { t } = useTranslation();
 
@@ -23,11 +25,10 @@ function InstallPwa() {
   }
 
   // @TODO: isInstalled not working & always return false
-  // @TODO: Cannot install on IOS
-  if (!isStandalone && !isInstalled) {
+  if (!isStandalone && !isInstalled && !isMobile) {
     return (
       <div className={styles.pwa_button} data-fullwidth={pathname !== '/'}>
-        <Button style={ButtonStyle.WHITE} callback={handleInstallPrompt}>
+        <Button style={ButtonStyle.WHITE} callback={handleInstallPrompt} name={t('common.pwa.install')}>
           {t('common.pwa.install')}
         </Button>
       </div>

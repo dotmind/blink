@@ -1,7 +1,7 @@
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 
-import placeholder from '@/app/assets/images/placeholder.png';
+import placeholder from '@/app/assets/images/placeholder.webp';
 
 function Head() {
   const { t } = useTranslation();
@@ -13,6 +13,7 @@ function Head() {
       <meta property={'og:title'} content={t('common.name')} />
       <meta property={'og:description'} content={t('common.description')} />
       <meta property={'og:image'} content={placeholder} />
+      <meta name={'theme-color'} content={'#47B0FF'} />
     </Helmet>
   );
 }

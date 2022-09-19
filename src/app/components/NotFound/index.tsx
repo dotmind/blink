@@ -19,7 +19,7 @@ function NotFound() {
       <div className={styles.content}>
         <h1 className={styles.title}>{t('common.errors.404.title')}</h1>
         <p>{t('common.errors.404.message')}</p>
-        <Button style={ButtonStyle.SECONDARY} callback={handleClick}>
+        <Button style={ButtonStyle.SECONDARY} callback={handleClick} name={t('common.errors.404.button')}>
           {t('common.errors.404.button')}
           <FontAwesomeIcon icon={faHouse} />
         </Button>
