@@ -1,4 +1,4 @@
-import { URL_KEY_IDENTIFIER } from '@/app/constants/navigator';
+import { URL_KEY_IDENTIFIER, FILE_IDENTIFIER } from '@/app/constants/navigator';
 
 export function toShareUrl(id: string, jwk: string) {
   return `${window.location.origin}/${id}${URL_KEY_IDENTIFIER}${jwk}`;
@@ -73,6 +73,6 @@ export function sanitizeName(name: string) {
 }
 
 export function prepareFileName(filename: string) {
-  const [name, extension] = filename.split('.');
-  return `${name}_noshit_${Date.now()}.${extension}`;
+  const name = filename.replace(/\.pdf$/i, '');
+  return `${name}_${FILE_IDENTIFIER}_${Date.now()}.pdf`;
 }
