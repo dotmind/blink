@@ -18,12 +18,12 @@
         "message": "La page  ou le fichier que vous chercher n’existe pas, à expiré. Retrouver votre route en passant par l’acceuil.",
         "button": "Retour à l’acceuil"
       },
-      "Network": "Erreur réseau : impossible de se connecter au serveur.",
-      "Unknown": "Erreur inconnue",
-      "ApiNotFound": "Erreur serveur: Ressource non trouvée",
-      "ApiTeapot": "Erreur serveur: signature invalide",
-      "InvalidTimeValue": "Erreur application: environnement invalide",
-      "Https": "Erreur application: connexion HTTPS requise"
+      "network": "Erreur réseau : impossible de se connecter au serveur.",
+      "unkown": "Erreur inconnue",
+      "apinotfound": "Erreur serveur: Ressource non trouvée",
+      "apiteapot": "Erreur serveur: signature invalide",
+      "invalidtimevalue": "Erreur application: environnement invalide",
+      "https": "Erreur application: connexion HTTPS requise"
     }
   },
   "upload": {
