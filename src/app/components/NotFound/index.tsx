@@ -23,8 +23,7 @@ function NotFound({ information }: IProps) {
       <div className={styles.content}>
         <h1 className={styles.title}>{t('common.errors.404.title')}</h1>
         <p>{t('common.errors.404.message')}</p>
-        {/* @TODO: use handleError from PR#22  */}
-        {information && <p className={styles.information}>{information}</p>}
+        {information && <p className={styles.information}>{t(information)}</p>}
         <Button style={ButtonStyle.SECONDARY} callback={handleClick} name={t('common.errors.404.button')}>
           {t('common.errors.404.button')}
           <FontAwesomeIcon icon={faHouse} />

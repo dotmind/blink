@@ -43,7 +43,7 @@ export async function decryptWithKey(key: CryptoKey, buffer: ArrayBuffer): Promi
 
     return new TextDecoder().decode(new Uint8Array(plainBuffer));
   } catch (e) {
-    throw new Error('common.errors.https');
+    throw new Error('common.errors.cannot_decrypt');
   }
 }
 
@@ -52,7 +52,7 @@ export async function exportKey(key: CryptoKey): Promise<string> {
     const { k: jwk } = await window.crypto.subtle.exportKey('jwk', key);
 
     if (!jwk) {
-      throw new Error('Failed to export key');
+      throw new Error('common.errors.jwk_export');
     }
 
     return jwk;
