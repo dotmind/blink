@@ -16,6 +16,7 @@ export type HistoryItem = {
 const useHistory = (): {
   history: HistoryItem[];
   addToHistory: (item: { filename: string; url: string }) => void;
+  removeFromHistory: (id: number) => void;
 } => {
   const [history, setHistory] = usePersistState<HistoryItem[]>(`files_history_${LOCAL_KEY_VERSION}`, []);
 
@@ -40,7 +41,14 @@ const useHistory = (): {
     [setHistory],
   );
 
-  return { history, addToHistory };
+  const removeFromHistory = useCallback(
+    (id: number): void => {
+      setHistory((prevState) => prevState.filter((_item, index) => index !== id));
+    },
+    [setHistory],
+  );
+
+  return { history, addToHistory, removeFromHistory };
 };
 
 export default useHistory;
