@@ -27,7 +27,9 @@
       "invalid_time_value": "Erreur application: environnement invalide",
       "https": "Erreur application: connexion HTTPS requise",
       "expired_signature": "Erreur application: signature expirée",
-      "missing_headers": "Erreur application: en-têtes manquantes"
+      "missing_headers": "Erreur application: en-têtes manquantes",
+      "jwk_export": "Erreur application: impossible d’exporter la clé publique",
+      "cannot_decrypt": "Erreur application: impossible de décrypter le fichier, la clé est peut-être invalide ou le contexte n'est pas sécurié (HTTPS)"
     }
   },
   "upload": {

@@ -26,6 +26,10 @@ function Download() {
     [file, fileName],
   );
 
+  if (!file) {
+    return null;
+  }
+
   return (
     <button
       className={styles.downloadButton}
