@@ -42,9 +42,9 @@ function LangSwitcher() {
               key={lang}
               type={'button'}
               onClick={() => handleSwitchLanguage(lang)}
-              aria-label={t(`lang.${lang}`)}
-              name={t(`lang.${lang}`)}>
-              {t(`lang.${lang}`)}
+              aria-label={t(`lang.full.${lang}`)}
+              name={t(`lang.full.${lang}`)}>
+              {isMobile ? t(`lang.short.${lang}`) : t(`lang.full.${lang}`)}
             </button>
           ))}
       </div>
