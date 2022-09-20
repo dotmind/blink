@@ -29,33 +29,47 @@ body {
   }
 }
 
-.App > *:nth-child(1) {
+.App > *:nth-child(1){
+  position: relative;
+}
+
+.App > *:nth-child(1)::after {
+  content: '';
+  z-index: -1;
   background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
     url('../assets/images/background.webp');
   background-size: 100%;
-  background-position: -50vw -50vh;
+
   background-repeat: no-repeat;
-  animation: background_waves 30s linear infinite;
+  animation: background_waves 40s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
 }
 
 @keyframes background_waves {
   0% {
-    background-position: -50vw -50vh;
+    transform: translate(-40vw, -40vh) rotate(0deg);
   }
   25% {
-    background-position: 40vw -15vh;
+    transform: translate(20vw, 0vh) rotate(60deg);
   }
   50% {
-    background-position: -30vw 0vh;
+
+    transform: translate(5vw, 70vh) rotate(120deg);
   }
   75% {
-    background-position: 30vw 20vh;
+
+    transform: translate(-10vw, 10vh) rotate(220deg);
   }
   100% {
-    background-position: 50vw 50vh;
+
+    transform: translate(-40vw, -40vh) rotate(360deg);
   }
 }
-  
 
 img {
   width: 100%;
