@@ -8,6 +8,7 @@ import Footer from '@/app/components/Footer';
 import About from '@/app/components/About';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import Download from '@/modules/download/components/Download';
+import AnimatedBackground from '@/app/components/AnimatedBackground';
 
 function Preview() {
   const isMobile = useIsMobile();
@@ -29,6 +30,7 @@ function Preview() {
         <Download />
       </Footer>
       <InstallPwa />
+      <AnimatedBackground />
     </DownloadProvider>
   );
 }

@@ -8,6 +8,7 @@ import UploadFile from '@/modules/upload/components/UploadFile';
 import ShareButtons from '@/modules/upload/components/ShareButtons';
 import History from '@/app/components/History';
 import ErrorModal from '@/app/components/ErrorModal';
+import AnimatedBackground from '@/app/components/AnimatedBackground';
 
 function Upload() {
   const { status } = useUpload();
@@ -38,6 +39,7 @@ function Upload() {
       {status === UploadStatus.SUCCESS && <ShareButtons />}
       <History />
       <CircleWaves />
+      <AnimatedBackground />
     </div>
   );
 }
