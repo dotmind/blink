@@ -33,7 +33,7 @@ function Upload() {
   }, [status]);
 
   return (
-    <div className={'container'}>
+    <div className={'container fadeIn'}>
       <UploadHeader />
       {renderContent}
       {status === UploadStatus.SUCCESS && <ShareButtons />}

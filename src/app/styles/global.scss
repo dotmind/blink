@@ -41,3 +41,35 @@ img {
     left: 35px;
   }
 }
+
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.d-25 {
+  animation-delay: 0.25s;
+}
+
+.d-50 {
+  animation-delay: 0.5s;
+}
+
+.d-75 {
+  animation-delay: 0.75s;
+}
+
+.d-100 {
+  animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
