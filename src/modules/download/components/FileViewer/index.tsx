@@ -71,7 +71,7 @@ function FileViewer() {
     <div className={'container justify-center flex-row'}>
       <HomeButton />
       <div className={styles.fileViewer}>
-        <header>
+        <header className={'fadeIn'}>
           <h1>{t('fileviewer.title')}</h1>
           {renderTimeRemaining}
         </header>

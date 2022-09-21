@@ -32,7 +32,7 @@ function Download() {
 
   return (
     <button
-      className={styles.downloadButton}
+      className={`${styles.downloadButton} fadeIn d-25`}
       type={'button'}
       onClick={handleDownload}
       aria-label={t('download.download')}
