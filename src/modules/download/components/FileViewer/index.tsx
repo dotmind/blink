@@ -14,6 +14,7 @@ import NotFound from '@/app/components/NotFound';
 import Loader from '@/app/components/Loader';
 
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
+import Download from '../Download';
 
 function FileViewer() {
   const { file, expiresIn, isLoading, error } = useDownload();
@@ -71,11 +72,12 @@ function FileViewer() {
     <div className={'container justify-center flex-row'}>
       <HomeButton />
       <div className={styles.fileViewer}>
-        <header>
+        <header className={'fade-in'}>
           <h1>{t('fileviewer.title')}</h1>
           {renderTimeRemaining}
         </header>
-        <Document className={styles.viewerParent} file={file} onLoadSuccess={onPDFReady}>
+        {isMobile && <Download />}
+        <Document className={`${styles.viewerParent} fade-in d-50`} file={file} onLoadSuccess={onPDFReady}>
           <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
           <div className={styles.controls}>
             <button

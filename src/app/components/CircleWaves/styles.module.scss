@@ -4,7 +4,7 @@ $base-circle-size: 100px;
   width: 100%;
   height: 100vh;
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -20,35 +20,10 @@ $base-circle-size: 100px;
   top: 40vh;
   transition: 0.5s ease-in;
 
-  &.uploading {
-    top: 0;
-    left: 0;
-
-    .animated_circles {
-      opacity: 0;
-    }
-
-    @for $i from 0 through 5 {
-      .animated_circles:nth-child(#{$i + 1}) {
-        animation: waves 10s infinite linear;
-        animation-delay: #{$i * 1.5}s;
-      }
-    }
-  }
-
-  &.success {
-    left: 0;
-    top: 0;
-
-    .animated_circles {
-      opacity: 0;
-    }
-
-    @for $i from 0 through 5 {
-      .animated_circles:nth-child(#{$i + 1}) {
-        animation: waves 10s linear forwards;
-        animation-delay: #{$i * 1.5}s;
-      }
+  @for $i from 0 through 5 {
+    .animated_circles:nth-child(#{$i + 1}) {
+      animation: waves 10s infinite linear;
+      animation-delay: #{$i * 1.5}s;
     }
   }
 }
@@ -60,7 +35,7 @@ $base-circle-size: 100px;
   position: absolute;
   border-radius: 50%;
   transform-origin: center center;
-  opacity: 0.3;
+  opacity: 0;
   position: absolute;
   left: 50%;
   top: 50%;

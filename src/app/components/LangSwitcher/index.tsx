@@ -30,7 +30,7 @@ function LangSwitcher() {
         onClick={openDropdown}
         aria-label={t('lang.choose')}
         name={t('lang.choose')}>
-        {!isMobile && <p className={styles.lang}>{t(`lang.${i18n.language}`)}</p>}
+        {!isMobile && <p className={styles.lang}>{t(`lang.full.${i18n.language}`)}</p>}
         <FontAwesomeIcon icon={faLanguage} />
       </button>
 
@@ -42,9 +42,9 @@ function LangSwitcher() {
               key={lang}
               type={'button'}
               onClick={() => handleSwitchLanguage(lang)}
-              aria-label={t(`lang.${lang}`)}
-              name={t(`lang.${lang}`)}>
-              {t(`lang.${lang}`)}
+              aria-label={t(`lang.full.${lang}`)}
+              name={t(`lang.full.${lang}`)}>
+              {isMobile ? t(`lang.short.${lang}`) : t(`lang.full.${lang}`)}
             </button>
           ))}
       </div>

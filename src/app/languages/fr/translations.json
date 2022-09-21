@@ -72,10 +72,18 @@
   },
   "lang": {
     "choose": "Choisissez votre langue",
-    "en": "Anglais",
-    "fr": "Français",
-    "de": "Allemand",
-    "es": "Espagnol"
+    "full": {
+      "en": "Anglais",
+      "fr": "Français",
+      "de": "Allemand",
+      "es": "Espagnol"
+    },
+    "short": {
+      "en": "EN",
+      "fr": "FR",
+      "de": "DE",
+      "es": "ES"
+    }
   },
   "time": {
     "seconds": "seconde(s)",
