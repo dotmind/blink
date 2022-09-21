@@ -26,9 +26,7 @@ function Preview() {
       <FileViewer />
       <CircleWaves />
       {renderAbout}
-      <Footer>
-        {!isMobile && <Download />}
-      </Footer>
+      <Footer>{!isMobile && <Download />}</Footer>
       <InstallPwa />
       <AnimatedBackground />
     </DownloadProvider>
