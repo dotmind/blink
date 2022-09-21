@@ -72,12 +72,12 @@ function FileViewer() {
     <div className={'container justify-center flex-row'}>
       <HomeButton />
       <div className={styles.fileViewer}>
-        <header className={'fadeIn'}>
+        <header className={'fade-in'}>
           <h1>{t('fileviewer.title')}</h1>
           {renderTimeRemaining}
         </header>
         {isMobile && <Download />}
-        <Document className={`${styles.viewerParent} fadeIn d-50`} file={file} onLoadSuccess={onPDFReady}>
+        <Document className={`${styles.viewerParent} fade-in d-50`} file={file} onLoadSuccess={onPDFReady}>
           <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
           <div className={styles.controls}>
             <button

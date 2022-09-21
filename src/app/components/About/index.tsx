@@ -76,7 +76,7 @@ function About() {
       <img src={background} alt={'landscape'} width={'100%'} height={'350px'} />
 
       <div className={styles.container}>
-        <div className={`${styles.paragraph} fadeIn d-25`}>
+        <div className={`${styles.paragraph} fade-in d-25`}>
           <h2>No Shit, un outil libre et securiser pour partager vos fichiers</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.
@@ -86,7 +86,7 @@ function About() {
           </p>
         </div>
 
-        <div className={`${styles.paragraph} fadeIn d-50`}>
+        <div className={`${styles.paragraph} fade-in d-50`}>
           <h2>Une securité haut niveau grâce au E2E</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.
@@ -96,7 +96,7 @@ function About() {
           </p>
         </div>
 
-        <div className={`${styles.paragraph} fadeIn d-75`}>
+        <div className={`${styles.paragraph} fade-in d-75`}>
           <h2>Une empreinte carbonne plus faible</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.

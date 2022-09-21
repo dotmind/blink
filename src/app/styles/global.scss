@@ -53,9 +53,9 @@ img {
   }
 }
 
-.fadeIn {
+.fade-in {
   opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
+  animation: fade-in 0.5s ease-in-out forwards;
 }
 
 .d-25 {
@@ -74,7 +74,7 @@ img {
   animation-delay: 1s;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   0% {
     opacity: 0;
     transform: translateY(20px);
