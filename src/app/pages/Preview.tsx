@@ -27,7 +27,7 @@ function Preview() {
       <CircleWaves />
       {renderAbout}
       <Footer>
-        <Download />
+        {!isMobile && <Download />}
       </Footer>
       <InstallPwa />
       <AnimatedBackground />
