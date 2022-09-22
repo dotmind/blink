@@ -45,10 +45,10 @@ function DownloadProvider({ children }: IProps) {
   useEffect(() => {
     (async () => {
       if (canDownload) {
-        const jwk = await extractJwkFromUrl();
-        const key = await importKey(jwk);
-
         try {
+          const jwk = await extractJwkFromUrl();
+          const key = await importKey(jwk);
+
           const { file: buffer, filename, expireAt } = await receiveFile(fingerprint, id as string);
           const base64 = await decryptWithKey(key, new Uint8Array(buffer.data));
           const calculatedExpireAt = new Date(expireAt).getTime() + EXPIRATION_TIME;
