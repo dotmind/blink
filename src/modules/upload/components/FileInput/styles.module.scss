@@ -14,6 +14,10 @@
   transform-origin: center;
   transition: transform 0.35s ease-in-out;
 
+  img {
+    object-fit: contain;
+  }
+
   &:hover {
     transform: scale(1.05);
   }
