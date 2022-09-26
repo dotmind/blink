@@ -42,6 +42,7 @@ function Download() {
         <p>{fileName}</p>
         <FontAwesomeIcon icon={faArrowDown} />
       </div>
+      {/* @TODO - Add file weight */}
       <p className={styles.fileWeight}>448.58KB . pdf</p>
     </button>
   );
