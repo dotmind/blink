@@ -38,7 +38,7 @@ function FileInput(): JSX.Element {
     setFilename(sanitizeName(name));
     setFileWeight(inputFile.size);
     setFile(base64 as ArrayBuffer);
-  }, [file, fileHandler, setFile, setFilename]);
+  }, [file, fileHandler, setFile, setFilename, setFileWeight]);
 
   const cancelEvent = useCallback((e: DragEvent) => {
     e.preventDefault();
