@@ -12,11 +12,11 @@ import HomeButton from '@/app/components/HomeButton';
 
 import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
 
-function ShareButtons() {
+function ShareButtons(): JSX.Element {
   const { shareUrl } = useUpload();
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const { t } = useTranslation();
-  const handleShare = useCallback(() => nativeShare(shareUrl as string), [shareUrl]);
+  const handleShare: () => Promise<void> = useCallback(() => nativeShare(shareUrl as string), [shareUrl]);
 
   useEffect(() => {
     if (isCopied) {

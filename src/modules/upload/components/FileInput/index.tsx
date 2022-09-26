@@ -10,7 +10,7 @@ import { sanitizeName } from '@/app/services/navigator';
 
 import styles from '@/modules/upload/components/FileInput/styles.module.scss';
 
-function FileInput() {
+function FileInput(): JSX.Element {
   const [error, setError] = useState<string | null>(null);
   const { file, setFile, filename, setFilename, setIsDragActive } = useUpload();
   const fileHandler = useRef<HTMLInputElement>(null);

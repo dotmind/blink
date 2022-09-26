@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import styles from '@/modules/upload/components/DragOverlay/styles.module.scss';
 
-function DragOverlay() {
+function DragOverlay(): JSX.Element {
   const { t } = useTranslation();
 
   return (
