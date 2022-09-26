@@ -10,7 +10,7 @@ import lockerOpenSvg from '@/app/assets/svg/locker_open.svg';
 import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
 
 function UploadFile() {
-  const { filename, status, shareUrl } = useUpload();
+  const { filename, fileWeight, status, shareUrl } = useUpload();
 
   const renderProgress = useMemo(() => {
     if (status === UploadStatus.SUCCESS) {
@@ -45,6 +45,8 @@ function UploadFile() {
     );
   }, [shareUrl, status]);
 
+  const fileWeightInKB = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
+
   return (
     <div className={statusClass}>
       <div className={styles.fileInfo}>
@@ -52,7 +54,7 @@ function UploadFile() {
           <FontAwesomeIcon icon={faFileLines} />
           <p>{filename}</p>
         </div>
-        <p className={styles.fileWeight}>448.58KB . pdf</p>
+        <p className={styles.fileWeight}>{fileWeightInKB}KB . pdf</p>
       </div>
       <div className={styles.statusConnector}>
         <div className={styles.progress}>{renderProgress}</div>

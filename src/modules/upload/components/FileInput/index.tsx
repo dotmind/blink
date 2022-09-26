@@ -12,7 +12,7 @@ import styles from '@/modules/upload/components/FileInput/styles.module.scss';
 
 function FileInput(): JSX.Element {
   const [error, setError] = useState<string | null>(null);
-  const { file, setFile, filename, setFilename, setIsDragActive } = useUpload();
+  const { file, setFile, filename, setFilename, setFileWeight, setIsDragActive } = useUpload();
   const fileHandler = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
 
@@ -36,6 +36,7 @@ function FileInput(): JSX.Element {
 
     setError(null);
     setFilename(sanitizeName(name));
+    setFileWeight(inputFile.size);
     setFile(base64 as ArrayBuffer);
   }, [file, fileHandler, setFile, setFilename]);
 
