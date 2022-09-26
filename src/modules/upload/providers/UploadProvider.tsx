@@ -22,6 +22,8 @@ export type UploadContextType = {
   setError: (error: Error) => void;
   history: HistoryItem[];
   addToHistory: (file: { filename: string; url: string }) => void;
+  isDragActive: boolean;
+  setIsDragActive: (isDragActive: boolean) => void;
 };
 
 const UploadContext = createContext<UploadContextType>({
@@ -37,6 +39,8 @@ const UploadContext = createContext<UploadContextType>({
   setError: () => {},
   history: [],
   addToHistory: () => {},
+  isDragActive: false,
+  setIsDragActive: () => {},
 });
 
 interface IProps {
@@ -50,6 +54,7 @@ function UploadProvider({ children }: IProps) {
   const [filename, setFilename] = useState<string>();
   const [error, setError] = useState<Error>();
   const { history, addToHistory } = useHistory();
+  const [isDragActive, setIsDragActive] = useState<boolean>(false);
 
   const value = useMemo(
     () => ({
@@ -65,8 +70,10 @@ function UploadProvider({ children }: IProps) {
       setError,
       history,
       addToHistory,
+      isDragActive,
+      setIsDragActive,
     }),
-    [file, shareUrl, status, filename, error, history, addToHistory],
+    [file, shareUrl, status, filename, error, history, addToHistory, isDragActive, setIsDragActive],
   );
 
   return <UploadContext.Provider value={value}>{children}</UploadContext.Provider>;

@@ -9,9 +9,10 @@ import ShareButtons from '@/modules/upload/components/ShareButtons';
 import History from '@/app/components/History';
 import ErrorModal from '@/app/components/ErrorModal';
 import AnimatedBackground from '@/app/components/AnimatedBackground';
+import DragOverlay from '@/modules/upload/components/DragOverlay';
 
 function Upload() {
-  const { status } = useUpload();
+  const { status, isDragActive } = useUpload();
 
   const renderContent = useMemo(() => {
     switch (status) {
@@ -33,14 +34,17 @@ function Upload() {
   }, [status]);
 
   return (
-    <div className={'container fade-in'}>
-      <UploadHeader />
-      {renderContent}
-      {status === UploadStatus.SUCCESS && <ShareButtons />}
-      <History />
-      <CircleWaves />
-      <AnimatedBackground />
-    </div>
+    <>
+      {isDragActive && <DragOverlay />}
+      <div className={'container fade-in'}>
+        <UploadHeader />
+        {renderContent}
+        {status === UploadStatus.SUCCESS && <ShareButtons />}
+        <History />
+        <CircleWaves />
+        <AnimatedBackground />
+      </div>
+    </>
   );
 }
 
