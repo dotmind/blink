@@ -78,7 +78,9 @@ export function prepareFileName(filename: string) {
 }
 
 export function getFileWeight(file: string): number {
-  const padding: 0 | 1 | 2 = file.endsWith('==') ? 2 : (file.endsWith('=') ? 1 : 0); // eslint-disable-line no-nested-ternary
+  // prettier-ignore
+  // eslint-disable-next-line no-nested-ternary
+  const padding: 0 | 1 | 2 = file.endsWith('==') ? 2 : (file.endsWith('=') ? 1 : 0);
   const fileWeight: number = 3 * (file.length / 4) - padding;
   return Math.round(fileWeight / 1024); // in KB
 }
