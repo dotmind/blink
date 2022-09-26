@@ -48,7 +48,7 @@ function FileInput() {
       cancelEvent(event);
       setIsDragActive(active);
     },
-    [],
+    [cancelEvent, setIsDragActive],
   );
 
   const handleDrop = useCallback(

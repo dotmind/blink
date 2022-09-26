@@ -10,11 +10,13 @@ import History from '@/app/components/History';
 import ErrorModal from '@/app/components/ErrorModal';
 import AnimatedBackground from '@/app/components/AnimatedBackground';
 import DragOverlay from '@/modules/upload/components/DragOverlay';
+import { useIsSmallDevice } from '@/app/hooks/useIsMobile';
 
-function Upload() {
+function Upload(): JSX.Element {
   const { status, isDragActive } = useUpload();
+  const isSmallDevice = useIsSmallDevice();
 
-  const renderContent = useMemo(() => {
+  const renderContent = useMemo((): JSX.Element | null => {
     switch (status) {
       case UploadStatus.IDLE:
         return <FileInput />;
@@ -33,9 +35,17 @@ function Upload() {
     }
   }, [status]);
 
+  const renderOverlay = useMemo((): JSX.Element | null => {
+    if (isSmallDevice || !isDragActive) {
+      return null;
+    }
+
+    return <DragOverlay />;
+  }, [isDragActive, isSmallDevice]);
+
   return (
     <>
-      {isDragActive && <DragOverlay />}
+      {renderOverlay}
       <div className={'container fade-in'}>
         <UploadHeader />
         {renderContent}
