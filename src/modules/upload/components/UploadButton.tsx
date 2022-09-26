@@ -10,13 +10,13 @@ import { uploadFile } from '@/app/services/api';
 import { toShareUrl } from '@/app/services/navigator';
 import Button, { ButtonStyle } from '@/app/components/Button';
 
-function UploadButton() {
+function UploadButton(): JSX.Element {
   const { fingerprint } = useApp();
   const { file, setStatus, setShareUrl, filename, setError, addToHistory } = useUpload();
   const { t } = useTranslation();
-  const canUpload = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
+  const canUpload: boolean = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
 
-  const handleUpload = useCallback(async () => {
+  const handleUpload: () => Promise<void> = useCallback(async () => {
     setStatus(UploadStatus.UPLOADING);
     try {
       if (!canUpload) {

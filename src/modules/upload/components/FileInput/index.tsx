@@ -16,13 +16,13 @@ function FileInput(): JSX.Element {
   const fileHandler = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
 
-  const onFileChange = useCallback(async () => {
+  const onFileChange: () => Promise<void> = useCallback(async () => {
     if (!fileHandler.current || !fileHandler.current.files) {
       setError(t('upload.file_not_found'));
       return;
     }
 
-    const inputFile = fileHandler.current.files[0];
+    const inputFile: File = fileHandler.current.files[0];
 
     if (!isFileValid(inputFile)) {
       setFile(undefined);
@@ -31,20 +31,20 @@ function FileInput(): JSX.Element {
       return;
     }
 
-    const base64 = await fileToBase64(inputFile);
+    const base64: ArrayBuffer = (await fileToBase64(inputFile)) as ArrayBuffer;
     const { name } = inputFile;
 
     setError(null);
     setFilename(sanitizeName(name));
     setFileWeight(inputFile.size);
-    setFile(base64 as ArrayBuffer);
+    setFile(base64);
   }, [file, fileHandler, setFile, setFilename, setFileWeight]);
 
-  const cancelEvent = useCallback((e: DragEvent) => {
+  const cancelEvent: (e: DragEvent) => void = useCallback((e: DragEvent) => {
     e.preventDefault();
   }, []);
 
-  const handleIsActive = useCallback(
+  const handleIsActive: (active: boolean) => (event: DragEvent) => void = useCallback(
     (active: boolean) => (event: DragEvent) => {
       cancelEvent(event);
       setIsDragActive(active);
@@ -52,7 +52,7 @@ function FileInput(): JSX.Element {
     [cancelEvent, setIsDragActive],
   );
 
-  const handleDrop = useCallback(
+  const handleDrop: (e: DragEvent) => void = useCallback(
     (e: DragEvent) => {
       if (!fileHandler.current) {
         return;

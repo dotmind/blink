@@ -33,7 +33,7 @@ function Download(): JSX.Element | null {
     return getFileWeight(file);
   }, [file]);
 
-  const renderComponent = useMemo(() => {
+  const renderComponent: JSX.Element | null = useMemo(() => {
     if (!file) {
       return null;
     }

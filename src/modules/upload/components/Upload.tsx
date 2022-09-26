@@ -14,9 +14,9 @@ import { useIsSmallDevice } from '@/app/hooks/useIsMobile';
 
 function Upload(): JSX.Element {
   const { status, isDragActive } = useUpload();
-  const isSmallDevice = useIsSmallDevice();
+  const isSmallDevice: boolean = useIsSmallDevice();
 
-  const renderContent = useMemo((): JSX.Element | null => {
+  const renderContent: JSX.Element | null = useMemo(() => {
     switch (status) {
       case UploadStatus.IDLE:
         return <FileInput />;
@@ -35,7 +35,7 @@ function Upload(): JSX.Element {
     }
   }, [status]);
 
-  const renderOverlay = useMemo((): JSX.Element | null => {
+  const renderOverlay: JSX.Element | null = useMemo(() => {
     if (isSmallDevice || !isDragActive) {
       return null;
     }

@@ -9,10 +9,10 @@ import lockerOpenSvg from '@/app/assets/svg/locker_open.svg';
 
 import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
 
-function UploadFile() {
+function UploadFile(): JSX.Element {
   const { filename, fileWeight, status, shareUrl } = useUpload();
 
-  const renderProgress = useMemo(() => {
+  const renderProgress: JSX.Element | null = useMemo(() => {
     if (status === UploadStatus.SUCCESS) {
       return <img src={lockerSvg} alt={'locker'} />;
     }
@@ -22,7 +22,7 @@ function UploadFile() {
     return null;
   }, [status]);
 
-  const statusClass = useMemo(() => {
+  const statusClass: string = useMemo(() => {
     switch (status) {
       case UploadStatus.UPLOADING:
         return classNames(styles.fileContainer, styles.uploading);
@@ -33,7 +33,7 @@ function UploadFile() {
     }
   }, [status]);
 
-  const renderLink = useMemo(() => {
+  const renderLink: JSX.Element = useMemo(() => {
     if (!shareUrl || status !== UploadStatus.SUCCESS) {
       return <p>Chargement ...</p>;
     }
@@ -45,7 +45,7 @@ function UploadFile() {
     );
   }, [shareUrl, status]);
 
-  const fileWeightInKB = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
+  const fileWeightInKB: number = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
 
   return (
     <div className={statusClass}>
