@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 
 import placeholder from '@/app/assets/images/placeholder.webp';
+import placeholder_2 from '@/app/assets/images/placeholder_2.webp';
+import background from '@/app/assets/images/background.webp';
 
 function Head(): JSX.Element {
   const { t } = useTranslation();
@@ -16,6 +18,10 @@ function Head(): JSX.Element {
       <meta property={'og:image:width'} content={'1200'} />
       <meta property={'og:image:height'} content={'630'} />
       <meta name={'theme-color'} content={'#47B0FF'} />
+
+      <link rel={'preload'} href={placeholder} />
+      <link rel={'preload'} href={placeholder_2} />
+      <link rel={'preload'} href={background} />
 
       <link rel={'apple-touch-icon'} sizes={'180x180'} href={'/apple-touch-icon.png'} />
       <link rel={'icon'} type={'image/png'} sizes={'32x32'} href={'/favicon-32x32.png'} />
