@@ -24,10 +24,10 @@ function FileViewer(): JSX.Element {
   const isMobile: boolean = useIsMobile();
   const { t } = useTranslation();
 
-  const fileSize: { width: number | undefined; height: number } = useMemo(
+  const fileSize: { width: number | undefined; height: number | undefined } = useMemo(
     () => ({
       width: isMobile ? width * 0.8 : undefined, // use default file width if desktop
-      height: height * 0.8,
+      height: isMobile ? undefined : height * 0.8,
     }),
     [width, height, isMobile],
   );
@@ -78,7 +78,6 @@ function FileViewer(): JSX.Element {
         </header>
         {isMobile && <Download />}
         <Document className={`${styles.viewerParent} fade-in d-50`} file={file} onLoadSuccess={onPDFReady}>
-          <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
           <div className={styles.controls}>
             <button
               disabled={isFirstPage}
@@ -104,6 +103,7 @@ function FileViewer(): JSX.Element {
               </button>
             )}
           </div>
+          <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
         </Document>
       </div>
     </div>
