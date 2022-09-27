@@ -48,11 +48,11 @@ function UploadFile(): JSX.Element {
   }, [shareUrl, status]);
 
   const renderSuccessAnim: JSX.Element | null = useMemo(() => {
-    if (status !== UploadStatus.SUCCESS) {
-      return null;
+    if (status === UploadStatus.SUCCESS) {
+      return <SuccessConfetti />;
     }
 
-    return <SuccessConfetti />;
+    return null;
   }, [status]);
 
   const fileWeightInKB: number = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
