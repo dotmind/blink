@@ -32,15 +32,5 @@
       "sizes": "180x180",
       "purpose": "maskable any"
     }
-  ],
-  "related_applications": [
-    {
-      "platform": "webapp",
-      "url": "https://boniche-gang.fr/manifest.json"
-    },
-    {
-      "platform": "webapp",
-      "url": "http://localhost:8080/manifest.json"
-    }
   ]
 }
