@@ -25,14 +25,13 @@ function Head() {
 
       <meta name={'msapplication-TileColor'} content={'#47B0FF'} />
       <meta name={'msapplication-config'} content={'/browserconfig.xml'} />
-      
+
       <meta name={'twitter:card'} content={'summary_large_image'} />
       <meta name={'twitter:site'} content={'@noshitapp'} />
       <meta name={'twitter:creator'} content={'@noshitapp'} />
       <meta name={'twitter:title'} content={t('common.name')} />
       <meta name={'twitter:description'} content={t('common.description')} />
       <meta name={'twitter:image'} content={placeholder} />
-
     </Helmet>
   );
 }
