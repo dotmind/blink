@@ -40,12 +40,14 @@
       color: var(--color-grey-300);
     }
 
-    li {
+    a {
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: relative;
       width: 100%;
+      text-decoration: none;
+      color: black;
 
       button {
         border: none;

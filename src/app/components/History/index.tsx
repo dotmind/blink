@@ -31,13 +31,8 @@ function History(): JSX.Element | null {
   const renderList: JSX.Element[] = useMemo(
     () =>
       history.map((item, i) => (
-        <a
-          className={styles.historyCard}
-          key={item.url}
-          href={item.url}
-          target={isStandalone ? '_self' : '_blank'}
-          rel={'noreferrer'}>
-          <li>
+        <li className={styles.historyCard} key={item.url}>
+          <a href={item.url} target={isStandalone ? '_self' : '_blank'} rel={'noreferrer'}>
             <div>
               <p className={styles.filename}>{item.filename}</p>
               <p className={styles.expiresIn}>
@@ -45,13 +40,17 @@ function History(): JSX.Element | null {
               </p>
             </div>
             <div className={'d-flex'} style={{ gap: '10px' }}>
-              <button type={'button'} onClick={handleDelete(item.url, i)}>
+              <button
+                type={'button'}
+                name={'delete history item'}
+                aria-label={'delete history item'}
+                onClick={handleDelete(item.url, i)}>
                 <FontAwesomeIcon icon={faTrash} />
               </button>
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </div>
-          </li>
-        </a>
+          </a>
+        </li>
       )),
     [history, t, currentLanguage],
   );
