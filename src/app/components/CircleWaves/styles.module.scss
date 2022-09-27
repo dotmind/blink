@@ -20,10 +20,12 @@ $base-circle-size: 100px;
   top: 40vh;
   transition: 0.5s ease-in;
 
-  @for $i from 0 through 5 {
-    .animated_circles:nth-child(#{$i + 1}) {
-      animation: waves 10s infinite linear;
-      animation-delay: #{$i * 1.5}s;
+  @media (min-width: 768px) {
+    @for $i from 0 through 5 {
+      .animated_circles:nth-child(#{$i + 1}) {
+        animation: waves 10s infinite linear;
+        animation-delay: #{$i * 1.5}s;
+      }
     }
   }
 }
