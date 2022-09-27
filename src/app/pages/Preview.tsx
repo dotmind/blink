@@ -9,6 +9,7 @@ import About from '@/app/components/About';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import Download from '@/modules/download/components/Download';
 import AnimatedBackground from '@/app/components/AnimatedBackground';
+import FileHead from '@/modules/download/components/FileHead';
 
 function Preview() {
   const isMobile = useIsMobile();
@@ -23,6 +24,7 @@ function Preview() {
 
   return (
     <DownloadProvider>
+      <FileHead />
       <FileViewer />
       <CircleWaves />
       {renderAbout}

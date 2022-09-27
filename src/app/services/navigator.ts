@@ -76,3 +76,11 @@ export function prepareFileName(filename: string) {
   const name = filename.replace(/\.pdf$/i, '');
   return `${name}_${FILE_IDENTIFIER}_${Date.now()}.pdf`;
 }
+
+export function getFileWeight(file: string): number {
+  // prettier-ignore
+  // eslint-disable-next-line no-nested-ternary
+  const padding: 0 | 1 | 2 = file.endsWith('==') ? 2 : (file.endsWith('=') ? 1 : 0);
+  const fileWeight: number = 3 * (file.length / 4) - padding;
+  return Math.round(fileWeight / 1024); // in KB
+}

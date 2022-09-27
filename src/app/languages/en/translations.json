@@ -12,6 +12,10 @@
       "title": "Transfer history",
       "expiresin": "Expires in"
     },
+    "share": {
+      "download": "Download",
+      "description": "Partager un fichier avec NoShit"
+    },
     "errors": {
       "404": {
         "title": "Page inexistante",

@@ -16,39 +16,39 @@ import Loader from '@/app/components/Loader';
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
 import Download from '../Download';
 
-function FileViewer() {
+function FileViewer(): JSX.Element {
   const { file, expiresIn, isLoading, error } = useDownload();
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { width, height } = useWindowSize();
-  const isMobile = useIsMobile();
+  const isMobile: boolean = useIsMobile();
   const { t } = useTranslation();
 
-  const fileSize = useMemo(
+  const fileSize: { width: number | undefined; height: number | undefined } = useMemo(
     () => ({
       width: isMobile ? width * 0.8 : undefined, // use default file width if desktop
-      height: height * 0.8,
+      height: isMobile ? undefined : height * 0.8,
     }),
     [width, height, isMobile],
   );
 
-  const isFirstPage = useMemo(() => pageNumber === 1, [pageNumber]);
+  const isFirstPage: boolean = useMemo(() => pageNumber === 1, [pageNumber]);
 
-  const isLastPage = useMemo(() => pageNumber === numPages, [pageNumber, numPages]);
+  const isLastPage: boolean = useMemo(() => pageNumber === numPages, [pageNumber, numPages]);
 
-  const handleShare = () => nativeShare(window.location.href);
+  const handleShare: () => Promise<void> = () => nativeShare(window.location.href);
 
   // pdf worker config for vite bundle
   pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
-  const onPDFReady = useCallback(
+  const onPDFReady: ({ numPages: nextNumPages }: { numPages: number }) => void = useCallback(
     ({ numPages: nextNumPages }: { numPages: number }) => {
       setNumPages(nextNumPages);
     },
     [file],
   );
 
-  const renderTimeRemaining = useMemo(() => {
+  const renderTimeRemaining: JSX.Element | null = useMemo(() => {
     if (!expiresIn) {
       return null;
     }
@@ -78,7 +78,6 @@ function FileViewer() {
         </header>
         {isMobile && <Download />}
         <Document className={`${styles.viewerParent} fade-in d-50`} file={file} onLoadSuccess={onPDFReady}>
-          <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
           <div className={styles.controls}>
             <button
               disabled={isFirstPage}
@@ -104,6 +103,7 @@ function FileViewer() {
               </button>
             )}
           </div>
+          <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
         </Document>
       </div>
     </div>

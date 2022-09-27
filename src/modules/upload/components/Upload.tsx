@@ -9,11 +9,14 @@ import ShareButtons from '@/modules/upload/components/ShareButtons';
 import History from '@/app/components/History';
 import ErrorModal from '@/app/components/ErrorModal';
 import AnimatedBackground from '@/app/components/AnimatedBackground';
+import DragOverlay from '@/modules/upload/components/DragOverlay';
+import { useIsSmallDevice } from '@/app/hooks/useIsMobile';
 
-function Upload() {
-  const { status } = useUpload();
+function Upload(): JSX.Element {
+  const { status, isDragActive } = useUpload();
+  const isSmallDevice: boolean = useIsSmallDevice();
 
-  const renderContent = useMemo(() => {
+  const renderContent: JSX.Element | null = useMemo(() => {
     switch (status) {
       case UploadStatus.IDLE:
         return <FileInput />;
@@ -32,15 +35,26 @@ function Upload() {
     }
   }, [status]);
 
+  const renderOverlay: JSX.Element | null = useMemo(() => {
+    if (isSmallDevice || !isDragActive) {
+      return null;
+    }
+
+    return <DragOverlay />;
+  }, [isDragActive, isSmallDevice]);
+
   return (
-    <div className={'container fade-in'}>
-      <UploadHeader />
-      {renderContent}
-      {status === UploadStatus.SUCCESS && <ShareButtons />}
-      <History />
-      <CircleWaves />
-      <AnimatedBackground />
-    </div>
+    <>
+      {renderOverlay}
+      <div className={'container fade-in'}>
+        <UploadHeader />
+        {renderContent}
+        {status === UploadStatus.SUCCESS && <ShareButtons />}
+        <History />
+        <CircleWaves />
+        <AnimatedBackground />
+      </div>
+    </>
   );
 }
 

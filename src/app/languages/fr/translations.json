@@ -12,6 +12,10 @@
       "title": "Historique des transferts",
       "expiresin": "Expire dans"
     },
+    "share": {
+      "download": "Télécharger",
+      "description": "Partager un fichier avec NoShit"
+    },
     "errors": {
       "404": {
         "title": "Page inexistante",
@@ -25,7 +29,7 @@
       "invalid_signature": "Erreur serveur: signature invalide",
       "file_cannot_be_saved": "Erreur serveur: impossible de sauvegarder le fichier",
       "invalid_time_value": "Erreur application: environnement invalide",
-      "https": "Erreur application: connexion HTTPS requise",
+      "https": "Erreur application: connexion HTTPS requise ou clé invalide",
       "expired_signature": "Erreur application: signature expirée",
       "missing_headers": "Erreur application: en-têtes manquantes",
       "jwk_export": "Erreur application: impossible d’exporter la clé publique",

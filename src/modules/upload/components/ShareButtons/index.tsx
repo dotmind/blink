@@ -12,11 +12,11 @@ import HomeButton from '@/app/components/HomeButton';
 
 import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
 
-function ShareButtons() {
+function ShareButtons(): JSX.Element {
   const { shareUrl } = useUpload();
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const { t } = useTranslation();
-  const handleShare = useCallback(() => nativeShare(shareUrl as string), [shareUrl]);
+  const handleShare: () => Promise<void> = useCallback(() => nativeShare(shareUrl as string), [shareUrl]);
 
   useEffect(() => {
     if (isCopied) {
@@ -31,12 +31,12 @@ function ShareButtons() {
 
   return (
     <div className={styles.share_container}>
+      <HomeButton />
       {canUseNativeShare() && (
         <Button style={ButtonStyle.SECONDARY} callback={handleShare} name={t('upload.link.share')}>
           {t('upload.link.share')} <FontAwesomeIcon icon={faArrowUpFromBracket} />
         </Button>
       )}
-      <HomeButton />
       <Button style={ButtonStyle.PRIMARY} callback={handleCopy} name={t('upload.link.copy')}>
         {t('upload.link.copy')} <FontAwesomeIcon icon={faCopy} />
         {isCopied && <Tooltip position={TooltipPosition.right}>{t('common.tooltip.copied')}</Tooltip>}

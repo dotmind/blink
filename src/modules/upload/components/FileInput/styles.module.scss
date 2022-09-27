@@ -14,6 +14,10 @@
   transform-origin: center;
   transition: transform 0.35s ease-in-out;
 
+  img {
+    object-fit: contain;
+  }
+
   &:hover {
     transform: scale(1.05);
   }
@@ -50,41 +54,5 @@
     max-width: 60%;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(2px);
-  border: 5px solid #47b0ff59;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 99;
-  animation: fade 200ms ease-in;
-
-  h3 {
-    font-size: 1.3rem;
-  }
-
-  p {
-    max-width: 300px;
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }

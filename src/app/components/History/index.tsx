@@ -1,7 +1,8 @@
-import { useMemo, useCallback } from 'react';
+import { MouseEvent, useMemo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
+import { usePwa } from '@dotmind/react-use-pwa';
 
 import { timeRemaining } from '@/app/utils/time';
 import useHistory from '@/app/hooks/useHistory';
@@ -11,14 +12,15 @@ import { extractFilePath } from '@/app/services/file';
 
 import styles from '@/app/components/History/styles.module.scss';
 
-function History() {
+function History(): JSX.Element | null {
   const { fingerprint } = useApp();
   const { history, removeFromHistory } = useHistory();
   const { t, i18n } = useTranslation();
+  const { isStandalone } = usePwa();
   const currentLanguage = i18n.language;
 
-  const handleDelete = useCallback(
-    (url: string, index: number) => async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleDelete: (url: string, index: number) => (e: MouseEvent<HTMLButtonElement>) => Promise<void> = useCallback(
+    (url: string, index: number) => async (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
       await deleteFile(fingerprint, extractFilePath(url));
       removeFromHistory(index);
@@ -26,10 +28,15 @@ function History() {
     [fingerprint, removeFromHistory],
   );
 
-  const renderList = useMemo(
+  const renderList: JSX.Element[] = useMemo(
     () =>
       history.map((item, i) => (
-        <a className={styles.historyCard} key={item.url} href={item.url} target={'_blank'} rel={'noreferrer'}>
+        <a
+          className={styles.historyCard}
+          key={item.url}
+          href={item.url}
+          target={isStandalone ? '_self' : '_blank'}
+          rel={'noreferrer'}>
           <li>
             <div>
               <p className={styles.filename}>{item.filename}</p>
@@ -49,7 +56,7 @@ function History() {
     [history, t, currentLanguage],
   );
 
-  const renderHistory = useMemo(() => {
+  const renderHistory: JSX.Element | null = useMemo(() => {
     if (!history.length) {
       return null;
     }

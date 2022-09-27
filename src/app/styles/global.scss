@@ -45,7 +45,7 @@ img {
     left: 35px;
   }
 
-  @media (max-width: $breakpoint-sm) {
+  @media (max-width: $breakpoint-lg) {
     > .homeButton {
       right: 35px;
       left: unset;

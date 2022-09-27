@@ -29,11 +29,11 @@
     color: #999;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     position: relative;
     bottom: unset;
     right: unset;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     max-width: unset;
   }
 }
