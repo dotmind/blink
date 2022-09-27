@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, lazy } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-regular-svg-icons';
@@ -8,6 +8,8 @@ import lockerSvg from '@/app/assets/svg/locker.svg';
 import lockerOpenSvg from '@/app/assets/svg/locker_open.svg';
 
 import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
+
+const SuccessConfetti = lazy(() => import('@/app/components/SuccessConfetti'));
 
 function UploadFile(): JSX.Element {
   const { filename, fileWeight, status, shareUrl } = useUpload();
@@ -45,6 +47,14 @@ function UploadFile(): JSX.Element {
     );
   }, [shareUrl, status]);
 
+  const renderSuccessAnim: JSX.Element | null = useMemo(() => {
+    if (status === UploadStatus.SUCCESS) {
+      return <SuccessConfetti />;
+    }
+
+    return null;
+  }, [status]);
+
   const fileWeightInKB: number = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
 
   return (
@@ -59,6 +69,7 @@ function UploadFile(): JSX.Element {
       <div className={styles.statusConnector}>
         <div className={styles.progress}>{renderProgress}</div>
         <div className={styles.link} />
+        {renderSuccessAnim}
       </div>
       <div className={styles.fileLink}>{renderLink}</div>
     </div>
