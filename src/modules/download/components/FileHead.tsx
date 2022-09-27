@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
-function FileHead() {
+function FileHead(): JSX.Element {
   const { fileName } = useDownload();
   const { t } = useTranslation();
 

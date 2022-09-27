@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import placeholder from '@/app/assets/images/placeholder.webp';
 
-function Head() {
+function Head(): JSX.Element {
   const { t } = useTranslation();
 
   return (

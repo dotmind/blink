@@ -51,7 +51,7 @@ interface IProps {
   children: React.ReactNode;
 }
 
-function UploadProvider({ children }: IProps) {
+function UploadProvider({ children }: IProps): JSX.Element {
   const [file, setFile] = useState<string | ArrayBuffer>();
   const [shareUrl, setShareUrl] = useState<string>();
   const [status, setStatus] = useState<UploadStatus>(UploadStatus.IDLE);
