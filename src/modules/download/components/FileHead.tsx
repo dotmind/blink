@@ -12,8 +12,16 @@ function FileHead(): JSX.Element {
       <title>{`Noshit - ${fileName}`}</title>
       <meta name={'description'} content={`${t('common.share.download')} ${fileName} - ${t('common.share.description')}`} />
       <meta property={'og:title'} content={`Noshit - ${fileName}`} />
+      <meta property={'og:type'} content={'website'} />
+      <meta property={'og:url'} content={window.location.href} />
       <meta
         property={'og:description'}
+        content={`${t('common.share.download')} ${fileName} - ${t('common.share.description')}`}
+      />
+
+      <meta property={'twitter:title'} content={`Noshit - ${fileName}`} />
+      <meta
+        property={'twitter:description'}
         content={`${t('common.share.download')} ${fileName} - ${t('common.share.description')}`}
       />
     </Helmet>
