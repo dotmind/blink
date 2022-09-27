@@ -11,6 +11,8 @@ function FileHead() {
     <Helmet>
       <title>{`Noshit - ${fileName}`}</title>
       <meta name={'description'} content={`${t('common.share.download')} ${fileName} - ${t('common.share.description')}`} />
+      <meta property={'og:title'} content={`Noshit - ${fileName}`} />
+      <meta property={'og:description'} content={`${t('common.share.download')} ${fileName} - ${t('common.share.description')}`} />
     </Helmet>
   );
 }
