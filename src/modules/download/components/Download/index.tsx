@@ -50,7 +50,6 @@ function Download(): JSX.Element | null {
           <p>{fileName}</p>
           <FontAwesomeIcon icon={faArrowDown} />
         </div>
-        {/* @TODO - Add file weight */}
         <p className={styles.fileWeight}>{fileWeigth}KB . pdf</p>
       </button>
     );

@@ -1,8 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Loader from '@/app/components/Loader';
-
+const Loader = lazy(() => import('@/app/components/Loader'));
 const Home = lazy(() => import('@/app/pages/Home'));
 const Preview = lazy(() => import('@/app/pages/Preview'));
 const Error404 = lazy(() => import('@/app/pages/Error404'));

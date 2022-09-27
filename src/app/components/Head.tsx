@@ -27,8 +27,8 @@ function Head(): JSX.Element {
       <meta name={'msapplication-config'} content={'/browserconfig.xml'} />
 
       <meta name={'twitter:card'} content={'summary_large_image'} />
-      <meta name={'twitter:site'} content={'@noshitapp'} />
-      <meta name={'twitter:creator'} content={'@noshitapp'} />
+      <meta name={'twitter:site'} content={'@dotmind_io'} />
+      <meta name={'twitter:creator'} content={'@dotmind_io'} />
       <meta name={'twitter:title'} content={t('common.name')} />
       <meta name={'twitter:description'} content={t('common.description')} />
       <meta name={'twitter:image'} content={placeholder} />
