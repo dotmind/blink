@@ -69,7 +69,7 @@ function FileViewer(): JSX.Element {
   }
 
   return (
-    <div className={'container justify-center flex-row'}>
+    <div className={'container justify-center flex-row padding'}>
       <HomeButton />
       <div className={styles.fileViewer}>
         <header className={'fade-in'}>
