@@ -8,6 +8,8 @@
   z-index: -1;
 
   .image {
+    object-fit: contain;
+
     @media (min-width: 768px) {
       animation: background_waves 40s linear infinite;
     }
