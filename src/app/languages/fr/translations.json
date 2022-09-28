@@ -77,7 +77,8 @@
     "estimation": "Ce fichier expireras dans",
     "nextPage": "Page suivante",
     "previousPage": "Page précédente",
-    "share": "Partager"
+    "share": "Partager",
+    "expired": "Ce fichier a déjà expiré mais est disponible dans le cache de votre navigateur."
   },
   "download": {
     "download": "Télécharger"

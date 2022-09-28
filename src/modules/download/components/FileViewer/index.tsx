@@ -53,6 +53,10 @@ function FileViewer(): JSX.Element {
       return null;
     }
 
+    if (expiresIn < Date.now()) {
+      return <p>{t('fileviewer.expired')}</p>;
+    }
+
     return (
       <p>
         {t('fileviewer.estimation')} {timeRemaining(expiresIn)}

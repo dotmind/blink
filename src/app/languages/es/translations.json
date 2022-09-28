@@ -77,7 +77,8 @@
     "estimation": "El pdf caducara en",
     "nextPage": "Siguiente página",
     "previousPage": "Página anterior",
-    "share": "Compartir"
+    "share": "Compartir",
+    "expired": "Ce fichier a déjà expiré mais est disponible dans le cache de votre navigateur."
   },
   "download": {
     "download": "Télécharger (es)"
