@@ -2,6 +2,7 @@
   "common": {
     "name": "Noshit (es)",
     "description": "Noshit application",
+    "watermark": "Made by Dotmind",
     "pwa": {
       "install": "Installer l'application NoShit"
     },
