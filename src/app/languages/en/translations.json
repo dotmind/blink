@@ -56,6 +56,20 @@
         "description": "Le serveur à rencontré une erreur lors de l'envoi de votre fichier. Veuillez réessayer.",
         "retry": "Recommencer"
       }
+    },
+    "headers": {
+      "uploading": {
+        "title": "Envoi en cours...",
+        "description": "Les fichiers que vous partager sont protégés par en chiffrement E2E."
+      },
+      "success": {
+        "title": "C’est terminé ! Bravo ✨",
+        "description": "Partager ce fichier à l'aide du lien généré ci-dessous."
+      },
+      "idle": {
+        "title": "Déposer vos fichier ici...",
+        "description": "Partager facilement des fichiers en toute sécurité."
+      }
     }
   },
   "fileviewer": {
