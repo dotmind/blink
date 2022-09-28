@@ -45,6 +45,7 @@
       "description": "Share easily your files with security and privacy"
     },
     "link": {
+      "loading": "Chargement...",
       "share": "Share link",
       "copy": "Copy link"
     },
