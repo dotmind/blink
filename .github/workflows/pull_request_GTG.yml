@@ -1,0 +1,20 @@
+name: 'GTG when approved'
+
+on: pull_request_review
+
+jobs:
+  labelWhenApproved:
+    name: GTG when approved
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 1
+
+    steps:
+    - name: GTG when approved
+      uses: pullreminders/label-when-approved-action@master
+      env:
+        APPROVALS: "1"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ADD_LABEL: "GTG"
+        REMOVE_LABEL: "Need%20Review"
