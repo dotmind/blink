@@ -1,17 +1,18 @@
 .history_container {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   margin-top: 2rem;
-  background-color: #ffffff4d;
+  background-color: #ffffff90;
+  border: 1px solid #f8f8f8;
   backdrop-filter: blur(3px);
   border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 2;
 
   h3 {
     padding: 10px;
-    font-weight: 100;
+    font-weight: 700;
+    margin-bottom: 10px;
   }
 
   .historyList {
@@ -26,10 +27,8 @@
     text-decoration: none;
     color: black;
     font-size: 0.9rem;
-
-    &:first-of-type {
-      padding-top: 0px;
-    }
+    transition: all 120ms ease-in;
+    background-color: #ffffff90;
 
     &:not(:last-of-type) {
       border-bottom: 1px solid #f8f8f8;
@@ -47,7 +46,7 @@
       position: relative;
       width: 100%;
       text-decoration: none;
-      color: black;
+      color: var(--color-grey-900);
 
       button {
         border: none;
