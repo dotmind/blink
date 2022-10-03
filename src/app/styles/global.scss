@@ -35,6 +35,12 @@ img {
   object-fit: cover;
 }
 
+.logo {
+  position: absolute;
+  top: 65px;
+  left: 30px;
+}
+
 .homeButton {
   z-index: 25;
 }
@@ -73,6 +79,22 @@ img {
 
 .d-100 {
   animation-delay: 1s;
+}
+
+.d-125 {
+  animation-delay: 1.25s;
+}
+
+.d-150 {
+  animation-delay: 1.5s;
+}
+
+.d-175 {
+  animation-delay: 1.75s;
+}
+
+.d-200 {
+  animation-delay: 2s;
 }
 
 @keyframes fade-in {

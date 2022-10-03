@@ -23,7 +23,7 @@ function Footer({ children }: IProps) {
   const hasFadeBkg = useMemo(() => pathname !== '/' || isStandalone, [pathname, isStandalone]);
 
   return (
-    <footer className={styles.footer} data-hasFadeBkg={hasFadeBkg}>
+    <footer className={styles.footer} data-hasfadebkg={hasFadeBkg}>
       <a href={'https://dotmind.io/'} target={'_blank'} rel={'noreferrer'} className={styles.watermark}>
         {t('common.watermark')}
       </a>

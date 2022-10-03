@@ -99,14 +99,14 @@ function About() {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.</p>
         </div>
 
-        <div className={`${styles.paragraph} fade-in d-75`}>
+        <div className={`${styles.paragraph} fade-in d-100`}>
           <h2>
             <img src={lock} alt={'lock icon'} /> Cryptage bout en bout
           </h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut arcu orci sed tristique enim quis tristique eu.</p>
         </div>
 
-        <div className={`${styles.paragraph} fade-in d-75`}>
+        <div className={`${styles.paragraph} fade-in d-125`}>
           <h2>
             <img src={bolt} alt={'bolt icon'} /> Simple et rapide
           </h2>

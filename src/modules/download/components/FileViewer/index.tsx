@@ -8,7 +8,7 @@ import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
-import HomeButton from '@/app/components/HomeButton';
+import Logo from '@/app/components/Logo';
 import { timeRemaining } from '@/app/utils/time';
 import NotFound from '@/app/components/NotFound';
 import Loader from '@/app/components/Loader';
@@ -74,7 +74,9 @@ function FileViewer(): JSX.Element {
 
   return (
     <div className={'container justify-center flex-row padding'}>
-      <HomeButton />
+      <div className={'logo'}>
+        <Logo />
+      </div>
       <div className={styles.fileViewer}>
         <header className={'fade-in'}>
           <h1>{t('fileviewer.title')}</h1>

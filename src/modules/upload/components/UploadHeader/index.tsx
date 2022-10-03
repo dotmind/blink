@@ -2,6 +2,7 @@ import { useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
+import Logo from '@/app/components/Logo';
 
 import styles from '@/modules/upload/components/UploadHeader/styles.module.scss';
 
@@ -41,6 +42,7 @@ function UploadHeader(): JSX.Element {
 
   return (
     <header ref={container} className={styles.header}>
+      <Logo />
       {renderHeader}
     </header>
   );
