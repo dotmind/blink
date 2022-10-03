@@ -15,9 +15,9 @@ function FileHead(): JSX.Element | null {
 
     return (
       <Helmet>
-        <title>{`Noshit - ${fileName}`}</title>
+        <title>{`Blink - ${fileName}`}</title>
         <meta name={'description'} content={`${t('common.share.download')} ${fileName} - ${t('common.share.description')}`} />
-        <meta property={'og:title'} content={`Noshit - ${fileName}`} />
+        <meta property={'og:title'} content={`Blink - ${fileName}`} />
         <meta property={'og:type'} content={'website'} />
         <meta property={'og:url'} content={window.location.href} />
         <meta
@@ -25,7 +25,7 @@ function FileHead(): JSX.Element | null {
           content={`${t('common.share.download')} ${fileName} - ${t('common.share.description')}`}
         />
 
-        <meta property={'twitter:title'} content={`Noshit - ${fileName}`} />
+        <meta property={'twitter:title'} content={`Blink - ${fileName}`} />
         <meta
           property={'twitter:description'}
           content={`${t('common.share.download')} ${fileName} - ${t('common.share.description')}`}

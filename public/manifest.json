@@ -1,7 +1,7 @@
 {
   "lang": "fr",
-  "short_name": "noshit",
-  "name": "noshit",
+  "short_name": "blink",
+  "name": "blink",
   "start_url": ".",
   "scope": "/",
   "orientation": "portrait-primary",

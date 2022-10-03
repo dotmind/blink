@@ -1,7 +1,7 @@
 {
   "common": {
-    "name": "Noshit",
-    "description": "Noshit application",
+    "name": "Blink",
+    "description": "Blink application",
     "watermark": "Made by Dotmind",
     "pwa": {
       "install": "Installer l'application NoShit"

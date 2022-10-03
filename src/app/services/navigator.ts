@@ -24,8 +24,8 @@ export function nativeShare(url: string) {
   }
 
   return navigator.share({
-    title: 'noshit',
-    text: 'Noshit - Share your PDF safely 🔐',
+    title: 'blink',
+    text: 'Blink - Share your PDF safely 🔐',
     url,
   });
 }

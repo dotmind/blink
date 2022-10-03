@@ -37,7 +37,7 @@ function UploadButton(): JSX.Element {
       setStatus(UploadStatus.SUCCESS);
 
       await navigator.clipboard.writeText(url);
-      if(canUseNativeShare()){
+      if (canUseNativeShare()) {
         await nativeShare(url);
       }
     } catch (error) {
