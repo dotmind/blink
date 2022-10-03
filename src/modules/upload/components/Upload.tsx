@@ -36,7 +36,7 @@ function Upload(): JSX.Element {
   }, [status]);
 
   const renderOverlay: JSX.Element | null = useMemo(() => {
-    if (isSmallDevice || !isDragActive) {
+    if (isSmallDevice || !isDragActive || status !== UploadStatus.IDLE) {
       return null;
     }
 
