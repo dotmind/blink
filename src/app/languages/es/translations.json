@@ -4,7 +4,7 @@
     "description": "Blink application",
     "watermark": "Made by Dotmind",
     "pwa": {
-      "install": "Installer l'application NoShit"
+      "install": "Installer l'application Blink"
     },
     "tooltip": {
       "copied": "Copié !"
@@ -15,7 +15,7 @@
     },
     "share": {
       "download": "Télécharger",
-      "description": "Partager un fichier avec NoShit"
+      "description": "Partager un fichier avec Blink"
     },
     "errors": {
       "404": {
