@@ -20,10 +20,10 @@ function Footer({ children }: IProps) {
   const { t } = useTranslation();
 
   const canRenderMoreInfo = useMemo(() => isMobile && !isStandalone, [isMobile, isStandalone]);
-  const isFullWidth = useMemo(() => pathname !== '/' || isStandalone, [pathname, isStandalone]);
+  const hasFadeBkg = useMemo(() => pathname !== '/' || isStandalone, [pathname, isStandalone]);
 
   return (
-    <footer className={styles.footer} data-fullwidth={isFullWidth}>
+    <footer className={styles.footer} data-hasFadeBkg={hasFadeBkg}>
       <a href={'https://dotmind.io/'} target={'_blank'} rel={'noreferrer'} className={styles.watermark}>
         {t('common.watermark')}
       </a>
