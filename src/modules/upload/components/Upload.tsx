@@ -36,7 +36,7 @@ function Upload(): JSX.Element {
   }, [status]);
 
   const renderOverlay: JSX.Element | null = useMemo(() => {
-    if (isSmallDevice || !isDragActive) {
+    if (isSmallDevice || !isDragActive || status !== UploadStatus.IDLE) {
       return null;
     }
 
@@ -47,10 +47,12 @@ function Upload(): JSX.Element {
     <>
       {renderOverlay}
       <div className={'container fade-in'}>
-        <UploadHeader />
-        {renderContent}
-        {status === UploadStatus.SUCCESS && <ShareButtons />}
-        <History />
+        <div className={'scroll-content'}>
+          <UploadHeader />
+          {renderContent}
+          {status === UploadStatus.SUCCESS && <ShareButtons />}
+          <History />
+        </div>
         <CircleWaves />
         <AnimatedBackground />
       </div>

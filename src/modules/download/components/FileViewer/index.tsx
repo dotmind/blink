@@ -53,6 +53,10 @@ function FileViewer(): JSX.Element {
       return null;
     }
 
+    if (expiresIn < Date.now()) {
+      return <p>{t('fileviewer.expired')}</p>;
+    }
+
     return (
       <p>
         {t('fileviewer.estimation')} {timeRemaining(expiresIn)}
@@ -69,7 +73,7 @@ function FileViewer(): JSX.Element {
   }
 
   return (
-    <div className={'container justify-center flex-row'}>
+    <div className={'container justify-center flex-row padding'}>
       <HomeButton />
       <div className={styles.fileViewer}>
         <header className={'fade-in'}>

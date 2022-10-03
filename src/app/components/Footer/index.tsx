@@ -1,6 +1,7 @@
 import { useMemo, ReactNode } from 'react';
 import { useLocation } from 'react-router';
 import { usePwa } from '@dotmind/react-use-pwa';
+import { useTranslation } from 'react-i18next';
 
 import useIsMobile from '@/app/hooks/useIsMobile';
 import LangSwitcher from '@/app/components/LangSwitcher';
@@ -16,6 +17,7 @@ function Footer({ children }: IProps) {
   const { isStandalone } = usePwa();
   const { pathname } = useLocation();
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
 
   const canRenderMoreInfo = useMemo(() => isMobile && !isStandalone, [isMobile, isStandalone]);
   const isFullWidth = useMemo(() => pathname !== '/' || isStandalone, [pathname, isStandalone]);
@@ -23,7 +25,7 @@ function Footer({ children }: IProps) {
   return (
     <footer className={styles.footer} data-fullwidth={isFullWidth}>
       <a href={'https://dotmind.io/'} target={'_blank'} rel={'noreferrer'} className={styles.watermark}>
-        Made by Dotmind
+        {t('common.watermark')}
       </a>
 
       <div className={styles.footer_cta}>

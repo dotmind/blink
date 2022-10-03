@@ -1,7 +1,8 @@
 {
   "common": {
-    "name": "Noshit",
-    "description": "Noshit application",
+    "name": "Blink",
+    "description": "Blink application",
+    "watermark": "Made by Dotmind",
     "pwa": {
       "install": "Installer l'application NoShit"
     },
@@ -44,6 +45,7 @@
       "description": "Partager facilement des fichiers en toute sécurité."
     },
     "link": {
+      "loading": "Chargement...",
       "share": "Partager le lien",
       "copy": "Copier le lien"
     },
@@ -56,6 +58,20 @@
         "description": "Le serveur a rencontré une situation qu'il ne sait pas traiter. Si l’erreur revient plusieurs fois, contactez nous.",
         "retry": "Recommencer"
       }
+    },
+    "headers": {
+      "uploading": {
+        "title": "Envoi en cours...",
+        "description": "Les fichiers que vous partager sont protégés par en chiffrement E2E."
+      },
+      "success": {
+        "title": "C’est terminé ! Bravo ✨",
+        "description": "Partager ce fichier à l'aide du lien généré ci-dessous."
+      },
+      "idle": {
+        "title": "Déposer vos fichier ici...",
+        "description": "Partager facilement des fichiers en toute sécurité."
+      }
     }
   },
   "fileviewer": {
@@ -63,7 +79,8 @@
     "estimation": "Ce fichier expireras dans",
     "nextPage": "Page suivante",
     "previousPage": "Page précédente",
-    "share": "Partager"
+    "share": "Partager",
+    "expired": "Ce fichier a déjà expiré mais est disponible dans le cache de votre navigateur."
   },
   "download": {
     "download": "Télécharger"

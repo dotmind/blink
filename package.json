@@ -1,8 +1,8 @@
 {
-  "name": "noshit_app",
+  "name": "blink_app",
   "private": true,
   "version": "0.1.0",
-  "description": "A React app for noshit project",
+  "description": "A React app for blink project",
   "type": "module",
   "scripts": {
     "dev": "vite",

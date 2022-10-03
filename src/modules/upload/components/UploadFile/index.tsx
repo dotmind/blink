@@ -1,5 +1,6 @@
 import { useMemo, lazy } from 'react';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-regular-svg-icons';
 
@@ -13,6 +14,7 @@ const SuccessConfetti = lazy(() => import('@/app/components/SuccessConfetti'));
 
 function UploadFile(): JSX.Element {
   const { filename, fileWeight, status, shareUrl } = useUpload();
+  const { t } = useTranslation();
 
   const renderProgress: JSX.Element | null = useMemo(() => {
     if (status === UploadStatus.SUCCESS) {
@@ -37,7 +39,7 @@ function UploadFile(): JSX.Element {
 
   const renderLink: JSX.Element = useMemo(() => {
     if (!shareUrl || status !== UploadStatus.SUCCESS) {
-      return <p>Chargement ...</p>;
+      return <p>{t('upload.link.loading')}</p>;
     }
 
     return (

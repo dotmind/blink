@@ -17,11 +17,17 @@ $margin-x: 30px;
   min-width: 50vw;
   display: flex;
   flex-direction: column;
-  padding: var(--margin-x);
-  padding-bottom: 85px;
-  overflow-y: auto;
   flex-grow: 1;
   height: 100vh;
+
+  .scroll-content {
+    overflow-x: visible;
+    overflow-y: auto;
+    padding: var(--margin-x);
+    padding-bottom: 85px;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .d-flex {
@@ -46,4 +52,8 @@ $margin-x: 30px;
 
 .align-center {
   align-items: center;
+}
+
+.padding {
+  padding: var(--margin-x);
 }
