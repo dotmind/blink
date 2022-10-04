@@ -9,10 +9,18 @@
   position: relative;
   z-index: 2;
 
+  @media (max-width: 390px) {
+    width: 100%;
+  }
+
   h3 {
     padding: 10px;
     font-weight: 700;
     margin-bottom: 10px;
+
+    @media (max-width: 390px) {
+      font-weight: 400;
+    }
   }
 
   .historyList {

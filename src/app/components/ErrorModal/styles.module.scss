@@ -3,7 +3,8 @@ $margin: 20px;
 .modal {
   .modal_content {
     position: fixed;
-    bottom: $margin;
+    top: 50%;
+    transform: translateY(-50%);
     left: $margin;
     right: $margin;
     background-color: var(--color-white);
