@@ -42,12 +42,24 @@
     display: flex;
     flex-direction: column;
 
-
     @media (max-width: 992px) {
       position: relative;
       flex-direction: row;
       right: 0px;
       margin-bottom: 0.5rem;
+
+      .shareBtn {
+        width: auto;
+        padding: 0 0.5rem;
+        background-color: var(--color-blue);
+        border: 1px solid var(--color-white);
+        color: var(--color-white);
+        margin-left: auto;
+
+        > * {
+          margin: 0 5px;
+        }
+      }
     }
 
     button {

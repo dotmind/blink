@@ -25,12 +25,12 @@
     display: flex;
     align-items: flex-end;
 
-    >* {
+    > * {
       margin: 0 5px;
     }
   }
 
-  &[data-hasfadebkg="true"] {
+  &[data-hasfadebkg='true'] {
     background: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 100%);
   }
 }

@@ -81,7 +81,7 @@ function FileViewer(): JSX.Element {
       )}
       <div className={styles.fileViewer}>
         <header className={'fade-in'}>
-          { isMobile && <Logo />}
+          {isMobile && <Logo />}
           <h1>{t('fileviewer.title')}</h1>
           {renderTimeRemaining}
         </header>
@@ -107,8 +107,14 @@ function FileViewer(): JSX.Element {
             </button>
 
             {canUseNativeShare() && (
-              <button type={'button'} onClick={handleShare} aria-label={t('fileviewer.share')} name={t('fileviewer.share')}>
+              <button
+                className={styles.shareBtn}
+                type={'button'}
+                onClick={handleShare}
+                aria-label={t('fileviewer.share')}
+                name={t('fileviewer.share')}>
                 <FontAwesomeIcon icon={faArrowUpFromBracket} />
+                {isMobile && t('fileviewer.share')}
               </button>
             )}
           </div>
