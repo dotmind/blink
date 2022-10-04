@@ -24,10 +24,13 @@
   .footer_cta {
     display: flex;
     align-items: flex-end;
-    gap: 10px;
+
+    >* {
+      margin: 0 5px;
+    }
   }
 
-  &[data-hasfadebkg] {
-    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  &[data-hasfadebkg="true"] {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 100%);
   }
 }

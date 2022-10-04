@@ -13,14 +13,14 @@ interface IProps {
   children?: ReactNode;
 }
 
-function Footer({ children }: IProps) {
+function Footer({ children }: IProps): JSX.Element {
   const { isStandalone } = usePwa();
   const { pathname } = useLocation();
   const isMobile = useIsMobile();
   const { t } = useTranslation();
 
-  const canRenderMoreInfo = useMemo(() => isMobile && !isStandalone, [isMobile, isStandalone]);
-  const hasFadeBkg = useMemo(() => pathname !== '/' || isStandalone, [pathname, isStandalone]);
+  const canRenderMoreInfo = useMemo((): boolean => isMobile && !isStandalone, [isMobile, isStandalone]);
+  const hasFadeBkg = useMemo((): boolean => pathname === '/', [pathname]);
 
   return (
     <footer className={styles.footer} data-hasfadebkg={hasFadeBkg}>

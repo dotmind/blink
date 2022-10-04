@@ -4,7 +4,7 @@
   height: 100vh;
   display: flex;
   align-items: center;
-  gap: 35px;
+  gap: 35px; // @todo - replace with margin
   position: relative;
 
   &::before {

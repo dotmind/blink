@@ -74,11 +74,14 @@ function FileViewer(): JSX.Element {
 
   return (
     <div className={'container justify-center flex-row padding'}>
-      <div className={'logo'}>
-        <Logo />
-      </div>
+      {!isMobile && (
+        <div className={'logo'}>
+          <Logo />
+        </div>
+      )}
       <div className={styles.fileViewer}>
         <header className={'fade-in'}>
+          { isMobile && <Logo />}
           <h1>{t('fileviewer.title')}</h1>
           {renderTimeRemaining}
         </header>
