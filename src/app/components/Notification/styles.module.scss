@@ -3,6 +3,8 @@
 .notification {
   border-radius: 20px;
   padding: 10px 15px;
+  max-width: 80vw;
+  word-break: break-all;
   border: 1px solid var(--color-grey-100);
   background-color: var(--color-white);
   display: flex;
@@ -10,6 +12,10 @@
   gap: 10px;
   z-index: 3;
   animation: popup 200ms ease-in;
+
+  @media (min-width: 500px) {
+    max-width: 400px;
+  }
 
   &[data-type='error'] {
     svg {
