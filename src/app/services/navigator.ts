@@ -23,11 +23,15 @@ export function nativeShare(url: string) {
     throw new Error('Native share not supported');
   }
 
-  return navigator.share({
-    title: 'blink',
-    text: 'Blink - Share your PDF safely 🔐',
-    url,
-  });
+  return navigator
+    .share({
+      title: 'blink',
+      text: 'Blink - Share your PDF safely 🔐',
+      url,
+    })
+    .catch(() => {
+      // Ignore error if user cancels any native share
+    });
 }
 
 async function isChildWindow(): Promise<boolean> {
