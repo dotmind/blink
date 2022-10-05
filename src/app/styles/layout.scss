@@ -19,9 +19,10 @@ $margin-x: 30px;
   flex-direction: column;
   flex-grow: 1;
   height: 100vh;
+  z-index: 1;
 
   .scroll-content {
-    overflow-x: visible;
+    overflow-x: hidden;
     overflow-y: auto;
     padding: var(--margin-x);
     padding-bottom: 85px;
