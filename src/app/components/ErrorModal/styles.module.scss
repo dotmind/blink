@@ -3,7 +3,8 @@ $margin: 20px;
 .modal {
   .modal_content {
     position: fixed;
-    bottom: $margin;
+    top: 50%;
+    transform: translateY(-50%);
     left: $margin;
     right: $margin;
     background-color: var(--color-white);
@@ -24,7 +25,7 @@ $margin: 20px;
       bottom: unset;
       transform: translate(-50%, -50%);
       flex-direction: row;
-      gap: 30px;
+      gap: 30px; // @todo - replace with margin
       align-items: start;
       padding: 30px;
     }
@@ -69,7 +70,7 @@ $margin: 20px;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 10px; // @todo - replace with margin
 
       @media (min-width: 768px) {
         align-items: flex-end;

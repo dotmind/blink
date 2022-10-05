@@ -26,10 +26,6 @@
 .fileInput_container {
   padding: 1rem;
   width: 100%;
-  border-radius: 12px;
-  background-color: #ffffff4d;
-  box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(3px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +41,7 @@
 
 .fileInput_controls {
   display: flex;
-  gap: 1rem;
+  gap: 1rem; // @todo - replace with margin
   align-items: center;
   justify-content: center;
   flex-direction: column;

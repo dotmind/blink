@@ -13,17 +13,17 @@ interface IProps {
   children?: ReactNode;
 }
 
-function Footer({ children }: IProps) {
+function Footer({ children }: IProps): JSX.Element {
   const { isStandalone } = usePwa();
   const { pathname } = useLocation();
   const isMobile = useIsMobile();
   const { t } = useTranslation();
 
-  const canRenderMoreInfo = useMemo(() => isMobile && !isStandalone, [isMobile, isStandalone]);
-  const isFullWidth = useMemo(() => pathname !== '/' || isStandalone, [pathname, isStandalone]);
+  const canRenderMoreInfo = useMemo((): boolean => isMobile && !isStandalone, [isMobile, isStandalone]);
+  const hasFadeBkg = useMemo((): boolean => pathname === '/', [pathname]);
 
   return (
-    <footer className={styles.footer} data-fullwidth={isFullWidth}>
+    <footer className={styles.footer} data-hasfadebkg={hasFadeBkg}>
       <a href={'https://dotmind.io/'} target={'_blank'} rel={'noreferrer'} className={styles.watermark}>
         {t('common.watermark')}
       </a>

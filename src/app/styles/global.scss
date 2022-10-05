@@ -17,6 +17,27 @@ html,
 body {
   width: 100vw;
   height: 100vh;
+  user-select: none;
+}
+
+p,
+textarea,
+input,
+button,
+select,
+option,
+label,
+a {
+  color: var(--color-grey-500);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-grey-700);
 }
 
 .App {
@@ -32,6 +53,12 @@ body {
 img {
   width: 100%;
   object-fit: cover;
+}
+
+.logo {
+  position: absolute;
+  top: 65px;
+  left: 30px;
 }
 
 .homeButton {
@@ -72,6 +99,22 @@ img {
 
 .d-100 {
   animation-delay: 1s;
+}
+
+.d-125 {
+  animation-delay: 1.25s;
+}
+
+.d-150 {
+  animation-delay: 1.5s;
+}
+
+.d-175 {
+  animation-delay: 1.75s;
+}
+
+.d-200 {
+  animation-delay: 2s;
 }
 
 @keyframes fade-in {

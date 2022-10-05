@@ -2,13 +2,11 @@ import { useMemo } from 'react';
 
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import FileInput from '@/modules/upload/components/FileInput';
-import CircleWaves from '@/app/components/CircleWaves';
 import UploadHeader from '@/modules/upload/components/UploadHeader';
 import UploadFile from '@/modules/upload/components/UploadFile';
 import ShareButtons from '@/modules/upload/components/ShareButtons';
 import History from '@/app/components/History';
 import ErrorModal from '@/app/components/ErrorModal';
-import AnimatedBackground from '@/app/components/AnimatedBackground';
 import DragOverlay from '@/modules/upload/components/DragOverlay';
 import { useIsSmallDevice } from '@/app/hooks/useIsMobile';
 
@@ -53,8 +51,6 @@ function Upload(): JSX.Element {
           {status === UploadStatus.SUCCESS && <ShareButtons />}
           <History />
         </div>
-        <CircleWaves />
-        <AnimatedBackground />
       </div>
     </>
   );

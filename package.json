@@ -14,7 +14,8 @@
     "todo": "sh ./scripts/find_todo.sh",
     "prepare": "husky install",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx --fix",
-    "prettier": "prettier --write src/"
+    "prettier": "prettier --write src/",
+    "staging": "sh ./scripts/deploy_staging.sh"
   },
   "dependencies": {
     "@dotmind/react-use-pwa": "1.0.4",
@@ -40,7 +41,6 @@
   "devDependencies": {
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
-    "@types/react-helmet": "6.1.5",
     "@types/react-pdf": "5.7.2",
     "@typescript-eslint/eslint-plugin": "5.32.0",
     "@typescript-eslint/parser": "5.32.0",
