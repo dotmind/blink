@@ -1,7 +1,6 @@
 import { useCallback, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 
 import Button, { ButtonStyle } from '@/app/components/Button';
@@ -11,6 +10,7 @@ import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
 import HomeButton from '@/app/components/HomeButton';
 
 import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
+import ShareIcon from '@/app/assets/svg/share_w.svg';
 
 function ShareButtons(): JSX.Element {
   const { shareUrl } = useUpload();
@@ -34,7 +34,7 @@ function ShareButtons(): JSX.Element {
       <HomeButton />
       {canUseNativeShare() && (
         <Button style={ButtonStyle.SECONDARY} callback={handleShare} name={t('upload.link.share')}>
-          {t('upload.link.share')} <FontAwesomeIcon icon={faArrowUpFromBracket} />
+          {t('upload.link.share')} <img src={ShareIcon} alt={t('upload.link.share')} />
         </Button>
       )}
       <Button style={ButtonStyle.PRIMARY} callback={handleCopy} name={t('upload.link.copy')}>

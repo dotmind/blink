@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 
 import { availableLanguages } from '@/app/services/i18n';
 import useIsMobile from '@/app/hooks/useIsMobile';
 
 import styles from '@/app/components/LangSwitcher/styles.module.scss';
+import translate from '@/app/assets/svg/translate.svg';
 
 function LangSwitcher() {
   const { t, i18n } = useTranslation();
@@ -31,7 +30,7 @@ function LangSwitcher() {
         aria-label={t('lang.choose')}
         name={t('lang.choose')}>
         {!isMobile && <p className={styles.lang}>{t(`lang.full.${i18n.language}`)}</p>}
-        <FontAwesomeIcon icon={faLanguage} />
+        <img className={'icons'} src={translate} alt={t('lang.choose')} />
       </button>
 
       <div className={styles.lang_dropdown} data-isopen={isOpen}>
