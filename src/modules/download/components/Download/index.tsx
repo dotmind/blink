@@ -15,7 +15,7 @@ function Download(): JSX.Element | null {
   const { t } = useTranslation();
 
   const handleDownload: (e: MouseEvent) => void = useCallback(
-    async (e: MouseEvent) => {
+    (e: MouseEvent) => {
       e.preventDefault();
       if (file && fileName) {
         saveAs(file, prepareFileName(fileName));
