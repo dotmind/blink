@@ -1,4 +1,5 @@
 import { useCallback, MouseEvent, useMemo } from 'react';
+import { saveAs } from 'file-saver';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-regular-svg-icons';
@@ -17,11 +18,7 @@ function Download(): JSX.Element | null {
     async (e: MouseEvent) => {
       e.preventDefault();
       if (file && fileName) {
-        const blob = new Blob([file], { type: 'application/octet-stream' });
-        const link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = prepareFileName(fileName);
-        link.click();
+        saveAs(file, prepareFileName(fileName));
       }
     },
     [file, fileName],
