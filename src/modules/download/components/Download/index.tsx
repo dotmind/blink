@@ -1,4 +1,5 @@
 import { useCallback, MouseEvent, useMemo } from 'react';
+import { saveAs } from 'file-saver';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-regular-svg-icons';
@@ -17,10 +18,7 @@ function Download(): JSX.Element | null {
     (e: MouseEvent) => {
       e.preventDefault();
       if (file && fileName) {
-        const link = document.createElement('a');
-        link.href = file;
-        link.download = prepareFileName(fileName);
-        link.click();
+        saveAs(file, prepareFileName(fileName));
       }
     },
     [file, fileName],
