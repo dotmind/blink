@@ -14,11 +14,12 @@ function Download(): JSX.Element | null {
   const { t } = useTranslation();
 
   const handleDownload: (e: MouseEvent) => void = useCallback(
-    (e: MouseEvent) => {
+    async (e: MouseEvent) => {
       e.preventDefault();
       if (file && fileName) {
+        const blob = new Blob([file], { type: 'application/octet-stream' });
         const link = document.createElement('a');
-        link.href = file;
+        link.href = window.URL.createObjectURL(blob);
         link.download = prepareFileName(fileName);
         link.click();
       }
