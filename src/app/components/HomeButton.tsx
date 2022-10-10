@@ -4,6 +4,7 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 import Button, { ButtonStyle } from '@/app/components/Button';
 
+// @TODO - Delete if unused
 function HomeButton() {
   const handleBackToHome = useCallback(() => {
     window.location.href = '/';
