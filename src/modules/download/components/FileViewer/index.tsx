@@ -1,7 +1,7 @@
 import { pdfjs, Document, Page } from 'react-pdf';
 import { useState, useCallback, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretLeft, faCaretRight, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
@@ -12,9 +12,10 @@ import Logo from '@/app/components/Logo';
 import { timeRemaining } from '@/app/utils/time';
 import NotFound from '@/app/components/NotFound';
 import Loader from '@/app/components/Loader';
+import Download from '@/modules/download/components/Download';
+import ShareIcon from '@/app/assets/svg/share_white.svg';
 
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
-import Download from '../Download';
 
 function FileViewer(): JSX.Element {
   const { file, expiresIn, isLoading, error } = useDownload();
@@ -41,8 +42,8 @@ function FileViewer(): JSX.Element {
   // pdf worker config for vite bundle
   pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
-  const onPDFReady: ({ numPages: nextNumPages }: { numPages: number }) => void = useCallback(
-    ({ numPages: nextNumPages }: { numPages: number }) => {
+  const onPDFReady = useCallback(
+    ({ numPages: nextNumPages }: { numPages: number }): void => {
       setNumPages(nextNumPages);
     },
     [file],
@@ -113,7 +114,7 @@ function FileViewer(): JSX.Element {
                 onClick={handleShare}
                 aria-label={t('fileviewer.share')}
                 name={t('fileviewer.share')}>
-                <FontAwesomeIcon icon={faArrowUpFromBracket} />
+                <img src={ShareIcon} alt={t('fileviewer.share')} />
                 {isMobile && t('fileviewer.share')}
               </button>
             )}

@@ -1,5 +1,3 @@
-// @todo
-
 .notification {
   border-radius: 20px;
   padding: 10px 15px;
@@ -9,7 +7,7 @@
   background-color: var(--color-white);
   display: flex;
   align-items: center;
-  gap: 10px; // @todo - replace with margin
+  gap: 10px;
   z-index: 5;
   animation: popup 200ms ease-in;
 
