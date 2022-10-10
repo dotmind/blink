@@ -15,7 +15,7 @@ import Loader from '@/app/components/Loader';
 import Download from '@/modules/download/components/Download';
 
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
-import ShareIcon from '@/app/assets/svg/share_w.svg';
+import ShareIcon from '@/app/assets/svg/share_white.svg';
 
 function FileViewer(): JSX.Element {
   const { file, expiresIn, isLoading, error } = useDownload();

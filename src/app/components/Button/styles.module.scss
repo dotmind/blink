@@ -1,11 +1,7 @@
-// @todo
-
 .button {
   display: inline-block;
   padding: 10px 16px;
   border: none;
-  // box-shadow: 0px 7px 13px rgba(189, 203, 213, 0.3), 0px 2px 4px rgba(185, 201, 213, 0.4),
-  //   inset 0px -3px 0px rgba(92, 94, 105, 0.5);
   border: 3px solid rgba(189, 203, 213, 0.3);
   width: fit-content;
   border-radius: 30px;
@@ -19,9 +15,6 @@
   z-index: 3;
   font-weight: 700;
 
-  // background-color: rgba(255, 255, 255, .1);
-  // backdrop-filter: blur(10px);
-
   svg {
     margin: 0 10px;
   }
@@ -32,7 +25,6 @@
   }
 
   &:hover:not(:disabled) {
-    // filter: brightness(1.1);
     transform: scale(1.05);
   }
 
@@ -66,9 +58,5 @@
     box-shadow: 0px 7px 13px rgba(255, 255, 255, 0.3), 0px 2px 4px rgba(232, 231, 231, 0.4),
       inset 0px -3px 0px rgba(255, 255, 255, 0.5);
     color: var(--color-white);
-  }
-
-  &:active {
-    // box-shadow: 0px 7px 13px rgba(108, 108, 108, 0.2), inset 0px 3px 7px #171717;
   }
 }
