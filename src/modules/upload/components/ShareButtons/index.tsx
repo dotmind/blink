@@ -9,7 +9,7 @@ import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
 
 import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
-import ShareIcon from '@/app/assets/svg/share_w.svg';
+import ShareIcon from '@/app/assets/svg/share_white.svg';
 
 function ShareButtons(): JSX.Element {
   const { shareUrl } = useUpload();
@@ -32,7 +32,7 @@ function ShareButtons(): JSX.Element {
     <div className={styles.share_container}>
       {canUseNativeShare() && (
         <Button style={ButtonStyle.SECONDARY} callback={handleShare} name={t('upload.link.share')}>
-          {t('upload.link.share')} <img src={ShareIcon} alt={t('upload.link.share')} />
+          {t('upload.link.share')} <img className={'icons'} src={ShareIcon} alt={t('upload.link.share')} />
         </Button>
       )}
       <Button style={ButtonStyle.PRIMARY} callback={handleCopy} name={t('upload.link.copy')}>

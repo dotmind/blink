@@ -16,6 +16,11 @@
     cursor: pointer;
     color: var(--color-black);
 
+    img {
+      width: 22px;
+      height: 22px;
+    }
+
     @media (max-width: 992px) {
       height: 45px;
       width: 45px;
