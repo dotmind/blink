@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import { availableLanguages } from '@/app/services/i18n';
 import useIsMobile from '@/app/hooks/useIsMobile';
+import translate from '@/app/assets/svg/translate.svg';
 
 import styles from '@/app/components/LangSwitcher/styles.module.scss';
-import translate from '@/app/assets/svg/translate.svg';
 
 function LangSwitcher() {
   const { t, i18n } = useTranslation();

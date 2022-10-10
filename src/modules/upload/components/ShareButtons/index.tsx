@@ -7,9 +7,9 @@ import Button, { ButtonStyle } from '@/app/components/Button';
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
+import ShareIcon from '@/app/assets/svg/share_white.svg';
 
 import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
-import ShareIcon from '@/app/assets/svg/share_white.svg';
 
 function ShareButtons(): JSX.Element {
   const { shareUrl } = useUpload();
