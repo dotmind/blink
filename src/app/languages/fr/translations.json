@@ -37,6 +37,15 @@
       "cannot_decrypt": "Erreur application: impossible de décrypter le fichier, la clé est peut-être invalide ou le contexte n'est pas sécurié (HTTPS)"
     }
   },
+  "home": {
+    "title": "Simple and faster pdf transfer",
+    "subtitle": "send your file easily and securely",
+    "tabs": {
+      "upload": "Envoyer",
+      "about": "À propos",
+      "history": "Historique"
+    }
+  },
   "upload": {
     "input": "Déposez un PDF ici pour créer un lien",
     "button": "Envoyer un PDF",

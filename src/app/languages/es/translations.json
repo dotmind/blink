@@ -37,6 +37,13 @@
       "cannot_decrypt": "Erreur application: impossible de décrypter le fichier, la clé est peut-être invalide ou le contexte n'est pas sécurié (HTTPS)"
     }
   },
+  "home": {
+    "tabs": {
+      "upload": "Upload",
+      "about": "About",
+      "history": "History"
+    }
+  },
   "upload": {
     "input": "Déposez un PDF ici pour créer un lien (es)",
     "button": "Envoyer un PDF (es)",

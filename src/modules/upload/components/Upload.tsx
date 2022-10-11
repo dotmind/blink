@@ -2,10 +2,9 @@ import { useMemo } from 'react';
 
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import FileInput from '@/modules/upload/components/FileInput';
-import UploadHeader from '@/modules/upload/components/UploadHeader';
 import UploadFile from '@/modules/upload/components/UploadFile';
 import ShareButtons from '@/modules/upload/components/ShareButtons';
-import History from '@/app/components/History';
+// import History from '@/app/components/History';
 import ErrorModal from '@/app/components/ErrorModal';
 import DragOverlay from '@/modules/upload/components/DragOverlay';
 import { useIsSmallDevice } from '@/app/hooks/useIsMobile';
@@ -44,13 +43,9 @@ function Upload(): JSX.Element {
   return (
     <>
       {renderOverlay}
-      <div className={'container fade-in'}>
-        <div className={'scroll-content'}>
-          <UploadHeader />
-          {renderContent}
-          {status === UploadStatus.SUCCESS && <ShareButtons />}
-          <History />
-        </div>
+      <div>
+        {renderContent}
+        {status === UploadStatus.SUCCESS && <ShareButtons />}
       </div>
     </>
   );

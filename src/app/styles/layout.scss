@@ -31,6 +31,15 @@ $margin-x: 30px;
   }
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100vh;
+  z-index: 1;
+  padding: var(--margin-x);
+}
+
 .d-flex {
   display: flex;
 }
@@ -63,4 +72,45 @@ $margin-x: 30px;
   > * {
     margin: 0 5px;
   }
+}
+
+// Margin
+
+.mt-1 {
+  margin-top: 10px;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.mb-1 {
+  margin-bottom: 10px;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-5 {
+  margin-bottom: 5rem;
+}
+
+.my-1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.my-2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.my-5 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
