@@ -43,7 +43,7 @@ function Upload(): JSX.Element {
   return (
     <>
       {renderOverlay}
-      <div>
+      <div className={'fade-in'}>
         {renderContent}
         {status === UploadStatus.SUCCESS && <ShareButtons />}
       </div>

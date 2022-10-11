@@ -74,6 +74,10 @@ $margin-x: 30px;
   }
 }
 
+.full-height {
+  flex-grow: 1;
+}
+
 // Margin
 
 .mt-1 {
