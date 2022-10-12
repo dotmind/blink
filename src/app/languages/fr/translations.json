@@ -71,7 +71,7 @@
   },
   "upload": {
     "input": "Déposez un PDF ici pour créer un lien",
-    "button": "Envoyer un PDF",
+    "button": "Envoyer",
     "overlay": {
       "title": "Déplacer vos fichiers",
       "description": "Partager facilement des fichiers en toute sécurité."

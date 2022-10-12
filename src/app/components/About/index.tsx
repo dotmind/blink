@@ -13,7 +13,7 @@ import 'swiper/scss/pagination';
 import 'swiper/scss/mousewheel';
 import styles from '@/app/components/About/styles.module.scss';
 
-function About() {
+function About(): JSX.Element {
   const { t } = useTranslation();
 
   return (

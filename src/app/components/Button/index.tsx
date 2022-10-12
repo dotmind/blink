@@ -18,8 +18,8 @@ interface IProps {
   children: React.ReactNode;
 }
 
-function Button({ callback, children, style, disabled, name }: IProps) {
-  const buttonStyle = classNames(styles.button, styles[style]);
+function Button({ callback, children, style, disabled, name }: IProps): JSX.Element {
+  const buttonStyle: string = classNames(styles.button, styles[style]);
 
   return (
     <button onClick={callback} className={buttonStyle} disabled={disabled} type={'button'} name={name} aria-label={name}>

@@ -92,6 +92,10 @@ $margin-x: 30px;
   padding: var(--margin-x);
 }
 
+.p-relative {
+  position: relative;
+}
+
 .gap-10 {
   > * {
     margin: 0 5px;

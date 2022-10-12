@@ -8,7 +8,7 @@ interface IProps {
   options: string[];
 }
 
-function TabSelector({ children, options }: IProps) {
+function TabSelector({ children, options }: IProps): JSX.Element {
   const [selected, setSelected] = useState<number>(1);
   const { t } = useTranslation();
 

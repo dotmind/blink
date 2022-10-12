@@ -1,14 +1,14 @@
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudUpload } from '@fortawesome/free-solid-svg-icons';
 
 import { UploadStatus, useUpload } from '@/modules/upload/providers/UploadProvider';
 import { useApp } from '@/app/providers/AppProdiver';
 import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 import { uploadFile } from '@/app/services/api';
 import { toShareUrl, canUseNativeShare, nativeShare } from '@/app/services/navigator';
-import Button, { ButtonStyle } from '@/app/components/Button';
+import { ButtonStyle } from '@/app/components/Button';
+import ButtonMorph from '@/app/components/ButtonMorph';
+import crossIcon from '@/app/assets/svg/cross.svg';
 
 function UploadButton(): JSX.Element {
   const { fingerprint } = useApp();
@@ -48,9 +48,17 @@ function UploadButton(): JSX.Element {
   }, [file, setStatus, setShareUrl, fingerprint, canUpload]);
 
   return (
-    <Button style={ButtonStyle.PRIMARY} callback={handleUpload} disabled={!canUpload} name={t('upload.button')}>
-      {t('upload.button')} <FontAwesomeIcon icon={faCloudUpload} />
-    </Button>
+    <div className={'upload-button-wrapper'}>
+      <ButtonMorph
+        icon={crossIcon}
+        text={t('upload.button')}
+        style={ButtonStyle.PRIMARY}
+        callback={handleUpload}
+        disabled={!canUpload}
+        name={t('upload.button')}
+        additionalClass={'upload-button'}
+      />
+    </div>
   );
 }
 
