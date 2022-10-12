@@ -19,7 +19,7 @@ function About() {
   return (
     <div className={'self-center w100 h100 pt-2'}>
       <Swiper
-        className={styles.swiper}
+        className={`${styles.swiper} fade-in`}
         spaceBetween={20}
         slidesPerView={4}
         centeredSlides
@@ -36,7 +36,7 @@ function About() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`${styles.card} fade-in d-25`}>
+          <div className={`${styles.card} fade-in d-50`}>
             <h2>
               <img src={clock} alt={'clock icon'} /> {t('about.expiration.title')}
             </h2>
@@ -44,7 +44,7 @@ function About() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`${styles.card} fade-in d-25`}>
+          <div className={`${styles.card} fade-in d-75`}>
             <h2>
               <img src={leaf} alt={'clock icon'} /> {t('about.ecolo.title')}
             </h2>
@@ -52,7 +52,7 @@ function About() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`${styles.card} fade-in d-25`}>
+          <div className={`${styles.card} fade-in d-75`}>
             <h2>
               <img src={bolt} alt={'clock icon'} /> {t('about.simple.title')}
             </h2>
@@ -60,7 +60,7 @@ function About() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`${styles.card} fade-in d-25`}>
+          <div className={`${styles.card} fade-in d-50`}>
             <h2>
               <img src={lock} alt={'clock icon'} /> {t('about.security.title')}
             </h2>

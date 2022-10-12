@@ -17,8 +17,10 @@ function Home() {
   return (
     <UploadProvider>
       <div className={'page-container'}>
-        <Logo />
-        <div className={'d-flex flex-column align-center mt-2 grow'}>
+        <header className={'p-2'}>
+          <Logo />
+        </header>
+        <div className={'d-flex flex-column align-center grow'}>
           <h1> {t('home.title')} </h1>
           <p> {t('home.subtitle')} </p>
           <TabSelector options={['home.tabs.history', 'home.tabs.upload', 'home.tabs.about']}>
