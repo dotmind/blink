@@ -38,7 +38,7 @@
     "react-query": "4.0.0",
     "react-router": "6.3.0",
     "react-router-dom": "6.3.0",
-    "swiper": "^8.4.3"
+    "swiper": "8.4.3"
   },
   "devDependencies": {
     "@types/file-saver": "2.0.5",
