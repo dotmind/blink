@@ -1,69 +1,12 @@
-.about {
-  width: 100vw;
-  flex-grow: 1;
-  background: transparent;
-  position: relative;
-  z-index: 10;
-  overflow: hidden;
-
-  @media (max-width: 992px) {
-    display: none;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    overflow: auto;
-  }
-
-  .paragraph {
-    margin: 0 1rem;
-    min-width: 350px;
-    padding: 2.5rem;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-
-    h2 {
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-
-      svg,
-      img {
-        margin: 0 5px;
-        color: var(--color-blue);
-        width: 28px;
-        height: 28px;
-        object-fit: contain;
-      }
-    }
-
-    p {
-      font-weight: 400;
-    }
-  }
-}
-
-.modal_content {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-  background-color: var(--color-white);
+.card {
+  margin: 0.25rem;
+  padding: 2.5rem;
   border-radius: 10px;
-  z-index: 4;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
-  .frame_controls {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+  img {
+    width: 14px;
+    height: 14px;
   }
 }

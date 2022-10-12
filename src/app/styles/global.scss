@@ -86,6 +86,28 @@ img {
   }
 }
 
+.swiper {
+  height: 100%;
+}
+
+.swiper-slide {
+  transition: transform .15s ease-in;
+  transform: translateY(5rem)!important;
+
+  &.swiper-slide-active,
+  &.swiper-slide-duplicate-active {
+    transform: translateY(0)!important;
+  }
+
+  &.swiper-slide-next, 
+  &.swiper-slide-prev,
+  &.swiper-slide-duplicate-next,
+  &.swiper-slide-duplicate-prev {
+    transform: translateY(2.5rem)!important;
+  }
+
+}
+
 .fade-in {
   opacity: 0;
   animation: fade-in 0.5s ease-in-out forwards;

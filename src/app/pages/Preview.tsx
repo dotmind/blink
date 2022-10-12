@@ -5,7 +5,7 @@ import FileViewer from '@/modules/download/components/FileViewer';
 import CircleWaves from '@/app/components/CircleWaves';
 import InstallPwa from '@/app/components/InstallPwa';
 import Footer from '@/app/components/Footer';
-import About from '@/app/components/About';
+import About from '@/app/components/About_Old';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import Download from '@/modules/download/components/Download';
 import AnimatedBackground from '@/app/components/AnimatedBackground';

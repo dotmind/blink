@@ -26,15 +26,18 @@
 .tabContent {
   flex-grow: 1;
   width: 100%;
-  max-width: 500px;
 }
 
 .tabs {
   display: none;
   opacity: 0;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+
 
   &[data-visible='true'] {
-    display: block;
+    display: flex;
     opacity: 1;
   }
 }
