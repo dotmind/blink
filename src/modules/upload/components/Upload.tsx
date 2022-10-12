@@ -4,7 +4,6 @@ import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvid
 import FileInput from '@/modules/upload/components/FileInput';
 import UploadFile from '@/modules/upload/components/UploadFile';
 import ShareButtons from '@/modules/upload/components/ShareButtons';
-// import History from '@/app/components/History';
 import ErrorModal from '@/app/components/ErrorModal';
 import DragOverlay from '@/modules/upload/components/DragOverlay';
 import { useIsSmallDevice } from '@/app/hooks/useIsMobile';
