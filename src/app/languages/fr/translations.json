@@ -47,6 +47,28 @@
       "history": "Historique"
     }
   },
+  "about": {
+    "simple": {
+      "title": "Simple et rapide",
+      "text": "Il vous suffit de déposer un fichier pdf n'importe où sur la page et vous obtenez un lien à partager en quelques secondes."
+    },
+    "security": {
+      "title": "Cryptage bout en bout",
+      "text": "Nous avons opté pour une solution end to end afin de garantir la confidentialité de vos documents. Ils ne sont donc accessibles que par vous et votre destinataire. Anonymisé"
+    },
+    "ecolo": {
+      "title": "Écologique",
+      "text": "En choisissant Blink vous évitez l'envoi d'une pièce jointe et son stockage sur des serveurs."
+    },
+    "open_source": {
+      "title": "Open-source",
+      "text": "Le partage de connaissances et la collaboration font partie intégrante de nos valeurs ! Nous avons à coeur de participer également à l'évolution de la communauté tech."
+    },
+    "expiration": {
+      "title": "Expiration automatique",
+      "text": "Tous les fichiers téléchargés sont supprimés au bout de 14 jours. Si vous n'en avez plus besoin, vous pouvez également les supprimer définitivement par vous-même."
+    }
+  },
   "upload": {
     "input": "Déposez un PDF ici pour créer un lien",
     "button": "Envoyer un PDF",

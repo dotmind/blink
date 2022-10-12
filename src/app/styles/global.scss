@@ -91,21 +91,20 @@ img {
 }
 
 .swiper-slide {
-  transition: transform .15s ease-in;
-  transform: translateY(5rem)!important;
+  transition: transform 0.15s ease-in;
+  transform: translateY(5rem) !important;
 
   &.swiper-slide-active,
   &.swiper-slide-duplicate-active {
-    transform: translateY(0)!important;
+    transform: translateY(0) !important;
   }
 
-  &.swiper-slide-next, 
+  &.swiper-slide-next,
   &.swiper-slide-prev,
   &.swiper-slide-duplicate-next,
   &.swiper-slide-duplicate-prev {
-    transform: translateY(2.5rem)!important;
+    transform: translateY(2.5rem) !important;
   }
-
 }
 
 .fade-in {
