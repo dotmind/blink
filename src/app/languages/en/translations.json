@@ -11,7 +11,8 @@
     },
     "history": {
       "title": "Transfer history",
-      "expiresin": "Expires in"
+      "expiresin": "Expires in",
+      "no_history": "No history yet"
     },
     "share": {
       "download": "Download",
@@ -38,6 +39,8 @@
     }
   },
   "home": {
+    "title": "Simple and faster pdf transfer",
+    "subtitle": "send your file easily and securely",
     "tabs": {
       "upload": "Upload",
       "about": "About",

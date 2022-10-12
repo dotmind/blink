@@ -32,7 +32,7 @@ function History(): JSX.Element | null {
     if (!history.length) {
       return (
         <li className={styles.historyCard}>
-          <p>Upload a file to see it here</p>
+          <p className={'text-center'}>{t('common.history.no_history')}</p>
         </li>
       );
     }

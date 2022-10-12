@@ -11,7 +11,8 @@
     },
     "history": {
       "title": "Historique des transferts",
-      "expiresin": "Expire dans"
+      "expiresin": "Expire dans",
+      "no_history": "Aucun historique de transfert"
     },
     "share": {
       "download": "Télécharger",
