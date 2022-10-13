@@ -1,6 +1,6 @@
 .icon {
   overflow: visible;
-
+  width: 50px;
   $duration: 0.5s;
   $delay: 0.15s;
 
@@ -11,14 +11,12 @@
       animation-delay: $delay;
     }
 
-    &:last-child {
-      animation-delay: calc(3 * $delay);
+    &:nth-child(3) {
+      animation-delay: $delay * 2;
     }
 
-    @for $i from 3 through 7 {
-      &:nth-child(#{$i}) {
-        animation-delay: calc(2 * $delay);
-      }
+    &:nth-child(4) {
+      animation-delay: $delay * 3;
     }
   }
 }

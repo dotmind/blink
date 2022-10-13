@@ -16,7 +16,7 @@ function TabSelector({ children, options }: IProps): JSX.Element {
     <>
       <div className={styles.tabContent}>
         {children.map((child, index) => {
-          const isSelected = index === selected;
+          const isSelected: boolean = index === selected;
           return (
             <div key={options[index]} className={styles.tabs} data-visible={isSelected}>
               {child}
@@ -27,7 +27,7 @@ function TabSelector({ children, options }: IProps): JSX.Element {
 
       <div className={`${styles.tabSelector} my-2`}>
         {options.map((option, index) => {
-          const isCurrent = index === selected;
+          const isCurrent: boolean = index === selected;
           return (
             <button
               key={`toggle-${option.toString()}`}
