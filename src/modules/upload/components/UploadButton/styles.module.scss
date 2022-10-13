@@ -1,38 +1,31 @@
-.circle {
-  border-radius: 32px;
+.morphButton {
+  border-radius: 60px;
   border: none;
-  position: absolute;
-  right: 0;
-  width: 32px;
-  height: 32px;
+  width: 60px;
+  height: 60px;
   overflow: hidden;
-  transition: width 0.35s ease-in-out;
-
-  &:hover {
-    width: 110px;
-  }
+  transition: 0.35s ease-in-out;
+  position: relative;
+  cursor: pointer;
 
   img {
-    width: 16px;
-    height: 16px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 50%;
-    right: 16px;
+    right: 30px;
     transform: translate(50%, -50%);
+    transition: transform 0.35s ease-in-out;
   }
 
   p {
     color: inherit;
     position: absolute;
     top: 50%;
-    right: 40px;
+    right: 70px;
     transform: translateY(-50%);
     white-space: nowrap;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+    font-size: 1rem;
   }
 
   &.primary {
@@ -53,11 +46,6 @@
   &.white {
     background-color: var(--color-white);
     color: var(--color-black);
-
-    &:disabled {
-      opacity: 0.95;
-      filter: brightness(0.9);
-    }
   }
 
   &.black {
@@ -65,5 +53,17 @@
     box-shadow: 0px 7px 13px rgba(255, 255, 255, 0.3), 0px 2px 4px rgba(232, 231, 231, 0.4),
       inset 0px -3px 0px rgba(255, 255, 255, 0.5);
     color: var(--color-white);
+  }
+
+  &[data-status='error'] {
+    background-color: var(--color-error);
+
+    img {
+      transform: translate(50%, -50%) rotate(45deg);
+    }
+  }
+
+  &[data-status='valid'] {
+    width: 180px;
   }
 }

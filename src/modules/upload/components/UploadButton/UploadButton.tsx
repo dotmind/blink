@@ -7,10 +7,16 @@ import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 import { uploadFile } from '@/app/services/api';
 import { toShareUrl, canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import { ButtonStyle } from '@/app/components/Button';
-import ButtonMorph from '@/app/components/ButtonMorph';
 import crossIcon from '@/app/assets/svg/cross.svg';
 
-function UploadButton(): JSX.Element {
+import styles from '@/modules/upload/components/UploadButton/styles.module.scss';
+
+interface IProps {
+  input: HTMLInputElement | null;
+  isValid: boolean;
+}
+
+function UploadButton({ input, isValid }: IProps): JSX.Element {
   const { fingerprint } = useApp();
   const { file, setStatus, setShareUrl, filename, setError, addToHistory } = useUpload();
   const { t } = useTranslation();
@@ -47,19 +53,29 @@ function UploadButton(): JSX.Element {
     }
   }, [file, setStatus, setShareUrl, fingerprint, canUpload]);
 
-  return (
-    <div className={'upload-button-wrapper'}>
-      <ButtonMorph
-        icon={crossIcon}
-        text={t('upload.button')}
-        style={ButtonStyle.PRIMARY}
-        callback={handleUpload}
-        disabled={!canUpload}
+  const openFile = useCallback(() => {
+    if (input) {
+      input.click();
+    }
+  }, [input]);
+
+  const renderButton = useMemo(
+    (): JSX.Element => (
+      <button
+        className={`${styles[ButtonStyle.PRIMARY]} ${styles.morphButton}`}
+        type={'submit'}
         name={t('upload.button')}
-        additionalClass={'upload-button'}
-      />
-    </div>
+        onClick={file ? handleUpload : openFile}
+        // eslint-disable-next-line no-nested-ternary
+        data-status={!file ? (isValid ? 'idle' : 'error') : 'valid'}>
+        <p className={styles.text}>{t('upload.button')}</p>
+        <img className={styles.icon} src={crossIcon} alt={'Morph button icon'} />
+      </button>
+    ),
+    [file, isValid, handleUpload, openFile],
   );
+
+  return renderButton;
 }
 
 export default UploadButton;

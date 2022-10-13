@@ -67,34 +67,6 @@ img {
   left: 30px;
 }
 
-.upload-button-wrapper {
-  position: relative;
-  height: 60px;
-  margin: 0.5rem 0;
-
-  .upload-button {
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
-    right: -30px;
-
-    &:hover {
-      width: 160px;
-    }
-
-    img {
-      width: 30px;
-      height: 30px;
-      right: 30px;
-    }
-
-    p {
-      right: 70px;
-      font-size: 1rem;
-    }
-  }
-}
-
 .container {
   > .homeButton {
     position: absolute;
