@@ -11,6 +11,8 @@
   position: relative;
   z-index: 2;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  max-height: 400px;
+  overflow-y: auto;
 
   @media (max-width: 390px) {
     width: 100%;
@@ -20,6 +22,10 @@
     padding: 10px;
     font-weight: 700;
     margin-bottom: 10px;
+    position: sticky;
+    top: 0;
+    background-image: linear-gradient(0deg, #ffffff00 0%, #ffffff 30%);
+    z-index: 3;
 
     @media (max-width: 390px) {
       font-weight: 400;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styles from '@/app/components/TabSelector/styles.module.scss';
@@ -11,6 +11,20 @@ interface IProps {
 function TabSelector({ children, options }: IProps): JSX.Element {
   const [selected, setSelected] = useState<number>(1);
   const { t } = useTranslation();
+
+  const toggles = useRef<HTMLButtonElement[]>([]);
+  const tabsTracker = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const tracker = tabsTracker.current;
+    const currentTab = toggles.current[selected];
+
+    if (tracker && currentTab) {
+      tracker.style.left = `${currentTab.offsetLeft}px`;
+      tracker.style.width = `${currentTab.offsetWidth}px`;
+      tracker.style.height = `${currentTab.offsetHeight}px`;
+    }
+  }, [selected]);
 
   return (
     <>
@@ -34,12 +48,17 @@ function TabSelector({ children, options }: IProps): JSX.Element {
               data-current={isCurrent}
               type={'button'}
               className={styles.tab}
-              onClick={() => setSelected(index)}>
+              onClick={() => setSelected(index)}
+              ref={(el) => {
+                if (el) {
+                  toggles.current[index] = el;
+                }
+              }}>
               {t(option)}
             </button>
           );
         })}
-        <span className={styles.tabCurrent} data-position={selected} />
+        <span className={styles.tabTracker} ref={tabsTracker} />
       </div>
     </>
   );
