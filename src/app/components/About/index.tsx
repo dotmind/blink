@@ -29,41 +29,46 @@ function About(): JSX.Element {
         modules={[Pagination, Mousewheel]}>
         <SwiperSlide>
           <div className={`${styles.card} fade-in d-25`}>
-            <h2>
-              <img src={openSource} alt={'clock icon'} /> {t('about.open_source.title')}
-            </h2>
+            <div className={'d-flex gap-15'}>
+              <img src={openSource} alt={'open source icon'} />
+              <h2>{t('about.open_source.title')}</h2>
+            </div>
             <p>{t('about.open_source.text')}</p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className={`${styles.card} fade-in d-50`}>
-            <h2>
-              <img src={clock} alt={'clock icon'} /> {t('about.expiration.title')}
-            </h2>
+            <div className={'d-flex gap-10'}>
+              <img src={clock} alt={'clock icon'} />
+              <h2>{t('about.expiration.title')}</h2>
+            </div>
             <p>{t('about.expiration.text')}</p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className={`${styles.card} fade-in d-75`}>
-            <h2>
-              <img src={leaf} alt={'clock icon'} /> {t('about.ecolo.title')}
-            </h2>
+            <div className={'d-flex gap-10'}>
+              <img src={leaf} alt={'leaf icon'} />
+              <h2>{t('about.ecolo.title')}</h2>
+            </div>
             <p>{t('about.ecolo.text')}</p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className={`${styles.card} fade-in d-75`}>
-            <h2>
-              <img src={bolt} alt={'clock icon'} /> {t('about.simple.title')}
-            </h2>
+            <div className={'d-flex gap-10'}>
+              <img src={bolt} alt={'bolt icon'} />
+              <h2>{t('about.simple.title')}</h2>
+            </div>
             <p>{t('about.simple.text')}</p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className={`${styles.card} fade-in d-50`}>
-            <h2>
-              <img src={lock} alt={'clock icon'} /> {t('about.security.title')}
-            </h2>
+            <div className={'d-flex gap-10'}>
+              <img src={lock} alt={'lock icon'} />
+              <h2>{t('about.security.title')}</h2>
+            </div>
             <p>{t('about.security.text')}</p>
           </div>
         </SwiperSlide>

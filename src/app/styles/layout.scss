@@ -101,6 +101,13 @@ $margin-x: 30px;
     margin: 0 5px;
   }
 }
+
+.gap-15 {
+  > * {
+    margin: 0 7.5px;
+  }
+}
+
 // Margin
 
 .mt-1 {
