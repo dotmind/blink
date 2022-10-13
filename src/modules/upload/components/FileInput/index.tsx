@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid } from '@/app/services/file';
-import UploadButton from '@/modules/upload/components/UploadButton/UploadButton';
+import UploadButton from '@/modules/upload/components/UploadButton';
 import Notification, { NotificationType } from '@/app/components/Notification';
 import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
 import { sanitizeName } from '@/app/services/navigator';
