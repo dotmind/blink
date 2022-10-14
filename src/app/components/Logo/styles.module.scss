@@ -3,6 +3,12 @@
   width: 50px;
   $duration: 0.5s;
   $delay: 0.15s;
+  transition: transform 200ms ease-in;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.95);
+  }
 
   path {
     animation: wavy $duration ease-in-out forwards;
