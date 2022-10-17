@@ -31,3 +31,4 @@ serve.json
 Dockerfile
 nginx.conf
 scripts/deploy_staging.sh
+*.old*

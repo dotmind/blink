@@ -1,6 +1,8 @@
 .history_container {
-  width: 70%;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 550px;
+  margin: auto;
+  height: fit-content;
   margin-top: 2rem;
   background-color: #ffffff90;
   border: 1px solid #f8f8f8;
@@ -8,6 +10,9 @@
   border-radius: 8px;
   position: relative;
   z-index: 2;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  max-height: 400px;
+  overflow-y: auto;
 
   @media (max-width: 390px) {
     width: 100%;
@@ -17,6 +22,10 @@
     padding: 10px;
     font-weight: 700;
     margin-bottom: 10px;
+    position: sticky;
+    top: 0;
+    background-image: linear-gradient(0deg, #ffffff00 0%, #ffffff 30%);
+    z-index: 3;
 
     @media (max-width: 390px) {
       font-weight: 400;
@@ -36,7 +45,6 @@
     color: black;
     font-size: 0.9rem;
     transition: all 120ms ease-in;
-    background-color: #ffffff90;
 
     &:not(:last-of-type) {
       border-bottom: 1px solid #f8f8f8;

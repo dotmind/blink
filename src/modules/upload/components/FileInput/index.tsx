@@ -102,7 +102,7 @@ function FileInput(): JSX.Element {
       </form>
 
       <div className={styles.fileInput_controls}>
-        <UploadButton />
+        <UploadButton input={fileHandler.current} isValid={!error} />
         {file && (
           <Notification type={NotificationType.SUCCESS} key={filename}>
             {filename}

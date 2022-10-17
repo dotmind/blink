@@ -1,0 +1,132 @@
+.morphButton {
+  border-radius: 60px;
+  border: none;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  transition: 650ms cubic-bezier(0, 1.2, 0.9, 1);
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: inherit;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 0;
+  }
+
+  img {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translate(50%, -50%);
+    transition: all 250ms cubic-bezier(0, 1.5, 1, 1.5);
+    object-fit: contain;
+    z-index: 1;
+  }
+
+  p {
+    color: inherit;
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: 700;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 350ms ease-in;
+    transition-delay: 100ms;
+  }
+
+  &.primary {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+  }
+
+  &.secondary {
+    background-color: var(--color-sky);
+    color: #fff;
+  }
+
+  &.success {
+    background-color: var(--color-green);
+    color: #fff;
+  }
+
+  &.white {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+
+  &.black {
+    background-color: var(--color-black);
+    box-shadow: 0px 7px 13px rgba(255, 255, 255, 0.3), 0px 2px 4px rgba(232, 231, 231, 0.4),
+      inset 0px -3px 0px rgba(255, 255, 255, 0.5);
+    color: var(--color-white);
+  }
+
+  &[data-status='error'] {
+    background-color: var(--color-error);
+
+    img {
+      transform: translate(50%, -50%) rotate(45deg);
+    }
+  }
+
+  &[data-status='valid'] {
+    width: 160px;
+    height: 50px;
+    animation: valid-state 3000ms ease infinite;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    p {
+      opacity: 1;
+    }
+
+    @keyframes valid-state {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    &::after {
+      background: linear-gradient(200deg, var(--color-blue), var(--color-green));
+      background-size: 200% 200%;
+      animation: valid-after-state 5s ease infinite;
+    }
+
+    @keyframes valid-after-state {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  }
+}

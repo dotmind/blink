@@ -1,5 +1,4 @@
 import { useMemo, ReactNode } from 'react';
-import { useLocation } from 'react-router';
 import { usePwa } from '@dotmind/react-use-pwa';
 import { useTranslation } from 'react-i18next';
 
@@ -15,15 +14,13 @@ interface IProps {
 
 function Footer({ children }: IProps): JSX.Element {
   const { isStandalone } = usePwa();
-  const { pathname } = useLocation();
   const isMobile = useIsMobile();
   const { t } = useTranslation();
 
   const canRenderMoreInfo = useMemo((): boolean => isMobile && !isStandalone, [isMobile, isStandalone]);
-  const hasFadeBkg = useMemo((): boolean => pathname === '/', [pathname]);
 
   return (
-    <footer className={styles.footer} data-hasfadebkg={hasFadeBkg}>
+    <footer className={styles.footer}>
       <a href={'https://dotmind.io/'} target={'_blank'} rel={'noreferrer'} className={styles.watermark}>
         {t('common.watermark')}
       </a>

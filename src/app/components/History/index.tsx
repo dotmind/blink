@@ -28,47 +28,45 @@ function History(): JSX.Element | null {
     [fingerprint, removeFromHistory],
   );
 
-  const renderList: JSX.Element[] = useMemo(
-    () =>
-      history.map((item, i) => (
-        <li className={styles.historyCard} key={item.url}>
-          <a href={item.url} target={isStandalone ? '_self' : '_blank'} rel={'noreferrer'}>
-            <div>
-              <p className={styles.filename}>{item.filename}</p>
-              <p className={styles.expiresIn}>
-                {t('common.history.expiresin')} {timeRemaining(item.expiresAt)}
-              </p>
-            </div>
-            <div className={'d-flex gap-10'}>
-              <button
-                type={'button'}
-                name={'delete history item'}
-                aria-label={'delete history item'}
-                onClick={handleDelete(item.url, i)}>
-                <FontAwesomeIcon icon={faTrash} />
-              </button>
-              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-            </div>
-          </a>
-        </li>
-      )),
-    [history, t, currentLanguage],
-  );
-
-  const renderHistory: JSX.Element | null = useMemo(() => {
+  const renderList: JSX.Element[] | JSX.Element = useMemo(() => {
     if (!history.length) {
-      return null;
+      return (
+        <li className={styles.historyCard}>
+          <p className={'text-center'}>{t('common.history.no_history')}</p>
+        </li>
+      );
     }
 
-    return (
-      <div className={styles.history_container}>
-        <h3>{t('common.history.title')}</h3>
-        <ul className={styles.historyList}>{renderList}</ul>
-      </div>
-    );
+    return history.map((item, i) => (
+      <li className={styles.historyCard} key={item.url}>
+        <a href={item.url} target={isStandalone ? '_self' : '_blank'} rel={'noreferrer'}>
+          <div>
+            <p className={styles.filename}>{item.filename}</p>
+            <p className={styles.expiresIn}>
+              {t('common.history.expiresin')} {timeRemaining(item.expiresAt)}
+            </p>
+          </div>
+          <div className={'d-flex gap-10'}>
+            <button
+              type={'button'}
+              name={'delete history item'}
+              aria-label={'delete history item'}
+              onClick={handleDelete(item.url, i)}>
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+          </div>
+        </a>
+      </li>
+    ));
   }, [history, t, currentLanguage]);
 
-  return renderHistory;
+  return (
+    <div className={`${styles.history_container} fade-in`}>
+      <h3>{t('common.history.title')}</h3>
+      <ul className={styles.historyList}>{renderList}</ul>
+    </div>
+  );
 }
 
 export default History;

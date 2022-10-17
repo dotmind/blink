@@ -11,7 +11,8 @@
     },
     "history": {
       "title": "Transfer history",
-      "expiresin": "Expires in"
+      "expiresin": "Expires in",
+      "no_history": "No history yet"
     },
     "share": {
       "download": "Download",
@@ -35,6 +36,37 @@
       "missing_headers": "Erreur application: en-têtes manquantes",
       "jwk_export": "Erreur application: impossible d’exporter la clé publique",
       "cannot_decrypt": "Erreur application: impossible de décrypter le fichier, la clé est peut-être invalide ou le contexte n'est pas sécurié (HTTPS)"
+    }
+  },
+  "home": {
+    "title": "Simple and faster pdf transfer",
+    "subtitle": "send your file easily and securely",
+    "tabs": {
+      "upload": "Upload",
+      "about": "About",
+      "history": "History"
+    }
+  },
+  "about": {
+    "simple": {
+      "title": "Simple et rapide",
+      "text": "Il vous suffit de déposer un fichier pdf n'importe où sur la page et vous obtenez un lien à partager en quelques secondes."
+    },
+    "security": {
+      "title": "Cryptage bout en bout",
+      "text": "Nous avons opté pour une solution end to end afin de garantir la confidentialité de vos documents. Ils ne sont donc accessibles que par vous et votre destinataire. Anonymisé"
+    },
+    "ecolo": {
+      "title": "Écologique",
+      "text": "En choisissant Blink vous évitez l'envoi d'une pièce jointe et son stockage sur des serveurs."
+    },
+    "open_source": {
+      "title": "Open-source",
+      "text": "Le partage de connaissances et la collaboration font partie intégrante de nos valeurs ! Nous avons à coeur de participer également à l'évolution de la communauté tech."
+    },
+    "expiration": {
+      "title": "Expiration automatique",
+      "text": "Tous les fichiers téléchargés sont supprimés au bout de 14 jours. Si vous n'en avez plus besoin, vous pouvez également les supprimer définitivement par vous-même."
     }
   },
   "upload": {
