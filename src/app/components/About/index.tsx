@@ -25,6 +25,7 @@ function About(): JSX.Element {
         centeredSlides
         mousewheel
         loop
+        slideToClickedSlide
         pagination={{ clickable: true }}
         modules={[Pagination, Mousewheel]}>
         <SwiperSlide>
