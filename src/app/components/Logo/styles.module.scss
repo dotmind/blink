@@ -1,9 +1,10 @@
 .icon {
   overflow: visible;
-  width: 50px;
   $duration: 0.5s;
   $delay: 0.15s;
   transition: transform 200ms ease-in;
+  height: 40px;
+  width: 80px;
 
   &:hover {
     cursor: pointer;
@@ -32,7 +33,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-25px);
   }
   100% {
     transform: translateY(0);
