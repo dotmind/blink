@@ -17,7 +17,7 @@ function Home() {
   return (
     <UploadProvider>
       <div className={'page-container'}>
-        <header className={'p-2'}>
+        <header className={'main-header'}>
           <Logo />
         </header>
         <div className={'d-flex flex-column align-center grow'}>
