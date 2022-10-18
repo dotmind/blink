@@ -89,23 +89,27 @@ function FileViewer(): JSX.Element {
         {isMobile && <Download />}
         <Document className={`${styles.viewerParent} fade-in d-50`} file={file} onLoadSuccess={onPDFReady}>
           <div className={styles.controls}>
-            <button
-              disabled={isFirstPage}
-              type={'button'}
-              onClick={() => setPageNumber(pageNumber - 1)}
-              aria-label={t('fileviewer.previousPage')}
-              name={t('fileviewer.previousPage')}>
-              <FontAwesomeIcon icon={faCaretLeft} />
-            </button>
+            {numPages > 1 && (
+              <button
+                disabled={isFirstPage}
+                type={'button'}
+                onClick={() => setPageNumber(pageNumber - 1)}
+                aria-label={t('fileviewer.previousPage')}
+                name={t('fileviewer.previousPage')}>
+                <FontAwesomeIcon icon={faCaretLeft} />
+              </button>
+            )}
 
-            <button
-              disabled={isLastPage}
-              type={'button'}
-              onClick={() => setPageNumber(pageNumber + 1)}
-              aria-label={t('fileviewer.nextPage')}
-              name={t('fileviewer.nextPage')}>
-              <FontAwesomeIcon icon={faCaretRight} />
-            </button>
+            {numPages > 1 && (
+              <button
+                disabled={isLastPage}
+                type={'button'}
+                onClick={() => setPageNumber(pageNumber + 1)}
+                aria-label={t('fileviewer.nextPage')}
+                name={t('fileviewer.nextPage')}>
+                <FontAwesomeIcon icon={faCaretRight} />
+              </button>
+            )}
 
             {canUseNativeShare() && (
               <button
