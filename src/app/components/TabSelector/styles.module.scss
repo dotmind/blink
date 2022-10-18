@@ -17,9 +17,12 @@
     cursor: pointer;
     transition: 0.2s ease-in-out;
 
+    @media (max-width: 768px) {
+      margin: 0 5px;
+      padding: 0.5rem;
+    }
+
     &[data-current='true'] {
-      // background-color: #bababa30;
-      // border: 2px solid var(--color-white);
       font-weight: bold;
     }
   }

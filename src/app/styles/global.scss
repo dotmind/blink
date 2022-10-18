@@ -71,18 +71,20 @@ img {
   left: 90px;
 }
 
-.container {
-  > .homeButton {
-    position: absolute;
-    top: 35px;
-    left: 35px;
-  }
+header {
+  padding: 30px;
 
-  @media (max-width: $breakpoint-lg) {
-    > .homeButton {
-      right: 35px;
-      left: unset;
-    }
+  @media (max-width: $breakpoint-sm) {
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+.title {
+  margin-bottom: 15px;
+
+  @media (max-width: $breakpoint-sm) {
+    text-align: center;
   }
 }
 .swiper {
