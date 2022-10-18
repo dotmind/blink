@@ -8,6 +8,7 @@ import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
 import ShareIcon from '@/app/assets/svg/share_white.svg';
+import reloadIcon from '@/app/assets/svg/reload.svg';
 
 import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
 
@@ -28,6 +29,10 @@ function ShareButtons(): JSX.Element {
     setIsCopied(true);
   }, [shareUrl]);
 
+  const handleReload = useCallback(() => {
+    window.location.reload();
+  }, []);
+
   return (
     <div className={styles.share_container}>
       {canUseNativeShare() && (
@@ -38,6 +43,10 @@ function ShareButtons(): JSX.Element {
       <Button style={ButtonStyle.PRIMARY} callback={handleCopy} name={t('upload.link.copy')}>
         {t('upload.link.copy')} <FontAwesomeIcon icon={faCopy} />
         {isCopied && <Tooltip position={TooltipPosition.right}>{t('common.tooltip.copied')}</Tooltip>}
+      </Button>
+
+      <Button style={ButtonStyle.NONE} name={t('upload.link.reload')} callback={handleReload}>
+        <img className={'icons'} src={reloadIcon} alt={t('upload.link.reload')} />
       </Button>
     </div>
   );

@@ -8,6 +8,7 @@ export enum ButtonStyle {
   SUCCESS = 'success',
   WHITE = 'white',
   BLACK = 'black',
+  NONE = 'none',
 }
 
 interface IProps {
