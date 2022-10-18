@@ -38,6 +38,11 @@ $margin-x: 30px;
   height: 100vh;
   max-width: 100vw;
   z-index: 1;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 20px;
+    max-width: calc(100vw - 40px);
+  }
 }
 
 .d-flex {

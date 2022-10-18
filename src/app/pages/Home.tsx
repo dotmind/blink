@@ -21,8 +21,8 @@ function Home() {
           <Logo />
         </header>
         <div className={'d-flex flex-column align-center grow'}>
-          <h1 className={'mb-1'}> {t('home.title')} </h1>
-          <p> {t('home.subtitle')} </p>
+          <h1 className={'title'}> {t('home.title')} </h1>
+          <p className={'subtitle'}> {t('home.subtitle')} </p>
           <TabSelector options={['home.tabs.history', 'home.tabs.upload', 'home.tabs.about']}>
             <History />
             <Upload />
