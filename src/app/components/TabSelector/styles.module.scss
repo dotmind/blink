@@ -4,7 +4,7 @@
   padding: 0.2rem;
   background-color: #ececec30;
   border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   position: relative;
   margin-bottom: 32px;
 
@@ -29,7 +29,7 @@
 
   .tabTracker {
     position: absolute;
-    background-color: #bababa30;
+    background-color: #d4d4d430;
     border: 2px solid var(--color-white);
     border-radius: 10px;
     transition: 0.2s ease-in-out;
