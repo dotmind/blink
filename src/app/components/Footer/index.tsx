@@ -1,10 +1,8 @@
-import { useMemo, ReactNode } from 'react';
-import { usePwa } from '@dotmind/react-use-pwa';
+import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import useIsMobile, { useIsSmallDevice } from '@/app/hooks/useIsMobile';
+import { useIsSmallDevice } from '@/app/hooks/useIsMobile';
 import LangSwitcher from '@/app/components/LangSwitcher';
-import MoreInfo from '@/app/components/MoreInfo';
 
 import styles from '@/app/components/Footer/styles.module.scss';
 
@@ -13,12 +11,8 @@ interface IProps {
 }
 
 function Footer({ children }: IProps): JSX.Element {
-  const { isStandalone } = usePwa();
-  const isMobile = useIsMobile();
   const isSmallDevice = useIsSmallDevice();
   const { t } = useTranslation();
-
-  const canRenderMoreInfo = useMemo((): boolean => isMobile && !isStandalone, [isMobile, isStandalone]);
 
   return (
     <footer className={styles.footer}>
@@ -29,7 +23,6 @@ function Footer({ children }: IProps): JSX.Element {
       <div className={styles.footer_cta}>
         {children}
         <LangSwitcher />
-        {canRenderMoreInfo && <MoreInfo />}
       </div>
     </footer>
   );
