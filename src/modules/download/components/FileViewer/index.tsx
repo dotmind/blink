@@ -74,7 +74,7 @@ function FileViewer(): JSX.Element {
   }
 
   return (
-    <div className={'container justify-center flex-row padding'}>
+    <div className={'container justify-center flex-row'}>
       {!isMobile && (
         <div className={'logo'}>
           <Logo />
