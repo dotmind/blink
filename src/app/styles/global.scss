@@ -62,7 +62,7 @@ img {
 }
 
 .main-header {
-  padding: 32px 90px 10px 90px;
+  padding: var(--safe-zone-y) var(--safe-zone-x) 10px var(--safe-zone-x);
 }
 
 .logo {
