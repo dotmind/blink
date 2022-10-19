@@ -74,6 +74,10 @@ function FileInput(): JSX.Element {
     setError(null);
   }, [setFile, setFilename, setError]);
 
+  const handleDismissError: () => void = useCallback(() => {
+    setError(null);
+  }, [setError]);
+
   useEffect(() => {
     if (!fileHandler.current) {
       return () => {};
@@ -119,7 +123,14 @@ function FileInput(): JSX.Element {
             </Button>
           </Notification>
         )}
-        {error && <Notification type={NotificationType.ERROR}>{error}</Notification>}
+        {error && (
+          <Notification type={NotificationType.ERROR}>
+            {error}
+            <Button style={ButtonStyle.NONE} name={'cancel'} callback={handleDismissError}>
+              <img src={crossIcon} alt={'cross icon'} height={'100%'} width={'100%'} />
+            </Button>
+          </Notification>
+        )}
       </div>
     </>
   );
