@@ -2,6 +2,9 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 
+$safe-zone-x: 90px;
+$safe-zone-y: 32px;
+
 $margin-x: 30px;
 
 :root {
@@ -9,6 +12,8 @@ $margin-x: 30px;
   --breakpoint-sm: #{$breakpoint-sm};
   --breakpoint-md: #{$breakpoint-md};
   --breakpoint-lg: #{$breakpoint-lg};
+  --safe-zone-x: #{$safe-zone-x};
+  --safe-zone-y: #{$safe-zone-y};
 }
 
 .container {

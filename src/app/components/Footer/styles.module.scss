@@ -6,7 +6,7 @@
   position: fixed;
   left: 0;
   width: 100%;
-  padding: 10px 90px 32px 90px;
+  padding: 10px var(--safe-zone-x) var(--safe-zone-y) var(--safe-zone-x);
   font-weight: 300;
   bottom: env(safe-area-inset-bottom, 0);
   z-index: 15;
