@@ -81,14 +81,20 @@
   }
 
   &.glass {
+    color: var(--color-white);
     background-image: radial-gradient(
       91.37% 249.23% at 3.15% 12.44%,
       rgba(255, 255, 255, 1) 0%,
       rgba(71, 176, 255, 0.35) 48.44%,
       rgba(255, 255, 255, 0.6) 100%
     );
+    // @TODO : safari doesn't support well backdrop-filter
     filter: drop-shadow(0px 10.3755px 19.2687px rgba(66, 152, 217, 0.3))
       drop-shadow(0px 2.96441px 5.92883px rgba(66, 152, 217, 0.4));
+  }
+
+  &.gradient {
+    background: linear-gradient(140deg, var(--color-blue), var(--color-green));
   }
 
   &[data-status='error'] {
@@ -132,10 +138,10 @@
     &::after {
       background: linear-gradient(200deg, var(--color-blue), var(--color-green));
       background-size: 200% 200%;
-      animation: valid-after-state 5s ease infinite;
+      animation: backgroundWaving 5s ease infinite;
     }
 
-    @keyframes valid-after-state {
+    @keyframes backgroundWaving {
       0% {
         background-position: 0% 50%;
       }
