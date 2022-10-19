@@ -15,7 +15,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
-          port: ${{ secrets.PORT }}
+          port: ${{ secrets.SERVER_PORT }}
           script_stop: true
           script: |
             cd /home/clients/0595bb847356d02f4b5bca65b97759a6/sites/blink.dotmind.io/blink
