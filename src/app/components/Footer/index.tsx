@@ -2,7 +2,7 @@ import { useMemo, ReactNode } from 'react';
 import { usePwa } from '@dotmind/react-use-pwa';
 import { useTranslation } from 'react-i18next';
 
-import useIsMobile from '@/app/hooks/useIsMobile';
+import useIsMobile, { useIsSmallDevice } from '@/app/hooks/useIsMobile';
 import LangSwitcher from '@/app/components/LangSwitcher';
 import MoreInfo from '@/app/components/MoreInfo';
 
@@ -15,6 +15,7 @@ interface IProps {
 function Footer({ children }: IProps): JSX.Element {
   const { isStandalone } = usePwa();
   const isMobile = useIsMobile();
+  const isSmallDevice = useIsSmallDevice();
   const { t } = useTranslation();
 
   const canRenderMoreInfo = useMemo((): boolean => isMobile && !isStandalone, [isMobile, isStandalone]);
@@ -22,7 +23,7 @@ function Footer({ children }: IProps): JSX.Element {
   return (
     <footer className={styles.footer}>
       <a href={'https://dotmind.io/'} target={'_blank'} rel={'noreferrer'} className={styles.watermark}>
-        {t('common.watermark')}
+        {isSmallDevice ? '.mind' : t('common.watermark')}
       </a>
 
       <div className={styles.footer_cta}>

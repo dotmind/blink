@@ -13,8 +13,8 @@
   max-height: 400px;
   overflow-y: auto;
 
-  @media (max-width: 390px) {
-    width: 100%;
+  @media (max-width: 576px) {
+    margin: var(--safe-zone-x);
   }
 
   h3 {

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
 import { Pagination, Mousewheel } from 'swiper';
 
-import useIsMobile, { useIsSmallDevice } from '@/app/hooks/useIsMobile';
+import { useIsMediumDevice, useIsSmallDevice } from '@/app/hooks/useIsMobile';
 import openSource from '@/app/assets/svg/open-source.svg';
 import leaf from '@/app/assets/svg/leaf.svg';
 import clock from '@/app/assets/svg/clock.svg';
@@ -17,11 +17,11 @@ import styles from '@/app/components/About/styles.module.scss';
 
 function About(): JSX.Element {
   const { t } = useTranslation();
-  const isMobile = useIsMobile();
+  const isMediumDevice = useIsMediumDevice();
   const isSmallDevice = useIsSmallDevice();
 
   // eslint-disable-next-line no-nested-ternary
-  const slidesPerView: number = useMemo(() => (isMobile ? (isSmallDevice ? 1 : 2) : 4), [isMobile, isSmallDevice]);
+  const slidesPerView: number = useMemo(() => (isMediumDevice ? (isSmallDevice ? 1 : 2) : 4), [isMediumDevice, isSmallDevice]);
 
   const renderSwiper: JSX.Element = useMemo(
     () => (
@@ -38,7 +38,7 @@ function About(): JSX.Element {
           modules={[Pagination, Mousewheel]}>
           <SwiperSlide>
             <div className={`${styles.card} fade-in d-25`}>
-              <div className={'d-flex gap-15'}>
+              <div className={'d-flex gap-5'}>
                 <img src={openSource} alt={'open source icon'} />
                 <h2>{t('about.open_source.title')}</h2>
               </div>
@@ -47,7 +47,7 @@ function About(): JSX.Element {
           </SwiperSlide>
           <SwiperSlide>
             <div className={`${styles.card} fade-in d-50`}>
-              <div className={'d-flex gap-10'}>
+              <div className={'d-flex gap-5'}>
                 <img src={clock} alt={'clock icon'} />
                 <h2>{t('about.expiration.title')}</h2>
               </div>
@@ -56,7 +56,7 @@ function About(): JSX.Element {
           </SwiperSlide>
           <SwiperSlide>
             <div className={`${styles.card} fade-in d-75`}>
-              <div className={'d-flex gap-10'}>
+              <div className={'d-flex gap-5'}>
                 <img src={leaf} alt={'leaf icon'} />
                 <h2>{t('about.ecolo.title')}</h2>
               </div>
@@ -65,7 +65,7 @@ function About(): JSX.Element {
           </SwiperSlide>
           <SwiperSlide>
             <div className={`${styles.card} fade-in d-75`}>
-              <div className={'d-flex gap-10'}>
+              <div className={'d-flex gap-5'}>
                 <img src={bolt} alt={'bolt icon'} />
                 <h2>{t('about.simple.title')}</h2>
               </div>
@@ -74,7 +74,7 @@ function About(): JSX.Element {
           </SwiperSlide>
           <SwiperSlide>
             <div className={`${styles.card} fade-in d-50`}>
-              <div className={'d-flex gap-10'}>
+              <div className={'d-flex gap-5'}>
                 <img src={lock} alt={'lock icon'} />
                 <h2>{t('about.security.title')}</h2>
               </div>
@@ -84,7 +84,7 @@ function About(): JSX.Element {
         </SwiperComponent>
       </div>
     ),
-    [t, isMobile, isSmallDevice, slidesPerView],
+    [t, isMediumDevice, isSmallDevice, slidesPerView],
   );
 
   return renderSwiper;
