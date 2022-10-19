@@ -49,6 +49,18 @@ function UploadFile(): JSX.Element {
     );
   }, [shareUrl, status]);
 
+  const renderFilename: JSX.Element = useMemo(() => {
+    if (!shareUrl || status !== UploadStatus.SUCCESS) {
+      return <p>{filename}</p>;
+    }
+
+    return (
+      <a href={shareUrl} target={'_blank'} rel={'noreferrer'}>
+        {filename}
+      </a>
+    );
+  }, [shareUrl, status]);
+
   const renderSuccessAnim: JSX.Element | null = useMemo(() => {
     if (status === UploadStatus.SUCCESS) {
       return <SuccessConfetti />;
@@ -64,7 +76,7 @@ function UploadFile(): JSX.Element {
       <div className={styles.fileInfo}>
         <div>
           <FontAwesomeIcon icon={faFileLines} />
-          <p>{filename}</p>
+          {renderFilename}
         </div>
         <p className={styles.fileWeight}>{fileWeightInKB}KB . pdf</p>
       </div>
