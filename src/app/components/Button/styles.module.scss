@@ -68,4 +68,15 @@
     align-items: center;
     justify-content: center;
   }
+
+  &.glass {
+    background-image: radial-gradient(
+      91.37% 249.23% at 3.15% 12.44%,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(71, 176, 255, 0.35) 48.44%,
+      rgba(255, 255, 255, 0.6) 100%
+    );
+    filter: drop-shadow(0px 10.3755px 19.2687px rgba(66, 152, 217, 0.3))
+      drop-shadow(0px 2.96441px 5.92883px rgba(66, 152, 217, 0.4));
+  }
 }
