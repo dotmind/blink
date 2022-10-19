@@ -9,8 +9,8 @@ $safe-zone-y: 32px;
 $safe-zone-x-md: 50px;
 $safe-zone-y-md: 32px;
 // Mobile safe zone values
-$safe-zone-x-sm: 20px;
-$safe-zone-y-sm: 20px;
+$safe-zone-x-sm: 15px;
+$safe-zone-y-sm: 15px;
 
 :root {
   --breakpoint-sm: #{$breakpoint-sm};
@@ -40,6 +40,10 @@ $safe-zone-y-sm: 20px;
   flex-grow: 1;
   height: 100vh;
   z-index: 1;
+
+  @media (max-width: $breakpoint-md) {
+    margin: 0 var(--safe-zone-x);
+  }
 }
 
 .page-container {

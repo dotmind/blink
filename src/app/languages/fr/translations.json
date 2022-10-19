@@ -2,7 +2,7 @@
   "common": {
     "name": "Blink",
     "description": "Blink application",
-    "watermark": "@dotmind",
+    "watermark": "by .mind",
     "pwa": {
       "install": "Installer l'application Blink"
     },

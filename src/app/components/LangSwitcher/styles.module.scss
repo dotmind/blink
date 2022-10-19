@@ -48,6 +48,13 @@
     pointer-events: none;
     transition: opacity 0.35s ease-in-out;
 
+    @media (max-width: 992px) {
+      top: calc(100% - 10px);
+      padding-top: 15px;
+      bottom: unset;
+      padding-bottom: unset;
+    }
+
     &[data-isopen='true'] {
       opacity: 1;
       pointer-events: all;

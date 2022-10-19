@@ -42,7 +42,7 @@ function ShareButtons(): JSX.Element {
       )}
       <Button style={ButtonStyle.PRIMARY} callback={handleCopy} name={t('upload.link.copy')}>
         {t('upload.link.copy')} <FontAwesomeIcon icon={faCopy} />
-        {isCopied && <Tooltip position={TooltipPosition.right}>{t('common.tooltip.copied')}</Tooltip>}
+        {isCopied && <Tooltip position={TooltipPosition.left}>{t('common.tooltip.copied')}</Tooltip>}
       </Button>
 
       <Button style={ButtonStyle.NONE} name={t('upload.link.reload')} callback={handleReload}>

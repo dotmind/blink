@@ -62,13 +62,16 @@ img {
 }
 
 .main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: var(--safe-zone-y) var(--safe-zone-x) 10px var(--safe-zone-x);
 }
 
 .logo {
   position: absolute;
-  top: 65px;
-  left: 90px;
+  top: var(--safe-zone-y);
+  left: var(--safe-zone-x);
 }
 
 header {

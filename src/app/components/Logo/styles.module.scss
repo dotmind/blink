@@ -1,3 +1,19 @@
+.logo_container {
+  display: flex;
+  flex-direction: column;
+
+  a:first-child {
+    height: 40px;
+  }
+
+  .watermark {
+    color: #47b0ff;
+    opacity: 0.5;
+    text-decoration: none;
+    font-size: 16px;
+  }
+}
+
 .icon {
   overflow: visible;
   $duration: 0.5s;

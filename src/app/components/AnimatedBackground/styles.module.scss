@@ -6,6 +6,8 @@
   height: 100%;
   overflow: hidden;
   z-index: -1;
+  // background: linear-gradient(200deg, #47afffcd, #24c793ae);
+  opacity: 0.4;
 
   .image {
     object-fit: contain;

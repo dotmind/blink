@@ -1,6 +1,24 @@
+import { useMemo } from 'react';
+
+import useIsMobile from '@/app/hooks/useIsMobile';
+
 import styles from '@/app/components/Logo/styles.module.scss';
 
-function Logo() {
+function Logo(): JSX.Element {
+  const isMobile: boolean = useIsMobile();
+
+  const renderWaterMark: JSX.Element | null = useMemo(() => {
+    if (!isMobile) {
+      return null;
+    }
+
+    return (
+      <a className={styles.watermark} href={'https://dotmind.io/'} target={'_blank'} rel={'noreferrer'}>
+        by .mind
+      </a>
+    );
+  }, [isMobile]);
+
   return (
     <div className={styles.logo_container}>
       <a href={'/'}>
@@ -45,6 +63,7 @@ function Logo() {
           />
         </svg>
       </a>
+      {renderWaterMark}
     </div>
   );
 }
