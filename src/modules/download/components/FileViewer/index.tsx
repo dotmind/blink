@@ -74,6 +74,14 @@ function FileViewer(): JSX.Element {
     return <NotFound information={error?.message} />;
   }
 
+  const nextNumPages = useCallback(() => {
+    setPageNumber(pageNumber + 1);
+  }, [pageNumber]);
+
+  const prevNumPages = useCallback(() => {
+    setPageNumber(pageNumber - 1);
+  }, [pageNumber]);
+
   return (
     <div className={'container justify-center flex-row'}>
       {!isMobile && (
@@ -98,7 +106,7 @@ function FileViewer(): JSX.Element {
                 <button
                   disabled={isFirstPage}
                   type={'button'}
-                  onClick={() => setPageNumber(pageNumber - 1)}
+                  onClick={prevNumPages}
                   aria-label={t('fileviewer.previousPage')}
                   name={t('fileviewer.previousPage')}>
                   <FontAwesomeIcon icon={faCaretLeft} />
@@ -109,7 +117,7 @@ function FileViewer(): JSX.Element {
                 <button
                   disabled={isLastPage}
                   type={'button'}
-                  onClick={() => setPageNumber(pageNumber + 1)}
+                  onClick={nextNumPages}
                   aria-label={t('fileviewer.nextPage')}
                   name={t('fileviewer.nextPage')}>
                   <FontAwesomeIcon icon={faCaretRight} />

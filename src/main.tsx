@@ -4,7 +4,6 @@ import { HelmetProvider } from 'react-helmet-async';
 
 import Router from '@/app/components/Router';
 import Head from '@/app/components/Head';
-
 import AppProvider from '@/app/providers/AppProdiver';
 import '@/app/services/i18n';
 
