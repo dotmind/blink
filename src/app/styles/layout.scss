@@ -4,13 +4,13 @@ $breakpoint-lg: 992px;
 
 // Default safe zone values
 $safe-zone-x: 90px;
-$safe-zone-y: 2rem;
+$safe-zone-y: 32px;
 // Tablet safe zone values
-$safe-zone-x-md: 3.125rem;
-$safe-zone-y-md: 2rem;
+$safe-zone-x-md: 50px;
+$safe-zone-y-md: 32px;
 // Mobile safe zone values
-$safe-zone-x-sm: 0.938rem;
-$safe-zone-y-sm: 0.938rem;
+$safe-zone-x-sm: 15px;
+$safe-zone-y-sm: 15px;
 
 :root {
   --breakpoint-sm: #{$breakpoint-sm};
