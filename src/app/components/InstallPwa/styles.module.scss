@@ -1,7 +1,7 @@
 .pwa_button {
   position: fixed;
   color: black;
-  right: 90px;
-  top: 32px;
+  right: var(--safe-zone-x);
+  top: var(--safe-zone-y);
   z-index: 15;
 }
