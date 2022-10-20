@@ -2,13 +2,33 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 
-$margin-x: 30px;
+// Default safe zone values
+$safe-zone-x: 90px;
+$safe-zone-y: 32px;
+// Tablet safe zone values
+$safe-zone-x-md: 50px;
+$safe-zone-y-md: 32px;
+// Mobile safe zone values
+$safe-zone-x-sm: 15px;
+$safe-zone-y-sm: 15px;
 
 :root {
-  --margin-x: #{$margin-x};
   --breakpoint-sm: #{$breakpoint-sm};
   --breakpoint-md: #{$breakpoint-md};
   --breakpoint-lg: #{$breakpoint-lg};
+
+  --safe-zone-x: #{$safe-zone-x};
+  --safe-zone-y: #{$safe-zone-y};
+
+  @media (max-width: $breakpoint-md) and (min-width: $breakpoint-sm) {
+    --safe-zone-x: #{$safe-zone-x-md};
+    --safe-zone-y: #{$safe-zone-y-md};
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    --safe-zone-x: #{$safe-zone-x-sm};
+    --safe-zone-y: #{$safe-zone-y-sm};
+  }
 }
 
 .container {
@@ -21,13 +41,8 @@ $margin-x: 30px;
   height: 100vh;
   z-index: 1;
 
-  .scroll-content {
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding: var(--margin-x);
-    padding-bottom: 85px;
-    display: flex;
-    flex-direction: column;
+  @media (max-width: $breakpoint-md) {
+    margin: 0 var(--safe-zone-x);
   }
 }
 
@@ -38,6 +53,12 @@ $margin-x: 30px;
   height: 100vh;
   max-width: 100vw;
   z-index: 1;
+}
+
+.safe {
+  width: calc(100% - var(--safe-zone-x) * 2);
+  margin: 0 var(--safe-zone-x);
+  overflow: hidden;
 }
 
 .d-flex {
@@ -96,22 +117,28 @@ $margin-x: 30px;
   position: relative;
 }
 
+.gap-5 {
+  > * {
+    margin: 0 0.156rem;
+  }
+}
+
 .gap-10 {
   > * {
-    margin: 0 5px;
+    margin: 0 0.313rem;
   }
 }
 
 .gap-15 {
   > * {
-    margin: 0 7.5px;
+    margin: 0 7.313rem;
   }
 }
 
 // Margin
 
 .mt-1 {
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 .mt-2 {
@@ -123,7 +150,7 @@ $margin-x: 30px;
 }
 
 .mb-1 {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .mb-2 {
@@ -135,8 +162,8 @@ $margin-x: 30px;
 }
 
 .my-1 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
 }
 
 .my-2 {
@@ -152,7 +179,7 @@ $margin-x: 30px;
 // Padding
 
 .p-1 {
-  padding: 10px;
+  padding: 0.625rem;
 }
 
 .p-2 {
@@ -164,7 +191,7 @@ $margin-x: 30px;
 }
 
 .pt-1 {
-  padding-top: 10px;
+  padding-top: 0.625rem;
 }
 
 .pt-2 {

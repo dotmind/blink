@@ -4,15 +4,15 @@
 
   .langSwitcher {
     display: flex;
-    gap: 10px;
+    gap: 0.625rem;
     flex-direction: row;
     align-items: center;
-    border: 1px solid var(--color-white);
-    padding: 8px 10px;
-    border-radius: 8px;
+    border: 0.063rem solid var(--color-white);
+    padding: 0.5rem 0.625rem;
+    border-radius: 0.5rem;
     background-color: #ffffff60;
-    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 0.75rem 0px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.313rem);
     cursor: pointer;
     color: var(--color-black);
 
@@ -22,31 +22,38 @@
     }
 
     @media (max-width: 992px) {
-      height: 45px;
-      width: 45px;
+      height: 2.813rem;
+      width: 2.813rem;
       justify-content: center;
       align-items: center;
       background: rgba(255, 255, 255, 0.7);
-      border: 1px solid var(--color-grey-100);
-      border-radius: 5px;
-      font-size: 20px;
+      border: 0.063rem solid var(--color-grey-100);
+      border-radius: 0.313rem;
+      font-size: 1.25rem;
     }
   }
 
   .lang_dropdown {
     position: absolute;
-    bottom: calc(100% - 10px);
+    bottom: calc(100% - 0.625rem);
     background-color: #ffffff60;
-    border: 1px solid var(--color-white);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    padding-bottom: 15px;
-    border-radius: 8px;
-    backdrop-filter: blur(5px);
+    border: 0.063rem solid var(--color-white);
+    box-shadow: 0px 0px 0.625rem 0px rgba(0, 0, 0, 0.2);
+    padding-bottom: 0.938rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(0.313rem);
     width: 100%;
     z-index: -1;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.35s ease-in-out;
+
+    @media (max-width: 992px) {
+      top: calc(100% - 0.625rem);
+      padding-top: 0.938rem;
+      bottom: unset;
+      padding-bottom: unset;
+    }
 
     &[data-isopen='true'] {
       opacity: 1;

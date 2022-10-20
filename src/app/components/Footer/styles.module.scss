@@ -6,11 +6,20 @@
   position: fixed;
   left: 0;
   width: 100%;
-  padding: 30px;
+  padding: 0.625rem var(--safe-zone-x) var(--safe-zone-y) var(--safe-zone-x);
   font-weight: 300;
   bottom: env(safe-area-inset-bottom, 0);
   z-index: 15;
   pointer-events: none;
+
+  @media (max-width: 992px) {
+    display: none;
+    font-size: 0.75rem;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.625rem 0;
+  }
 
   > * {
     pointer-events: all;
@@ -19,6 +28,10 @@
   .watermark {
     color: var(--color-black);
     text-decoration: none;
+
+    @media (max-width: 992px) {
+      color: var(--color-blue);
+    }
   }
 
   .footer_cta {
@@ -26,7 +39,7 @@
     align-items: flex-end;
 
     > * {
-      margin: 0 5px;
+      margin: 0 0.313rem;
     }
   }
 

@@ -7,6 +7,10 @@ export enum TooltipPosition {
   bottom = 'bottom',
   left = 'left',
   right = 'right',
+  topLeft = 'top-left',
+  topRight = 'top-right',
+  bottomLeft = 'bottom-left',
+  bottomRight = 'bottom-right',
 }
 
 interface IProps {

@@ -1,4 +1,4 @@
-import { useMemo, lazy } from 'react';
+import { useMemo, useCallback, lazy } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -49,6 +49,14 @@ function UploadFile(): JSX.Element {
     );
   }, [shareUrl, status]);
 
+  const handlePreview = useCallback((): void => {
+    if (!shareUrl) {
+      return;
+    }
+
+    window.open(shareUrl, '_blank');
+  }, [shareUrl]);
+
   const renderSuccessAnim: JSX.Element | null = useMemo(() => {
     if (status === UploadStatus.SUCCESS) {
       return <SuccessConfetti />;
@@ -61,10 +69,10 @@ function UploadFile(): JSX.Element {
 
   return (
     <div className={statusClass}>
-      <div className={styles.fileInfo}>
+      <div className={styles.fileInfo} onClick={handlePreview} onKeyDown={handlePreview} role={'button'} tabIndex={0}>
         <div>
           <FontAwesomeIcon icon={faFileLines} />
-          <p>{filename}</p>
+          {filename}
         </div>
         <p className={styles.fileWeight}>{fileWeightInKB}KB . pdf</p>
       </div>

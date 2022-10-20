@@ -1,33 +1,40 @@
 .tabSelector {
-  border: 2px solid var(--color-white);
+  border: 0.125rem solid var(--color-white);
   display: flex;
   padding: 0.2rem;
   background-color: #ececec30;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.625rem;
+  box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.625rem);
   position: relative;
+  margin-bottom: 2rem;
 
   button {
     background: transparent;
-    border: 2px solid transparent;
-    margin: 0 15px;
+    border: 0.125rem solid transparent;
+    margin: 0 0.938rem;
     padding: 0.5rem 1rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 
+    @media (max-width: 768px) {
+      margin: 0 0.313rem;
+      padding: 0.5rem;
+    }
+
     &[data-current='true'] {
-      // background-color: #bababa30;
-      // border: 2px solid var(--color-white);
       font-weight: bold;
     }
   }
 
   .tabTracker {
     position: absolute;
-    background-color: #bababa30;
-    border: 2px solid var(--color-white);
-    border-radius: 10px;
+    background-color: #efefef4d;
+    opacity: 1;
+    backdrop-filter: blur(0.625rem);
+    border: 0.125rem solid var(--color-white);
+    border-radius: 0.625rem;
     transition: 0.2s ease-in-out;
     z-index: -1;
   }

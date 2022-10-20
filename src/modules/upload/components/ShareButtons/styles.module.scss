@@ -1,13 +1,13 @@
 .share_container {
   width: 100%;
-  max-width: 400px;
+  max-width: 25rem;
   margin: 0 auto;
   display: flex;
   gap: 1rem;
   position: relative;
   z-index: 1;
 
-  button {
+  button:not(:last-child) {
     flex-grow: 1;
     font-size: 0.8rem;
   }

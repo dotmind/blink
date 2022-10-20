@@ -62,7 +62,7 @@ function UploadButton({ input, isValid }: IProps): JSX.Element {
   const renderButton = useMemo(
     (): JSX.Element => (
       <button
-        className={`${styles[ButtonStyle.PRIMARY]} ${styles.morphButton}`}
+        className={`${styles[ButtonStyle.GRADIENT]} ${styles.morphButton}`}
         type={'submit'}
         name={t('upload.button')}
         onClick={file ? handleUpload : openFile}

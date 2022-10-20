@@ -4,7 +4,6 @@ import { HelmetProvider } from 'react-helmet-async';
 
 import Router from '@/app/components/Router';
 import Head from '@/app/components/Head';
-import ModalProvider from '@/app/providers/ModalProvider';
 import AppProvider from '@/app/providers/AppProdiver';
 import '@/app/services/i18n';
 
@@ -14,10 +13,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <HelmetProvider>
       <AppProvider>
-        <ModalProvider>
-          <Head />
-          <Router />
-        </ModalProvider>
+        <Head />
+        <Router />
       </AppProvider>
     </HelmetProvider>
   </React.StrictMode>,

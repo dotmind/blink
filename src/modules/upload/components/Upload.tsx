@@ -42,7 +42,7 @@ function Upload(): JSX.Element {
   return (
     <>
       {renderOverlay}
-      <div className={'fade-in grow self-center'}>
+      <div className={'fade-in grow self-center safe'}>
         {renderContent}
         {status === UploadStatus.SUCCESS && <ShareButtons />}
       </div>

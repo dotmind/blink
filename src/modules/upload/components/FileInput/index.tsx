@@ -7,6 +7,8 @@ import UploadButton from '@/modules/upload/components/UploadButton';
 import Notification, { NotificationType } from '@/app/components/Notification';
 import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
 import { sanitizeName } from '@/app/services/navigator';
+import Button, { ButtonStyle } from '@/app/components/Button';
+import crossIcon from '@/app/assets/svg/cancel.svg';
 
 import styles from '@/modules/upload/components/FileInput/styles.module.scss';
 
@@ -66,6 +68,16 @@ function FileInput(): JSX.Element {
     [file],
   );
 
+  const handleChangeFile: () => void = useCallback(() => {
+    setFile(undefined);
+    setFilename(undefined);
+    setError(null);
+  }, [setFile, setFilename, setError]);
+
+  const handleDismissError: () => void = useCallback(() => {
+    setError(null);
+  }, [setError]);
+
   useEffect(() => {
     if (!fileHandler.current) {
       return () => {};
@@ -106,9 +118,19 @@ function FileInput(): JSX.Element {
         {file && (
           <Notification type={NotificationType.SUCCESS} key={filename}>
             {filename}
+            <Button style={ButtonStyle.NONE} name={'cancel'} callback={handleChangeFile}>
+              <img src={crossIcon} alt={'cross icon'} height={'100%'} width={'100%'} />
+            </Button>
           </Notification>
         )}
-        {error && <Notification type={NotificationType.ERROR}>{error}</Notification>}
+        {error && (
+          <Notification type={NotificationType.ERROR}>
+            {error}
+            <Button style={ButtonStyle.NONE} name={'cancel'} callback={handleDismissError}>
+              <img src={crossIcon} alt={'cross icon'} height={'100%'} width={'100%'} />
+            </Button>
+          </Notification>
+        )}
       </div>
     </>
   );

@@ -4,16 +4,16 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-blue);
+  background: linear-gradient(200deg, #47afffcd, #24c793ae);
+  background-size: 200% 200%;
   opacity: 0.9;
-  backdrop-filter: blur(15px);
-  border: 5px solid #47b0ff59;
+  backdrop-filter: blur(0.938rem);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 99;
-  animation: fade 200ms ease-in;
+  animation: fade 200ms ease-in, backgroundWaving 5s ease infinite;
 
   h3 {
     font-size: 1.3rem;
@@ -22,7 +22,7 @@
   }
 
   p {
-    max-width: 300px;
+    max-width: 18.75rem;
     color: var(--color-white);
   }
 }
@@ -35,5 +35,17 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes backgroundWaving {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

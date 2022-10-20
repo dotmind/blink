@@ -9,6 +9,7 @@ import useWindowSize from '@/app/hooks/useWindowSize';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import Logo from '@/app/components/Logo';
+import LangSwitcher from '@/app/components/LangSwitcher';
 import { timeRemaining } from '@/app/utils/time';
 import NotFound from '@/app/components/NotFound';
 import Loader from '@/app/components/Loader';
@@ -73,54 +74,71 @@ function FileViewer(): JSX.Element {
     return <NotFound information={error?.message} />;
   }
 
+  const nextNumPages = useCallback(() => {
+    setPageNumber(pageNumber + 1);
+  }, [pageNumber]);
+
+  const prevNumPages = useCallback(() => {
+    setPageNumber(pageNumber - 1);
+  }, [pageNumber]);
+
   return (
-    <div className={'container justify-center flex-row padding'}>
+    <div className={'container justify-center flex-row'}>
       {!isMobile && (
         <div className={'logo'}>
           <Logo />
         </div>
       )}
       <div className={styles.fileViewer}>
-        <header className={'fade-in'}>
-          {isMobile && <Logo />}
+        {isMobile && (
+          <header className={'main-header fade-in'}>
+            <Logo />
+            <LangSwitcher />
+          </header>
+        )}
+        <div className={'container'}>
           <h1>{t('fileviewer.title')}</h1>
           {renderTimeRemaining}
-        </header>
-        {isMobile && <Download />}
-        <Document className={`${styles.viewerParent} fade-in d-50`} file={file} onLoadSuccess={onPDFReady}>
-          <div className={styles.controls}>
-            <button
-              disabled={isFirstPage}
-              type={'button'}
-              onClick={() => setPageNumber(pageNumber - 1)}
-              aria-label={t('fileviewer.previousPage')}
-              name={t('fileviewer.previousPage')}>
-              <FontAwesomeIcon icon={faCaretLeft} />
-            </button>
+          {isMobile && <Download />}
+          <Document className={`${styles.viewerParent} fade-in d-50`} file={file} onLoadSuccess={onPDFReady}>
+            <div className={styles.controls}>
+              {numPages > 1 && (
+                <button
+                  disabled={isFirstPage}
+                  type={'button'}
+                  onClick={prevNumPages}
+                  aria-label={t('fileviewer.previousPage')}
+                  name={t('fileviewer.previousPage')}>
+                  <FontAwesomeIcon icon={faCaretLeft} />
+                </button>
+              )}
 
-            <button
-              disabled={isLastPage}
-              type={'button'}
-              onClick={() => setPageNumber(pageNumber + 1)}
-              aria-label={t('fileviewer.nextPage')}
-              name={t('fileviewer.nextPage')}>
-              <FontAwesomeIcon icon={faCaretRight} />
-            </button>
+              {numPages > 1 && (
+                <button
+                  disabled={isLastPage}
+                  type={'button'}
+                  onClick={nextNumPages}
+                  aria-label={t('fileviewer.nextPage')}
+                  name={t('fileviewer.nextPage')}>
+                  <FontAwesomeIcon icon={faCaretRight} />
+                </button>
+              )}
 
-            {canUseNativeShare() && (
-              <button
-                className={styles.shareBtn}
-                type={'button'}
-                onClick={handleShare}
-                aria-label={t('fileviewer.share')}
-                name={t('fileviewer.share')}>
-                <img src={ShareIcon} alt={t('fileviewer.share')} />
-                {isMobile && t('fileviewer.share')}
-              </button>
-            )}
-          </div>
-          <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
-        </Document>
+              {canUseNativeShare() && (
+                <button
+                  className={styles.shareBtn}
+                  type={'button'}
+                  onClick={handleShare}
+                  aria-label={t('fileviewer.share')}
+                  name={t('fileviewer.share')}>
+                  <img src={ShareIcon} alt={t('fileviewer.share')} />
+                  {isMobile && t('fileviewer.share')}
+                </button>
+              )}
+            </div>
+            <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
+          </Document>
+        </div>
       </div>
     </div>
   );

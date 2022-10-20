@@ -10,7 +10,7 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 html,
@@ -56,32 +56,40 @@ img {
 }
 
 .icons {
-  width: 15px;
-  height: 15px;
+  width: 0.938rem;
+  height: 0.938rem;
   object-fit: contain;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--safe-zone-y) var(--safe-zone-x) 0.625rem var(--safe-zone-x);
 }
 
 .logo {
   position: absolute;
-  top: 65px;
-  left: 30px;
+  top: var(--safe-zone-y);
+  left: var(--safe-zone-x);
 }
 
-.container {
-  > .homeButton {
-    position: absolute;
-    top: 35px;
-    left: 35px;
-  }
+header {
+  padding: 1.875rem;
 
-  @media (max-width: $breakpoint-lg) {
-    > .homeButton {
-      right: 35px;
-      left: unset;
-    }
+  @media (max-width: $breakpoint-sm) {
+    padding: 0;
+    margin-bottom: 1rem;
   }
 }
 
+.title {
+  margin-bottom: 0.938rem;
+
+  @media (max-width: $breakpoint-sm) {
+    text-align: center;
+  }
+}
 .swiper {
   height: 100%;
 
@@ -107,8 +115,8 @@ img {
   }
 
   .swiper-pagination-bullet-active {
-    width: 16px;
-    border-radius: 20px;
+    width: 1rem;
+    border-radius: 1.25rem;
   }
 }
 
@@ -152,7 +160,7 @@ img {
 @keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1.25rem);
   }
   100% {
     opacity: 1;

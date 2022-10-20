@@ -23,7 +23,7 @@
 
   @media (max-width: 768px) {
     flex-direction: column-reverse;
-    padding: 0 30px;
+    padding: 0 1.875rem;
   }
 }
 
@@ -32,7 +32,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  max-width: 500px;
+  max-width: 31.25rem;
 
   h1,
   p {
@@ -51,8 +51,8 @@
   @media (max-width: 768px) {
     padding: 3rem;
     background-color: var(--color-white);
-    border: 1px solid #c7d8e4;
-    border-radius: 8px;
+    border: 0.063rem solid #c7d8e4;
+    border-radius: 0.5rem;
     width: 100%;
     display: flex;
     justify-content: center;

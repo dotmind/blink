@@ -33,7 +33,7 @@ $base-circle-size: 100px;
 .animated_circles {
   width: $base-circle-size;
   height: $base-circle-size;
-  border: 1px solid var(--color-blue);
+  border: 0.063rem solid var(--color-blue);
   position: absolute;
   border-radius: 50%;
   transform-origin: center center;
