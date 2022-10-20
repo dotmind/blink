@@ -8,10 +8,6 @@
   z-index: 2;
   margin: 2rem auto;
   max-width: 400px;
-
-  @media (max-width: 992px) {
-    margin: var(--safe-zone-x);
-  }
 }
 
 .fileInfo {
