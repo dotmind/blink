@@ -66,14 +66,6 @@ function FileViewer(): JSX.Element {
     );
   }, [expiresIn, t]);
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
-  if (!file && !isLoading && error) {
-    return <NotFound information={error?.message} />;
-  }
-
   const nextNumPages = useCallback(() => {
     setPageNumber(pageNumber + 1);
   }, [pageNumber]);
@@ -81,6 +73,14 @@ function FileViewer(): JSX.Element {
   const prevNumPages = useCallback(() => {
     setPageNumber(pageNumber - 1);
   }, [pageNumber]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (!file && !isLoading && error) {
+    return <NotFound information={error?.message} />;
+  }
 
   return (
     <div className={'container justify-center flex-row'}>
