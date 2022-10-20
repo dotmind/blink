@@ -7,7 +7,7 @@
   position: relative;
   z-index: 2;
   margin: 2rem auto;
-  max-width: 400px;
+  max-width: 25rem;
 }
 
 .fileInfo {
@@ -16,8 +16,8 @@
   position: relative;
   padding: 1rem;
   background-color: var(--color-white);
-  border-radius: 8px;
-  box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  box-shadow: 0px 0.25rem 0.75rem -0.25rem rgba(0, 0, 0, 0.2);
   width: 100%;
   border: none;
 
@@ -45,16 +45,16 @@
 }
 
 .statusConnector {
-  height: 150px;
+  height: 9.375rem;
 
   img {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
   }
 
   .link {
     height: 100%;
-    width: 3px;
+    width: 0.188rem;
     display: block;
     background-color: var(--color-grey-100);
     transition: 0.5s ease-in-out;
@@ -74,15 +74,15 @@
 
 .success {
   .progress {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 0.625rem;
     transform: translate(-50%, -50%);
-    border: 3px solid var(--color-green);
+    border: 0.188rem solid var(--color-green);
   }
 
   .fileLink {
-    border: 2px solid var(--color-green);
+    border: 0.125rem solid var(--color-green);
   }
 
   .link {
@@ -94,12 +94,12 @@
   padding: 1rem;
   width: 100%;
   background-color: var(--color-white);
-  border-radius: 8px;
-  box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  box-shadow: 0px 0.25rem 0.75rem -0.25rem rgba(0, 0, 0, 0.2);
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  border: 2px solid transparent;
+  border: 0.125rem solid transparent;
   transition: 0.5s ease-in-out;
 
   a {
@@ -113,18 +113,18 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  padding: 20px;
+  padding: 1.25rem;
   position: absolute;
   transform-origin: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 70px;
-  height: 70px;
+  width: 4.375rem;
+  height: 4.375rem;
   transition: 0.5s ease-in-out;
   background-color: var(--color-white);
-  border: 3px solid var(--color-grey-100);
+  border: 0.188rem solid var(--color-grey-100);
 
   > * {
     position: relative;

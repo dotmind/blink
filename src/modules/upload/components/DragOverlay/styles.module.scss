@@ -8,7 +8,7 @@
   background: linear-gradient(200deg, #47afffcd, #24c793ae);
   background-size: 200% 200%;
   opacity: 0.9;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(0.938rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@
   }
 
   p {
-    max-width: 300px;
+    max-width: 18.75rem;
     color: var(--color-white);
   }
 }

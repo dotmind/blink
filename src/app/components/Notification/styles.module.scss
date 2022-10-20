@@ -1,22 +1,22 @@
 .notification {
-  border-radius: 20px;
-  padding: 10px 15px;
+  border-radius: 1.25rem;
+  padding: 0.625rem 0.938rem;
   max-width: 80vw;
   word-break: break-all;
-  border: 1px solid var(--color-grey-100);
+  border: 0.063rem solid var(--color-grey-100);
   background-color: var(--color-white);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   z-index: 5;
   animation: popup 200ms ease-in;
 
   button {
-    min-width: 32px;
+    min-width: 2rem;
   }
 
-  @media (min-width: 500px) {
-    max-width: 400px;
+  @media (min-width: 31.25rem) {
+    max-width: 25rem;
   }
 
   &[data-type='error'] {
@@ -48,7 +48,7 @@
 @keyframes popup {
   from {
     opacity: 0.5;
-    transform: translateY(10px) scale(0.9);
+    transform: translateY(0.625rem) scale(0.9);
   }
   to {
     opacity: 1;

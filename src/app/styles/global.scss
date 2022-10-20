@@ -10,7 +10,7 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 html,
@@ -56,8 +56,8 @@ img {
 }
 
 .icons {
-  width: 15px;
-  height: 15px;
+  width: 0.938rem;
+  height: 0.938rem;
   object-fit: contain;
 }
 
@@ -65,7 +65,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--safe-zone-y) var(--safe-zone-x) 10px var(--safe-zone-x);
+  padding: var(--safe-zone-y) var(--safe-zone-x) 0.625rem var(--safe-zone-x);
 }
 
 .logo {
@@ -75,7 +75,7 @@ img {
 }
 
 header {
-  padding: 30px;
+  padding: 1.875rem;
 
   @media (max-width: $breakpoint-sm) {
     padding: 0;
@@ -84,7 +84,7 @@ header {
 }
 
 .title {
-  margin-bottom: 15px;
+  margin-bottom: 0.938rem;
 
   @media (max-width: $breakpoint-sm) {
     text-align: center;
@@ -115,8 +115,8 @@ header {
   }
 
   .swiper-pagination-bullet-active {
-    width: 16px;
-    border-radius: 20px;
+    width: 1rem;
+    border-radius: 1.25rem;
   }
 }
 
@@ -160,7 +160,7 @@ header {
 @keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1.25rem);
   }
   100% {
     opacity: 1;

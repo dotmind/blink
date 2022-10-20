@@ -3,14 +3,14 @@
   flex-direction: column;
 
   a:first-child {
-    height: 40px;
+    height: 2.5rem;
   }
 
   .watermark {
     color: #47b0ff;
     opacity: 0.5;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 
@@ -19,8 +19,8 @@
   $duration: 0.5s;
   $delay: 0.15s;
   transition: transform 200ms ease-in;
-  height: 40px;
-  width: 80px;
+  height: 2.5rem;
+  width: 5rem;
 
   &:hover {
     cursor: pointer;
@@ -49,7 +49,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-25px);
+    transform: translateY(-1.563rem);
   }
   100% {
     transform: translateY(0);

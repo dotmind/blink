@@ -1,10 +1,10 @@
 .card {
   margin: 0.25rem;
   padding: 2rem;
-  min-height: 300px;
-  border-radius: 10px;
+  min-height: 18.75rem;
+  border-radius: 0.625rem;
   background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.2);
 
   h2 {
     margin-bottom: 0.8rem;
@@ -12,8 +12,8 @@
   }
 
   img {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     object-fit: contain;
   }
 

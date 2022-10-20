@@ -1,13 +1,13 @@
 .button {
   display: inline-block;
-  padding: 10px 16px;
+  padding: 0.625rem 1rem;
   border: none;
-  border: 3px solid rgba(189, 203, 213, 0.3);
+  border: 0.188rem solid rgba(189, 203, 213, 0.3);
   width: fit-content;
-  border-radius: 30px;
+  border-radius: 1.875rem;
   background-color: transparent;
   color: #000;
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -16,7 +16,7 @@
   font-weight: 700;
 
   svg {
-    margin: 0 10px;
+    margin: 0 0.625rem;
   }
 
   &:disabled {
@@ -55,8 +55,8 @@
 
   &.black {
     background-color: var(--color-black);
-    box-shadow: 0px 7px 13px rgba(255, 255, 255, 0.3), 0px 2px 4px rgba(232, 231, 231, 0.4),
-      inset 0px -3px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 7px 0.813rem rgba(255, 255, 255, 0.3), 0px 0.125rem 0.25rem rgba(232, 231, 231, 0.4),
+      inset 0px -0.188rem 0px rgba(255, 255, 255, 0.5);
     color: var(--color-white);
   }
 
@@ -77,6 +77,6 @@
       rgba(255, 255, 255, 0.6) 100%
     );
     filter: drop-shadow(0px 10.3755px 19.2687px rgba(66, 152, 217, 0.3))
-      drop-shadow(0px 2.96441px 5.92883px rgba(66, 152, 217, 0.4));
+      drop-shadow(0px 2.9644.063rem 5.92883px rgba(66, 152, 217, 0.4));
   }
 }
