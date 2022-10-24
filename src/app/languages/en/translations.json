@@ -71,6 +71,7 @@
   },
   "upload": {
     "input": "Drop PDF here",
+    "max_size": "Up to 50 MB",
     "button": "Upload PDF",
     "overlay": {
       "title": "Drag and drop your files here",
@@ -79,7 +80,8 @@
     "link": {
       "loading": "Chargement...",
       "share": "Share link",
-      "copy": "Copy link"
+      "copy": "Copy link",
+      "new_upload": "Nouvel envoi"
     },
     "errors": {
       "wrong_file_type": "Wrong file type: only PDF files are allowed !",

@@ -31,6 +31,8 @@
     border-radius: 0.625rem;
     overflow: hidden;
     box-shadow: 0px 0px 0.75rem 0px rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    margin: 0 auto;
 
     @media (max-width: 992px) {
       margin-bottom: 5vh;
@@ -68,7 +70,7 @@
       width: 35px;
       height: 35px;
       border-radius: 0.313rem;
-      margin: 2.313rem;
+      margin: 0.313rem;
       border: 0.063rem solid var(--color-grey-300);
       background-color: var(--color-white);
       color: var(--color-grey-500);

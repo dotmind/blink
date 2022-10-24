@@ -66,13 +66,18 @@ function FileViewer(): JSX.Element {
     );
   }, [expiresIn, t]);
 
-  const nextNumPages = useCallback(() => {
+  const nextNumPages = useCallback((): void => {
     setPageNumber(pageNumber + 1);
   }, [pageNumber]);
 
-  const prevNumPages = useCallback(() => {
+  const prevNumPages = useCallback((): void => {
     setPageNumber(pageNumber - 1);
   }, [pageNumber]);
+
+  const renderPage: JSX.Element = useMemo(
+    () => <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />,
+    [fileSize, pageNumber],
+  );
 
   if (isLoading) {
     return <Loader />;
@@ -136,7 +141,7 @@ function FileViewer(): JSX.Element {
                 </button>
               )}
             </div>
-            <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />
+            {renderPage}
           </Document>
         </div>
       </div>

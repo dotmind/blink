@@ -19,13 +19,15 @@ interface IProps {
   disabled?: boolean | undefined;
   name: string;
   children: React.ReactNode;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-function Button({ callback, children, style, disabled, name }: IProps): JSX.Element {
+function Button({ callback, children, style, disabled, name, type = 'button' }: IProps): JSX.Element {
   const buttonStyle: string = classNames(styles.button, styles[style]);
 
   return (
-    <button onClick={callback} className={buttonStyle} disabled={disabled} type={'button'} name={name} aria-label={name}>
+    // eslint-disable-next-line react/button-has-type
+    <button onClick={callback} className={buttonStyle} disabled={disabled} type={type} name={name} aria-label={name}>
       {children}
     </button>
   );
@@ -33,6 +35,7 @@ function Button({ callback, children, style, disabled, name }: IProps): JSX.Elem
 
 Button.defaultProps = {
   disabled: false,
+  type: 'button',
 };
 
 export default Button;

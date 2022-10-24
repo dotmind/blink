@@ -7,7 +7,7 @@
       "install": "Installer l'application Blink"
     },
     "tooltip": {
-      "copied": "Copié !"
+      "copied": "Lien copié !"
     },
     "history": {
       "title": "Historique des transferts",
@@ -70,7 +70,8 @@
     }
   },
   "upload": {
-    "input": "Déposez un PDF ici pour créer un lien",
+    "input": "Téléchargez ou déposez votre pdf pour obtenir un lien à partager.",
+    "max_size": "Jusqu'a 50 MB",
     "button": "Envoyer",
     "overlay": {
       "title": "Déplacer vos fichiers",
@@ -79,7 +80,8 @@
     "link": {
       "loading": "Chargement...",
       "share": "Partager le lien",
-      "copy": "Copier le lien"
+      "copy": "Copier le lien",
+      "new_upload": "Nouvel envoi"
     },
     "errors": {
       "wrong_file_type": "Mauvaise extension de fichier !",

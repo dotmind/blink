@@ -6,17 +6,10 @@ import { useApp } from '@/app/providers/AppProdiver';
 import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 import { uploadFile } from '@/app/services/api';
 import { toShareUrl, canUseNativeShare, nativeShare } from '@/app/services/navigator';
-import { ButtonStyle } from '@/app/components/Button';
-import crossIcon from '@/app/assets/svg/cross.svg';
+import Button, { ButtonStyle } from '@/app/components/Button';
+import uploadIcon from '@/app/assets/svg/upload.svg';
 
-import styles from '@/modules/upload/components/UploadButton/styles.module.scss';
-
-interface IProps {
-  input: HTMLInputElement | null;
-  isValid: boolean;
-}
-
-function UploadButton({ input, isValid }: IProps): JSX.Element {
+function UploadButton(): JSX.Element | null {
   const { fingerprint } = useApp();
   const { file, setStatus, setShareUrl, filename, setError, addToHistory } = useUpload();
   const { t } = useTranslation();
@@ -53,27 +46,17 @@ function UploadButton({ input, isValid }: IProps): JSX.Element {
     }
   }, [file, setStatus, setShareUrl, fingerprint, canUpload]);
 
-  const openFile = useCallback(() => {
-    if (input) {
-      input.click();
+  const renderButton = useMemo((): JSX.Element | null => {
+    if (!file) {
+      return null;
     }
-  }, [input]);
 
-  const renderButton = useMemo(
-    (): JSX.Element => (
-      <button
-        className={`${styles[ButtonStyle.GRADIENT]} ${styles.morphButton}`}
-        type={'submit'}
-        name={t('upload.button')}
-        onClick={file ? handleUpload : openFile}
-        // eslint-disable-next-line no-nested-ternary
-        data-status={!file ? (isValid ? 'idle' : 'error') : 'valid'}>
-        <p className={styles.text}>{t('upload.button')}</p>
-        <img className={styles.icon} src={crossIcon} alt={'Morph button icon'} />
-      </button>
-    ),
-    [file, isValid, handleUpload, openFile],
-  );
+    return (
+      <Button type={'submit'} style={ButtonStyle.GRADIENT} callback={handleUpload} name={t('upload.button')}>
+        {t('upload.button')} <img src={uploadIcon} alt={'upload svg icon'} />
+      </Button>
+    );
+  }, [file, handleUpload, t]);
 
   return renderButton;
 }

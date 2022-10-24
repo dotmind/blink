@@ -7,7 +7,7 @@
   position: relative;
   z-index: 1;
 
-  button:not(:last-child) {
+  button {
     flex-grow: 1;
     font-size: 0.8rem;
   }
