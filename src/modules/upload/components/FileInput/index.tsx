@@ -101,7 +101,7 @@ function FileInput(): JSX.Element {
     };
   }, [file, fileHandler]);
 
-  const canDisplayText = useMemo(() => !filename && !error, [filename, error]); 
+  const canDisplayText = useMemo(() => !filename && !error, [filename, error]);
 
   return (
     <>
