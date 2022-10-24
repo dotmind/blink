@@ -1,35 +1,75 @@
 .tooltip {
   position: absolute;
   z-index: 1;
-  display: block;
+  display: flex;
   width: max-content;
-  color: var(--color-white);
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 0.25rem;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border-radius: 0.75rem;
   padding: 0.5rem;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
+  box-shadow: 0px 0.25rem 0.75rem -0.25rem rgba(0, 0, 0, 0.2);
+  align-items: center;
+  gap: 0.5rem;
+
+  img {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--color-white);
+    transform: rotate(45deg);
+    box-shadow: 0px 0.25rem 0.75rem -0.25rem rgba(0, 0, 0, 0.2);
+    bottom: -0.2rem;
+    left: 1rem;
+  }
 
   &[data-position='right'] {
-    left: calc(100% + 0.313rem);
+    left: calc(100% + 0.5rem);
     top: 50%;
     transform: translateY(-50%);
   }
 
   &[data-position='left'] {
-    right: calc(100% + 0.313rem);
+    right: calc(100% + 0.5rem);
     top: 50%;
     transform: translateY(-50%);
   }
 
   &[data-position='top'] {
     left: 50%;
-    bottom: calc(100% + 0.313rem);
+    bottom: calc(100% + 0.5rem);
     transform: translateX(-50%);
   }
 
   &[data-position='bottom'] {
     left: 50%;
-    top: calc(100% + 0.313rem);
+    top: calc(100% + 0.5rem);
     transform: translateX(-50%);
+  }
+
+  &[data-position='top-right'] {
+    left: calc(70% + 0.5rem);
+    bottom: calc(100% + 0.5rem);
+  }
+
+  &[data-position='top-left'] {
+    right: calc(70% + 0.5rem);
+    bottom: calc(100% + 0.5rem);
+  }
+
+  &[data-position='bottom-right'] {
+    left: calc(70% + 0.5rem);
+    top: calc(100% + 0.5rem);
+  }
+
+  &[data-position='bottom-left'] {
+    right: calc(70% + 0.5rem);
+    top: calc(100% + 0.5rem);
   }
 }

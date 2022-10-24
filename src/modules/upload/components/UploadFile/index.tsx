@@ -7,6 +7,8 @@ import { faFileLines } from '@fortawesome/free-regular-svg-icons';
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import lockerSvg from '@/app/assets/svg/locker.svg';
 import lockerOpenSvg from '@/app/assets/svg/locker_open.svg';
+import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
+import validIcon from '@/app/assets/svg/validation.svg';
 
 import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
 
@@ -47,7 +49,7 @@ function UploadFile(): JSX.Element {
         {shareUrl}
       </a>
     );
-  }, [shareUrl, status]);
+  }, [shareUrl, status, t]);
 
   const handlePreview = useCallback((): void => {
     if (!shareUrl) {
@@ -65,6 +67,19 @@ function UploadFile(): JSX.Element {
     return null;
   }, [status]);
 
+  const renderTootlip: JSX.Element | null = useMemo(() => {
+    if (status !== UploadStatus.SUCCESS) {
+      return null;
+    }
+
+    return (
+      <Tooltip position={TooltipPosition.topRight}>
+        <img src={validIcon} alt={'validation icon'} />
+        {t('common.tooltip.copied')}
+      </Tooltip>
+    );
+  }, [status, t]);
+
   const fileWeightInKB: number = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
 
   return (
@@ -81,7 +96,10 @@ function UploadFile(): JSX.Element {
         <div className={styles.link} />
         {renderSuccessAnim}
       </div>
-      <div className={styles.fileLink}>{renderLink}</div>
+      <div className={'p-relative w100'}>
+        <div className={styles.fileLink}>{renderLink}</div>
+        {renderTootlip}
+      </div>
     </div>
   );
 }
