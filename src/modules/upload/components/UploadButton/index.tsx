@@ -72,7 +72,7 @@ function UploadButton({ input, isValid }: IProps): JSX.Element {
         <img className={styles.icon} src={crossIcon} alt={'Morph button icon'} />
       </button>
     ),
-    [file, isValid, handleUpload, openFile, t],
+    [file, isValid, handleUpload, openFile],
   );
 
   return renderButton;
