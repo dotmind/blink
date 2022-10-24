@@ -7,6 +7,9 @@
   transition: 650ms cubic-bezier(0, 1.2, 0.9, 1);
   position: relative;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+
 
   &:hover {
     transform: scale(1.1);
@@ -29,10 +32,10 @@
   img {
     width: 1.563rem;
     height: 1.563rem;
-    position: absolute;
-    top: 50%;
-    right: 1.875rem;
-    transform: translate(50%, -50%);
+    // position: absolute;
+    // top: 50%;
+    // right: 1.875rem;
+    // transform: translate(50%, -50%);
     transition: all 250ms cubic-bezier(0, 1.5, 1, 1.5);
     object-fit: contain;
     z-index: 1;
@@ -40,10 +43,10 @@
 
   p {
     color: inherit;
-    position: absolute;
-    top: 50%;
-    right: 3.75rem;
-    transform: translateY(-50%);
+    // position: absolute;
+    // top: 50%;
+    // right: 3.75rem;
+    // transform: translateY(-50%);
     white-space: nowrap;
     font-size: 1rem;
     font-weight: 700;
@@ -103,12 +106,12 @@
     background-image: none;
 
     img {
-      transform: translate(50%, -50%) rotate(45deg);
+      transform: rotate(45deg);
     }
   }
 
   &[data-status='valid'] {
-    width: 160px;
+    width: 200px;
     height: 3.125rem;
     animation: valid-state 3000ms ease infinite;
     color: var(--color-white);
