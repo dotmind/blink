@@ -1,6 +1,7 @@
 .button {
-  display: inline-block;
-  padding: 0.625rem 1rem;
+  display: flex;
+  gap: 1rem;
+  padding: 0.625rem 1.5rem;
   border: none;
   border: 0.188rem solid rgba(189, 203, 213, 0.3);
   width: fit-content;
@@ -14,9 +15,16 @@
   position: relative;
   z-index: 3;
   font-weight: 700;
+  justify-content: center;
 
   svg {
     margin: 0 0.625rem;
+  }
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
   }
 
   &:disabled {
@@ -79,4 +87,11 @@
     filter: drop-shadow(0px 10.3755px 19.2687px rgba(66, 152, 217, 0.3))
       drop-shadow(0px 2.9644.063rem 5.92883px rgba(66, 152, 217, 0.4));
   }
+
+  &.gradient {
+    background: linear-gradient(140deg, var(--color-blue), var(--color-green));
+    border: none;
+    color: var(--color-white);
+  }
+
 }

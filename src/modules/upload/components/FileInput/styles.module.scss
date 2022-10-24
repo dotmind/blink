@@ -13,28 +13,72 @@
   cursor: pointer;
   transform-origin: center;
   transition: transform 0.35s ease-in-out;
+  position: relative;
+
+  p {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
   img {
     object-fit: contain;
+    width: 400px;
   }
 
   &:hover {
     transform: scale(1.05);
   }
+
+  .morphButton {
+    border-radius: 3.75rem;
+    border: none;
+    width: 3.75rem;
+    height: 3.75rem;
+    overflow: hidden;
+    transition: 650ms cubic-bezier(0, 1.2, 0.9, 1);
+    position: relative;
+    cursor: pointer;
+    background: linear-gradient(150deg, var(--color-green), var(--color-blue));
+    position: absolute;
+    top: 5%;
+    right: 30%;
+
+    &[data-status='true'] {
+      background: var(--color-error);
+  
+      img {
+        transform: translate(50%, -50%) rotate(45deg);
+      }
+    }
+
+    img {
+      width: 1.563rem;
+      height: 1.563rem;
+      position: absolute;
+      top: 50%;
+      right: 1.875rem;
+      transform: translate(50%, -50%);
+      transition: all 250ms cubic-bezier(0, 1.5, 1, 1.5);
+      object-fit: contain;
+      z-index: 1;
+
+    }
+  }
+
 }
 
 .fileInput_container {
-  padding: 1rem;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 1rem;
   z-index: 2;
 
-  p {
-    max-width: 250px;
+  .description {
+    max-width: 300px;
     text-align: center;
   }
 }

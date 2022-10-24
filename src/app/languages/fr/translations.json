@@ -70,7 +70,8 @@
     }
   },
   "upload": {
-    "input": "Déposez un PDF ici pour créer un lien",
+    "input": "Téléchargez ou déposez votre pdf pour obtenir un lien à partager.",
+    "max_size": "Jusqu'a 50 MB",
     "button": "Envoyer",
     "overlay": {
       "title": "Déplacer vos fichiers",

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
@@ -9,6 +9,7 @@ import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
 import { sanitizeName } from '@/app/services/navigator';
 import Button, { ButtonStyle } from '@/app/components/Button';
 import crossIcon from '@/app/assets/svg/cancel.svg';
+import addIcon from '@/app/assets/svg/cross.svg';
 
 import styles from '@/modules/upload/components/FileInput/styles.module.scss';
 
@@ -100,21 +101,26 @@ function FileInput(): JSX.Element {
     };
   }, [file, fileHandler]);
 
+  const canDisplayText = useMemo(() => !filename && !error, [filename, error]); 
+
   return (
     <>
       <form className={styles.fileInput_container}>
         {/* eslint-disable-next-line */}
         <div className={styles.fileInput_icons} onClick={() => fileHandler.current?.click()}>
+          <button className={styles.morphButton} type={'button'} data-status={!!error}>
+            <img src={addIcon} alt={'add icon'} />
+          </button>
           <img src={pdf_icons} alt={'pdf icon'} height={'100%'} width={'100%'} />
+          {canDisplayText && <p>{t('upload.max_size')}</p>}
         </div>
 
-        <p>{t('upload.input')}</p>
+        {canDisplayText && <p className={styles.description}>{t('upload.input')}</p>}
 
         <input id={'fileLoader'} type={'file'} accept={'application/pdf'} className={styles.fileInput} ref={fileHandler} />
       </form>
 
       <div className={styles.fileInput_controls}>
-        <UploadButton input={fileHandler.current} isValid={!error} />
         {file && (
           <Notification type={NotificationType.SUCCESS} key={filename}>
             {filename}
@@ -131,6 +137,7 @@ function FileInput(): JSX.Element {
             </Button>
           </Notification>
         )}
+        <UploadButton />
       </div>
     </>
   );
