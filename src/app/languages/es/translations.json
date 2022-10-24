@@ -80,7 +80,8 @@
     "link": {
       "loading": "Chargement...",
       "share": "Partager le lien",
-      "copy": "Copier le lien"
+      "copy": "Copier le lien",
+      "new_upload": "Nouvel envoi"
     },
     "errors": {
       "wrong_file_type": "Mauvaise extension de fichier ! (es)",
