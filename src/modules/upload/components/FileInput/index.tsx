@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useUpload } from '@/modules/upload/providers/UploadProvider';
-import { fileToBase64, isFileValid } from '@/app/services/file';
+import { fileToBase64, isFileValid, isFileSizeValid } from '@/app/services/file';
 import UploadButton from '@/modules/upload/components/UploadButton';
 import Notification, { NotificationType } from '@/app/components/Notification';
 import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
@@ -27,10 +27,11 @@ function FileInput(): JSX.Element {
 
     const inputFile: File = fileHandler.current.files[0];
 
-    if (!isFileValid(inputFile)) {
+    if (!isFileValid(inputFile) || !isFileSizeValid(inputFile)) {
       setFile(undefined);
       setFilename(undefined);
-      setError(t('upload.errors.wrong_file_type'));
+
+      setError(isFileSizeValid(inputFile) ? t('upload.errors.wrong_file_type') : t('upload.errors.file_too_big'));
       return;
     }
 

@@ -1,4 +1,4 @@
-import { FILE_TYPE } from '@/app/constants/file';
+import { FILE_TYPE, FILE_MAX_SIZE } from '@/app/constants/file';
 
 export async function fileToBase64(file: Blob): Promise<string | ArrayBuffer | null> {
   return new Promise((resolve, reject) => {
@@ -22,6 +22,10 @@ export function isFileValid(file: File): boolean {
   }
 
   return FILE_TYPE.includes(file?.type);
+}
+
+export function isFileSizeValid(file: File): boolean {
+  return file.size <= FILE_MAX_SIZE;
 }
 
 export function extractFilePath(url: string = window.location.href): string {
