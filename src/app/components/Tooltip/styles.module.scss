@@ -54,22 +54,22 @@
   }
 
   &[data-position='top-right'] {
-    left: calc(70% + 0.5rem);
+    left: calc(60% + 0.5rem);
     bottom: calc(100% + 0.5rem);
   }
 
   &[data-position='top-left'] {
-    right: calc(70% + 0.5rem);
+    right: calc(60% + 0.5rem);
     bottom: calc(100% + 0.5rem);
   }
 
   &[data-position='bottom-right'] {
-    left: calc(70% + 0.5rem);
+    left: calc(60% + 0.5rem);
     top: calc(100% + 0.5rem);
   }
 
   &[data-position='bottom-left'] {
-    right: calc(70% + 0.5rem);
+    right: calc(60% + 0.5rem);
     top: calc(100% + 0.5rem);
   }
 }
