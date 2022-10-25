@@ -46,7 +46,7 @@ function History(): JSX.Element | null {
               {t('common.history.expiresin')} {timeRemaining(item.expiresAt)}
             </p>
           </div>
-          <div className={'d-flex gap-10'}>
+          <div className={'d-flex align-center gap-10'}>
             <button
               type={'button'}
               name={'delete history item'}
