@@ -20,7 +20,7 @@ interface IProps {
 
 function Tooltip({ children, position }: IProps) {
   return (
-    <div className={styles.tooltip} data-position={position}>
+    <div className={`${styles.tooltip} fade-in d-500`} data-position={position}>
       {children}
     </div>
   );
