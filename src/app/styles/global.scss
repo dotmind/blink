@@ -41,6 +41,10 @@ h6 {
   color: var(--color-grey-700);
 }
 
+#root {
+  background-color: var(--color-white);
+}
+
 .App {
   display: flex;
   flex-direction: column;
