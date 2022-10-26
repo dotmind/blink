@@ -110,6 +110,10 @@ header {
     }
   }
 
+  &.swiper-horizontal > .swiper-pagination-bullets{
+    bottom: 0;
+  }
+
   .swiper-pagination-bullet {
     transition: 0.25s ease-in-out;
   }
