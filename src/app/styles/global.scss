@@ -18,6 +18,7 @@ body {
   width: 100vw;
   height: 100vh;
   user-select: none;
+  background-color: var(--color-white);
 }
 
 p,
@@ -110,7 +111,7 @@ header {
     }
   }
 
-  &.swiper-horizontal > .swiper-pagination-bullets{
+  &.swiper-horizontal > .swiper-pagination-bullets {
     bottom: 0;
   }
 
