@@ -5,7 +5,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: var(--color-white);
+  z-index: -1;
 
   .image {
     object-fit: cover;

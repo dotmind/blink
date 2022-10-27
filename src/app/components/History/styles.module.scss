@@ -54,6 +54,12 @@
       color: var(--color-grey-300);
     }
 
+    img {
+      width: 0.8rem;
+      height: 0.8rem;
+      object-fit: contain;
+    }
+
     a {
       display: flex;
       justify-content: space-between;
