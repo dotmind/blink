@@ -24,25 +24,24 @@ export function useResizeObserver<T extends HTMLElement = any>() {
     () =>
       typeof window !== 'undefined'
         ? new ResizeObserver((entries: ResizeObserverEntry[]) => {
-          const entry = entries[0];
+            const entry = entries[0];
 
-          if (entry) {
-            cancelAnimationFrame(frameID.current);
+            if (entry) {
+              cancelAnimationFrame(frameID.current);
 
-            frameID.current = requestAnimationFrame(() => {
-              if (ref.current) {
-                setRect(entry.contentRect);
-              }
-            });
-          }
-        })
+              frameID.current = requestAnimationFrame(() => {
+                if (ref.current) {
+                  setRect(entry.contentRect);
+                }
+              });
+            }
+          })
         : null,
     [ref.current, setRect],
   );
 
   useEffect(() => {
     if (ref.current) {
-
       observer?.observe(ref.current);
     }
 
