@@ -8,7 +8,9 @@ import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvid
 import lockerSvg from '@/app/assets/svg/locker.svg';
 import lockerOpenSvg from '@/app/assets/svg/locker_open.svg';
 import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
+import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import validIcon from '@/app/assets/svg/validation.svg';
+import shareIcon from '@/app/assets/svg/share_2.svg';
 
 import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
 
@@ -17,6 +19,17 @@ const SuccessConfetti = lazy(() => import('@/app/components/SuccessConfetti'));
 function UploadFile(): JSX.Element {
   const { filename, fileWeight, status, shareUrl } = useUpload();
   const { t } = useTranslation();
+  const handleShare = useCallback(() => {
+    if (!shareUrl) {
+      return;
+    }
+
+    if (!canUseNativeShare()) {
+      navigator.clipboard.writeText(shareUrl);
+    }
+
+    nativeShare(shareUrl);
+  }, [shareUrl]);
 
   const renderProgress: JSX.Element | null = useMemo(() => {
     if (status === UploadStatus.SUCCESS) {
@@ -97,7 +110,17 @@ function UploadFile(): JSX.Element {
         {renderSuccessAnim}
       </div>
       <div className={'p-relative w100'}>
-        <div className={styles.fileLink}>{renderLink}</div>
+        <div className={styles.fileLink}>
+          <span>{renderLink}</span>
+          <div
+            className={'d-flex align-center pointer'}
+            onClick={handleShare}
+            onKeyDown={handleShare}
+            role={'button'}
+            tabIndex={0}>
+            <img src={shareIcon} alt={'Share icons'} />
+          </div>
+        </div>
         {renderTootlip}
       </div>
     </div>
