@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import Button, { ButtonStyle } from '@/app/components/Button';
 
-import styles from '@/modules/upload/components/ShareButtons/styles.module.scss';
+import styles from '@/modules/upload/components/NewUploadButton/styles.module.scss';
 
-function ShareButtons(): JSX.Element {
+function NewUploadButton(): JSX.Element {
   const { t } = useTranslation();
 
   const handleReload = useCallback(() => {
@@ -21,4 +21,4 @@ function ShareButtons(): JSX.Element {
   );
 }
 
-export default ShareButtons;
+export default NewUploadButton;
