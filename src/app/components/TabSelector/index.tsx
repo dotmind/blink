@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect, useMemo } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useWindowSize from '@/app/hooks/useWindowSize';
+import { useElementSize } from '@/app/hooks/useElementSize';
 
 import styles from '@/app/components/TabSelector/styles.module.scss';
 
@@ -17,27 +18,19 @@ function TabSelector({ children, options }: IProps): JSX.Element {
 
   const toggles = useRef<HTMLButtonElement[]>([]);
   const tabsTracker = useRef<HTMLDivElement>(null);
-
-  const currentTabPos: null | { x: number; width: number; height: number } = useMemo(() => {
-    if (toggles.current[selected]) {
-      return {
-        x: toggles.current[selected].offsetLeft,
-        width: toggles.current[selected].offsetWidth,
-        height: toggles.current[selected].offsetHeight,
-      };
-    }
-    return null;
-  }, [toggles.current, selected, width]);
+  const { ref: label, width: labelWidth } = useElementSize();
 
   useEffect(() => {
     const tracker: HTMLElement | null = tabsTracker.current;
 
-    if (tracker && currentTabPos) {
-      tracker.style.left = `${currentTabPos.x}px`;
-      tracker.style.width = `${currentTabPos.width}px`;
-      tracker.style.height = `${currentTabPos.height}px`;
+    if (tracker && toggles.current[selected]) {
+      const selectedOne = toggles.current[selected];
+
+      tracker.style.left = `${selectedOne.offsetLeft}px`;
+      tracker.style.width = `${selectedOne.offsetWidth}px`;
+      tracker.style.height = `${selectedOne.offsetHeight}px`;
     }
-  }, [currentTabPos]);
+  }, [selected, labelWidth, width]);
 
   return (
     <>
@@ -65,6 +58,7 @@ function TabSelector({ children, options }: IProps): JSX.Element {
               ref={(el) => {
                 if (el) {
                   toggles.current[index] = el;
+                  if (index === 1) label.current = el;
                 }
               }}>
               {t(option)}
