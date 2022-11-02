@@ -52,7 +52,7 @@ function TabSelector({ children, options }: IProps): JSX.Element {
         })}
       </div>
 
-      <div className={`${styles.tabSelector} my-2`}>
+      <div className={`${styles.tabSelector}`}>
         {options.map((option, index) => {
           const isCurrent: boolean = index === selected;
           return (
