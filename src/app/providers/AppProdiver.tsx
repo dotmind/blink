@@ -19,10 +19,18 @@ interface IProps {
 function AppProvider({ children }: IProps) {
   const [fingerprint, setFingerprint] = usePersisState<string>(`fingerprint_${LOCAL_KEY_VERSION}`, '');
 
+  const documentHeight = (): void => {
+    const doc = document.documentElement;
+    doc.style.setProperty('--doc-height', `${window.innerHeight}px`);
+  };
+
   useEffect(() => {
     (async () => {
       setFingerprint(await createFingerprint());
     })();
+
+    documentHeight();
+    window.addEventListener('resize', documentHeight);
   }, []);
 
   const value = useMemo(() => ({ fingerprint }), [fingerprint]);

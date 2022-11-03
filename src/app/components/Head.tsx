@@ -10,12 +10,13 @@ function Head(): JSX.Element {
     <Helmet>
       <title>{t('common.name')}</title>
       <meta name={'description'} content={t('common.description')} />
+      <meta name={'viewport'} content={'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'} />
       <meta property={'og:title'} content={t('common.name')} />
       <meta property={'og:description'} content={t('common.description')} />
       <meta property={'og:image'} content={placeholder} />
       <meta property={'og:image:width'} content={'1200'} />
       <meta property={'og:image:height'} content={'630'} />
-      <meta name={'theme-color'} content={'#47B0FF'} />
+      <meta name={'theme-color'} content={'#FFFFFF'} />
 
       <link rel={'apple-touch-icon'} sizes={'180x180'} href={'/apple-touch-icon.png'} />
       <link rel={'icon'} type={'image/png'} sizes={'32x32'} href={'/favicon-32x32.png'} />

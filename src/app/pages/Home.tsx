@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
 import useIsMobile from '@/app/hooks/useIsMobile';
-import useWindowSize from '@/app/hooks/useWindowSize';
 import UploadProvider from '@/modules/upload/providers/UploadProvider';
 import Upload from '@/modules/upload/components/Upload';
 import About from '@/app/components/About';
@@ -17,11 +16,10 @@ import AnimatedBackground from '@/app/components/AnimatedBackground';
 function Home() {
   const { t } = useTranslation();
   const isMobile: boolean = useIsMobile();
-  const { height } = useWindowSize();
 
   return (
     <UploadProvider>
-      <div className={'page-container'} style={{ height }}>
+      <div className={'page-container'}>
         <header className={'main-header'}>
           <Logo />
           {isMobile && <LangSwitcher />}
