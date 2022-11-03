@@ -9,7 +9,6 @@ import TabSelector from '@/app/components/TabSelector';
 import Footer from '@/app/components/Footer';
 import InstallPwa from '@/app/components/InstallPwa';
 import CircleWaves from '@/app/components/CircleWaves';
-import AnimatedBackground from '@/app/components/AnimatedBackground';
 import History from '@/app/components/History';
 import Logo from '@/app/components/Logo';
 import LangSwitcher from '@/app/components/LangSwitcher';
@@ -41,7 +40,6 @@ function Home() {
       <Footer />
       <InstallPwa />
       <CircleWaves />
-      <AnimatedBackground />
     </UploadProvider>
   );
 }

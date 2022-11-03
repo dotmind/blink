@@ -5,7 +5,6 @@ import InstallPwa from '@/app/components/InstallPwa';
 import Footer from '@/app/components/Footer';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import Download from '@/modules/download/components/Download';
-import AnimatedBackground from '@/app/components/AnimatedBackground';
 import FileHead from '@/modules/download/components/FileHead';
 
 function Preview() {
@@ -18,7 +17,6 @@ function Preview() {
       <CircleWaves />
       <Footer>{!isMobile && <Download />}</Footer>
       <InstallPwa />
-      <AnimatedBackground />
     </DownloadProvider>
   );
 }

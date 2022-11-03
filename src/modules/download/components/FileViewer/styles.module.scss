@@ -60,6 +60,11 @@
         color: var(--color-white);
         margin-left: auto;
 
+        img {
+          width: 0.75rem;
+          height: 0.75rem;
+        }
+
         > * {
           margin: 0 0.313rem;
         }

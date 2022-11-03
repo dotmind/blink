@@ -37,7 +37,7 @@
     backdrop-filter: blur(0.625rem);
     border: 0.125rem solid var(--color-white);
     border-radius: 0.625rem;
-    transition: 0.2s linear;
+    transition: 0.2s ease-in-out;
     z-index: -1;
   }
 }

@@ -18,9 +18,9 @@ body {
   width: 100vw;
   height: 100vh;
   user-select: none;
-  background-color: var(--color-white);
 }
 
+div,
 p,
 textarea,
 input,
@@ -42,7 +42,23 @@ h6 {
 }
 
 #root {
-  background-color: var(--color-white);
+  background: linear-gradient(172deg, #FFF 0%, var(--color-blue) 10%,#FFFFFF 45%);
+  // background: radial-gradient(circle, var(--color-blue) 0%,#FFFFFF 30%);
+
+  background-size: 200% 200%;
+  animation: bkgGradient 15s ease infinite;
+}
+
+@keyframes bkgGradient {
+  0% {
+    background-position: 0 20%;
+  }
+  50% {
+    background-position: 100% 75%;
+  }
+  100% {
+    background-position: 0 20%;
+  }
 }
 
 .App {
