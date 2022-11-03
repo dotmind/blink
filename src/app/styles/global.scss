@@ -9,13 +9,20 @@
   font-family: var(--font);
 }
 
+:root { 
+  --doc-height: 100vh;
+}
+
 html {
   font-size: 16px;
 }
 
 html,
 body {
+  height: 100vh;
+  height: var(--doc-height);
   user-select: none;
+  -webkit-user-select: none;
   background-color: var(--color-white);
 }
 
@@ -40,9 +47,14 @@ h6 {
   color: var(--color-grey-700);
 }
 
+#root {
+  height: 100%;
+}
+
 .App {
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   @media (min-width: $breakpoint-lg) {
     flex-direction: row;
