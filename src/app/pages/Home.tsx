@@ -12,6 +12,7 @@ import CircleWaves from '@/app/components/CircleWaves';
 import History from '@/app/components/History';
 import Logo from '@/app/components/Logo';
 import LangSwitcher from '@/app/components/LangSwitcher';
+import AnimatedBackground from '@/app/components/AnimatedBackground';
 
 function Home() {
   const { t } = useTranslation();
@@ -39,6 +40,7 @@ function Home() {
       </div>
       <Footer />
       <InstallPwa />
+      <AnimatedBackground />
       <CircleWaves />
     </UploadProvider>
   );
