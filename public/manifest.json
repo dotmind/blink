@@ -1,7 +1,7 @@
 {
   "name": "Blink",
   "short_name": "Blink",
-  "theme_color": "#47B0FF",
+  "theme_color": "#FFFFFF",
   "background_color": "#DFDFDF",
   "display": "standalone",
   "scope": "./",
