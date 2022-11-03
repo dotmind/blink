@@ -10,6 +10,7 @@ function Head(): JSX.Element {
     <Helmet>
       <title>{t('common.name')}</title>
       <meta name={'description'} content={t('common.description')} />
+      <meta name={'viewport'} content={'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'} />
       <meta property={'og:title'} content={t('common.name')} />
       <meta property={'og:description'} content={t('common.description')} />
       <meta property={'og:image'} content={placeholder} />

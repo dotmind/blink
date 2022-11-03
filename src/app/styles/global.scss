@@ -15,8 +15,6 @@ html {
 
 html,
 body {
-  width: 100vw;
-  height: 100vh;
   user-select: none;
   background-color: var(--color-white);
 }
@@ -128,7 +126,7 @@ header {
 
 .fade-in {
   opacity: 0;
-  animation: fade-in 0.5s ease-in-out forwards;
+  animation: fade-in 0.3s ease-in-out forwards;
 }
 
 .d-25 {
