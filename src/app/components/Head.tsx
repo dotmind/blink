@@ -33,7 +33,7 @@ function Head(): JSX.Element {
       <meta name={'twitter:description'} content={t('common.description')} />
       <meta name={'twitter:image'} content={placeholder} />
 
-      <meta name={'color-scheme'} content={'light dark'} />
+      <meta name={'color-scheme'} content={'light only'} />
     </Helmet>
   );
 }
