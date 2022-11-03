@@ -41,9 +41,6 @@ $safe-zone-y-sm: 15px;
   height: 100vh;
   z-index: 1;
 
-  @media (max-width: $breakpoint-md) {
-    margin: 0 var(--safe-zone-x);
-  }
 }
 
 .page-container {
