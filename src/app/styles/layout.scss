@@ -40,10 +40,6 @@ $safe-zone-y-sm: 15px;
   flex-grow: 1;
   height: 100vh;
   z-index: 1;
-
-  @media (max-width: $breakpoint-md) {
-    margin: 0 var(--safe-zone-x);
-  }
 }
 
 .page-container {

@@ -101,7 +101,7 @@ function FileViewer(): JSX.Element {
             <LangSwitcher />
           </header>
         )}
-        <div className={'container'}>
+        <div className={'safe'}>
           <h1>{t('fileviewer.title')}</h1>
           {renderTimeRemaining}
           {isMobile && <Download />}

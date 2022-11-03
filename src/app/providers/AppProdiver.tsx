@@ -31,6 +31,10 @@ function AppProvider({ children }: IProps) {
 
     documentHeight();
     window.addEventListener('resize', documentHeight);
+
+    return () => {
+      window.removeEventListener('resize', documentHeight);
+    };
   }, []);
 
   const value = useMemo(() => ({ fingerprint }), [fingerprint]);
