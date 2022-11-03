@@ -16,7 +16,7 @@ function Head(): JSX.Element {
       <meta property={'og:image'} content={placeholder} />
       <meta property={'og:image:width'} content={'1200'} />
       <meta property={'og:image:height'} content={'630'} />
-      <meta name={'theme-color'} content={'#47B0FF'} />
+      <meta name={'theme-color'} content={'#FFFFFF'} />
 
       <link rel={'apple-touch-icon'} sizes={'180x180'} href={'/apple-touch-icon.png'} />
       <link rel={'icon'} type={'image/png'} sizes={'32x32'} href={'/favicon-32x32.png'} />
