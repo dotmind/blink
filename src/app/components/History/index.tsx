@@ -1,6 +1,4 @@
 import { MouseEvent, useMemo, useCallback } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpRightFromSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 import { usePwa } from '@dotmind/react-use-pwa';
 
@@ -9,6 +7,8 @@ import useHistory from '@/app/hooks/useHistory';
 import { deleteFile } from '@/app/services/api';
 import { useApp } from '@/app/providers/AppProdiver';
 import { extractFilePath } from '@/app/services/file';
+import eyeIcon from '@/app/assets/svg/eye.svg';
+import trashIcon from '@/app/assets/svg/trash.svg';
 
 import styles from '@/app/components/History/styles.module.scss';
 
@@ -46,15 +46,16 @@ function History(): JSX.Element | null {
               {t('common.history.expiresin')} {timeRemaining(item.expiresAt)}
             </p>
           </div>
-          <div className={'d-flex gap-10'}>
+          <div className={'d-flex align-center gap-10'}>
             <button
+              className={'d-flex align-center'}
               type={'button'}
               name={'delete history item'}
               aria-label={'delete history item'}
               onClick={handleDelete(item.url, i)}>
-              <FontAwesomeIcon icon={faTrash} />
+              <img src={trashIcon} alt={'trash'} />
             </button>
-            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            <img src={eyeIcon} alt={'eye'} />
           </div>
         </a>
       </li>

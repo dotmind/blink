@@ -18,8 +18,10 @@ body {
   width: 100vw;
   height: 100vh;
   user-select: none;
+  background-color: var(--color-white);
 }
 
+div,
 p,
 textarea,
 input,
@@ -108,6 +110,10 @@ header {
     &.swiper-slide-duplicate-prev {
       transform: translateY(2.5rem) !important;
     }
+  }
+
+  &.swiper-horizontal > .swiper-pagination-bullets {
+    bottom: 0;
   }
 
   .swiper-pagination-bullet {

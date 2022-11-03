@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useWindowSize from '@/app/hooks/useWindowSize';
+import { useElementSize } from '@/app/hooks/useElementSize';
 
 import styles from '@/app/components/TabSelector/styles.module.scss';
 
@@ -17,19 +18,19 @@ function TabSelector({ children, options }: IProps): JSX.Element {
 
   const toggles = useRef<HTMLButtonElement[]>([]);
   const tabsTracker = useRef<HTMLDivElement>(null);
+  const { ref: label, width: labelWidth } = useElementSize();
 
   useEffect(() => {
-    setTimeout(() => {
-      const tracker: HTMLElement | null = tabsTracker.current;
-      const currentTab: HTMLElement = toggles.current[selected];
+    const tracker: HTMLElement | null = tabsTracker.current;
 
-      if (tracker && currentTab) {
-        tracker.style.left = `${currentTab.offsetLeft}px`;
-        tracker.style.width = `${currentTab.offsetWidth}px`;
-        tracker.style.height = `${currentTab.offsetHeight}px`;
-      }
-    }, 25);
-  }, [selected, width]);
+    if (tracker && toggles.current[selected]) {
+      const selectedOne = toggles.current[selected];
+
+      tracker.style.left = `${selectedOne.offsetLeft}px`;
+      tracker.style.width = `${selectedOne.offsetWidth}px`;
+      tracker.style.height = `${selectedOne.offsetHeight}px`;
+    }
+  }, [selected, labelWidth, width]);
 
   return (
     <>
@@ -44,7 +45,7 @@ function TabSelector({ children, options }: IProps): JSX.Element {
         })}
       </div>
 
-      <div className={`${styles.tabSelector} my-2`}>
+      <div className={`${styles.tabSelector}`}>
         {options.map((option, index) => {
           const isCurrent: boolean = index === selected;
           return (
@@ -57,6 +58,7 @@ function TabSelector({ children, options }: IProps): JSX.Element {
               ref={(el) => {
                 if (el) {
                   toggles.current[index] = el;
+                  if (index === 1) label.current = el;
                 }
               }}>
               {t(option)}

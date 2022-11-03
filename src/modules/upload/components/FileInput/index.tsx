@@ -80,6 +80,12 @@ function FileInput(): JSX.Element {
     setError(null);
   }, [setError]);
 
+  const handleOpenFile: () => void = useCallback(() => {
+    if (fileHandler.current) {
+      fileHandler.current.click();
+    }
+  }, [fileHandler]);
+
   useEffect(() => {
     if (!fileHandler.current) {
       return () => {};
@@ -107,8 +113,7 @@ function FileInput(): JSX.Element {
   return (
     <>
       <form className={styles.fileInput_container}>
-        {/* eslint-disable-next-line */}
-        <div className={styles.fileInput_icons} onClick={() => fileHandler.current?.click()}>
+        <div className={styles.fileInput_icons} onClick={handleOpenFile} onKeyDown={handleOpenFile} role={'button'} tabIndex={0}>
           <button className={styles.morphButton} type={'button'} data-status={!!error}>
             <img src={addIcon} alt={'add icon'} />
           </button>

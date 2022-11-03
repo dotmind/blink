@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import FileInput from '@/modules/upload/components/FileInput';
 import UploadFile from '@/modules/upload/components/UploadFile';
-import ShareButtons from '@/modules/upload/components/ShareButtons';
+import NewUploadButton from '@/modules/upload/components/NewUploadButton';
 import ErrorModal from '@/app/components/ErrorModal';
 import DragOverlay from '@/modules/upload/components/DragOverlay';
 import { useIsSmallDevice } from '@/app/hooks/useIsMobile';
@@ -44,7 +44,7 @@ function Upload(): JSX.Element {
       {renderOverlay}
       <div className={'fade-in grow self-center safe'}>
         {renderContent}
-        {status === UploadStatus.SUCCESS && <ShareButtons />}
+        {status === UploadStatus.SUCCESS && <NewUploadButton />}
       </div>
     </>
   );

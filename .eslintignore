@@ -2,3 +2,4 @@ node_modules
 dist
 public
 vite.config.ts
+gradient.ts

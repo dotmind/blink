@@ -112,6 +112,10 @@ $safe-zone-y-sm: 15px;
   padding: var(--margin-x);
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .p-relative {
   position: relative;
 }

@@ -5,8 +5,8 @@ import InstallPwa from '@/app/components/InstallPwa';
 import Footer from '@/app/components/Footer';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import Download from '@/modules/download/components/Download';
-import AnimatedBackground from '@/app/components/AnimatedBackground';
 import FileHead from '@/modules/download/components/FileHead';
+import AnimatedBackground from '@/app/components/AnimatedBackground';
 
 function Preview() {
   const isMobile = useIsMobile();
@@ -15,10 +15,10 @@ function Preview() {
     <DownloadProvider>
       <FileHead />
       <FileViewer />
-      <CircleWaves />
       <Footer>{!isMobile && <Download />}</Footer>
       <InstallPwa />
       <AnimatedBackground />
+      <CircleWaves />
     </DownloadProvider>
   );
 }
