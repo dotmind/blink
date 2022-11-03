@@ -37,7 +37,7 @@ function About(): JSX.Element {
           pagination={{ clickable: true }}
           modules={[Pagination, Mousewheel]}>
           <SwiperSlide>
-            <div className={`${styles.card} fade-in d-25`}>
+            <div className={`${styles.card} fade-in`}>
               <div className={'d-flex align-center gap-5'}>
                 <h2>
                   <img src={openSource} alt={'open source icon'} />
@@ -48,7 +48,7 @@ function About(): JSX.Element {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className={`${styles.card} fade-in d-50`}>
+            <div className={`${styles.card} fade-in d-25`}>
               <div className={'d-flex align-center gap-5'}>
                 <h2>
                   <img src={clock} alt={'clock icon'} />
@@ -59,7 +59,7 @@ function About(): JSX.Element {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className={`${styles.card} fade-in d-75`}>
+            <div className={`${styles.card} fade-in d-50`}>
               <div className={'d-flex align-center gap-5'}>
                 <h2>
                   <img src={leaf} alt={'leaf icon'} />
@@ -70,7 +70,7 @@ function About(): JSX.Element {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className={`${styles.card} fade-in d-75`}>
+            <div className={`${styles.card} fade-in d-50`}>
               <div className={'d-flex align-center gap-5'}>
                 <h2>
                   <img src={bolt} alt={'bolt icon'} />
@@ -81,7 +81,7 @@ function About(): JSX.Element {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className={`${styles.card} fade-in d-50`}>
+            <div className={`${styles.card} fade-in d-25`}>
               <div className={'d-flex align-center gap-5'}>
                 <h2>
                   <img src={lock} alt={'lock icon'} />
