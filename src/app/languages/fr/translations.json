@@ -147,5 +147,9 @@
     "days": "jour(s)",
     "months": "mois",
     "years": "année(s)"
+  },
+  "our_goal": {
+    "title": "Notre objectif",
+    "text": "Texte qui explique notre objectif..."
   }
 }
