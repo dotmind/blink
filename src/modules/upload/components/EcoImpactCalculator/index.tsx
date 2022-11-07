@@ -5,17 +5,14 @@ const RATIO = 48;
 
 function EcoImpactCalculator() {
   const { fileWeight } = useUpload();
-
-  // round to 2 decimals
   const weightInMb = Math.round((fileWeight / 1000000) * 100) / 100;
   const baseEcoImpact = weightInMb * BASE_WEIGHT;
   const newEcoImpact = weightInMb * (BASE_WEIGHT / RATIO);
 
   return (
     <p className={'text-center'}>
-      Votre fichier représente <span className={'text-blue'}>{newEcoImpact} gCO2e</span> contre{' '}
-      <span className={'text-green'}>{baseEcoImpact} gCO2e</span> pour un fichier de même taille envoyé par
-      mail 🌿. 
+      Votre fichier représente environs <span className={'text-blue'}>{newEcoImpact} gCO2e</span> contre{' '}
+      <span className={'text-green'}>{baseEcoImpact} gCO2e</span> pour un fichier de même taille envoyé par mail 🌿.
     </p>
   );
 }
