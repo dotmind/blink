@@ -50,6 +50,10 @@ $safe-zone-y-sm: 15px;
   z-index: 1;
 }
 
+.text-underline {
+  text-decoration: underline;
+}
+
 .safe {
   width: calc(100% - var(--safe-zone-x) * 2);
   margin: 0 var(--safe-zone-x);

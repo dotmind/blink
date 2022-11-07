@@ -36,6 +36,14 @@ $color-info: #4ad5e2;
   --swiper-pagination-bullet-inactive-color: #{$color-blue};
 }
 
+.text-green {
+  color: var(--color-green);
+}
+
+.text-blue {
+  color: var(--color-blue);
+}
+
 #gradient {
   width: 100vw;
   height: 100%;

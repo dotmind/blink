@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-regular-svg-icons';
 
+import EcoImpactCalculator from '@/modules/upload/components/EcoImpactCalculator';
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import lockerSvg from '@/app/assets/svg/locker.svg';
 import lockerOpenSvg from '@/app/assets/svg/locker_open.svg';
@@ -96,34 +97,39 @@ function UploadFile(): JSX.Element {
   const fileWeightInKB: number = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
 
   return (
-    <div className={statusClass}>
-      <div className={styles.fileInfo} onClick={handlePreview} onKeyDown={handlePreview} role={'button'} tabIndex={0}>
-        <div>
-          <FontAwesomeIcon icon={faFileLines} />
-          {filename}
-        </div>
-        <p className={styles.fileWeight}>{fileWeightInKB}KB . pdf</p>
+    <>
+      <div>
+        <EcoImpactCalculator />
       </div>
-      <div className={styles.statusConnector}>
-        <div className={styles.progress}>{renderProgress}</div>
-        <div className={styles.link} />
-        {renderSuccessAnim}
-      </div>
-      <div className={'p-relative w100'}>
-        <div className={styles.fileLink}>
-          <span>{renderLink}</span>
-          <div
-            className={'d-flex align-center pointer'}
-            onClick={handleShare}
-            onKeyDown={handleShare}
-            role={'button'}
-            tabIndex={0}>
-            <img src={shareIcon} alt={'Share icons'} />
+      <div className={statusClass}>
+        <div className={styles.fileInfo} onClick={handlePreview} onKeyDown={handlePreview} role={'button'} tabIndex={0}>
+          <div>
+            <FontAwesomeIcon icon={faFileLines} />
+            {filename}
           </div>
+          <p className={styles.fileWeight}>{fileWeightInKB}KB . pdf</p>
         </div>
-        {renderTootlip}
+        <div className={styles.statusConnector}>
+          <div className={styles.progress}>{renderProgress}</div>
+          <div className={styles.link} />
+          {renderSuccessAnim}
+        </div>
+        <div className={'p-relative w100'}>
+          <div className={styles.fileLink}>
+            <span>{renderLink}</span>
+            <div
+              className={'d-flex align-center pointer'}
+              onClick={handleShare}
+              onKeyDown={handleShare}
+              role={'button'}
+              tabIndex={0}>
+              <img src={shareIcon} alt={'Share icons'} />
+            </div>
+          </div>
+          {renderTootlip}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
