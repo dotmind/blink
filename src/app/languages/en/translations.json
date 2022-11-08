@@ -155,6 +155,8 @@
       "basic_mail": "pour un mail classique avec pièce jointe 🌿."
     },
     "title": "Notre calcul",
-    "text": "Texte qui explique d'où vient le calcul et comment on l'a fait."
+    "text": "Texte qui explique d'où vient le calcul et comment on l'a fait.",
+    "mail_calcul": "Calcul pour un mail classique avec pièce jointe une pièce jointe de 1Mo avec une durée de vie de 10 an.",
+    "blink_calcul": "Et voici le calcul pour le même fichier avec Blink !"
   }
 }
