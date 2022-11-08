@@ -147,5 +147,14 @@
     "days": "day(s)",
     "months": "month(s)",
     "years": "year(s)"
+  },
+  "co2_impact": {
+    "calculation": {
+      "your_file": "Votre fichier représente environs",
+      "compared_to": "comparer à",
+      "basic_mail": "pour un mail classique avec pièce jointe 🌿."
+    },
+    "title": "Notre calcul",
+    "text": "Texte qui explique d'où vient le calcul et comment on l'a fait."
   }
 }
