@@ -21,7 +21,7 @@
     "errors": {
       "404": {
         "title": "Page inexistante",
-        "message": "La page  ou le fichier que vous chercher n’existe pas, à expiré. Retrouver votre route en passant par l’acceuil.",
+        "message": "La page ou le fichier que vous chercher n’existe pas, ou à expiré. Retrouver votre route en passant par l’acceuil.",
         "button": "Retour à l’acceuil"
       },
       "network": "Erreur réseau : impossible de se connecter au serveur.",
@@ -147,5 +147,16 @@
     "days": "jour(s)",
     "months": "mois",
     "years": "année(s)"
+  },
+  "co2_impact": {
+    "calculation": {
+      "your_file": "Votre fichier représente environs",
+      "compared_to": "comparer à",
+      "basic_mail": "pour un mail classique avec pièce jointe 🌿."
+    },
+    "title": "Notre calcul",
+    "mail_calcul": "Calcul pour un mail classique avec pièce jointe une pièce jointe de 1Mo avec une durée de vie de 10 an.",
+    "blink_calcul": "Et voici le calcul pour le même fichier avec Blink !",
+    "source": "Source: "
   }
 }

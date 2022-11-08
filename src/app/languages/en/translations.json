@@ -147,5 +147,16 @@
     "days": "day(s)",
     "months": "month(s)",
     "years": "year(s)"
+  },
+  "co2_impact": {
+    "calculation": {
+      "your_file": "Votre fichier représente environs",
+      "compared_to": "comparer à",
+      "basic_mail": "pour un mail classique avec pièce jointe 🌿."
+    },
+    "title": "Notre calcul",
+    "mail_calcul": "Calcul pour un mail classique avec pièce jointe une pièce jointe de 1Mo avec une durée de vie de 10 an.",
+    "blink_calcul": "Et voici le calcul pour le même fichier avec Blink !",
+    "source": "Source: "
   }
 }
