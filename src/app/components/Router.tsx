@@ -5,7 +5,7 @@ const Loader = lazy(() => import('@/app/components/Loader'));
 const Home = lazy(() => import('@/app/pages/Home'));
 const Preview = lazy(() => import('@/app/pages/Preview'));
 const Error404 = lazy(() => import('@/app/pages/Error404'));
-const OurGoal = lazy(() => import('@/app/pages/OurGoal'));
+const CalculationExplaination = lazy(() => import('@/app/pages/CalculationExplaination'));
 
 function Router(): JSX.Element {
   return (
@@ -15,7 +15,7 @@ function Router(): JSX.Element {
           <Routes>
             <Route path={'/'} element={<Home />} />
             <Route path={':id'} element={<Preview />} />
-            <Route path={'/goal'} element={<OurGoal />} />
+            <Route path={'/calculation'} element={<CalculationExplaination />} />
             <Route path={'*'} element={<Error404 />} />
           </Routes>
         </Suspense>

@@ -98,7 +98,7 @@ function UploadFile(): JSX.Element {
 
   return (
     <>
-      <div>
+      <div className={styles.impactCalculator}>
         <EcoImpactCalculator />
       </div>
       <div className={statusClass}>

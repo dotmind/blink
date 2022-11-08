@@ -7,7 +7,7 @@ import AnimatedBackground from '@/app/components/AnimatedBackground';
 import CircleWaves from '@/app/components/CircleWaves';
 import useIsMobile from '@/app/hooks/useIsMobile';
 
-function OurGoal() {
+function CalculationExplaination() {
   const { t } = useTranslation();
   const isMobile: boolean = useIsMobile();
 
@@ -19,8 +19,8 @@ function OurGoal() {
           {isMobile && <LangSwitcher />}
         </header>
         <div className={'safe'}>
-          <h1 className={'title'}> {t('our_goal.title')} </h1>
-          <p>{t('our_goal.text')}</p>
+          <h1 className={'title'}> {t('co2_impact.title')} </h1>
+          <p>{t('co2_impact.text')}</p>
         </div>
       </div>
       <Footer />
@@ -30,4 +30,4 @@ function OurGoal() {
   );
 }
 
-export default OurGoal;
+export default CalculationExplaination;
