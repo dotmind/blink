@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useMemo } from 'react';
+import { createContext, useContext, useState, useMemo, useCallback } from 'react';
 
 export type ModalContextType = {
   isOpen: boolean;
@@ -21,17 +21,17 @@ interface IProps {
 function ModalProvider({ children }: IProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const open = () => {
+  const open = useCallback(() => {
     setIsOpen(true);
-  };
+  }, [setIsOpen]);
 
-  const close = () => {
+  const close = useCallback(() => {
     setIsOpen(false);
-  };
+  }, [setIsOpen]);
 
-  const toggle = () => {
+  const toggle = useCallback(() => {
     setIsOpen(!isOpen);
-  };
+  }, [isOpen, setIsOpen]);
 
   const value = useMemo(
     () => ({
