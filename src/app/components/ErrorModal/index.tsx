@@ -35,7 +35,7 @@ function ErrorModal() {
     <div className={styles.modal}>
       <div className={styles.backdrop} />
 
-      <div ref={el} className={`${styles.modal_content}`}>
+      <div ref={el} className={styles.modal_content}>
         <img src={errorSVG} alt={'error icon'} />
 
         <div>
