@@ -31,7 +31,7 @@ function Download(): JSX.Element | null {
     const fileWeightInKB = getFileWeight(file);
 
     if (fileWeightInKB > 1000) {
-      return `${fileWeightInKB / 1000} MB`;
+      return `${fileWeightInKB / 1000}MB`;
     }
 
     return `${fileWeightInKB}KB`;

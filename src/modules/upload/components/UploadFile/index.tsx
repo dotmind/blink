@@ -97,7 +97,7 @@ function UploadFile(): JSX.Element {
   const fileWeightInKB: number = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
   const renderFileWeight: string = useMemo(() => {
     if (fileWeightInKB > 1000) {
-      return `${fileWeightInKB / 1000} MB`;
+      return `${fileWeightInKB / 1000}MB`;
     }
 
     return `${fileWeightInKB}KB`;
