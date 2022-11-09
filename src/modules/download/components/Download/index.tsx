@@ -7,9 +7,9 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import { prepareFileName, getFileWeight } from '@/app/services/navigator';
+import { displayFileWeight } from '@/app/utils/file';
 
 import styles from '@/modules/download/components/Download/styles.module.scss';
-import { displayFileWeight } from '@/app/utils/file';
 
 function Download(): JSX.Element | null {
   const { file, fileName } = useDownload();

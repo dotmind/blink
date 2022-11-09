@@ -12,9 +12,9 @@ import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import validIcon from '@/app/assets/svg/validation.svg';
 import shareIcon from '@/app/assets/svg/share_2.svg';
+import { displayFileWeight } from '@/app/utils/file';
 
 import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
-import { displayFileWeight } from '@/app/utils/file';
 
 const SuccessConfetti = lazy(() => import('@/app/components/SuccessConfetti'));
 
