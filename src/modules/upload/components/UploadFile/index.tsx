@@ -14,6 +14,7 @@ import validIcon from '@/app/assets/svg/validation.svg';
 import shareIcon from '@/app/assets/svg/share_2.svg';
 
 import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
+import { displayFileWeight } from '@/app/utils/file';
 
 const SuccessConfetti = lazy(() => import('@/app/components/SuccessConfetti'));
 
@@ -95,13 +96,7 @@ function UploadFile(): JSX.Element {
   }, [status, t]);
 
   const fileWeightInKB: number = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
-  const renderFileWeight: string = useMemo(() => {
-    if (fileWeightInKB > 1000) {
-      return `${fileWeightInKB / 1000}MB`;
-    }
-
-    return `${fileWeightInKB}KB`;
-  }, [fileWeightInKB]);
+  const renderFileWeight: string = useMemo(() => displayFileWeight(fileWeightInKB), [fileWeightInKB]);
 
   return (
     <>

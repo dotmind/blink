@@ -9,6 +9,7 @@ import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import { prepareFileName, getFileWeight } from '@/app/services/navigator';
 
 import styles from '@/modules/download/components/Download/styles.module.scss';
+import { displayFileWeight } from '@/app/utils/file';
 
 function Download(): JSX.Element | null {
   const { file, fileName } = useDownload();
@@ -28,13 +29,7 @@ function Download(): JSX.Element | null {
     if (!file) {
       return '';
     }
-    const fileWeightInKB = getFileWeight(file);
-
-    if (fileWeightInKB > 1000) {
-      return `${fileWeightInKB / 1000}MB`;
-    }
-
-    return `${fileWeightInKB}KB`;
+    return displayFileWeight(getFileWeight(file));
   }, [file]);
 
   const renderComponent: JSX.Element | null = useMemo(() => {
