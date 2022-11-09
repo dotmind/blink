@@ -4,7 +4,6 @@ import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvid
 import FileInput from '@/modules/upload/components/FileInput';
 import UploadFile from '@/modules/upload/components/UploadFile';
 import NewUploadButton from '@/modules/upload/components/NewUploadButton';
-import ErrorModal from '@/app/components/ErrorModal';
 import DragOverlay from '@/modules/upload/components/DragOverlay';
 import { useIsSmallDevice } from '@/app/hooks/useIsMobile';
 
@@ -20,12 +19,7 @@ function Upload(): JSX.Element {
       case UploadStatus.SUCCESS:
         return <UploadFile />;
       case UploadStatus.ERROR:
-        return (
-          <>
-            <UploadFile />
-            <ErrorModal />
-          </>
-        );
+        return <UploadFile />;
       default:
         return null;
     }

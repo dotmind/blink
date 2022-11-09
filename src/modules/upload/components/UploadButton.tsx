@@ -2,6 +2,7 @@ import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { UploadStatus, useUpload } from '@/modules/upload/providers/UploadProvider';
+import { useModal } from '@/app/providers/ModalProvider';
 import { useApp } from '@/app/providers/AppProdiver';
 import { generateKey, encryptWithKey, exportKey } from '@/app/services/crypto';
 import { uploadFile } from '@/app/services/api';
@@ -11,6 +12,7 @@ import uploadIcon from '@/app/assets/svg/upload.svg';
 
 function UploadButton(): JSX.Element | null {
   const { fingerprint } = useApp();
+  const { open: openErrorModal } = useModal();
   const { file, setStatus, setShareUrl, filename, setError, addToHistory } = useUpload();
   const { t } = useTranslation();
   const canUpload: boolean = useMemo(() => !!(fingerprint && file && filename), [fingerprint, file, filename]);
@@ -42,6 +44,7 @@ function UploadButton(): JSX.Element | null {
       }
     } catch (error) {
       setError(error as Error);
+      openErrorModal();
       setStatus(UploadStatus.ERROR);
     }
   }, [file, setStatus, setShareUrl, fingerprint, canUpload]);

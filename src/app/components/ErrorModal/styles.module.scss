@@ -16,7 +16,7 @@ $margin: 1.25rem;
     align-items: center;
     z-index: 50;
     opacity: 0;
-    transition: opacity 0.35s ease-in;
+    animation: fade-in 0.6s ease-in-out forwards;
 
     @media (min-width: 768px) {
       top: 50%;
@@ -28,6 +28,7 @@ $margin: 1.25rem;
       gap: 1.875rem;
       align-items: start;
       padding: 1.875rem;
+      animation: fade-in-desktop 0.3s ease-in-out forwards;
     }
 
     div {
@@ -64,6 +65,7 @@ $margin: 1.25rem;
     img {
       width: 64px;
       height: 64px;
+      margin-right: 1rem;
     }
 
     .controls {
@@ -98,5 +100,27 @@ $margin: 1.25rem;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 49;
+  }
+}
+
+@keyframes fade-in-desktop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%);
   }
 }
