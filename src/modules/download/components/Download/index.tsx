@@ -7,6 +7,7 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import { prepareFileName, getFileWeight } from '@/app/services/navigator';
+import { displayFileWeight } from '@/app/utils/file';
 
 import styles from '@/modules/download/components/Download/styles.module.scss';
 
@@ -24,11 +25,11 @@ function Download(): JSX.Element | null {
     [file, fileName],
   );
 
-  const fileWeigth: number = useMemo(() => {
+  const renderFileWeight: string = useMemo(() => {
     if (!file) {
-      return 0;
+      return '';
     }
-    return getFileWeight(file);
+    return displayFileWeight(getFileWeight(file));
   }, [file]);
 
   const renderComponent: JSX.Element | null = useMemo(() => {
@@ -48,10 +49,10 @@ function Download(): JSX.Element | null {
           <p>{fileName}</p>
           <FontAwesomeIcon icon={faArrowDown} />
         </div>
-        <p className={styles.fileWeight}>{fileWeigth}KB . pdf</p>
+        <p className={styles.fileWeight}>{renderFileWeight} . pdf</p>
       </button>
     );
-  }, [file, fileName, fileWeigth]);
+  }, [file, fileName, renderFileWeight]);
 
   return renderComponent;
 }

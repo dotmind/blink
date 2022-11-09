@@ -12,6 +12,7 @@ import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import validIcon from '@/app/assets/svg/validation.svg';
 import shareIcon from '@/app/assets/svg/share_2.svg';
+import { displayFileWeight } from '@/app/utils/file';
 
 import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
 
@@ -95,6 +96,7 @@ function UploadFile(): JSX.Element {
   }, [status, t]);
 
   const fileWeightInKB: number = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
+  const renderFileWeight: string = useMemo(() => displayFileWeight(fileWeightInKB), [fileWeightInKB]);
 
   return (
     <>
@@ -107,7 +109,7 @@ function UploadFile(): JSX.Element {
             <FontAwesomeIcon icon={faFileLines} />
             {filename}
           </div>
-          <p className={styles.fileWeight}>{fileWeightInKB}KB . pdf</p>
+          <p className={styles.fileWeight}>{renderFileWeight} . pdf</p>
         </div>
         <div className={styles.statusConnector}>
           <div className={styles.progress}>{renderProgress}</div>
