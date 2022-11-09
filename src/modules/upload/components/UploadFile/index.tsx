@@ -95,6 +95,13 @@ function UploadFile(): JSX.Element {
   }, [status, t]);
 
   const fileWeightInKB: number = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
+  const renderFileWeight: string = useMemo(() => {
+    if (fileWeightInKB > 1000) {
+      return `${fileWeightInKB / 1000} MB`;
+    }
+
+    return `${fileWeightInKB}KB`;
+  }, [fileWeightInKB]);
 
   return (
     <>
@@ -107,7 +114,7 @@ function UploadFile(): JSX.Element {
             <FontAwesomeIcon icon={faFileLines} />
             {filename}
           </div>
-          <p className={styles.fileWeight}>{fileWeightInKB}KB . pdf</p>
+          <p className={styles.fileWeight}>{renderFileWeight} . pdf</p>
         </div>
         <div className={styles.statusConnector}>
           <div className={styles.progress}>{renderProgress}</div>

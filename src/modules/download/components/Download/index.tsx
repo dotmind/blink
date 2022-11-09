@@ -24,11 +24,17 @@ function Download(): JSX.Element | null {
     [file, fileName],
   );
 
-  const fileWeigth: number = useMemo(() => {
+  const renderFileWeight: string = useMemo(() => {
     if (!file) {
-      return 0;
+      return '';
     }
-    return getFileWeight(file);
+    const fileWeightInKB = getFileWeight(file);
+
+    if (fileWeightInKB > 1000) {
+      return `${fileWeightInKB / 1000} MB`;
+    }
+
+    return `${fileWeightInKB}KB`;
   }, [file]);
 
   const renderComponent: JSX.Element | null = useMemo(() => {
@@ -48,10 +54,10 @@ function Download(): JSX.Element | null {
           <p>{fileName}</p>
           <FontAwesomeIcon icon={faArrowDown} />
         </div>
-        <p className={styles.fileWeight}>{fileWeigth}KB . pdf</p>
+        <p className={styles.fileWeight}>{renderFileWeight} . pdf</p>
       </button>
     );
-  }, [file, fileName, fileWeigth]);
+  }, [file, fileName, renderFileWeight]);
 
   return renderComponent;
 }
