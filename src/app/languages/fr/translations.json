@@ -71,7 +71,7 @@
   },
   "upload": {
     "input": "Téléchargez ou déposez votre pdf pour obtenir un lien à partager.",
-    "max_size": "Jusqu'a 50 MB",
+    "max_size": "Jusqu'a 10 MB",
     "button": "Envoyer",
     "overlay": {
       "title": "Déplacer vos fichiers",
