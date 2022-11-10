@@ -71,7 +71,7 @@
   },
   "upload": {
     "input": "Drop PDF here",
-    "max_size": "Up to 50 MB",
+    "max_size": "Up to 10 MB",
     "button": "Upload PDF",
     "overlay": {
       "title": "Drag and drop your files here",

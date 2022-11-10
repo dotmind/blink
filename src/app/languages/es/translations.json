@@ -71,7 +71,7 @@
   },
   "upload": {
     "input": "Déposez un PDF ici pour créer un lien (es)",
-    "max_size": "Jusqu'a 50 MB",
+    "max_size": "Jusqu'a 10 MB",
     "button": "Envoyer un PDF (es)",
     "overlay": {
       "title": "Déplacer vos fichiers (es)",
