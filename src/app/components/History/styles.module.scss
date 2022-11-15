@@ -3,13 +3,14 @@
   max-width: 34.375rem;
   margin: 0 auto;
   margin-top: 2rem;
-  background-color: #ffffff90;
+  background-color: #ffffff30;
   border: 0.063rem solid #f8f8f8;
   backdrop-filter: blur(0.188rem);
   border-radius: 0.5rem;
   position: relative;
   z-index: 2;
-  box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.2);
+  border: 0.05rem solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0.625rem 1.5rem 0 rgba(0, 0, 0, 0.1);
   max-height: 25rem;
   overflow-y: auto;
 
