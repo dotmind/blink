@@ -81,6 +81,7 @@ img {
 }
 
 .logo {
+  z-index: 99;
   position: absolute;
   top: var(--safe-zone-y);
   left: var(--safe-zone-x);

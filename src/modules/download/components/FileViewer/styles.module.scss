@@ -72,18 +72,21 @@
     }
 
     button {
-      width: 35px;
+      width: 65px;
       height: 35px;
-      border-radius: 0.313rem;
       margin: 0.313rem;
       border: 0.063rem solid var(--color-grey-300);
       background-color: var(--color-white);
+      border: 0.125rem solid var(--color-white);
+      border-radius: 0.625rem;
+      box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(0.625rem);
       color: var(--color-grey-500);
       cursor: pointer;
       display: block;
 
       &:disabled {
-        opacity: 0.5;
+        opacity: 0.3;
         cursor: not-allowed;
       }
     }

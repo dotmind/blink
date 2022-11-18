@@ -28,13 +28,14 @@
     &[data-current='true'] {
       opacity: 1;
       color: var(--color-black);
+      font-weight: 700;
     }
   }
 
   .tabTracker {
     position: absolute;
-    background-color: #efefef4d;
-    opacity: 1;
+    background-color: var(--swiper-pagination-bullet-inactive-color);
+    opacity: 0.1;
     backdrop-filter: blur(0.625rem);
     border: 0.05rem solid var(--color-white);
     border-radius: 0.625rem;
