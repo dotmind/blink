@@ -1,13 +1,15 @@
 .notification {
-  border-radius: 1.25rem;
+  border-radius: 2rem;
   padding: 0.625rem 0.938rem;
   max-width: 80vw;
   word-break: break-all;
-  border: 0.063rem solid var(--color-grey-100);
-  background-color: var(--color-white);
+  border: 0.125rem solid var(--color-white);
+  background-color: #ececec30;
   display: flex;
   align-items: center;
   gap: 0.625rem;
+  box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.625rem);
   z-index: 5;
   animation: popup 200ms ease-in;
 
@@ -16,29 +18,32 @@
   }
 
   @media (min-width: 31.25rem) {
-    max-width: 25rem;
+    max-width: 35rem;
   }
 
   &[data-type='error'] {
+    color: var(--color-error);
     svg {
       color: var(--color-error);
     }
   }
 
   &[data-type='success'] {
-    border-color: var(--color-success);
+    color: var(--color-success);
     svg {
       color: var(--color-success);
     }
   }
 
   &[data-type='warning'] {
+    color: var(--color-warning);
     svg {
       color: var(--color-warning);
     }
   }
 
   &[data-type='information'] {
+    color: var(--color-info);
     svg {
       color: var(--color-info);
     }
