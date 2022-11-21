@@ -1,6 +1,6 @@
 .history_container {
   width: 100%;
-  max-width: 34.375rem;
+  max-width: 45rem;
   margin: 0 auto;
   margin-top: 2rem;
   background-color: #ffffff30;
@@ -11,8 +11,6 @@
   z-index: 2;
   border: 0.05rem solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 0.625rem 1.5rem 0 rgba(0, 0, 0, 0.1);
-  max-height: 25rem;
-  overflow-y: auto;
 
   @media (max-width: 576px) {
     margin: var(--safe-zone-x);
@@ -24,7 +22,6 @@
     margin-bottom: 0.625rem;
     position: sticky;
     top: 0;
-    background-image: linear-gradient(0deg, #ffffff00 0%, #ffffff 30%);
     z-index: 3;
 
     @media (max-width: 390px) {
@@ -35,6 +32,9 @@
   .historyList {
     list-style: none;
     padding: 0;
+    z-index: -1;
+    overflow-y: auto;
+    max-height: 21rem;
   }
 
   .historyCard {
