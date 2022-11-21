@@ -56,7 +56,7 @@ function UploadFile(): JSX.Element {
 
   const renderLink: JSX.Element = useMemo(() => {
     if (!shareUrl || status !== UploadStatus.SUCCESS) {
-      return <p>{t('upload.link.loading')}</p>;
+      return <p className={styles.typewritter}>{t('upload.link.loading')}</p>;
     }
 
     return (
@@ -95,6 +95,18 @@ function UploadFile(): JSX.Element {
     );
   }, [status, t]);
 
+  const renderShareIcon = useMemo(() => {
+    if (status !== UploadStatus.SUCCESS) {
+      return null;
+    }
+
+    return (
+      <div className={'d-flex align-center pointer'} onClick={handleShare} onKeyDown={handleShare} role={'button'} tabIndex={0}>
+        <img src={shareIcon} alt={'Share icons'} />
+      </div>
+    );
+  }, [status, shareIcon, handleShare]);
+
   const fileWeightInKB: number = useMemo(() => Math.round(fileWeight / 1024), [fileWeight]);
   const renderFileWeight: string = useMemo(() => displayFileWeight(fileWeightInKB), [fileWeightInKB]);
 
@@ -119,14 +131,7 @@ function UploadFile(): JSX.Element {
         <div className={'p-relative w100'}>
           <div className={styles.fileLink}>
             <span>{renderLink}</span>
-            <div
-              className={'d-flex align-center pointer'}
-              onClick={handleShare}
-              onKeyDown={handleShare}
-              role={'button'}
-              tabIndex={0}>
-              <img src={shareIcon} alt={'Share icons'} />
-            </div>
+            {renderShareIcon}
           </div>
           {renderTootlip}
         </div>
