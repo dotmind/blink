@@ -37,8 +37,8 @@ function Upload(): JSX.Element {
     <>
       {renderOverlay}
       <div className={'fade-in-debug safe grow self-center'}>
-          {renderContent}
-          {status === UploadStatus.SUCCESS && <NewUploadButton />}
+        {renderContent}
+        {status === UploadStatus.SUCCESS && <NewUploadButton />}
       </div>
     </>
   );
