@@ -149,6 +149,10 @@ header {
   transition: 0.75s ease-in-out;
 }
 
+.fade-in-debug {
+  animation: fade-in 0.3s ease-in-out;
+}
+
 .fade-in {
   opacity: 0;
   animation: fade-in 0.3s ease-in-out forwards;

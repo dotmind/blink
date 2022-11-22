@@ -112,7 +112,7 @@ function FileInput(): JSX.Element {
 
   return (
     <>
-      <form className={styles.fileInput_container}>
+      <div className={styles.fileInput_container}>
         <div className={styles.fileInput_icons} onClick={handleOpenFile} onKeyDown={handleOpenFile} role={'button'} tabIndex={0}>
           <button className={styles.morphButton} type={'button'} data-status={!!error}>
             <img src={addIcon} alt={'add icon'} />
@@ -124,7 +124,7 @@ function FileInput(): JSX.Element {
         {canDisplayText && <p className={styles.description}>{t('upload.input')}</p>}
 
         <input id={'fileLoader'} type={'file'} accept={'application/pdf'} className={styles.fileInput} ref={fileHandler} />
-      </form>
+      </div>
 
       <div className={styles.fileInput_controls}>
         {file && (

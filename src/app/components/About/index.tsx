@@ -102,7 +102,7 @@ function About(): JSX.Element {
     <>
       {renderSwiper}
       <div className={styles.carbonBadge}>
-        <WebsiteCarbonBadge co2={'0.11'} percentage={'90'} lang={i18n.language} />
+        <WebsiteCarbonBadge url={'https://inablink.io'} lang={i18n.language} />
       </div>
     </>
   );
