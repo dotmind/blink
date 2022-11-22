@@ -13,10 +13,10 @@ function HomeTitles() {
   const rdmTitle = useMemo(() => TITLES[Math.floor(Math.random() * TITLES.length)], []);
 
   const render = useMemo(() => {
-    if (status === UploadStatus.UPLOADING) {
+    if (status === UploadStatus.UPLOADING || status === UploadStatus.SUCCESS) {
       return (
         <>
-          <h1>{t(`home.${rdmTitle}`)}</h1>
+          <h1>{t(`home.success.${rdmTitle}`)}</h1>
           <EcoImpactCalculator />
         </>
       );
