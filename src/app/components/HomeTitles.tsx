@@ -4,16 +4,19 @@ import { useTranslation } from 'react-i18next';
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import EcoImpactCalculator from '@/modules/upload/components/EcoImpactCalculator';
 
+const TITLES: string[] = ['elon_musk'];
+
 function HomeTitles() {
   const { t } = useTranslation();
   const { status } = useUpload();
 
+  const rdmTitle = useMemo(() => TITLES[Math.floor(Math.random() * TITLES.length)], []);
+
   const render = useMemo(() => {
-    if (status === UploadStatus.SUCCESS) {
+    if (status === UploadStatus.UPLOADING) {
       return (
         <>
-          {/* @TODO - Get random sentence from list */}
-          <h1>{t('home.elon_musk')}</h1>
+          <h1>{t(`home.${rdmTitle}`)}</h1>
           <EcoImpactCalculator />
         </>
       );

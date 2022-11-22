@@ -41,7 +41,9 @@
   "home": {
     "title": "Simple and faster pdf transfer",
     "subtitle": "send your file easily and securely",
-    "elon_musk": "Même Elon Musk ne pourra le voir.",
+    "success": {
+      "elon_musk": "Même Elon Musk ne pourra le voir."
+    },
     "tabs": {
       "upload": "Crée un lien",
       "about": "À propos",
