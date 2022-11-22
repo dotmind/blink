@@ -137,7 +137,7 @@ function FileViewer(): JSX.Element {
           <Logo />
         </div>
       )}
-      <div className={`${styles.fileViewer}`}>
+      <div className={styles.fileViewer}>
         {isMobile && (
           <header className={'main-header fade-in'}>
             <Logo />
