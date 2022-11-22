@@ -39,8 +39,8 @@
     }
   },
   "home": {
-    "title": "Simple and faster pdf transfer",
-    "subtitle": "send your file easily and securely",
+    "title": "Pdf à partager seul ou à plusieurs",
+    "subtitle": "L’outil le plus hot, propre et sécurisé du tech game.",
     "tabs": {
       "upload": "Envoyer",
       "about": "À propos",
@@ -78,7 +78,7 @@
       "description": "Partager facilement des fichiers en toute sécurité."
     },
     "link": {
-      "loading": "Chargement...",
+      "loading": "Chiffrement...",
       "share": "Partager le lien",
       "copy": "Copier le lien",
       "new_upload": "Nouvel envoi"
