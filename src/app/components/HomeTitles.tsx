@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
 import EcoImpactCalculator from '@/modules/upload/components/EcoImpactCalculator';
 
-const TITLES: string[] = ['elon_musk'];
+const TITLES: string[] = ['elon_musk', 'patator'];
 
 function HomeTitles() {
   const { t } = useTranslation();
