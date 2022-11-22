@@ -18,7 +18,7 @@
 
   h3 {
     padding: 1.3rem;
-    font-weight: 700;
+    font-weight: 900;
     margin-bottom: 0.625rem;
     position: sticky;
     top: 0;
@@ -50,7 +50,7 @@
     border-bottom: 0.063rem solid #00000010;
 
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0rem;
       height: 100%;
@@ -60,8 +60,8 @@
       background-color: transparent;
       transition: background-color 120ms ease-in;
     }
-    
-    &:hover{
+
+    &:hover {
       &:after {
         background-color: #ffffffd3;
       }

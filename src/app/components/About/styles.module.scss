@@ -34,3 +34,9 @@
     min-height: 12rem;
   }
 }
+
+.carbonBadge {
+  position: absolute;
+  bottom: 5rem;
+  right: var(--safe-zone-x);
+}
