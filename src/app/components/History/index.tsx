@@ -37,7 +37,7 @@ function History(): JSX.Element | null {
       );
     }
 
-    return history.map((item, i) => (
+    return history.reverse().map((item, i) => (
       <li className={styles.historyCard} key={item.url}>
         <a href={item.url} target={isStandalone ? '_self' : '_blank'} rel={'noreferrer'}>
           <div>

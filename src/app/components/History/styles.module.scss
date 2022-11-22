@@ -1,6 +1,6 @@
 .history_container {
   width: 100%;
-  max-width: 34.375rem;
+  max-width: 45rem;
   margin: 0 auto;
   margin-top: 2rem;
   background-color: #ffffff30;
@@ -11,8 +11,6 @@
   z-index: 2;
   border: 0.05rem solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 0.625rem 1.5rem 0 rgba(0, 0, 0, 0.1);
-  max-height: 25rem;
-  overflow-y: auto;
 
   @media (max-width: 576px) {
     margin: var(--safe-zone-x);
@@ -20,11 +18,10 @@
 
   h3 {
     padding: 1.3rem;
-    font-weight: 700;
+    font-weight: 900;
     margin-bottom: 0.625rem;
     position: sticky;
     top: 0;
-    background-image: linear-gradient(0deg, #ffffff00 0%, #ffffff 30%);
     z-index: 3;
 
     @media (max-width: 390px) {
@@ -35,19 +32,43 @@
   .historyList {
     list-style: none;
     padding: 0;
+    z-index: -1;
+    overflow-y: auto;
+    max-height: 21rem;
+    padding: 1.5rem;
   }
 
   .historyCard {
     display: flex;
     flex-direction: column;
-    padding: 0.9rem 1.3rem;
     text-decoration: none;
     color: black;
     font-size: 0.9rem;
     transition: all 120ms ease-in;
+    padding: 1rem 0;
+    position: relative;
+    border-bottom: 0.063rem solid #00000010;
 
-    &:not(:last-of-type) {
-      border-bottom: 0.063rem solid #f8f8f8;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0rem;
+      height: 100%;
+      left: -1.5rem;
+      width: calc(100% + 3rem);
+      z-index: -1;
+      background-color: transparent;
+      transition: background-color 120ms ease-in;
+    }
+
+    &:hover {
+      &:after {
+        background-color: #ffffffd3;
+      }
+
+      a {
+        font-weight: bold;
+      }
     }
 
     .expiresIn {
@@ -69,6 +90,7 @@
       width: 100%;
       text-decoration: none;
       color: var(--color-grey-900);
+      transition: all 120ms ease-in;
 
       button {
         border: none;

@@ -137,6 +137,22 @@ header {
   }
 }
 
+.t25 {
+  transition: 0.25s ease-in-out;
+}
+
+.t50 {
+  transition: 0.5s ease-in-out;
+}
+
+.t75 {
+  transition: 0.75s ease-in-out;
+}
+
+.fade-in-debug {
+  animation: fade-in 0.3s ease-in-out;
+}
+
 .fade-in {
   opacity: 0;
   animation: fade-in 0.3s ease-in-out forwards;

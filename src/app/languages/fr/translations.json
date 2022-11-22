@@ -41,6 +41,7 @@
   "home": {
     "title": "Simple and faster pdf transfer",
     "subtitle": "send your file easily and securely",
+    "elon_musk": "Même Elon Musk ne pourra le voir.",
     "tabs": {
       "upload": "Envoyer",
       "about": "À propos",
@@ -150,9 +151,9 @@
   },
   "co2_impact": {
     "calculation": {
-      "your_file": "Votre fichier représente environs",
-      "compared_to": "comparer à",
-      "basic_mail": "pour un mail classique avec pièce jointe 🌿."
+      "your_file": "Partager ce fichier représente",
+      "compared_to": "c'est",
+      "basic_mail": "de moins par email 🌿."
     },
     "title": "Notre calcul",
     "mail_calcul": "Calcul pour un mail classique avec pièce jointe une pièce jointe de 1Mo avec une durée de vie de 10 an.",

@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
 import { Pagination, Mousewheel } from 'swiper';
+import { WebsiteCarbonBadge } from 'react-websitecarbon-badge';
 
 import { useIsMediumDevice, useIsSmallDevice } from '@/app/hooks/useIsMobile';
 import openSource from '@/app/assets/svg/open-source.svg';
@@ -16,7 +17,7 @@ import 'swiper/scss/mousewheel';
 import styles from '@/app/components/About/styles.module.scss';
 
 function About(): JSX.Element {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isMediumDevice = useIsMediumDevice();
   const isSmallDevice = useIsSmallDevice();
 
@@ -97,7 +98,14 @@ function About(): JSX.Element {
     [t, isMediumDevice, isSmallDevice, slidesPerView],
   );
 
-  return renderSwiper;
+  return (
+    <>
+      {renderSwiper}
+      <div className={styles.carbonBadge}>
+        <WebsiteCarbonBadge url={'https://inablink.io'} lang={i18n.language} />
+      </div>
+    </>
+  );
 }
 
 export default About;
