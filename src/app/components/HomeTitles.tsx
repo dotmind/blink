@@ -12,6 +12,7 @@ function HomeTitles() {
     if (status === UploadStatus.SUCCESS) {
       return (
         <>
+          {/* @TODO - Get random sentence from list */}
           <h1>{t('home.elon_musk')}</h1>
           <EcoImpactCalculator />
         </>
