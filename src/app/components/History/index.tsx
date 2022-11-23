@@ -7,8 +7,8 @@ import useHistory from '@/app/hooks/useHistory';
 import { deleteFile } from '@/app/services/api';
 import { useApp } from '@/app/providers/AppProdiver';
 import { extractFilePath } from '@/app/services/file';
-import eyeIcon from '@/app/assets/svg/eye.svg';
 import trashIcon from '@/app/assets/svg/trash.svg';
+import shareIcon from '@/app/assets/svg/share_2.svg';
 
 import styles from '@/app/components/History/styles.module.scss';
 
@@ -55,7 +55,7 @@ function History(): JSX.Element | null {
               onClick={handleDelete(item.url, i)}>
               <img src={trashIcon} alt={'trash'} />
             </button>
-            <img src={eyeIcon} alt={'eye'} />
+            <img src={shareIcon} alt={'eye'} />
           </div>
         </a>
       </li>
