@@ -26,7 +26,7 @@ function About(): JSX.Element {
 
   const renderSwiper: JSX.Element = useMemo(
     () => (
-      <div className={'self-center w100 h100 pt-2'}>
+      <div className={'d-flex self-center w100 h100 pt-2'}>
         <SwiperComponent
           className={`${styles.swiper} fade-in`}
           loop

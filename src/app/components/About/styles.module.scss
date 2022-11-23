@@ -1,37 +1,39 @@
-.card {
-  margin: 0.25rem;
-  padding: 2rem;
-  min-height: 18.75rem;
-  border-radius: 0.625rem;
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(0.625rem);
-  box-shadow: 0 0.625rem 1.5rem 0 rgba(0, 0, 0, 0.1);
-  border: 0.05rem solid rgba(255, 255, 255, 0.18);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+.swiper {
+  .card {
+    margin: 0.25rem;
+    padding: 2rem;
+    min-height: 18.75rem;
+    border-radius: 0.625rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(0.625rem);
+    box-shadow: 0 0.625rem 1.5rem 0 rgba(0, 0, 0, 0.1);
+    border: 0.05rem solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 
-  h2 {
-    margin-bottom: 0.8rem;
-    text-align: center;
+    h2 {
+      margin-bottom: 0.8rem;
+      text-align: center;
 
-    img {
-      margin-right: 1rem;
-      width: 2rem;
-      height: 2rem;
-      object-fit: contain;
+      img {
+        margin-right: 1rem;
+        width: 2rem;
+        height: 2rem;
+        object-fit: contain;
+      }
     }
-  }
 
-  p {
-    font-size: 0.9rem;
-    text-align: center;
-  }
+    p {
+      font-size: 0.9rem;
+      text-align: center;
+    }
 
-  @media (max-width: 576px) {
-    margin: var(--safe-zone-x);
-    min-height: 12rem;
+    @media (max-width: 576px) {
+      margin: var(--safe-zone-x);
+      min-height: 12rem;
+    }
   }
 }
 
