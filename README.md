@@ -1,6 +1,6 @@
 <center>
   <a href="https://inablink.io">
-    <img height="200" alt="Blink image" src="https://raw.githubusercontent.com/dotmind/blink/develop/public/splash.webp">
+    <img height="200" alt="Blink image" src="https://raw.githubusercontent.com/dotmind/blink/develop/public/splash.webp?token=GHSAT0AAAAAABY73FOCBRHQTZKYBOBZI4YCY37PFXA">
   </a>
 </center>
 
