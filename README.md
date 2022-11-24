@@ -1,6 +1,6 @@
 <center>
   <a href="https://inablink.io">
-    <img height="200" alt=">Blink image" src="https://raw.githubusercontent.com/dotmind/blink/develop/public/splash.webp?token=GHSAT0AAAAAABY73FOD4Q4PLUWNTJ24NTCGY37OU4A">
+    <img height="200" alt="Blink image" src="https://raw.githubusercontent.com/dotmind/blink/develop/public/splash.webp">
   </a>
 </center>
 
@@ -46,10 +46,10 @@ Blink is a secure and fast pdf transfer tool. It is a web application that allow
 2. Create a new branch `git checkout -b MY_BRANCH_NAME`
 3. Install the dependencies: `npm install`
 4. Fill the `.env` file with your own values (see `.env.sample`)
-5. Run the development server: `npm run dev`
-6. Make your changes
-7. Commit and push your changes
-8. Create a new pull request from your forked repository
+4. Run the development server: `npm run dev`
+5. Make your changes
+6. Commit and push your changes
+7. Create a new pull request from your forked repository
 
 ## Credits
 
