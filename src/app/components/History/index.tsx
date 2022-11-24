@@ -63,7 +63,7 @@ function History(): JSX.Element | null {
   }, [history, t, currentLanguage]);
 
   return (
-    <div className={`${styles.history_container} self-center fade-in`}>
+    <div className={`${styles.history_container} safe self-center fade-in`}>
       <h3>{t('common.history.title')}</h3>
       <ul className={styles.historyList}>{renderList}</ul>
     </div>
