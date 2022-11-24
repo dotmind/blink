@@ -16,7 +16,7 @@
       </a>
   </p>
   <p align="center">
-    <i>Simple json visualization tool for your data.</i>
+    <i>Send your file easily and securely</i>
   </p>
 </p>
 
