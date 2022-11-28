@@ -1,6 +1,6 @@
 export const BASE_WEIGHT = {
   datacenters: 2.33,
-  transmission: 0.11,
+  transmission: 0.12,
   devices: 0.001,
 }; // gCO2e for 1Mo mail attachment
 
