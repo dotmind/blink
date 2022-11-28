@@ -20,21 +20,17 @@ function CalculationExplaination() {
           {isMobile && <LangSwitcher />}
         </header>
         <div className={'safe'}>
-          <h1 className={'title'}> {t('co2_impact.title')} </h1>
-          <p>{t('co2_impact.mail_calcul')}</p>
-          <EcoImpactTable datacenters={2.33} transmission={0.12} devices={0.001} />
-          <p>{t('co2_impact.blink_calcul')}</p>
-          <EcoImpactTable datacenters={0.0212} transmission={0.021} devices={0} />
-
-          <p>
-            {t('co2_impact.source')} &nbsp;
-            <a
-              className={'color-blue text-underline'}
-              href={'https://impactco2.fr/usagenumerique/email'}
-              title={'source impact co2'}>
-              https://impactco2.fr/usagenumerique/email
-            </a>
-          </p>
+          <div className={'text-center'}>
+            <h1 className={'title'}>{t('co2_impact.title')}</h1>
+            <p className={'subtitle'}>{t('co2_impact.subtitle')}</p>
+          </div>
+          <div>
+            <EcoImpactTable />
+            <p className={'text-center'}>
+              {t('co2_impact.source')}
+              <a href={'www.impactco2.fr/usagenumerique/email'}>www.impactco2.fr/usagenumerique/email</a>
+            </p>
+          </div>
         </div>
       </div>
       <Footer />
