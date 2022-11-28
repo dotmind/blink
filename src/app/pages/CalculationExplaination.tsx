@@ -28,7 +28,9 @@ function CalculationExplaination() {
             <EcoImpactTable />
             <p className={'text-center'}>
               {t('co2_impact.source')}
-              <a href={'www.impactco2.fr/usagenumerique/email'}>www.impactco2.fr/usagenumerique/email</a>
+              <a href={'https://www.impactco2.fr/usagenumerique/email'} target={'_blank'} rel={'noreferrer'}>
+                www.impactco2.fr/usagenumerique/email
+              </a>
             </p>
           </div>
         </div>
