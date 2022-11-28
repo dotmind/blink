@@ -7,8 +7,8 @@ import useHistory from '@/app/hooks/useHistory';
 import { deleteFile } from '@/app/services/api';
 import { useApp } from '@/app/providers/AppProdiver';
 import { extractFilePath } from '@/app/services/file';
-import eyeIcon from '@/app/assets/svg/eye.svg';
 import trashIcon from '@/app/assets/svg/trash.svg';
+import shareIcon from '@/app/assets/svg/share_2.svg';
 
 import styles from '@/app/components/History/styles.module.scss';
 
@@ -37,7 +37,7 @@ function History(): JSX.Element | null {
       );
     }
 
-    return history.reverse().map((item, i) => (
+    return history.map((item, i) => (
       <li className={styles.historyCard} key={item.url}>
         <a href={item.url} target={isStandalone ? '_self' : '_blank'} rel={'noreferrer'}>
           <div>
@@ -55,7 +55,7 @@ function History(): JSX.Element | null {
               onClick={handleDelete(item.url, i)}>
               <img src={trashIcon} alt={'trash'} />
             </button>
-            <img src={eyeIcon} alt={'eye'} />
+            <img src={shareIcon} alt={'eye'} />
           </div>
         </a>
       </li>
@@ -63,7 +63,7 @@ function History(): JSX.Element | null {
   }, [history, t, currentLanguage]);
 
   return (
-    <div className={`${styles.history_container} self-center fade-in`}>
+    <div className={`${styles.history_container} safe self-center fade-in`}>
       <h3>{t('common.history.title')}</h3>
       <ul className={styles.historyList}>{renderList}</ul>
     </div>

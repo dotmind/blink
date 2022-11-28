@@ -5,8 +5,8 @@ import { useUpload } from '@/modules/upload/providers/UploadProvider';
 import { fileToBase64, isFileValid, isFileSizeValid } from '@/app/services/file';
 import UploadButton from '@/modules/upload/components/UploadButton';
 import Notification, { NotificationType } from '@/app/components/Notification';
-import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
 import { sanitizeName } from '@/app/services/navigator';
+import pdf_icons from '@/app/assets/svg/pdf_icon.svg';
 import Button, { ButtonStyle } from '@/app/components/Button';
 import crossIcon from '@/app/assets/svg/cancel.svg';
 import addIcon from '@/app/assets/svg/cross.svg';
@@ -117,7 +117,7 @@ function FileInput(): JSX.Element {
           <button className={styles.morphButton} type={'button'} data-status={!!error}>
             <img src={addIcon} alt={'add icon'} />
           </button>
-          <img src={pdf_icons} alt={'pdf icon'} height={'100%'} width={'100%'} />
+          <img src={pdf_icons} alt={'pdf icon'} height={148} width={288} />
           {canDisplayText && <p>{t('upload.max_size')}</p>}
         </div>
 
