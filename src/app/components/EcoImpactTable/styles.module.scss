@@ -1,3 +1,5 @@
+$border_color: #e6e6e6;
+
 .impactTable {
   margin: 4rem auto;
   border: 1px solid rgb(255, 255, 255);
@@ -12,6 +14,13 @@
   th,
   td {
     margin: 0;
+
+    img {
+      width: 1.2rem;
+      height: 1.2rem;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
   }
 
   th,
@@ -19,22 +28,23 @@
     padding: 1rem;
   }
 
-  td {
-    text-align: end;
-    flex-grow: 1;
-    padding: 1rem 2rem;
-  }
-
   tr {
     display: flex;
 
-    div {
+    td {
       display: flex;
       flex-basis: 50%;
       flex-grow: 1;
+      padding: 1rem 2rem;
+
+      div {
+        text-align: end;
+        flex-grow: 1;
+      }
+
 
       &:not(:last-child) {
-        border-right: 2px solid #f3f3f3;
+        border-right: 2px solid $border_color;
       }
     }
   }
@@ -42,31 +52,31 @@
   th:first-child {
     width: 150px;
     text-align: start;
-    border-right: 2px solid #f3f3f3;
+    border-right: 2px solid $border_color;
     flex-shrink: 0;
   }
 
   tr:first-of-type {
-    border-bottom: 2px solid #f3f3f3;
+    border-bottom: 2px solid $border_color;
 
     th:not(:first-child) {
       text-align: center;
       flex-basis: 50%;
 
       &:not(:last-child) {
-        border-right: 2px solid #f3f3f3;
+        border-right: 2px solid $border_color;
       }
     }
   }
 
   tr:last-of-type {
-    border-top: 2px solid #f3f3f3;
+    border-top: 2px solid $border_color;
 
     td {
-      text-align: end;
+      justify-content: end;
 
       &:not(:last-child) {
-        border-right: 2px solid #f3f3f3;
+        border-right: 2px solid $border_color;
         color: #e90000;
       }
 

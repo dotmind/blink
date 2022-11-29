@@ -12,7 +12,7 @@ function EcoImpactCalculator(): JSX.Element {
   const baseEcoImpact: number = Math.round(weightInMb * getTotal(BASE_WEIGHT) * 1000) / 1000;
   const newEcoImpact: number =
     Math.round(weightInMb * (getTotal(BASE_WEIGHT) / (getTotal(BASE_WEIGHT) / getTotal(BLINK_WEIGHT))) * 1000) / 1000;
-  const percentage: number = 100 - Math.round((newEcoImpact / baseEcoImpact) * 100);
+  const percentage: number = 100 - (newEcoImpact * 100) / baseEcoImpact;
 
   return (
     <p className={'text-center mt-2'}>
@@ -23,7 +23,7 @@ function EcoImpactCalculator(): JSX.Element {
       &nbsp;
       {t('co2_impact.calculation.compared_to')} &nbsp;
       <a href={'/calculation'} className={'text-blue pointer text-underline'} target={'_blank'} rel={'noreferrer'}>
-        {percentage}%
+        {percentage.toFixed(2)}%
       </a>
       &nbsp;
       {t('co2_impact.calculation.basic_mail')}
