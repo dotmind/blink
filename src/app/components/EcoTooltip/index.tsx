@@ -23,7 +23,9 @@ function EcoTooltip({ children }: IProps): JSX.Element {
     <div className={styles.tooltip}>
       <img src={infoIcon} alt={'info tooltip icon'} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
 
-      <div style={{display: isShown ? 'block' : 'none' }} className={styles.tooltipContent}>{children}</div>
+      <div style={{ display: isShown ? 'block' : 'none' }} className={styles.tooltipContent}>
+        {children}
+      </div>
     </div>
   );
 }
