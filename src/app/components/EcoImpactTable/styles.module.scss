@@ -14,13 +14,6 @@ $border_color: #e6e6e6;
   th,
   td {
     margin: 0;
-
-    img {
-      width: 1.2rem;
-      height: 1.2rem;
-      cursor: pointer;
-      margin-left: 1rem;
-    }
   }
 
   th,
@@ -42,7 +35,6 @@ $border_color: #e6e6e6;
         flex-grow: 1;
       }
 
-
       &:not(:last-child) {
         border-right: 2px solid $border_color;
       }
@@ -60,8 +52,10 @@ $border_color: #e6e6e6;
     border-bottom: 2px solid $border_color;
 
     th:not(:first-child) {
-      text-align: center;
       flex-basis: 50%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
 
       &:not(:last-child) {
         border-right: 2px solid $border_color;
@@ -83,6 +77,19 @@ $border_color: #e6e6e6;
       &:last-child {
         color: #00c108;
       }
+    }
+  }
+}
+
+
+.info {
+  p {
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: start;
+
+    span {
+      color: var(--color-blue);
     }
   }
 }

@@ -11,9 +11,27 @@ function EcoImpactTable(): JSX.Element {
 
   const getPercentage = useCallback((value: number, total: number) => Math.round((value / total) * 10000) / 100, []);
 
-  const baseInfo = useMemo(() => <div>Mail 1Mo</div>, []);
+  const baseInfo = useMemo(() => (
+    <div className={styles.info}>
+      <p>Pour une pièce jointe de <span>1 Mo</span></p>
+      <p>Durée de rédaction du mail: <span>3 minutes</span></p>
+      <p>Nombre de redondance coté émetteur: <span>3</span></p>
+      <p>Nombre de redondance coté récepteur: <span>3</span></p>
+      <p>Durée du stockage: <span>10 ans</span></p>
+      <p>Nombre de mail reçu / envoyé par jour par personne: <span>100</span></p>
+    </div>
+  ), []);
 
-  const blinkInfo = useMemo(() => <div>Blink 1Mo</div>, []);
+  const blinkInfo = useMemo(() => (
+    <div className={styles.info}>
+      <p>Pour une pièce jointe de <span>1 Mo</span></p>
+      <p>Durée d&#39;envoie d&#39;un fichier blink: <span>1 minute</span></p>
+      <p>Nombre de redondance coté émetteur: <span>1</span></p>
+      <p>Nombre de redondance coté récepteur: <span>0</span></p>
+      <p>Durée du stockage: <span>0.0384 ans (14 jours)</span></p>
+      <p>Nombre de mail reçu / envoyé par jour par personne: <span>100</span></p>
+    </div>
+  ), []);
 
   return (
     <table className={styles.impactTable}>
