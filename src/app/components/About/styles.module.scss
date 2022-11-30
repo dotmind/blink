@@ -30,6 +30,11 @@
       text-align: center;
     }
 
+    a {
+      color: var(--color-blue);
+      margin-top: 1rem;
+    }
+
     @media (max-width: 576px) {
       margin: var(--safe-zone-x);
       min-height: 12rem;
