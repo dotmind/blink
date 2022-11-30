@@ -25,7 +25,9 @@ function CalculationExplaination() {
             <p className={'subtitle'}>{t('co2_impact.subtitle')}</p>
           </div>
           <div>
-            <EcoImpactTable />
+            <div className={'mobile-overflow'}>
+              <EcoImpactTable />
+            </div>
             <p className={'text-center'}>
               {t('co2_impact.source')}
               <a href={'https://www.impactco2.fr/usagenumerique/email'} target={'_blank'} rel={'noreferrer'}>

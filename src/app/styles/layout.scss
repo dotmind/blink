@@ -50,6 +50,16 @@ $safe-zone-y-sm: 15px;
   z-index: 1;
 }
 
+.mobile-overflow {
+  @media (max-width: $breakpoint-md) {
+    overflow-x: auto;
+    position: relative;
+    width: 100vw;
+    left: calc(-1 * var(--safe-zone-x));
+    padding: 0 var(--safe-zone-x);
+  }
+}
+
 .text-underline {
   text-decoration: underline;
 }
