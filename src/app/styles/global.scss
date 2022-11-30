@@ -103,6 +103,12 @@ header {
     text-align: center;
   }
 }
+
+p > a {
+  margin-left: 0.15rem;
+  color: var(--color-blue);
+}
+
 .swiper {
   height: 100%;
 

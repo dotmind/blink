@@ -154,9 +154,18 @@
       "compared_to": "comparer à",
       "basic_mail": "pour un mail classique avec pièce jointe 🌿."
     },
-    "title": "Notre calcul",
-    "mail_calcul": "Calcul pour un mail classique avec pièce jointe une pièce jointe de 1Mo avec une durée de vie de 10 an.",
-    "blink_calcul": "Et voici le calcul pour le même fichier avec Blink !",
-    "source": "Source: "
+    "title": "La recette magique de blink.",
+    "subtitle": "Exemple pour l’envoi d’un mail classique avec pièce jointe de 1Mo.",
+    "source": "Faire une autre simulation : ",
+    "table": {
+      "titles": {
+        "with_blink": "✅ Avec blink",
+        "without_blink": "❌ Par mail",
+        "data_center": "Data center",
+        "transmission": "Transmission",
+        "devices": "Devices",
+        "total": "Total"
+      }
+    }
   }
 }

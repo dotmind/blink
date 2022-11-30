@@ -15,7 +15,7 @@ function Router(): JSX.Element {
           <Routes>
             <Route path={'/'} element={<Home />} />
             <Route path={':id'} element={<Preview />} />
-            <Route path={'/calculation'} element={<CalculationExplaination />} />
+            <Route path={'/explaination'} element={<CalculationExplaination />} />
             <Route path={'*'} element={<Error404 />} />
           </Routes>
         </Suspense>
