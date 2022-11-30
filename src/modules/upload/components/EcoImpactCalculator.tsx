@@ -16,13 +16,13 @@ function EcoImpactCalculator(): JSX.Element {
 
   return (
     <p className={'text-center mt-2'}>
-      {t('co2_impact.calculation.your_file')} &nbsp;
-      <a href={'/calculation'} className={'text-blue pointer text-underline'} target={'_blank'} rel={'noreferrer'}>
+      {t('co2_impact.calculation.your_file')}
+      <a href={'/explaination'} className={'text-blue pointer text-underline'} target={'_blank'} rel={'noreferrer'}>
         {newEcoImpact} g.CO2e
       </a>
       &nbsp;
-      {t('co2_impact.calculation.compared_to')} &nbsp;
-      <a href={'/calculation'} className={'text-blue pointer text-underline'} target={'_blank'} rel={'noreferrer'}>
+      {t('co2_impact.calculation.compared_to')}
+      <a href={'/explaination'} className={'text-blue pointer text-underline'} target={'_blank'} rel={'noreferrer'}>
         {percentage.toFixed(2)}%
       </a>
       &nbsp;
