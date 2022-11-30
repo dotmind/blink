@@ -9,6 +9,7 @@ import { uploadFile } from '@/app/services/api';
 import { toShareUrl, canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import Button, { ButtonStyle } from '@/app/components/Button';
 import uploadIcon from '@/app/assets/svg/upload.svg';
+import { copyRichText } from '@/app/utils/clipboard';
 
 function UploadButton(): JSX.Element | null {
   const { fingerprint } = useApp();
@@ -39,8 +40,8 @@ function UploadButton(): JSX.Element | null {
 
       if (canUseNativeShare()) {
         nativeShare(url);
-      } else if (navigator.clipboard) {
-        navigator.clipboard.writeText(url);
+      } else if (filename) {
+        copyRichText({ fileName: filename, link: url });
       }
     } catch (error) {
       setError(error as Error);

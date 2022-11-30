@@ -12,6 +12,7 @@ import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
 import validIcon from '@/app/assets/svg/validation.svg';
 import shareIcon from '@/app/assets/svg/share_2.svg';
 import { displayFileWeight } from '@/app/utils/file';
+import { copyRichText } from '@/app/utils/clipboard';
 
 import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
 
@@ -26,9 +27,11 @@ function UploadFile(): JSX.Element {
     }
 
     if (!canUseNativeShare()) {
-      navigator.clipboard.writeText(shareUrl);
+      if (filename) {
+        copyRichText({ fileName: filename, link: shareUrl });
+      }
+      return;
     }
-
     nativeShare(shareUrl);
   }, [shareUrl]);
 
