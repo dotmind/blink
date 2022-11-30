@@ -25,8 +25,7 @@ function RichTextTemplate({ fileName, link }: RichTextTemplateProps) {
       <img
         width={'240'}
         style={{ borderRadius: '8px 8px 0px 0px', fontSize: 0 }}
-        // @todo Use our own CDN to serve this image
-        src={'https://user-images.githubusercontent.com/32040951/203973885-071abf8c-b09a-46eb-b57b-3fdb614b984e.jpg'}
+        src={'https://inablink.io/assets/quick-link-preview.png'}
         alt={'Your document preview button'}
       />
       <div style={{ padding: 8, marginTop: -4 }}>
@@ -51,8 +50,7 @@ function RichTextTemplate({ fileName, link }: RichTextTemplateProps) {
 
         <img
           style={{ display: 'block', height: '.9em' }}
-          // @todo Use our own CDN to serve this image
-          src={'https://user-images.githubusercontent.com/32040951/204548869-d7cf7561-56d9-4c96-a0c1-ca14f9f9d23b.png'}
+          src={'https://inablink.io/assets/quick-link-logo.png'}
           alt={'Blink logo'}
         />
       </div>
@@ -75,7 +73,6 @@ export const copyRichText = async (args: RichTextTemplateProps): Promise<void> =
 
   if (clipboardPermission && 'clipboard' in navigator) {
     const richText = `<meta charset='utf-8'>${getRichTextAsHTML(args)}<br/>`;
-    console.log('🚀 ~ file: clipboard.tsx ~ line 80 ~ copyRichText ~ richText', richText);
 
     const richTextBlob = new Blob([richText], { type: 'text/html' });
     const plainTextBlob = new Blob([plainText], { type: 'text/plain' });
