@@ -46,6 +46,9 @@ function About(): JSX.Element {
                 </h2>
               </div>
               <p>{t('about.open_source.text')}</p>
+              <a href={'https://github.com/dotmind/blink'} target={'_blank'} rel={'noreferrer'}>
+                {t('about.link_to_github')}
+              </a>
             </div>
           </SwiperSlide>
           <SwiperSlide>
@@ -68,6 +71,9 @@ function About(): JSX.Element {
                 </h2>
               </div>
               <p>{t('about.ecolo.text')}</p>
+              <a href={'/explaination'} target={'_blank'} rel={'noreferrer'}>
+                {t('about.link_to_calcul')}
+              </a>
             </div>
           </SwiperSlide>
           <SwiperSlide>
