@@ -67,7 +67,9 @@
     "expiration": {
       "title": "Expiration automatique",
       "text": "Tous les fichiers téléchargés sont supprimés au bout de 14 jours. Si vous n'en avez plus besoin, vous pouvez également les supprimer définitivement par vous-même."
-    }
+    },
+    "link_to_calcul": "Our calcul",
+    "link_to_github": "Our source code"
   },
   "upload": {
     "input": "Drop PDF here",
