@@ -18,7 +18,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script_stop: true
           script: |
-            cd /home/clients/0595bb847356d02f4b5bca65b97759a6/sites/blink.dotmind.io/blink
+            cd /home/clients/0595bb847356d02f4b5bca65b97759a6/sites/inablink.io/blink
             git checkout develop
             git pull origin develop
             export NVM_DIR="$HOME/.nvm"
