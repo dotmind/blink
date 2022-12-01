@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { WebsiteCarbonBadge } from 'react-websitecarbon-badge';
 
 import Logo from '@/app/components/Logo';
 import LangSwitcher from '@/app/components/LangSwitcher';
@@ -9,7 +10,7 @@ import useIsMobile from '@/app/hooks/useIsMobile';
 import EcoImpactTable from '@/app/components/EcoImpactTable';
 
 function CalculationExplaination() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isMobile: boolean = useIsMobile();
 
   return (
@@ -28,12 +29,13 @@ function CalculationExplaination() {
             <div className={'mobile-overflow'}>
               <EcoImpactTable />
             </div>
-            <p className={'text-center'}>
+            <p className={'text-center mb-2'}>
               {t('co2_impact.source')}
               <a href={'https://www.impactco2.fr/usagenumerique/email'} target={'_blank'} rel={'noreferrer'}>
                 www.impactco2.fr/usagenumerique/email
               </a>
             </p>
+            <WebsiteCarbonBadge url={'https://inablink.io'} lang={i18n.language} />
           </div>
         </div>
       </div>
