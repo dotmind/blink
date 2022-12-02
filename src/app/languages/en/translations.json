@@ -1,13 +1,13 @@
 {
   "common": {
     "name": "Blink",
-    "description": "Blink application",
-    "watermark": "Made by Dotmind",
+    "description": "Share a PDF securely 🔒",
+    "watermark": "by .mind",
     "pwa": {
-      "install": "Installer l'application Blink"
+      "install": "Install the application"
     },
     "tooltip": {
-      "copied": "Copied !"
+      "copied": "Link copied!"
     },
     "history": {
       "title": "Transfer history",
@@ -16,31 +16,35 @@
     },
     "share": {
       "download": "Download",
-      "description": "Partager un fichier avec Blink"
+      "description": "Share a file with Blink"
     },
     "errors": {
       "404": {
-        "title": "Page inexistante",
-        "message": "La page  ou le fichier que vous chercher n’existe pas, à expiré. Retrouver votre route en passant par l’acceuil.",
-        "button": "Retour à l’acceuil"
+        "title": "Not found",
+        "message": "Page or file no longer exist!",
+        "button": "Back to home"
       },
-      "network": "Erreur réseau : impossible de se connecter au serveur.",
-      "endpoint_not_found": "Erreur serveur: l’URL demandée n’existe pas.",
-      "too_many_requests": "Erreur serveur: trop de requêtes.",
-      "file_not_found": "Erreur serveur: Fichier inexistant ou expiré",
-      "invalid_signature": "Erreur serveur: signature invalide",
-      "file_cannot_be_saved": "Erreur serveur: impossible de sauvegarder le fichier",
-      "invalid_time_value": "Erreur application: environnement invalide",
-      "https": "Erreur application: connexion HTTPS requise",
-      "expired_signature": "Erreur application: signature expirée",
-      "missing_headers": "Erreur application: en-têtes manquantes",
-      "jwk_export": "Erreur application: impossible d’exporter la clé publique",
-      "cannot_decrypt": "Erreur application: impossible de décrypter le fichier, la clé est peut-être invalide ou le contexte n'est pas sécurié (HTTPS)"
+      "network": "Network error: cannot connect to server.",
+      "endpoint_not_found": "Server error: url doesn't exist",
+      "too_many_requests": "Server error: too many requests.",
+      "file_not_found": "Server error: file doesn't exist or expired",
+      "invalid_signature": "Server error: invalid signature",
+      "file_cannot_be_saved": "Server error: cannot save file",
+      "invalid_time_value": "Application error: invalid environment",
+      "https": "Application error: HTTPS required",
+      "expired_signature": "Application error: signature expired",
+      "missing_headers": "Application error: missing headers",
+      "jwk_export": "Application error: cannot export public key",
+      "cannot_decrypt": "Application error: cannot decrypt the file"
     }
   },
   "home": {
-    "title": "Simple and faster pdf transfer",
-    "subtitle": "send your file easily and securely",
+    "title": "Simple and faster PDF transfer",
+    "subtitle": "Send your file easily and securely",
+    "success": {
+      "elon_musk": "Even Elon Musk won't be able to see it!",
+      "patator": "PDF patator 3000"
+    },
     "tabs": {
       "upload": "Create a link",
       "about": "About",
@@ -49,50 +53,50 @@
   },
   "about": {
     "simple": {
-      "title": "Simple et rapide",
-      "text": "Il vous suffit de déposer un fichier pdf n'importe où sur la page et vous obtenez un lien à partager en quelques secondes."
+      "title": "Simple and fast",
+      "text": "Just drop your pdf anywhere on the page and get a link to share. No more struggles with sending big pdf files by email, we make it easier and faster."
     },
     "security": {
-      "title": "Cryptage bout en bout",
-      "text": "Nous avons opté pour une solution end to end afin de garantir la confidentialité de vos documents. Ils ne sont donc accessibles que par vous et votre destinataire. Anonymisé"
+      "title": "End-to-End Encryption",
+      "text": "Privacy is very important for us, so we choose to provide an end-to-end encrypted way to share your sensitive files. They are only accessible by you and the receiver."
     },
     "ecolo": {
-      "title": "Écologique",
-      "text": "En choisissant Blink vous évitez l'envoi d'une pièce jointe et son stockage sur des serveurs."
+      "title": "Carbon neutral",
+      "text": "No more attachment saved ad vitam aeternam!\n\r"
     },
     "open_source": {
-      "title": "Open-source",
-      "text": "Le partage de connaissances et la collaboration font partie intégrante de nos valeurs ! Nous avons à coeur de participer également à l'évolution de la communauté tech."
+      "title": "Open source project",
+      "text": "We value knowledge sharing and we encourage collaboration. Our focus is to provide a cool and useful pdf sharing service for the community, that's why it's an open-source project."
     },
     "expiration": {
-      "title": "Expiration automatique",
-      "text": "Tous les fichiers téléchargés sont supprimés au bout de 14 jours. Si vous n'en avez plus besoin, vous pouvez également les supprimer définitivement par vous-même."
+      "title": "Automatic expiration",
+      "text": "All uploaded files are permanently deleted once they reached their expiration date. If you no longer need those files, you can remove them permanently by yourself."
     },
     "link_to_calcul": "Our calcul",
     "link_to_github": "Our source code"
   },
   "upload": {
-    "input": "Drop PDF here",
+    "input": "Upload or drop your PDF here and get a shareable link!",
     "max_size": "Up to 10 MB",
-    "button": "Upload PDF",
+    "button": "Upload",
     "overlay": {
-      "title": "Drag and drop your files here",
-      "description": "Share easily your files with security and privacy"
+      "title": "Drop your PDF here",
+      "description": "You can drop, it’s safe!"
     },
     "link": {
-      "loading": "Chargement...",
+      "loading": "Encryption",
       "share": "Share link",
       "copy": "Copy link",
-      "new_upload": "Nouvel envoi"
+      "new_upload": "New link"
     },
     "errors": {
-      "wrong_file_type": "Wrong file type: only PDF files are allowed !",
-      "file_too_big": "File is too big !",
-      "file_not_found": "File not found !",
+      "wrong_file_type": "Wrong file type: only PDF files are allowed!",
+      "file_too_big": "File is too big!",
+      "file_not_found": "File not found!",
       "upload_failed": {
-        "title": "Une erreur est survenue",
-        "description": "Le serveur à rencontré une erreur lors de l'envoi de votre fichier. Veuillez réessayer.",
-        "retry": "Recommencer"
+        "title": "An error occured",
+        "description": "Cannot upload your file. Please retry or contact us!",
+        "retry": "Retry"
       }
     },
     "headers": {
@@ -111,8 +115,8 @@
     }
   },
   "fileviewer": {
-    "title": "Tu as reçu un fichier !",
-    "estimation": "This file will be deleted in",
+    "title": "You catch a new PDF!",
+    "estimation": "This file will self-destruct in",
     "nextPage": "Next page",
     "previousPage": "Previous page",
     "share": "Share",
@@ -125,7 +129,7 @@
     "nextPage": "Next page",
     "previousPage": "Previous page",
     "close": "Close",
-    "moreInfo": "Plus d'info"
+    "moreInfo": "More information"
   },
   "lang": {
     "choose": "Choose your language",
@@ -152,17 +156,17 @@
   },
   "co2_impact": {
     "calculation": {
-      "your_file": "Votre fichier représente environs",
-      "compared_to": "comparer à",
-      "basic_mail": "pour un mail classique avec pièce jointe 🌿."
+      "your_file": "Share this file is about",
+      "compared_to": "it's",
+      "basic_mail": "less than by email!"
     },
-    "title": "La recette magique de blink.",
-    "subtitle": "Exemple pour l’envoi d’un mail classique avec pièce jointe de 1Mo.",
-    "source": "Faire une autre simulation : ",
+    "title": "How we calcul?",
+    "subtitle": "Comparison of PDF sharing with Blink and as an email attachment.",
+    "source": "Learn more ",
     "table": {
       "titles": {
-        "with_blink": "✅ Avec blink",
-        "without_blink": "❌ Par mail",
+        "with_blink": "✅ With Blink",
+        "without_blink": "❌ In email",
         "data_center": "Data center",
         "transmission": "Transmission",
         "devices": "Devices",

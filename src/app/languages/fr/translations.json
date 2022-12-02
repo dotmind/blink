@@ -1,10 +1,10 @@
 {
   "common": {
     "name": "Blink",
-    "description": "Blink application",
+    "description": "Partager un PDF en toute sécurité 🔒",
     "watermark": "by .mind",
     "pwa": {
-      "install": "Installer l'application Blink"
+      "install": "Installer l'application"
     },
     "tooltip": {
       "copied": "Lien copié !"
@@ -25,24 +25,24 @@
         "button": "Retour à l’acceuil"
       },
       "network": "Erreur réseau : impossible de se connecter au serveur.",
-      "endpoint_not_found": "Erreur serveur: l’URL demandée n’existe pas.",
-      "too_many_requests": "Erreur serveur: trop de requêtes.",
-      "file_not_found": "Erreur serveur: Fichier inexistant ou expiré",
-      "invalid_signature": "Erreur serveur: signature invalide",
-      "file_cannot_be_saved": "Erreur serveur: impossible de sauvegarder le fichier",
-      "invalid_time_value": "Erreur application: environnement invalide",
-      "https": "Erreur application: connexion HTTPS requise ou clé invalide",
-      "expired_signature": "Erreur application: signature expirée",
-      "missing_headers": "Erreur application: en-têtes manquantes",
-      "jwk_export": "Erreur application: impossible d’exporter la clé publique",
-      "cannot_decrypt": "Erreur application: impossible de décrypter le fichier, la clé est peut-être invalide ou le contexte n'est pas sécurié (HTTPS)"
+      "endpoint_not_found": "Erreur serveur : l’URL demandée n’existe pas.",
+      "too_many_requests": "Erreur serveur : trop de requêtes.",
+      "file_not_found": "Erreur serveur : Fichier inexistant ou expiré",
+      "invalid_signature": "Erreur serveur : signature invalide",
+      "file_cannot_be_saved": "Erreur serveur:  impossible de sauvegarder le fichier",
+      "invalid_time_value": "Erreur application : environnement invalide",
+      "https": "Erreur application : connexion HTTPS requise ou clé invalide",
+      "expired_signature": "Erreur application : signature expirée",
+      "missing_headers": "Erreur application : en-têtes manquantes",
+      "jwk_export": "Erreur application : impossible d’exporter la clé publique",
+      "cannot_decrypt": "Erreur application : impossible de décrypter le fichier, la clé est peut-être invalide ou le contexte n'est pas sécurié (HTTPS)"
     }
   },
   "home": {
-    "title": "Simple and faster pdf transfer",
-    "subtitle": "send your file easily and securely",
+    "title": "Conjuguez le pdf au futur propre",
+    "subtitle": "Transfert de PDF sécurisé à faible impact numérique 🌱",
     "success": {
-      "elon_musk": "Même Elon Musk ne pourra le voir.",
+      "elon_musk": "Même Elon Musk ne pourra le voir !",
       "patator": "PDF patator 3000"
     },
     "tabs": {
@@ -57,42 +57,42 @@
       "text": "Il vous suffit de déposer un fichier pdf n'importe où sur la page et vous obtenez un lien à partager en quelques secondes."
     },
     "security": {
-      "title": "Cryptage bout en bout",
-      "text": "Nous avons opté pour une solution end to end afin de garantir la confidentialité de vos documents. Ils ne sont donc accessibles que par vous et votre destinataire."
+      "title": "Cryptage de bout en bout",
+      "text": "Envoyer un document c'est ok, mais que tout internet puisse y accéder c'est bof. Avec Blink, votre pdf est uniquement accessible par vous et votre destinataire."
     },
     "ecolo": {
-      "title": "Écologique",
-      "text": "En choisissant Blink vous évitez l'envoi d'une pièce jointe et son stockage sur des serveurs."
+      "title": "Numérique responsable",
+      "text": "Transférer un pdf par un lien Blink c'est éviter de laisser cette pièce jointe sauvegardé sur des serveurs ad vitam aeternam."
     },
     "open_source": {
       "title": "Open-source",
-      "text": "Le partage de connaissances et la collaboration font partie intégrante de nos valeurs ! Nous avons à coeur de participer également à l'évolution de la communauté tech."
+      "text": "On aime bien créer des choses, encore plus quand elles ont du sens ! Si au passage elles peuvent bénéficier à la communauté tech, \r\nc'est tout benef !"
     },
     "expiration": {
       "title": "Expiration automatique",
-      "text": "Tous les fichiers téléchargés sont supprimés au bout de 14 jours. Si vous n'en avez plus besoin, vous pouvez également les supprimer définitivement par vous-même."
+      "text": "Afin d’éviter leur stockage sur des serveurs les pdfs ont une petite espérance de vie et s'auto-détruisent au bout de 14 jours.\r\nMais si vous le voulez, vous pouvez aussi les supprimer définitivement vous-même."
     },
     "link_to_calcul": "Notre calcul",
-    "link_to_github": "Notre code source"
+    "link_to_github": "Voir toute la magie de Blink."
   },
   "upload": {
-    "input": "Téléchargez ou déposez votre pdf pour obtenir un lien à partager.",
-    "max_size": "Jusqu'a 10 MB",
+    "input": "Téléchargez ou déposez votre PDF pour obtenir un lien à partager !",
+    "max_size": "Jusqu'à 10 MB",
     "button": "Envoyer",
     "overlay": {
-      "title": "Déplacer vos fichiers",
-      "description": "Partager facilement des fichiers en toute sécurité."
+      "title": "Lâcher votre PDF ici",
+      "description": "Pas de risque, c'est sécurisé !"
     },
     "link": {
-      "loading": "Chargement...",
+      "loading": "Cryptage...",
       "share": "Partager le lien",
       "copy": "Copier le lien",
       "new_upload": "Nouvel envoi"
     },
     "errors": {
-      "wrong_file_type": "Mauvaise extension de fichier !",
-      "file_too_big": "Fichier trop volumineux !",
-      "file_not_found": "Fichier introuvable !",
+      "wrong_file_type": "Seulement les fichiers PDF sont autorisés !",
+      "file_too_big": "Fichier trop volumineux!",
+      "file_not_found": "Fichier introuvable!",
       "upload_failed": {
         "title": "Une erreur est survenue",
         "description": "Le serveur a rencontré une situation qu'il ne sait pas traiter. Si l’erreur revient plusieurs fois, contactez nous.",
@@ -115,8 +115,8 @@
     }
   },
   "fileviewer": {
-    "title": "Tu as reçu un fichier !",
-    "estimation": "Ce fichier expireras dans",
+    "title": "Un PDF sauvage vient de faire son apparition !",
+    "estimation": "Faites vite, il s’auto-détruira dans",
     "nextPage": "Page suivante",
     "previousPage": "Page précédente",
     "share": "Partager",
@@ -158,11 +158,11 @@
     "calculation": {
       "your_file": "Partager ce fichier représente",
       "compared_to": "c'est",
-      "basic_mail": "de moins par email 🌿."
+      "basic_mail": "de moins par email !"
     },
-    "title": "La recette magique de blink.",
-    "subtitle": "Exemple pour l’envoi d’un mail classique avec pièce jointe de 1Mo.",
-    "source": "Faire une autre simulation : ",
+    "title": "La recette magique de Blink.",
+    "subtitle": "Tableau comparatif d'un partage de PDF avec Blink et en pièce-jointe d'un email.",
+    "source": "Pour en savoir plus ",
     "table": {
       "titles": {
         "with_blink": "✅ Avec blink",

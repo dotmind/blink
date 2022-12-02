@@ -31,8 +31,8 @@ function CalculationExplaination() {
             </div>
             <p className={'text-center mb-2'}>
               {t('co2_impact.source')}
-              <a href={'https://www.impactco2.fr/usagenumerique/email'} target={'_blank'} rel={'noreferrer'}>
-                www.impactco2.fr/usagenumerique/email
+              <a href={'https://www.impactco2.fr/usagenumerique/email'} target={'_blank'} rel={'noopener noreferrer'}>
+                impactco2.fr/usagenumerique/email
               </a>
             </p>
             <WebsiteCarbonBadge url={'https://inablink.io'} lang={i18n.language} />

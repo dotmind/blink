@@ -14,8 +14,15 @@ const resources = {
   },
 };
 
+const detectorOptions = {
+  lookupCookie: 'blink_lng',
+  lookupLocalStorage: 'blink_lng',
+  lookupSessionStorage: 'blink_lng',
+  caches: ['localStorage'],
+};
+
 i18n.use(detector).use(initReactI18next).init({
-  lng: 'fr',
+  detection: detectorOptions,
   resources,
   fallbackLng: 'fr',
 });

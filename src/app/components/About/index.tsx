@@ -44,10 +44,16 @@ function About(): JSX.Element {
                   {t('about.open_source.title')}
                 </h2>
               </div>
-              <p>{t('about.open_source.text')}</p>
-              <a href={'https://github.com/dotmind/blink'} target={'_blank'} rel={'noreferrer'}>
-                {t('about.link_to_github')}
-              </a>
+              <p>
+                {t('about.open_source.text')}
+                <a
+                  href={'https://github.com/dotmind/blink'}
+                  title={t('about.link_to_github')}
+                  target={'_blank'}
+                  rel={'noopener noreferrer'}>
+                  {t('about.link_to_github')}
+                </a>
+              </p>
             </div>
           </SwiperSlide>
           <SwiperSlide>
@@ -69,10 +75,12 @@ function About(): JSX.Element {
                   {t('about.ecolo.title')}
                 </h2>
               </div>
-              <p>{t('about.ecolo.text')}</p>
-              <a href={'/explaination'} target={'_blank'} rel={'noreferrer'}>
-                {t('about.link_to_calcul')}
-              </a>
+              <p>
+                {t('about.ecolo.text')}
+                <a href={'/explaination'} target={'_blank'} title={t('about.link_to_calcul')} rel={'noopener noreferrer'}>
+                  {t('about.link_to_calcul')}
+                </a>
+              </p>
             </div>
           </SwiperSlide>
           <SwiperSlide>

@@ -28,11 +28,13 @@
     p {
       font-size: 0.9rem;
       text-align: center;
+      white-space: pre-line;
     }
 
     a {
       color: var(--color-blue);
       margin-top: 1rem;
+      text-decoration: none;
     }
 
     @media (max-width: 576px) {
