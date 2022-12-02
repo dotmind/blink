@@ -180,3 +180,10 @@
     border-color: var(--color-blue);
   }
 }
+
+.share_icon {
+  padding: 0.15rem;
+  border-radius: 5px;
+  background-color: var(--color-green);
+  cursor: copy;
+}

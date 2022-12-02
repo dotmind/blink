@@ -104,7 +104,7 @@ function UploadFile(): JSX.Element {
 
     return (
       <div className={'d-flex align-center pointer'} onClick={handleShare} onKeyDown={handleShare} role={'button'} tabIndex={0}>
-        <img src={shareIcon} alt={'Share icons'} />
+        <img className={styles.share_icon} src={shareIcon} alt={'Share icons'} />
       </div>
     );
   }, [status, shareIcon, handleShare]);

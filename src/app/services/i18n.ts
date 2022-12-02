@@ -4,7 +4,6 @@ import { initReactI18next } from 'react-i18next';
 
 import en from '@/app/languages/en/translations.json';
 import fr from '@/app/languages/fr/translations.json';
-import es from '@/app/languages/es/translations.json';
 
 const resources = {
   en: {
@@ -13,13 +12,17 @@ const resources = {
   fr: {
     translation: fr,
   },
-  es: {
-    translation: es,
-  },
+};
+
+const detectorOptions = {
+  lookupCookie: 'blink_lng',
+  lookupLocalStorage: 'blink_lng',
+  lookupSessionStorage: 'blink_lng',
+  caches: ['localStorage'],
 };
 
 i18n.use(detector).use(initReactI18next).init({
-  lng: 'fr',
+  detection: detectorOptions,
   resources,
   fallbackLng: 'fr',
 });

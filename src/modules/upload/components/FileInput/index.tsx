@@ -67,14 +67,17 @@ function FileInput(): JSX.Element {
       onFileChange();
       handleIsActive(false)(e);
     },
-    [file],
+    [fileHandler],
   );
 
   const handleChangeFile: () => void = useCallback(() => {
     setFile(undefined);
     setFilename(undefined);
     setError(null);
-  }, [setFile, setFilename, setError]);
+    if (fileHandler.current) {
+      fileHandler.current.value = '';
+    }
+  }, [setFile, setFilename, setError, fileHandler]);
 
   const handleDismissError: () => void = useCallback(() => {
     setError(null);
