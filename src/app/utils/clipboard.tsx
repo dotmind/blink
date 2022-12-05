@@ -25,7 +25,7 @@ function RichTextTemplate({ fileName, link }: RichTextTemplateProps) {
       <img
         width={'240'}
         style={{ borderRadius: '8px 8px 0px 0px', fontSize: 0 }}
-        src={'https://inablink.io/assets/quick-link-preview.png'}
+        src={'https://inablink.io/assets/quick-link-preview.jpg'}
         alt={'Your document preview button'}
       />
       <div style={{ padding: 8, marginTop: -4 }}>
