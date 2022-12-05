@@ -15,52 +15,55 @@ function EcoImpactTable(): JSX.Element {
     () => (
       <div className={styles.info}>
         <p>
-          Pour une pièce jointe de <span>1 Mo</span> :
+          {t('co2_impact.base_info.label')} <span>1 {t('co2_impact.base_info.units.mo')}</span> :
         </p>
         <p>
-          - Durée de rédaction du mail: <span>3 minutes</span>
+          - {t('co2_impact.base_info.duration')} <span>3 {t('co2_impact.base_info.units.minutes')}</span>
         </p>
         <p>
-          - Nombre de redondance coté émetteur: <span>3</span>
+          - {t('co2_impact.base_info.sender')} <span>3</span>
         </p>
         <p>
-          - Nombre de redondance coté récepteur: <span>3</span>
+          - {t('co2_impact.base_info.receiver')} <span>3</span>
         </p>
         <p>
-          - Durée du stockage: <span>10 ans</span>
+          - {t('co2_impact.base_info.storage')} <span>10 {t('co2_impact.base_info.units.year')}</span>
         </p>
         <p>
-          - Nombre de mail reçu / envoyé par jour par personne: <span>100</span>
+          - {t('co2_impact.base_info.mail_sent_per_day')} <span>100</span>
         </p>
       </div>
     ),
-    [],
+    [t],
   );
 
   const blinkInfo = useMemo(
     () => (
       <div className={styles.info}>
         <p>
-          Pour une pièce jointe de <span>1 Mo</span> :
+          {t('co2_impact.base_info.label')} <span>1 {t('co2_impact.base_info.units.mo')}</span> :
         </p>
         <p>
-          - Durée d&#39;envoie d&#39;un fichier blink: <span>1 minute</span>
+          - {t('co2_impact.base_info.duration')} <span>1 {t('co2_impact.base_info.units.minutes')}</span>
         </p>
         <p>
-          - Nombre de redondance coté émetteur: <span>1</span>
+          - {t('co2_impact.base_info.sender')} <span>1</span>
         </p>
         <p>
-          - Nombre de redondance coté récepteur: <span>0</span>
+          - {t('co2_impact.base_info.receiver')} <span>0</span>
         </p>
         <p>
-          - Durée du stockage: <span>0.0384 ans (14 jours)</span>
+          - {t('co2_impact.base_info.storage')}{' '}
+          <span>
+            0.0384 {t('co2_impact.base_info.units.year')} (14 {t('co2_impact.base_info.units.days')})
+          </span>
         </p>
         <p>
-          - Nombre de mail reçu / envoyé par jour par personne: <span>100</span>
+          - {t('co2_impact.base_info.mail_sent_per_day')} <span>100</span>
         </p>
       </div>
     ),
-    [],
+    [t],
   );
 
   return (

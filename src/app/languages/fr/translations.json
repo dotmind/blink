@@ -172,6 +172,20 @@
         "devices": "Devices",
         "total": "Total"
       }
+    },
+    "base_info": {
+      "label": "Pour une pièce jointe de ",
+      "duration": "Durée d'envoie du mail: ",
+      "sender": "Nombre de redondance coté émetteur:",
+      "receiver": "Nombre de redondance coté récepteur:",
+      "storage": "Durée de stockage:",
+      "mail_sent_per_day": "Nombre de mail reçu / envoyé par jour par personne:",
+      "units": {
+        "mo": "Mo",
+        "minutes": "minute(s)",
+        "days": "jours",
+        "year": "ans"
+      }
     }
   }
 }
