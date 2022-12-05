@@ -38,10 +38,12 @@ function UploadButton(): JSX.Element | null {
 
       setStatus(UploadStatus.SUCCESS);
 
-      if (canUseNativeShare()) {
-        nativeShare(url);
-      } else if (filename) {
-        copyRichText({ fileName: filename, link: url });
+      if (filename) {
+        if (canUseNativeShare()) {
+          nativeShare(url, filename);
+        } else {
+          copyRichText({ fileName: filename, link: url });
+        }
       }
     } catch (error) {
       setError(error as Error);

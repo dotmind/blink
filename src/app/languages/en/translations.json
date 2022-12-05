@@ -172,6 +172,20 @@
         "devices": "Devices",
         "total": "Total"
       }
+    },
+    "base_info": {
+      "label": "With a file of ",
+      "duration": "Duration of sending the email: ",
+      "sender": "Number of redundancy on the transmitter side:",
+      "receiver": "Number of redundancy on the receiver side:",
+      "storage": "Storage time: ",
+      "mail_sent_per_day": "Number of emails received / sent per day per person: ",
+      "units": {
+        "mo": "MB",
+        "minutes": "minute(s)",
+        "days": "days",
+        "year": "year"
+      }
     }
   }
 }

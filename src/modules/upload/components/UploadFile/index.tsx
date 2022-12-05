@@ -22,7 +22,7 @@ function UploadFile(): JSX.Element {
   const { filename, fileWeight, status, shareUrl } = useUpload();
   const { t } = useTranslation();
   const handleShare = useCallback(() => {
-    if (!shareUrl) {
+    if (!shareUrl || !filename) {
       return;
     }
 
@@ -32,7 +32,7 @@ function UploadFile(): JSX.Element {
       }
       return;
     }
-    nativeShare(shareUrl);
+    nativeShare(shareUrl, filename);
   }, [shareUrl]);
 
   const renderProgress: JSX.Element | null = useMemo(() => {

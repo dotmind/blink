@@ -18,7 +18,7 @@ export function canUseNativeShare() {
   return !!navigator.share;
 }
 
-export function nativeShare(url: string) {
+export function nativeShare(url: string, filename: string) {
   if (!canUseNativeShare()) {
     throw new Error('Native share not supported');
   }
@@ -26,7 +26,7 @@ export function nativeShare(url: string) {
   return navigator
     .share({
       title: 'blink',
-      text: 'Blink - Share your PDF safely 🔐',
+      text: filename,
       url,
     })
     .catch(() => {
