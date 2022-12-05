@@ -19,7 +19,7 @@ import ShareIcon from '@/app/assets/svg/share_white.svg';
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
 
 function FileViewer(): JSX.Element {
-  const { file, expiresIn, isLoading, error } = useDownload();
+  const { file, expiresIn, isLoading, error, fileName } = useDownload();
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { width, height } = useWindowSize();
@@ -38,7 +38,7 @@ function FileViewer(): JSX.Element {
 
   const isLastPage: boolean = useMemo(() => pageNumber === numPages, [pageNumber, numPages]);
 
-  const handleShare: () => Promise<void> = () => nativeShare(window.location.href);
+  const handleShare: () => Promise<void> = () => nativeShare(window.location.href, fileName as string);
 
   // pdf worker config for vite bundle
   pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
