@@ -136,14 +136,12 @@
     "full": {
       "en": "English",
       "fr": "French",
-      "de": "German",
-      "es": "Spanish"
+      "fr-FR": "French"
     },
     "short": {
       "en": "EN",
       "fr": "FR",
-      "de": "DE",
-      "es": "ES"
+      "fr-FR": "FR"
     }
   },
   "time": {
