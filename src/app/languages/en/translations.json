@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "Blink",
-    "description": "Share a PDF securely 🔒",
+    "description": "Send your pdf easily and securely ! 🔒",
     "watermark": "by .mind",
     "pwa": {
       "install": "Install the application"
