@@ -11,7 +11,7 @@ function Head(): JSX.Element {
       <meta name={'viewport'} content={'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'} />
       <meta property={'og:title'} content={t('common.name')} />
       <meta property={'og:description'} content={t('common.description')} />
-      <meta property={'og:image'} content={'/assets/meta_image.png'} />
+      <meta property={'og:image'} content={'/assets/meta_image.jpg'} />
       <meta property={'og:image:width'} content={'1200'} />
       <meta property={'og:image:height'} content={'630'} />
       <meta name={'theme-color'} content={'#FFFFFF'} />
@@ -30,7 +30,7 @@ function Head(): JSX.Element {
       <meta name={'twitter:creator'} content={'@dotmind_io'} />
       <meta name={'twitter:title'} content={t('common.name')} />
       <meta name={'twitter:description'} content={t('common.description')} />
-      <meta name={'twitter:image'} content={'/assets/meta_image.png'} />
+      <meta name={'twitter:image'} content={'/assets/meta_image.jpg'} />
 
       <meta name={'color-scheme'} content={'light only'} />
     </Helmet>
