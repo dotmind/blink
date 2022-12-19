@@ -13,7 +13,7 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
     headers.append('signature', signature);
     headers.append('timestamp', timestamp);
     headers.append('fingerprint', fingerprint);
-    headers.append('filename', filename);
+    headers.append('filename', encodeURI(filename));
 
     const request = await fetch(endpoint(path), {
       method: 'POST',
@@ -29,7 +29,7 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
 
     return data.id;
   } catch (e) {
-    if (e instanceof TypeError) {
+    if (e instanceof TypeError && e.message === 'Failed to fetch') {
       throw new Error('common.errors.network');
     } else if (e instanceof Error) {
       throw new Error(e.message);
@@ -71,7 +71,7 @@ export async function receiveFile(
 
     return data;
   } catch (e) {
-    if (e instanceof TypeError) {
+    if (e instanceof TypeError && e.message === 'Failed to fetch') {
       throw new Error('common.errors.network');
     } else if (e instanceof Error) {
       throw new Error(e.message);
@@ -104,7 +104,7 @@ export async function deleteFile(fingerprint: string, id: string): Promise<strin
 
     return data;
   } catch (e) {
-    if (e instanceof TypeError) {
+    if (e instanceof TypeError && e.message === 'Failed to fetch') {
       throw new Error('common.errors.network');
     } else if (e instanceof Error) {
       throw new Error(e.message);
