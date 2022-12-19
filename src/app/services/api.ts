@@ -13,7 +13,7 @@ export async function uploadFile(fingerprint: string, file: ArrayBuffer, filenam
     headers.append('signature', signature);
     headers.append('timestamp', timestamp);
     headers.append('fingerprint', fingerprint);
-    headers.append('filename', filename);
+    headers.append('filename', encodeURI(filename));
 
     const request = await fetch(endpoint(path), {
       method: 'POST',
