@@ -35,7 +35,7 @@
       "expired_signature": "Erreur application : signature expirée",
       "missing_headers": "Erreur application : en-têtes manquantes",
       "jwk_export": "Erreur application : impossible d’exporter la clé publique",
-      "cannot_decrypt": "Erreur application : impossible de décrypter le fichier, la clé est peut-être invalide ou le contexte n'est pas sécurié (HTTPS)"
+      "cannot_decrypt": "Erreur application : impossible de déchiffrer le fichier, la clé est peut-être invalide ou le contexte n'est pas sécurié (HTTPS)"
     }
   },
   "home": {
@@ -57,7 +57,7 @@
       "text": "Il vous suffit de déposer un fichier pdf n'importe où sur la page et vous obtenez un lien à partager en quelques secondes."
     },
     "security": {
-      "title": "Cryptage de bout en bout",
+      "title": "Chiffrage de bout en bout",
       "text": "Envoyer un document c'est ok, mais que tout internet puisse y accéder c'est bof. Avec Blink, votre pdf est uniquement accessible par vous et votre destinataire."
     },
     "ecolo": {
@@ -84,7 +84,7 @@
       "description": "Pas de risque, c'est sécurisé !"
     },
     "link": {
-      "loading": "Cryptage...",
+      "loading": "Chiffrage...",
       "share": "Partager le lien",
       "copy": "Copier le lien",
       "new_upload": "Nouvel envoi"
