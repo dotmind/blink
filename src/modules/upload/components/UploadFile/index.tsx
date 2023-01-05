@@ -1,4 +1,4 @@
-import { useMemo, useCallback, lazy } from 'react';
+import { useMemo, useCallback } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,10 +13,9 @@ import validIcon from '@/app/assets/svg/validation.svg';
 import shareIcon from '@/app/assets/svg/share_2.svg';
 import { displayFileWeight } from '@/app/utils/file';
 import { copyRichText } from '@/app/utils/clipboard';
+import SuccessConfetti from '@/app/components/SuccessConfetti';
 
 import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
-
-const SuccessConfetti = lazy(() => import('@/app/components/SuccessConfetti'));
 
 function UploadFile(): JSX.Element {
   const { filename, fileWeight, status, shareUrl } = useUpload();

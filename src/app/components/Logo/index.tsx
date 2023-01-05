@@ -21,7 +21,9 @@ function Logo(): JSX.Element {
 
   return (
     <div className={styles.logo_container}>
-      <a href={'/'}>
+      {/** eslint-disable-next-line @typescript-eslint/ban-ts-comment
+       * @ts-ignore */}
+      <a href={'/'} title={'Blink'} alt={'Blink logo'}>
         <svg
           className={styles.icon}
           width={'710'}

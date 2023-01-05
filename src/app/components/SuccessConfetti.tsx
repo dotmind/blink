@@ -1,13 +1,20 @@
-import { Player } from '@lottiefiles/react-lottie-player';
-
-import animation from '@/app/assets/lottie/success-confetti.json';
+import { useEffect, useRef } from 'react';
+import party from 'party-js';
 
 function SuccessConfetti(): JSX.Element {
-  return (
-    <div className={'success-confetti'}>
-      <Player keepLastFrame autoplay src={animation} style={{ width: '404px', height: '404px' }} />
-    </div>
-  );
+  const divRef = useRef(null);
+
+  useEffect(() => {
+    if (!divRef.current) {
+      return;
+    }
+
+    party.confetti(divRef.current, {
+      count: party.variation.range(20, 40),
+    });
+  }, []);
+
+  return <div ref={divRef} className={'success-confetti'} />;
 }
 
 export default SuccessConfetti;
