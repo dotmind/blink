@@ -8,8 +8,8 @@
     "dev": "vite",
     "dev-host": "vite --host",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "stats": "python3 -m http.server",
+    "preview": "npm run build && vite preview",
+    "stats": "npx live-server stats.html --port=8010",
     "typescript": "tsc --noEmit",
     "todo": "sh ./scripts/find_todo.sh",
     "prepare": "husky install",
@@ -25,11 +25,11 @@
     "@fortawesome/free-regular-svg-icons": "6.1.2",
     "@fortawesome/free-solid-svg-icons": "6.1.2",
     "@fortawesome/react-fontawesome": "0.2.0",
-    "@lottiefiles/react-lottie-player": "3.4.7",
     "classnames": "2.3.1",
     "file-saver": "2.0.5",
     "i18next": "21.8.16",
     "i18next-browser-languagedetector": "6.1.5",
+    "party-js": "2.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-helmet-async": "1.3.0",
@@ -62,7 +62,8 @@
     "rollup-plugin-visualizer": "5.8.0",
     "sass": "1.49.9",
     "typescript": "4.6.4",
-    "vite": "3.0.0"
+    "vite": "3.0.0",
+    "vite-plugin-minify": "1.5.2"
   },
   "browserslist": {
     "production": [

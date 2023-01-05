@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="favicon.ico" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5" />
     <link rel="apple-touch-icon" href="apple-touch-icon-180x180.png" />
     <link rel="manifest" href="manifest.json" />
     <title>Blink</title>
@@ -12,7 +12,6 @@
     <meta property="og:title" content="Blink" />
     <meta property="og:description" content="Partager un PDF en toute sécurité ! 🔒" />
     <meta property="og:image" content="/assets/meta_image.jpg" />
-    <!-- @TODO Use environement variable for url -->
     <meta property="og:url" content="https://inablink.io" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Blink" />
@@ -26,15 +25,9 @@
     <meta name="twitter:image:alt" content="Blink" />
     <meta name="twitter:domain" content="inablink.io" />
     <meta name="color-scheme" content="light only" />
-    <script async defer data-website-id="c45fff7d-a5fa-4459-b2e6-a0474ddbbe3b" src="https://s.abla.io/abla.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js');
-      }
-    </script>
   </body>
 </html>

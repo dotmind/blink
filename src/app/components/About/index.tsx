@@ -40,7 +40,7 @@ function About(): JSX.Element {
             <div className={`${styles.card} fade-in`}>
               <div className={'d-flex align-center gap-5'}>
                 <h2>
-                  <img src={openSource} alt={'open source icon'} />
+                  <img src={openSource} alt={'open source icon'} loading={'lazy'} />
                   {t('about.open_source.title')}
                 </h2>
               </div>
@@ -60,7 +60,7 @@ function About(): JSX.Element {
             <div className={`${styles.card} fade-in d-25`}>
               <div className={'d-flex align-center gap-5'}>
                 <h2>
-                  <img src={clock} alt={'clock icon'} />
+                  <img src={clock} alt={'clock icon'} loading={'lazy'} />
                   {t('about.expiration.title')}
                 </h2>
               </div>
@@ -71,7 +71,7 @@ function About(): JSX.Element {
             <div className={`${styles.card} fade-in d-50`}>
               <div className={'d-flex align-center gap-5'}>
                 <h2>
-                  <img src={leaf} alt={'leaf icon'} />
+                  <img src={leaf} alt={'leaf icon'} loading={'lazy'} />
                   {t('about.ecolo.title')}
                 </h2>
               </div>
@@ -87,7 +87,7 @@ function About(): JSX.Element {
             <div className={`${styles.card} fade-in d-50`}>
               <div className={'d-flex align-center gap-5'}>
                 <h2>
-                  <img src={bolt} alt={'bolt icon'} />
+                  <img src={bolt} alt={'bolt icon'} loading={'lazy'} />
                   {t('about.simple.title')}
                 </h2>
               </div>
@@ -98,7 +98,7 @@ function About(): JSX.Element {
             <div className={`${styles.card} fade-in d-25`}>
               <div className={'d-flex align-center gap-5'}>
                 <h2>
-                  <img src={lock} alt={'lock icon'} />
+                  <img src={lock} alt={'lock icon'} loading={'lazy'} />
                   {t('about.security.title')}
                 </h2>
               </div>

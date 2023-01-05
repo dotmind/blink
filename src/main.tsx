@@ -6,6 +6,8 @@ import Router from '@/app/components/Router';
 import Head from '@/app/components/Head';
 import AppProvider from '@/app/providers/AppProdiver';
 import '@/app/services/i18n';
+import '@/app/services/abla';
+import '@/app/services/serviceworker';
 
 import '@/app/styles/global.scss';
 

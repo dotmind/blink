@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-workbox.setConfig({ debug: false })
+workbox.setConfig({ debug: false });
 workbox.loadModule('workbox-strategies');
 
 const { registerRoute } = workbox.routing;
@@ -13,9 +13,7 @@ registerRoute(
   ({ request }) => request.mode === 'navigate',
   new NetworkFirst({
     cacheName: 'pages',
-    plugins: [
-      new CacheableResponsePlugin({ statuses: [200] }),
-    ],
+    plugins: [new CacheableResponsePlugin({ statuses: [200] })],
   }),
 );
 
@@ -27,10 +25,7 @@ registerRoute(
 );
 
 registerRoute(
-  ({request}) => (
-    request.destination === 'script'
-    || request.destination === 'style'
-  ),
+  ({ request }) => request.destination === 'script' || request.destination === 'style',
   new StaleWhileRevalidate({
     cacheName: 'static-resources',
   }),
