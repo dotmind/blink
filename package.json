@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@dotmind/react-use-pwa": "1.0.4",
-    "@dotmind/utils": "1.0.7",
     "@fingerprintjs/fingerprintjs": "3.3.4",
     "@fortawesome/fontawesome-svg-core": "6.1.2",
     "@fortawesome/free-regular-svg-icons": "6.1.2",

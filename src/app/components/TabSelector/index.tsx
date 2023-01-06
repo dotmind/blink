@@ -1,18 +1,20 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, Suspense, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useWindowSize from '@/app/hooks/useWindowSize';
 import { useElementSize } from '@/app/hooks/useElementSize';
+import Loader from '@/app/components/Loader';
 
 import styles from '@/app/components/TabSelector/styles.module.scss';
 
 interface IProps {
-  children: React.ReactNode[];
+  children: ReactNode[];
   options: string[];
 }
 
 function TabSelector({ children, options }: IProps): JSX.Element {
   const [selected, setSelected] = useState<number>(1);
+  const tabMounted = useRef<number[]>([]);
   const { t } = useTranslation();
   const { width } = useWindowSize();
 
@@ -32,18 +34,37 @@ function TabSelector({ children, options }: IProps): JSX.Element {
     }
   }, [selected, labelWidth, width]);
 
+  const renderTabContent = () =>
+    children.map((child, index) => {
+      const isSelected: boolean = index === selected;
+      const isTabMounted = (tabIndex: number): boolean => tabMounted.current.includes(tabIndex);
+
+      const renderChild = () => {
+        if (isSelected) {
+          if (!isTabMounted(selected)) {
+            tabMounted.current.push(selected);
+          }
+
+          return child;
+        }
+
+        if (isTabMounted(index)) {
+          return child;
+        }
+
+        return null;
+      };
+
+      return (
+        <div key={options[index]} className={styles.tabs} data-visible={isSelected}>
+          <Suspense fallback={<Loader />}>{renderChild()}</Suspense>
+        </div>
+      );
+    });
+
   return (
     <>
-      <div className={styles.tabContent}>
-        {children.map((child, index) => {
-          const isSelected: boolean = index === selected;
-          return (
-            <div key={options[index]} className={styles.tabs} data-visible={isSelected}>
-              {child}
-            </div>
-          );
-        })}
-      </div>
+      <div className={styles.tabContent}>{renderTabContent()}</div>
 
       <div className={`${styles.tabSelector}`}>
         {options.map((option, index) => {

@@ -1,18 +1,21 @@
+import { lazy } from 'react';
+
 import useIsMobile from '@/app/hooks/useIsMobile';
 import UploadProvider from '@/modules/upload/providers/UploadProvider';
-import Upload from '@/modules/upload/components/Upload';
-import About from '@/app/components/About';
 import TabSelector from '@/app/components/TabSelector';
 import Footer from '@/app/components/Footer';
 import InstallPwa from '@/app/components/InstallPwa';
 import CircleWaves from '@/app/components/CircleWaves';
-import History from '@/app/components/History';
 import Logo from '@/app/components/Logo';
 import LangSwitcher from '@/app/components/LangSwitcher';
 import AnimatedBackground from '@/app/components/AnimatedBackground';
 import ModalProvider from '@/app/providers/ModalProvider';
 import ErrorModal from '@/app/components/ErrorModal';
 import HomeTitles from '@/app/components/HomeTitles';
+
+const History = lazy(() => import('@/app/components/History'));
+const Upload = lazy(() => import('@/modules/upload/components/Upload'));
+const About = lazy(() => import('@/app/components/About'));
 
 function Home() {
   const isMobile: boolean = useIsMobile();
