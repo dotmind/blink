@@ -1,7 +1,7 @@
 import { MouseEvent, useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePwa } from '@dotmind/react-use-pwa';
 
+import { useDrawer } from '@/app/providers/DrawerProvider';
 import { timeRemaining } from '@/app/utils/time';
 import useHistory from '@/app/hooks/useHistory';
 import { deleteFile } from '@/app/services/api';
@@ -14,9 +14,9 @@ import styles from '@/app/components/History/styles.module.scss';
 
 function History(): JSX.Element | null {
   const { fingerprint } = useApp();
+  const { isOpen, open, close, setUrl } = useDrawer();
   const { history, removeFromHistory } = useHistory();
   const { t, i18n } = useTranslation();
-  const { isStandalone } = usePwa();
   const currentLanguage = i18n.language;
 
   const handleDelete: (url: string, index: number) => (e: MouseEvent<HTMLButtonElement>) => Promise<void> = useCallback(
@@ -26,6 +26,18 @@ function History(): JSX.Element | null {
       removeFromHistory(index);
     },
     [fingerprint, removeFromHistory],
+  );
+
+  const handleOpenPreview = useCallback(
+    (url: string) => {
+      if (isOpen) {
+        close();
+      } else {
+        setUrl(url);
+        open();
+      }
+    },
+    [isOpen, open, close],
   );
 
   const renderList: JSX.Element[] | JSX.Element = useMemo(() => {
@@ -39,7 +51,11 @@ function History(): JSX.Element | null {
 
     return history.map((item, i) => (
       <li className={styles.historyCard} key={item.url}>
-        <a href={item.url} target={isStandalone ? '_self' : '_blank'} rel={'noreferrer'}>
+        <div
+          onClick={() => handleOpenPreview(item.url)}
+          onKeyDown={() => handleOpenPreview(item.url)}
+          role={'button'}
+          tabIndex={0}>
           <div>
             <p className={styles.filename}>{item.filename}</p>
             <p className={styles.expiresIn}>
@@ -57,10 +73,10 @@ function History(): JSX.Element | null {
             </button>
             <img src={shareIcon} alt={'eye'} />
           </div>
-        </a>
+        </div>
       </li>
     ));
-  }, [history, t, currentLanguage]);
+  }, [history, t, currentLanguage, handleOpenPreview]);
 
   return (
     <div className={`${styles.history_container} safe self-center fade-in`}>

@@ -1,0 +1,42 @@
+.drawer {
+  height: 100vh;
+  padding: 0 6rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 255, 255);
+  transform-origin: right center;
+  transform: translateX(100%);
+  animation: slideIn .35s ease-in-out forwards;
+  z-index: 19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: none;
+    border: none;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
