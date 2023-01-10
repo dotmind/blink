@@ -81,7 +81,7 @@
       object-fit: contain;
     }
 
-    a {
+    > div {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -90,6 +90,8 @@
       text-decoration: none;
       color: var(--color-grey-900);
       transition: all 120ms ease-in;
+      background: none;
+      border: none;
 
       button {
         border: none;
@@ -100,6 +102,7 @@
 
       div {
         max-width: 80%;
+        text-align: start;
 
         p {
           text-overflow: ellipsis;

@@ -12,6 +12,7 @@ import AnimatedBackground from '@/app/components/AnimatedBackground';
 import ModalProvider from '@/app/providers/ModalProvider';
 import ErrorModal from '@/app/components/ErrorModal';
 import HomeTitles from '@/app/components/HomeTitles';
+import Drawer from '@/app/components/Drawer';
 
 const History = lazy(() => import('@/app/components/History'));
 const Upload = lazy(() => import('@/modules/upload/components/Upload'));
@@ -42,6 +43,7 @@ function Home() {
         <AnimatedBackground />
         <CircleWaves />
         <ErrorModal />
+        <Drawer />
       </UploadProvider>
     </ModalProvider>
   );

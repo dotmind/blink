@@ -4,17 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 
-import { useDownload } from '@/modules/download/providers/DownloadProvider';
 import useWindowSize from '@/app/hooks/useWindowSize';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import { canUseNativeShare, nativeShare } from '@/app/services/navigator';
-import Loader from '@/app/components/Loader';
 import ShareIcon from '@/app/assets/svg/share_white.svg';
 
-import styles from '@/modules/download/components/FileViewer/styles.module.scss';
+import styles from '@/modules/download/components/Document/styles.module.scss';
 
-function Document(): JSX.Element {
-  const { file, isLoading, fileName } = useDownload();
+interface IProps {
+  file: string;
+  fileName: string;
+}
+
+function Document({ file, fileName }: IProps): JSX.Element {
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { width, height } = useWindowSize();
@@ -58,12 +60,8 @@ function Document(): JSX.Element {
     [fileSize, pageNumber],
   );
 
-  const renderDocument: JSX.Element = useMemo(() => {
-    if (isLoading) {
-      return <Loader />;
-    }
-
-    return (
+  const renderDocument: JSX.Element = useMemo(
+    () => (
       <PdfDocument className={`${styles.viewerParent} fade-in d-50`} file={file} onLoadSuccess={onPDFReady}>
         <div className={styles.controls}>
           {numPages > 1 && (
@@ -102,8 +100,9 @@ function Document(): JSX.Element {
         </div>
         {renderPage}
       </PdfDocument>
-    );
-  }, [isLoading, renderPage, ShareIcon, isMobile, t, numPages, isFirstPage, isLastPage, handleShare, prevNumPages, nextNumPages]);
+    ),
+    [renderPage, ShareIcon, isMobile, t, numPages, isFirstPage, isLastPage, handleShare, prevNumPages, nextNumPages],
+  );
 
   return renderDocument;
 }
