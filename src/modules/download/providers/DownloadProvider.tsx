@@ -27,10 +27,11 @@ const DownloadContext = createContext<DownloadContextType>({
 });
 
 interface IProps {
+  documentId: string;
   children: React.ReactNode;
 }
 
-function DownloadProvider({ children }: IProps): JSX.Element {
+function DownloadProvider({ documentId, children }: IProps): JSX.Element {
   const { id } = useParams();
   const [file, setFile] = useState<string>();
   const [fileName, setFileName] = useState<string>();
@@ -41,6 +42,7 @@ function DownloadProvider({ children }: IProps): JSX.Element {
 
   const fileLoaded = useMemo(() => file || fileName || expiresIn, [file, fileName, expiresIn]);
   const canDownload = useMemo(() => !!fingerprint && !fileLoaded, [fingerprint, fileLoaded]);
+  const remoteId = useMemo(() => documentId || id, [id, documentId]);
 
   useEffect(() => {
     (async () => {
@@ -49,7 +51,7 @@ function DownloadProvider({ children }: IProps): JSX.Element {
           const jwk: string = await extractJwkFromUrl();
           const key: CryptoKey = await importKey(jwk);
 
-          const { file: buffer, filename, expireAt } = await receiveFile(fingerprint, id as string);
+          const { file: buffer, filename, expireAt } = await receiveFile(fingerprint, remoteId as string);
           const base64: string = await decryptWithKey(key, new Uint8Array(buffer.data));
           const calculatedExpireAt: number = new Date(expireAt).getTime() + EXPIRATION_TIME;
 
