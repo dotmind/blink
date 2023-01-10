@@ -9,11 +9,12 @@ import { timeRemaining } from '@/app/utils/time';
 import NotFound from '@/app/components/NotFound';
 import Download from '@/modules/download/components/Download';
 import Document from '@/modules/download/components/Document';
+import Loader from '@/app/components/Loader';
 
 import styles from '@/modules/download/components/FileViewer/styles.module.scss';
 
 function FileViewer(): JSX.Element {
-  const { file, expiresIn, isLoading, error } = useDownload();
+  const { file, fileName, expiresIn, isLoading, error } = useDownload();
   const isMobile: boolean = useIsMobile();
   const { t } = useTranslation();
 
@@ -32,6 +33,14 @@ function FileViewer(): JSX.Element {
       </p>
     );
   }, [expiresIn, t]);
+
+  const renderDocument = useMemo(() => {
+    if (!!file && !!fileName) {
+      return <Document file={file} fileName={fileName} />;
+    }
+
+    return <Loader />;
+  }, [file, fileName]);
 
   if (!file && !isLoading && error) {
     return <NotFound information={error?.message} />;
@@ -55,7 +64,7 @@ function FileViewer(): JSX.Element {
           <h1>{t('fileviewer.title')}</h1>
           {renderTimeRemaining}
           {isMobile && <Download />}
-          <Document />
+          {renderDocument}
         </div>
       </div>
     </div>

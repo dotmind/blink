@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Router from '@/app/components/Router';
 import Head from '@/app/components/Head';
 import AppProvider from '@/app/providers/AppProdiver';
+import DrawerProvider from '@/app/providers/DrawerProvider';
 import '@/app/services/i18n';
 import '@/app/services/abla';
 import '@/app/services/serviceworker';
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <HelmetProvider>
       <AppProvider>
         <Head />
-        <Router />
+        <DrawerProvider>
+          <Router />
+        </DrawerProvider>
       </AppProvider>
     </HelmetProvider>
   </React.StrictMode>,
