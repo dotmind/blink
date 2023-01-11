@@ -13,6 +13,8 @@ import ModalProvider from '@/app/providers/ModalProvider';
 import ErrorModal from '@/app/components/ErrorModal';
 import HomeTitles from '@/app/components/HomeTitles';
 import Drawer from '@/app/components/Drawer';
+import DrawerProvider from '@/app/providers/DrawerProvider';
+import DownloadProvider from '@/modules/download/providers/DownloadProvider';
 
 const History = lazy(() => import('@/app/components/History'));
 const Upload = lazy(() => import('@/modules/upload/components/Upload'));
@@ -24,26 +26,30 @@ function Home() {
   return (
     <ModalProvider>
       <UploadProvider>
-        <div className={'page-container'}>
-          <header className={'main-header'}>
-            <Logo />
-            {isMobile && <LangSwitcher />}
-          </header>
-          <div className={'d-flex flex-column align-center grow'}>
-            <HomeTitles />
-            <TabSelector options={['home.tabs.history', 'home.tabs.upload', 'home.tabs.about']}>
-              <History />
-              <Upload />
-              <About />
-            </TabSelector>
-          </div>
-        </div>
-        <Footer />
-        <InstallPwa />
-        <AnimatedBackground />
-        <CircleWaves />
-        <ErrorModal />
-        <Drawer />
+        <DownloadProvider>
+          <DrawerProvider>
+            <div className={'page-container'}>
+              <header className={'main-header'}>
+                <Logo />
+                {isMobile && <LangSwitcher />}
+              </header>
+              <div className={'d-flex flex-column align-center grow'}>
+                <HomeTitles />
+                <TabSelector options={['home.tabs.history', 'home.tabs.upload', 'home.tabs.about']}>
+                  <History />
+                  <Upload />
+                  <About />
+                </TabSelector>
+              </div>
+            </div>
+            <Footer />
+            <InstallPwa />
+            <AnimatedBackground />
+            <CircleWaves />
+            <ErrorModal />
+            <Drawer />
+          </DrawerProvider>
+        </DownloadProvider>
       </UploadProvider>
     </ModalProvider>
   );

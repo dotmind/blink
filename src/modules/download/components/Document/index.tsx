@@ -74,53 +74,52 @@ function Document({ file, fileName, url }: IProps): JSX.Element {
     [fileSize, pageNumber],
   );
 
-  const renderDocument: JSX.Element = useMemo(
-    () => (
-      <PdfDocument className={`${styles.viewerParent} fade-in d-50`} file={file} onLoadSuccess={onPDFReady}>
-        <div className={styles.controls}>
-          {numPages > 1 && (
-            <button
-              disabled={isFirstPage}
-              type={'button'}
-              onClick={prevNumPages}
-              aria-label={t('fileviewer.previousPage')}
-              name={t('fileviewer.previousPage')}>
-              <FontAwesomeIcon icon={faCaretLeft} />
-            </button>
-          )}
+  return (
+    <PdfDocument className={`${styles.viewerParent} fade-in d-50`} file={file} onLoadSuccess={onPDFReady}>
+      <div className={styles.controls}>
+        {numPages > 1 && (
+          <button
+            disabled={isFirstPage}
+            type={'button'}
+            onClick={prevNumPages}
+            aria-label={t('fileviewer.previousPage')}
+            name={t('fileviewer.previousPage')}>
+            <FontAwesomeIcon icon={faCaretLeft} />
+          </button>
+        )}
 
-          {numPages > 1 && (
-            <button
-              disabled={isLastPage}
-              type={'button'}
-              onClick={nextNumPages}
-              aria-label={t('fileviewer.nextPage')}
-              name={t('fileviewer.nextPage')}>
-              <FontAwesomeIcon icon={faCaretRight} />
-            </button>
-          )}
+        {numPages > 1 && (
+          <button
+            disabled={isLastPage}
+            type={'button'}
+            onClick={nextNumPages}
+            aria-label={t('fileviewer.nextPage')}
+            name={t('fileviewer.nextPage')}>
+            <FontAwesomeIcon icon={faCaretRight} />
+          </button>
+        )}
 
-          {canUseNativeShare() && (
-            <button
-              className={styles.shareBtn}
-              type={'button'}
-              onClick={handleShare}
-              aria-label={t('fileviewer.share')}
-              name={t('fileviewer.share')}>
-              <img src={ShareIcon} alt={t('fileviewer.share')} />
-              {isMobile && t('fileviewer.share')}
-            </button>
-          )}
+        {canUseNativeShare() && (
+          <button
+            className={styles.shareBtn}
+            type={'button'}
+            onClick={handleShare}
+            aria-label={t('fileviewer.share')}
+            name={t('fileviewer.share')}>
+            <img src={ShareIcon} alt={t('fileviewer.share')} />
+            {isMobile && t('fileviewer.share')}
+          </button>
+        )}
 
-          {renderOpenLink}
-        </div>
-        {renderPage}
-      </PdfDocument>
-    ),
-    [renderPage, ShareIcon, isMobile, t, numPages, isFirstPage, isLastPage, handleShare, prevNumPages, nextNumPages],
+        {renderOpenLink}
+      </div>
+      {renderPage}
+    </PdfDocument>
   );
-
-  return renderDocument;
 }
+
+Document.defaultProps = {
+  url: undefined,
+};
 
 export default Document;
