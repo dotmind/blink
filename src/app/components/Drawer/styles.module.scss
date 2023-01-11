@@ -1,6 +1,7 @@
 .drawer {
   height: 100vh;
-  padding: 0 6rem;
+  // width: 50vw;
+  padding: 0 8rem;
   position: absolute;
   right: 0;
   top: 0;
@@ -8,11 +9,18 @@
   background-color: rgb(255, 255, 255);
   transform-origin: right center;
   transform: translateX(100%);
-  animation: slideIn .35s ease-in-out forwards;
   z-index: 19;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &[data-closing="false"]{
+    animation: slideIn 0.35s ease-in-out forwards;
+  }
+
+  &[data-closing="true"]{
+    animation: slideOut 0.35s ease-in-out forwards;
+  }
 
   .close {
     position: absolute;
@@ -23,18 +31,28 @@
   }
 }
 
+.closeOverlay {
+  width: 100vw;
+  height: 100vh;
+  z-index: 18;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(100%);
   }
   to {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
 }
 
 @keyframes slideOut {
   from {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
   to {
     transform: translateX(100%);

@@ -30,9 +30,7 @@ function History(): JSX.Element | null {
 
   const handleOpenPreview = useCallback(
     (url: string) => {
-      if (isOpen) {
-        close();
-      } else {
+      if (!isOpen) {
         setUrl(url);
         open();
       }

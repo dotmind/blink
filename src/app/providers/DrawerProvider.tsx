@@ -8,6 +8,7 @@ import { receiveFile } from '@/app/services/api';
 
 export type DrawerContextType = {
   isOpen: boolean;
+  isClosing: boolean;
   open: () => void;
   close: () => void;
   setUrl: (url: string) => void;
@@ -18,6 +19,7 @@ export type DrawerContextType = {
 
 const DrawerContext = createContext<DrawerContextType>({
   isOpen: false,
+  isClosing: false,
   open: () => {},
   close: () => {},
   setUrl: () => {},
@@ -32,6 +34,7 @@ interface IProps {
 
 function DrawerProvider({ children }: IProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isClosing, setIsClosing] = useState<boolean>(false);
   const [url, setUrl] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [file, setFile] = useState<string>('');
@@ -45,8 +48,12 @@ function DrawerProvider({ children }: IProps) {
   }, [setIsOpen]);
 
   const close = useCallback(() => {
-    setIsOpen(false);
-  }, [setIsOpen]);
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+    }, 400);
+  }, [setIsOpen, setIsClosing]);
 
   useEffect(() => {
     (async () => {
@@ -73,6 +80,7 @@ function DrawerProvider({ children }: IProps) {
   const value = useMemo(
     () => ({
       isOpen,
+      isClosing,
       open,
       close,
       setUrl,
@@ -80,7 +88,7 @@ function DrawerProvider({ children }: IProps) {
       fileName,
       isLoading,
     }),
-    [isOpen, open, close, setUrl, file, fileName, isLoading],
+    [isOpen, isClosing, open, close, setUrl, file, fileName, isLoading],
   );
 
   return <DrawerContext.Provider value={value}>{children}</DrawerContext.Provider>;
