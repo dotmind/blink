@@ -41,7 +41,8 @@
     }
   }
 
-  button, a {
+  button,
+  a {
     width: 65px;
     height: 35px;
     margin: 0.313rem;
@@ -62,7 +63,6 @@
       height: 0.75rem;
       filter: invert(0);
     }
-
 
     &:disabled {
       opacity: 0.3;

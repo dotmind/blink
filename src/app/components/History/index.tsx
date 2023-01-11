@@ -24,6 +24,7 @@ function History(): JSX.Element | null {
   const handleDelete: (url: string, index: number) => (e: MouseEvent<HTMLButtonElement>) => Promise<void> = useCallback(
     (url: string, index: number) => async (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
+      e.stopPropagation();
       await deleteFile(fingerprint, extractFilePath(url));
       removeFromHistory(index);
     },
@@ -71,7 +72,7 @@ function History(): JSX.Element | null {
               onClick={handleDelete(item.url, i)}>
               <img src={trashIcon} alt={'trash'} />
             </button>
-            <a className={styles.openLink} href={item.url}>
+            <a className={styles.openLink} href={item.url} onClick={(e) => e.stopPropagation()}>
               <img src={shareIcon} alt={'eye'} />
             </a>
           </div>
