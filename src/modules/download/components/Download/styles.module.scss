@@ -14,6 +14,12 @@
   box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.1);
   border-radius: 0.625rem;
   backdrop-filter: blur(0.625rem);
+  opacity: .6;
+  transition: opacity .25s ease-out;
+
+  &:hover {
+    opacity: 1;
+  }
 
   > div {
     display: flex;

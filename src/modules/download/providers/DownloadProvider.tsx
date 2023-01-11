@@ -1,11 +1,11 @@
 import { createContext, useContext, useState, useEffect, useMemo } from 'react';
-import { useParams } from 'react-router';
 
 import { receiveFile } from '@/app/services/api';
 import { extractJwkFromUrl } from '@/app/services/navigator';
 import { decryptWithKey, importKey } from '@/app/services/crypto';
 import { useApp } from '@/app/providers/AppProdiver';
 import { FILE_EXPIRATION_TIME } from '@/app/constants/file';
+import { extractFilePath } from '@/app/services/file';
 
 // eslint-disable-next-line no-eval
 const EXPIRATION_TIME: number = eval(FILE_EXPIRATION_TIME);
@@ -16,6 +16,8 @@ export type DownloadContextType = {
   expiresIn?: number;
   isLoading: boolean;
   error?: Error;
+  url?: string;
+  setUrl: (url: string) => void;
 };
 
 const DownloadContext = createContext<DownloadContextType>({
@@ -24,6 +26,8 @@ const DownloadContext = createContext<DownloadContextType>({
   expiresIn: undefined,
   isLoading: true,
   error: undefined,
+  url: undefined,
+  setUrl: () => {},
 });
 
 interface IProps {
@@ -31,7 +35,7 @@ interface IProps {
 }
 
 function DownloadProvider({ children }: IProps): JSX.Element {
-  const { id } = useParams();
+  const [url, setUrl] = useState<string>(window.location.toString());
   const [file, setFile] = useState<string>();
   const [fileName, setFileName] = useState<string>();
   const [expiresIn, setExpiresIn] = useState<number>();
@@ -39,17 +43,18 @@ function DownloadProvider({ children }: IProps): JSX.Element {
   const [error, setError] = useState<Error>();
   const { fingerprint } = useApp();
 
-  const fileLoaded = useMemo(() => file || fileName || expiresIn, [file, fileName, expiresIn]);
-  const canDownload = useMemo(() => !!fingerprint && !fileLoaded, [fingerprint, fileLoaded]);
+  const canDownload = useMemo(() => !!fingerprint && !!url, [fingerprint, url]);
 
   useEffect(() => {
     (async () => {
       if (canDownload) {
+        setIsLoading(true);
         try {
-          const jwk: string = await extractJwkFromUrl();
+          const path = extractFilePath(url);
+          const jwk: string = await extractJwkFromUrl(url);
           const key: CryptoKey = await importKey(jwk);
 
-          const { file: buffer, filename, expireAt } = await receiveFile(fingerprint, id as string);
+          const { file: buffer, filename, expireAt } = await receiveFile(fingerprint, path as string);
           const base64: string = await decryptWithKey(key, new Uint8Array(buffer.data));
           const calculatedExpireAt: number = new Date(expireAt).getTime() + EXPIRATION_TIME;
 
@@ -62,9 +67,12 @@ function DownloadProvider({ children }: IProps): JSX.Element {
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, [url]);
 
-  const value = useMemo(() => ({ file, fileName, expiresIn, isLoading, error }), [file, fileName, expiresIn, isLoading, error]);
+  const value = useMemo(
+    () => ({ file, fileName, expiresIn, isLoading, error, url, setUrl }),
+    [file, fileName, expiresIn, isLoading, error, url, setUrl],
+  );
 
   return <DownloadContext.Provider value={value}>{children}</DownloadContext.Provider>;
 }

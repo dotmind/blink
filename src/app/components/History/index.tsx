@@ -11,10 +11,12 @@ import trashIcon from '@/app/assets/svg/trash.svg';
 import shareIcon from '@/app/assets/svg/share_2.svg';
 
 import styles from '@/app/components/History/styles.module.scss';
+import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
 function History(): JSX.Element | null {
   const { fingerprint } = useApp();
-  const { isOpen, open, close, setUrl } = useDrawer();
+  const { isOpen, open, close } = useDrawer();
+  const { isLoading } = useDownload();
   const { history, removeFromHistory } = useHistory();
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
@@ -31,8 +33,7 @@ function History(): JSX.Element | null {
   const handleOpenPreview = useCallback(
     (url: string) => {
       if (!isOpen) {
-        setUrl(url);
-        open();
+        open(url);
       }
     },
     [isOpen, open, close],
@@ -52,6 +53,7 @@ function History(): JSX.Element | null {
         <div
           onClick={() => handleOpenPreview(item.url)}
           onKeyDown={() => handleOpenPreview(item.url)}
+          data-loading={isLoading}
           role={'button'}
           tabIndex={0}>
           <div>
@@ -69,12 +71,14 @@ function History(): JSX.Element | null {
               onClick={handleDelete(item.url, i)}>
               <img src={trashIcon} alt={'trash'} />
             </button>
-            <img src={shareIcon} alt={'eye'} />
+            <a className={styles.openLink} href={item.url}>
+              <img src={shareIcon} alt={'eye'} />
+            </a>
           </div>
         </div>
       </li>
     ));
-  }, [history, t, currentLanguage, handleOpenPreview]);
+  }, [history, t, isLoading, currentLanguage, handleOpenPreview]);
 
   return (
     <div className={`${styles.history_container} safe self-center fade-in`}>

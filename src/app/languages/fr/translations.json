@@ -120,7 +120,8 @@
     "nextPage": "Page suivante",
     "previousPage": "Page précédente",
     "share": "Partager",
-    "expired": "Ce fichier a déjà expiré mais est disponible dans le cache de votre navigateur."
+    "expired": "Ce fichier a déjà expiré mais est disponible dans le cache de votre navigateur.",
+    "open_link": "Ouvrir le lien dans un nouvel onglet"
   },
   "download": {
     "download": "Télécharger"

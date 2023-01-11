@@ -1,4 +1,3 @@
-import DownloadProvider from '@/modules/download/providers/DownloadProvider';
 import FileViewer from '@/modules/download/components/FileViewer';
 import CircleWaves from '@/app/components/CircleWaves';
 import InstallPwa from '@/app/components/InstallPwa';
@@ -12,14 +11,14 @@ function Preview() {
   const isMobile = useIsMobile();
 
   return (
-    <DownloadProvider>
+    <>
       <FileHead />
       <FileViewer />
       <Footer>{!isMobile && <Download />}</Footer>
       <InstallPwa />
       <AnimatedBackground />
       <CircleWaves />
-    </DownloadProvider>
+    </>
   );
 }
 

@@ -81,6 +81,11 @@
       object-fit: contain;
     }
 
+    .openLink {
+      display: flex;
+      align-items: center;
+    }
+
     > div {
       display: flex;
       justify-content: space-between;
@@ -92,6 +97,10 @@
       transition: all 120ms ease-in;
       background: none;
       border: none;
+
+      &[data-loading='true'] {
+        cursor: progress;
+      }
 
       button {
         border: none;

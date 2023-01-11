@@ -14,11 +14,11 @@
   align-items: center;
   justify-content: center;
 
-  &[data-closing="false"]{
+  &[data-closing='false'] {
     animation: slideIn 0.35s ease-in-out forwards;
   }
 
-  &[data-closing="true"]{
+  &[data-closing='true'] {
     animation: slideOut 0.35s ease-in-out forwards;
   }
 
@@ -38,7 +38,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  
 }
 
 @keyframes slideIn {

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileLines } from '@fortawesome/free-regular-svg-icons';
 
 import { useUpload, UploadStatus } from '@/modules/upload/providers/UploadProvider';
+import { useDrawer } from '@/app/providers/DrawerProvider';
 import lockerSvg from '@/app/assets/svg/locker.svg';
 import lockerOpenSvg from '@/app/assets/svg/locker_open.svg';
 import Tooltip, { TooltipPosition } from '@/app/components/Tooltip';
@@ -19,7 +20,9 @@ import styles from '@/modules/upload/components/UploadFile/styles.module.scss';
 
 function UploadFile(): JSX.Element {
   const { filename, fileWeight, status, shareUrl } = useUpload();
+  const { open } = useDrawer();
   const { t } = useTranslation();
+
   const handleShare = useCallback(() => {
     if (!shareUrl || !filename) {
       return;
@@ -33,6 +36,13 @@ function UploadFile(): JSX.Element {
     }
     nativeShare(shareUrl, filename);
   }, [shareUrl]);
+
+  const handleOpenPreview = useCallback(
+    (url: string) => {
+      open(url);
+    },
+    [open],
+  );
 
   const renderProgress: JSX.Element | null = useMemo(() => {
     if (status === UploadStatus.SUCCESS) {
@@ -61,9 +71,9 @@ function UploadFile(): JSX.Element {
     }
 
     return (
-      <a href={shareUrl} target={'_blank'} rel={'noreferrer'}>
+      <button type={'button'} onClick={() => handleOpenPreview(shareUrl)}>
         {shareUrl}
-      </a>
+      </button>
     );
   }, [shareUrl, status, t]);
 

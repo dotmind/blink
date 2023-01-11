@@ -39,7 +39,7 @@ function Download(): JSX.Element | null {
 
     return (
       <button
-        className={`${styles.downloadButton} fade-in d-25`}
+        className={`${styles.downloadButton}`}
         type={'button'}
         onClick={handleDownload}
         aria-label={t('download.download')}
