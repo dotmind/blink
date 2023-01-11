@@ -1,7 +1,7 @@
 import { MouseEvent, useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePwa } from '@dotmind/react-use-pwa';
 
+import { useDrawer } from '@/app/providers/DrawerProvider';
 import { timeRemaining } from '@/app/utils/time';
 import useHistory from '@/app/hooks/useHistory';
 import { deleteFile } from '@/app/services/api';
@@ -11,21 +11,33 @@ import trashIcon from '@/app/assets/svg/trash.svg';
 import shareIcon from '@/app/assets/svg/share_2.svg';
 
 import styles from '@/app/components/History/styles.module.scss';
+import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
 function History(): JSX.Element | null {
   const { fingerprint } = useApp();
+  const { isOpen, open, close } = useDrawer();
+  const { isLoading } = useDownload();
   const { history, removeFromHistory } = useHistory();
   const { t, i18n } = useTranslation();
-  const { isStandalone } = usePwa();
   const currentLanguage = i18n.language;
 
   const handleDelete: (url: string, index: number) => (e: MouseEvent<HTMLButtonElement>) => Promise<void> = useCallback(
     (url: string, index: number) => async (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
+      e.stopPropagation();
       await deleteFile(fingerprint, extractFilePath(url));
       removeFromHistory(index);
     },
     [fingerprint, removeFromHistory],
+  );
+
+  const handleOpenPreview = useCallback(
+    (url: string) => {
+      if (!isOpen) {
+        open(url);
+      }
+    },
+    [isOpen, open, close],
   );
 
   const renderList: JSX.Element[] | JSX.Element = useMemo(() => {
@@ -38,8 +50,14 @@ function History(): JSX.Element | null {
     }
 
     return history.map((item, i) => (
-      <li className={styles.historyCard} key={item.url}>
-        <a href={item.url} target={isStandalone ? '_self' : '_blank'} rel={'noreferrer'}>
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+      <li
+        className={styles.historyCard}
+        key={item.url}
+        onClick={() => handleOpenPreview(item.url)}
+        onKeyDown={() => handleOpenPreview(item.url)}
+        data-loading={isLoading}>
+        <div>
           <div>
             <p className={styles.filename}>{item.filename}</p>
             <p className={styles.expiresIn}>
@@ -55,12 +73,14 @@ function History(): JSX.Element | null {
               onClick={handleDelete(item.url, i)}>
               <img src={trashIcon} alt={'trash'} />
             </button>
-            <img src={shareIcon} alt={'eye'} />
+            <a className={styles.openLink} href={item.url} onClick={(e) => e.stopPropagation()}>
+              <img src={shareIcon} alt={'eye'} />
+            </a>
           </div>
-        </a>
+        </div>
       </li>
     ));
-  }, [history, t, currentLanguage]);
+  }, [history, t, isLoading, currentLanguage, handleOpenPreview]);
 
   return (
     <div className={`${styles.history_container} safe self-center fade-in`}>
