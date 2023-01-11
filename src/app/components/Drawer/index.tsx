@@ -1,6 +1,7 @@
 import { useDrawer } from '@/app/providers/DrawerProvider';
 import Document from '@/modules/download/components/Document';
 import cancelIcon from '@/app/assets/svg/cancel.svg';
+import Loader from '@/app/components/Loader';
 
 import styles from '@/app/components/Drawer/styles.module.scss';
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
@@ -9,7 +10,7 @@ function Drawer() {
   const { isOpen, isClosing, close } = useDrawer();
   const { file, fileName, isLoading, url } = useDownload();
 
-  if (!isOpen || isLoading || !file || !fileName || !url) {
+  if (!isOpen || !file || !fileName || !url) {
     return null;
   }
 
@@ -21,7 +22,7 @@ function Drawer() {
         <button type={'button'} className={styles.close} onClick={close}>
           <img src={cancelIcon} alt={'exit cross'} />
         </button>
-        <Document file={file} fileName={fileName} url={url} />
+        {isLoading ? <Loader /> : <Document file={file} fileName={fileName} url={url} />}
       </div>
     </>
   );

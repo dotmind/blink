@@ -50,13 +50,14 @@ function History(): JSX.Element | null {
     }
 
     return history.map((item, i) => (
-      <li className={styles.historyCard} key={item.url}>
-        <div
-          onClick={() => handleOpenPreview(item.url)}
-          onKeyDown={() => handleOpenPreview(item.url)}
-          data-loading={isLoading}
-          role={'button'}
-          tabIndex={0}>
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+      <li
+        className={styles.historyCard}
+        key={item.url}
+        onClick={() => handleOpenPreview(item.url)}
+        onKeyDown={() => handleOpenPreview(item.url)}
+        data-loading={isLoading}>
+        <div>
           <div>
             <p className={styles.filename}>{item.filename}</p>
             <p className={styles.expiresIn}>

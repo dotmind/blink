@@ -87,6 +87,10 @@
       align-items: center;
     }
 
+    &[data-loading='true'] {
+      cursor: progress;
+    }
+
     > div {
       display: flex;
       justify-content: space-between;
@@ -98,10 +102,6 @@
       transition: all 120ms ease-in;
       background: none;
       border: none;
-
-      &[data-loading='true'] {
-        cursor: progress;
-      }
 
       button {
         border: none;
