@@ -34,7 +34,7 @@ function DrawerProvider({ children }: IProps) {
   );
 
   const close = useCallback(() => {
-    if ( drawerRef.current ) {
+    if (drawerRef.current) {
       drawerRef.current.parentElement?.classList.add('closing');
       drawerRef.current.addEventListener('animationend', () => {
         setIsOpen(false);
