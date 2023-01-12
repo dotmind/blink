@@ -40,7 +40,7 @@
     transform: translateY(9px) rotate(22.5deg);
   }
   50% {
-    transform: translateY(18px) scale(1, .9) rotate(45deg);
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
     border-bottom-right-radius: 40px;
   }
   75% {
@@ -52,7 +52,8 @@
 }
 
 @keyframes shadow {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1, 1);
   }
   50% {

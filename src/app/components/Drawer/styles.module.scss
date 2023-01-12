@@ -1,0 +1,82 @@
+.drawer {
+  height: 100vh;
+  padding: 0 8rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 255, 255);
+  transform-origin: right center;
+  transform: translateX(100%);
+  z-index: 19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slideIn 0.35s ease-in-out forwards;
+
+  .close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: none;
+    border: none;
+  }
+}
+
+.closeOverlay {
+  width: 100vw;
+  height: 100vh;
+  z-index: 18;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.35s ease-in-out forwards;
+}
+
+:global(.closing) {
+  .drawer {
+    animation: slideOut 0.35s ease-in-out forwards;
+  }
+
+  .closeOverlay {
+    animation: fadeOut 0.35s ease-in-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}

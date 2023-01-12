@@ -113,9 +113,12 @@
     white-space: nowrap;
     flex-grow: 1;
 
-    a {
+    button {
       color: var(--color-black);
+      background: none;
+      border: none;
       text-decoration: none;
+      cursor: pointer;
     }
   }
 

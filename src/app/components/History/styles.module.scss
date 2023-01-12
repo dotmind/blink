@@ -47,6 +47,7 @@
     padding: 1rem 0;
     position: relative;
     border-bottom: 0.063rem solid #00000010;
+    cursor: pointer;
 
     &:after {
       content: '';
@@ -81,7 +82,12 @@
       object-fit: contain;
     }
 
-    a {
+    .openLink {
+      display: flex;
+      align-items: center;
+    }
+
+    > div {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -90,6 +96,8 @@
       text-decoration: none;
       color: var(--color-grey-900);
       transition: all 120ms ease-in;
+      background: none;
+      border: none;
 
       button {
         border: none;
@@ -100,6 +108,7 @@
 
       div {
         max-width: 80%;
+        text-align: start;
 
         p {
           text-overflow: ellipsis;
