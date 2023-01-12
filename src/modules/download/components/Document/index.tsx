@@ -28,7 +28,7 @@ function Document({ file, fileName, url }: IProps): JSX.Element {
   const fileSize: { width: number | undefined; height: number | undefined } = useMemo(
     () => ({
       width: isMobile ? width * 0.8 : undefined, // use default file width if desktop
-      height: isMobile ? undefined : height * 0.8,
+      height: isMobile ? undefined : height * 0.7,
     }),
     [width, height, isMobile],
   );
@@ -70,7 +70,14 @@ function Document({ file, fileName, url }: IProps): JSX.Element {
   }, [url]);
 
   const renderPage: JSX.Element = useMemo(
-    () => <Page width={fileSize.width} height={fileSize.height} className={styles.preview} pageNumber={pageNumber} />,
+    () => (
+      <Page
+        width={fileSize.width}
+        height={fileSize.height}
+        className={`${styles.preview} ${url ? styles.inDrawer : ''}`}
+        pageNumber={pageNumber}
+      />
+    ),
     [fileSize, pageNumber],
   );
 

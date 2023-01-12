@@ -9,6 +9,14 @@
     width: fit-content;
     margin: 0 auto;
 
+    &.inDrawer canvas {
+      max-width: 40vw;
+      width: unset !important;
+      height: unset !important;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
     @media (max-width: 992px) {
       margin-bottom: 5vh;
     }
