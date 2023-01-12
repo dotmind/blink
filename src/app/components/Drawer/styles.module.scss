@@ -12,14 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &[data-closing='false'] {
-    animation: slideIn 0.35s ease-in-out forwards;
-  }
-
-  &[data-closing='true'] {
-    animation: slideOut 0.35s ease-in-out forwards;
-  }
+  animation: slideIn 0.35s ease-in-out forwards;
 
   .close {
     position: absolute;
@@ -42,12 +35,31 @@
   animation: fadeIn 0.35s ease-in-out forwards;
 }
 
+:global(.closing) {
+  .drawer {
+    animation: slideOut 0.35s ease-in-out forwards;
+  }
+
+  .closeOverlay {
+    animation: fadeOut 0.35s ease-in-out forwards;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 

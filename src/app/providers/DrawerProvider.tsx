@@ -1,17 +1,17 @@
-import { createContext, useContext, useState, useMemo, useCallback, ReactNode } from 'react';
+import { createContext, useContext, useState, useMemo, useCallback, ReactNode, useRef } from 'react';
 
 import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
 export type DrawerContextType = {
+  ref: React.RefObject<HTMLDivElement>;
   isOpen: boolean;
-  isClosing: boolean;
   open: (url: string) => void;
   close: () => void;
 };
 
 const DrawerContext = createContext<DrawerContextType>({
+  ref: { current: null },
   isOpen: false,
-  isClosing: false,
   open: () => {},
   close: () => {},
 });
@@ -21,8 +21,8 @@ interface IProps {
 }
 
 function DrawerProvider({ children }: IProps) {
+  const drawerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isClosing, setIsClosing] = useState<boolean>(false);
   const { setUrl } = useDownload();
 
   const open = useCallback(
@@ -34,21 +34,22 @@ function DrawerProvider({ children }: IProps) {
   );
 
   const close = useCallback(() => {
-    setIsClosing(true);
-    setTimeout(() => {
-      setIsOpen(false);
-      setIsClosing(false);
-    }, 400);
-  }, [setIsOpen, setIsClosing]);
+    if ( drawerRef.current ) {
+      drawerRef.current.parentElement?.classList.add('closing');
+      drawerRef.current.addEventListener('animationend', () => {
+        setIsOpen(false);
+      });
+    }
+  }, [drawerRef, setIsOpen]);
 
   const value = useMemo(
     () => ({
+      ref: drawerRef,
       isOpen,
-      isClosing,
       open,
       close,
     }),
-    [isOpen, isClosing, open, close],
+    [drawerRef, isOpen, open, close],
   );
 
   return <DrawerContext.Provider value={value}>{children}</DrawerContext.Provider>;
