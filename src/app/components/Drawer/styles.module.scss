@@ -27,8 +27,6 @@
     top: 15px;
     background: none;
     border: none;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(3px);
   }
 }
 
@@ -39,6 +37,19 @@
   position: absolute;
   top: 0;
   left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.35s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  
 }
 
 @keyframes slideIn {
