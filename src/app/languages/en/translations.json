@@ -137,12 +137,14 @@
     "full": {
       "en": "English",
       "fr": "French",
-      "fr-FR": "French"
+      "fr-FR": "French",
+      "en-US": "English"
     },
     "short": {
       "en": "EN",
       "fr": "FR",
-      "fr-FR": "FR"
+      "fr-FR": "FR",
+      "en-US": "EN"
     }
   },
   "time": {

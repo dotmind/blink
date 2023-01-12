@@ -27,8 +27,8 @@ function DrawerProvider({ children }: IProps) {
 
   const open = useCallback(
     (link: string) => {
-      setUrl(link);
       setIsOpen(true);
+      setUrl(link);
     },
     [setIsOpen],
   );

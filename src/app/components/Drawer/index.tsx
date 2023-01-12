@@ -10,7 +10,7 @@ function Drawer() {
   const { isOpen, isClosing, close } = useDrawer();
   const { file, fileName, isLoading, url } = useDownload();
 
-  if (!isOpen || !file || !fileName || !url) {
+  if (!isOpen) {
     return null;
   }
 
@@ -22,7 +22,7 @@ function Drawer() {
         <button type={'button'} className={styles.close} onClick={close}>
           <img src={cancelIcon} alt={'exit cross'} />
         </button>
-        {isLoading ? <Loader /> : <Document file={file} fileName={fileName} url={url} />}
+        {isLoading ? <Loader /> : <Document file={String(file)} fileName={String(fileName)} url={url} />}
       </div>
     </>
   );

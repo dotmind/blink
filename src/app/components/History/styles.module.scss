@@ -87,10 +87,6 @@
       align-items: center;
     }
 
-    &[data-loading='true'] {
-      cursor: progress;
-    }
-
     > div {
       display: flex;
       justify-content: space-between;

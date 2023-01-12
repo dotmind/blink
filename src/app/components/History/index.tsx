@@ -11,12 +11,10 @@ import trashIcon from '@/app/assets/svg/trash.svg';
 import shareIcon from '@/app/assets/svg/share_2.svg';
 
 import styles from '@/app/components/History/styles.module.scss';
-import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
 function History(): JSX.Element | null {
   const { fingerprint } = useApp();
   const { isOpen, open, close } = useDrawer();
-  const { isLoading } = useDownload();
   const { history, removeFromHistory } = useHistory();
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
@@ -55,8 +53,7 @@ function History(): JSX.Element | null {
         className={styles.historyCard}
         key={item.url}
         onClick={() => handleOpenPreview(item.url)}
-        onKeyDown={() => handleOpenPreview(item.url)}
-        data-loading={isLoading}>
+        onKeyDown={() => handleOpenPreview(item.url)}>
         <div>
           <div>
             <p className={styles.filename}>{item.filename}</p>
@@ -80,7 +77,7 @@ function History(): JSX.Element | null {
         </div>
       </li>
     ));
-  }, [history, t, isLoading, currentLanguage, handleOpenPreview]);
+  }, [history, t, currentLanguage, handleOpenPreview]);
 
   return (
     <div className={`${styles.history_container} safe self-center fade-in`}>
