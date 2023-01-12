@@ -2,9 +2,9 @@ import { useDrawer } from '@/app/providers/DrawerProvider';
 import Document from '@/modules/download/components/Document';
 import cancelIcon from '@/app/assets/svg/cancel.svg';
 import Loader from '@/app/components/Loader';
+import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
 import styles from '@/app/components/Drawer/styles.module.scss';
-import { useDownload } from '@/modules/download/providers/DownloadProvider';
 
 function Drawer() {
   const { isOpen, isClosing, close } = useDrawer();
