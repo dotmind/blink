@@ -7,7 +7,6 @@ import Logo from '@/app/components/Logo';
 import LangSwitcher from '@/app/components/LangSwitcher';
 import { timeRemaining } from '@/app/utils/time';
 import NotFound from '@/app/components/NotFound';
-import Download from '@/modules/download/components/Download';
 import Document from '@/modules/download/components/Document';
 import Loader from '@/app/components/Loader';
 
@@ -36,7 +35,7 @@ function FileViewer(): JSX.Element {
 
   const renderDocument = useMemo(() => {
     if (!!file && !!fileName) {
-      return <Document file={file} fileName={fileName} />;
+      return <Document file={file} />;
     }
 
     return <Loader />;
@@ -60,10 +59,10 @@ function FileViewer(): JSX.Element {
             <LangSwitcher />
           </header>
         )}
-        <div className={'safe d-flex flex-column grow t25'}>
+        <div className={'safe d-flex flex-column t25'}>
           <h1>{t('fileviewer.title')}</h1>
           {renderTimeRemaining}
-          {isMobile && <Download />}
+
           {renderDocument}
         </div>
       </div>

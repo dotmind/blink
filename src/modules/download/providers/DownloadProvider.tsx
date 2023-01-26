@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import { createContext, useContext, useState, useMemo, useEffect } from 'react';
 
 import { receiveFile } from '@/app/services/api';
 import { extractJwkFromUrl } from '@/app/services/navigator';
@@ -39,7 +39,7 @@ function DownloadProvider({ children }: IProps): JSX.Element {
   const [file, setFile] = useState<string>();
   const [fileName, setFileName] = useState<string>();
   const [expiresIn, setExpiresIn] = useState<number>();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error>();
   const { fingerprint } = useApp();
 

@@ -8,7 +8,7 @@
     box-shadow: 0px 0px 0.75rem 0px rgba(0, 0, 0, 0.15);
     width: fit-content;
     margin: 0 auto;
-
+    
     &.inDrawer canvas {
       max-width: 40vw;
       width: unset !important;
@@ -90,4 +90,10 @@
       cursor: not-allowed;
     }
   }
+}
+
+
+.preview {
+  height: 80%;
+  width: 100%;
 }

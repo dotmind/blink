@@ -4,8 +4,12 @@
   z-index: 12;
   transition: 0.25s ease-in-out;
 
+  > div {
+    height: 100%;
+  }
+
   @media (min-width: 768px) {
-    margin-top: var(--safe-zone-y);
+    padding-top: var(--safe-zone-y);
   }
 
   @media (max-width: 768px) {

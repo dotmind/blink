@@ -8,7 +8,7 @@ import styles from '@/app/components/Drawer/styles.module.scss';
 
 function Drawer() {
   const { isOpen, close, ref } = useDrawer();
-  const { file, fileName, isLoading, url } = useDownload();
+  const { file, isLoading } = useDownload();
 
   if (!isOpen) {
     return null;
@@ -22,7 +22,7 @@ function Drawer() {
         <button type={'button'} className={styles.close} onClick={close}>
           <img src={cancelIcon} alt={'exit cross'} />
         </button>
-        {isLoading ? <Loader /> : <Document file={String(file)} fileName={String(fileName)} url={url} />}
+        {isLoading ? <Loader /> : <Document file={String(file)} />}
       </div>
     </div>
   );
