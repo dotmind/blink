@@ -1,4 +1,3 @@
-
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 
@@ -12,7 +11,6 @@ interface IProps {
 
 function Document({ file }: IProps): JSX.Element {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-
 
   return (
     <div className={styles.preview}>

@@ -12,11 +12,11 @@ import '@/app/styles/global.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // <React.StrictMode>
-    <HelmetProvider>
-      <AppProvider>
-        <Head />
-        <Router />
-      </AppProvider>
-    </HelmetProvider>
+  <HelmetProvider>
+    <AppProvider>
+      <Head />
+      <Router />
+    </AppProvider>
+  </HelmetProvider>,
   // </React.StrictMode>,
 );

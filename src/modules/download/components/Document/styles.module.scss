@@ -99,21 +99,15 @@
   height: 85%;
   margin: 0 auto 1rem auto;
   position: relative;
-  
 
+  .preview {
+    overflow-y: auto;
+    position: relative;
+    max-height: 100%;
+    z-index: 2;
 
-
-    
-    
-    .preview {      
-      overflow-y: auto;
-      position: relative;
-      max-height: 100%;
-      z-index: 2;
-
-      transition: width 0.5s;
-    }
-  
+    transition: width 0.5s;
+  }
 
   .center {
     position: absolute;
@@ -122,5 +116,4 @@
     transform: translate(-50%, -50%);
     z-index: 1;
   }
-  
 }
