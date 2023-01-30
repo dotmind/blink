@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -12,12 +11,12 @@ import '@/app/services/serviceworker';
 import '@/app/styles/global.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <HelmetProvider>
       <AppProvider>
         <Head />
         <Router />
       </AppProvider>
     </HelmetProvider>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 );
